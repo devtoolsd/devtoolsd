@@ -1,0 +1,82 @@
+{{ define "main" }}
+{{ $p := .Params }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a><span class="breadcrumb__sep">/</span>
+    <a href="{{ "/newsletters/" | relURL }}">Newsletters</a><span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">{{ $p.name }}</span>
+  </div>
+
+  <div class="detail-hero">
+    <div class="detail-hero__header">
+      {{ if $p.logo }}
+        <img src="{{ $p.logo }}" alt="{{ $p.name }} logo" style="width:64px;height:64px;object-fit:contain;border-radius:12px;background:var(--surface2);padding:6px;border:1px solid var(--border);flex-shrink:0">
+      {{ else }}
+        <div style="width:64px;height:64px;border-radius:12px;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-mono);font-weight:700;font-size:1.4rem;color:var(--accent)">{{ substr $p.name 0 1 | upper }}</div>
+      {{ end }}
+      <div>
+        <h1 class="detail-hero__name">{{ $p.name }}</h1>
+        <p class="detail-hero__tagline">{{ $p.description }}</p>
+        <div class="detail-hero__badges">
+          {{ with $p.frequency }}<span class="badge badge-type">{{ . }}</span>{{ end }}
+          {{ with $p.pricing }}<span class="badge badge-{{ . }}">{{ . }}</span>{{ end }}
+          {{ with $p.subscribers }}<span class="badge badge-tag">{{ . }} subscribers</span>{{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-layout">
+    <div class="detail-body">
+
+      {{ if .Content }}
+      <div class="prose" style="margin-bottom:2.5rem">{{ .Content }}</div>
+      {{ end }}
+
+      {{ if $p.topics }}
+      <h2 class="detail-section-title">// topics covered</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:2.5rem">
+        {{ range $p.topics }}<span class="stack-tag stack-tag--lg">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// details</div>
+        {{ with $p.author }}
+        <div class="meta-row">
+          <span class="meta-label">author</span>
+          <span style="color:var(--fg-muted);font-size:0.82rem">{{ . }}</span>
+        </div>
+        {{ end }}
+        {{ with $p.frequency }}
+        <div class="meta-row">
+          <span class="meta-label">frequency</span>
+          <span style="color:var(--fg-muted);font-size:0.82rem">{{ . }}</span>
+        </div>
+        {{ end }}
+        {{ with $p.pricing }}
+        <div class="meta-row">
+          <span class="meta-label">pricing</span>
+          <span class="badge badge-{{ . }}" style="font-size:0.72rem">{{ . }}</span>
+        </div>
+        {{ end }}
+        {{ with $p.subscribers }}
+        <div class="meta-row">
+          <span class="meta-label">subscribers</span>
+          <span style="color:var(--accent);font-family:var(--font-mono);font-size:0.82rem">{{ . }}</span>
+        </div>
+        {{ end }}
+        {{ with $p.website }}
+        <div class="meta-row" style="margin-top:0.75rem">
+          <a href="{{ . }}" target="_blank" rel="noopener" class="stacks-cta__btn" style="width:100%;justify-content:center">› subscribe</a>
+        </div>
+        {{ end }}
+      </div>
+    </aside>
+  </div>
+</div>
+{{ end }}

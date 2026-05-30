@@ -1,0 +1,213 @@
+{{ define "main" }}
+{{ $slug  := .File.BaseFileName }}
+{{ $stack := index hugo.Data.stacks $slug }}
+{{ if not $stack }}{{ $stack = .Params }}{{ end }}
+
+{{ $color := $stack.color | default "var(--accent)" }}
+
+{{/* Resolve tool content pages */}}
+{{ $allToolPages := where .Site.RegularPages "Section" "tools" }}
+{{ $stackToolPages := slice }}
+{{ range $allToolPages }}
+  {{ $toolSlug := .File.BaseFileName }}
+  {{ range $stack.tools }}
+    {{ if eq . $toolSlug }}{{ $stackToolPages = $stackToolPages | append $ }}{{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Resolve related stacks */}}
+{{ $allStacks := slice }}
+{{ range $path, $data := hugo.Data.stacks }}
+  {{ $allStacks = $allStacks | append $data }}
+{{ end }}
+{{ $relatedStacks := slice }}
+{{ range $allStacks }}
+  {{ $s := . }}
+  {{ range $stack.related_stacks }}
+    {{ if eq . $s.slug }}{{ $relatedStacks = $relatedStacks | append $s }}{{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $langPage := "" }}
+{{ with $stack.language }}
+  {{ $langPage = $.Site.GetPage (printf "/languages/%s/" .) }}
+{{ end }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a><span class="breadcrumb__sep">/</span>
+    <a href="{{ "/stacks/" | relURL }}">Stacks</a><span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">{{ $stack.name }}</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="detail-hero" style="border-left: 3px solid {{ $color }}; padding-left: 1.5rem;">
+    <div class="detail-hero__header">
+      <div class="stack-hero-icon" style="--stack-color:{{ $color }}">
+        <span class="stack-hero-icon__dot"></span>
+      </div>
+      <div>
+        <h1 class="detail-hero__name">{{ $stack.name }}</h1>
+        <p class="detail-hero__tagline">{{ $stack.description }}</p>
+        <div class="detail-hero__badges">
+          {{ if $langPage }}
+          <a href="{{ $langPage.RelPermalink }}" class="badge badge-type" style="text-decoration:none">{{ $langPage.Params.name }}</a>
+          {{ end }}
+          {{ if $stack.tools }}
+          <span class="badge badge-tag">{{ len $stack.tools }} tools</span>
+          {{ end }}
+          {{ range $stack.tags }}
+          <span class="badge badge-tag">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-layout">
+
+    <!-- Body -->
+    <div class="detail-body">
+
+      {{ with $stack.long_description }}
+      <div class="prose" style="margin-bottom:2.5rem">{{ . | markdownify }}</div>
+      {{ end }}
+
+      <!-- Tools with pages -->
+      {{ if $stackToolPages }}
+      <h2 class="detail-section-title">// tools in this stack</h2>
+      <div class="grid-3" style="margin-bottom:2.5rem">
+        {{ range $stackToolPages }}{{ partial "tool-card.html" .Params }}{{ end }}
+      </div>
+      {{ end }}
+
+      <!-- All tools (slugs without pages shown as chips) -->
+      {{ $orphanTools := slice }}
+      {{ range $stack.tools }}
+        {{ $slug2 := . }}
+        {{ $found := false }}
+        {{ range $stackToolPages }}
+          {{ if eq .File.BaseFileName $slug2 }}{{ $found = true }}{{ end }}
+        {{ end }}
+        {{ if not $found }}{{ $orphanTools = $orphanTools | append $slug2 }}{{ end }}
+      {{ end }}
+      {{ if $orphanTools }}
+      <div class="stack-orphan-tools" style="margin-bottom:2.5rem">
+        <div class="detail-section-title" style="margin-bottom:0.75rem">// also includes</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.4rem">
+          {{ range $orphanTools }}
+          <span class="stack-tag stack-tag--lg">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+      <!-- Related stacks -->
+      {{ if $relatedStacks }}
+      <h2 class="detail-section-title">// related stacks</h2>
+      <div class="stacks-grid" style="margin-bottom:2.5rem">
+        {{ range $relatedStacks }}
+        {{ $rc := .color | default "var(--accent)" }}
+        {{ $rlp := $.Site.GetPage (printf "/languages/%s/" .language) }}
+        <div class="stack-card" style="--stack-color:{{ $rc }}">
+          <a href="{{ printf "/stacks/%s/" .slug | relURL }}" class="stack-card__link" aria-label="{{ .name }}"></a>
+          <div class="stack-card__head">
+            <span class="stack-card__dot"></span>
+            <span class="stack-card__name">{{ .name }}</span>
+            {{ if $rlp }}
+            <a href="{{ $rlp.RelPermalink }}" class="stack-card__lang">{{ $rlp.Params.name | lower }}/</a>
+            {{ end }}
+          </div>
+          <p class="stack-card__desc">{{ .description | truncate 100 }}</p>
+          {{ if .tools }}
+          <div class="stack-preview">
+            {{ range first 3 .tools }}
+            {{ $tp := $.Site.GetPage (printf "/tools/%s/" .) }}
+            <div class="stack-preview__item">
+              {{ if and $tp $tp.Params.logo }}
+                <img class="stack-preview__logo" src="{{ $tp.Params.logo }}" alt="{{ . }}" loading="lazy">
+              {{ else }}
+                <div class="stack-preview__initial">{{ substr . 0 1 | upper }}</div>
+              {{ end }}
+              <span class="stack-preview__name">{{ . }}</span>
+            </div>
+            {{ end }}
+            {{ if gt (len .tools) 3 }}
+            <div class="stack-preview__more">+{{ sub (len .tools) 3 }}</div>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <!-- Edit CTA -->
+      <div class="stacks-cta">
+        <div class="stacks-cta__body">
+          <span class="stacks-cta__prompt">$</span>
+          <div>
+            <div class="stacks-cta__title">something wrong or missing?</div>
+            <div class="stacks-cta__sub">edit <code>data/stacks/{{ $slug }}.yaml</code> on GitHub</div>
+          </div>
+        </div>
+        <a href="{{ $.Site.Params.githubRepo }}/edit/main/data/stacks/{{ $slug }}.yaml" target="_blank" rel="noopener" class="stacks-cta__btn">› edit on github</a>
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside>
+
+      {{ if $stack.tools }}
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// tools ({{ len $stack.tools }})</div>
+        {{ range $stack.tools }}
+        {{ $toolSlug := . }}
+        {{ $toolPage := "" }}
+        {{ range $allToolPages }}
+          {{ if eq .File.BaseFileName $toolSlug }}{{ $toolPage = . }}{{ end }}
+        {{ end }}
+        <div class="stack-sidebar-tool">
+          {{ if $toolPage }}
+            {{ if $toolPage.Params.logo }}
+            <img src="{{ $toolPage.Params.logo }}" alt="{{ $toolSlug }}" class="stack-sidebar-tool__logo">
+            {{ else }}
+            <div class="stack-sidebar-tool__initial">{{ substr $toolSlug 0 1 | upper }}</div>
+            {{ end }}
+            <a href="{{ $toolPage.RelPermalink }}" class="stack-sidebar-tool__name">{{ $toolPage.Params.name }}</a>
+            {{ with $toolPage.Params.pricing }}<span class="badge badge-{{ . | lower }}" style="font-size:0.62rem;margin-left:auto">{{ . }}</span>{{ end }}
+          {{ else }}
+            <div class="stack-sidebar-tool__initial">{{ substr $toolSlug 0 1 | upper }}</div>
+            <span class="stack-sidebar-tool__name stack-sidebar-tool__name--plain">{{ $toolSlug }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ if $langPage }}
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// language</div>
+        <div class="meta-row">
+          <a href="{{ $langPage.RelPermalink }}" style="color:var(--accent);font-size:0.85rem;font-family:var(--font-mono)">{{ $langPage.Params.name }}/</a>
+        </div>
+      </div>
+      {{ end }}
+
+      {{ if $relatedStacks }}
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// related stacks</div>
+        {{ range $relatedStacks }}
+        <div class="meta-row">
+          <span style="width:8px;height:8px;border-radius:50%;background:{{ .color | default "var(--accent)" }};flex-shrink:0;display:inline-block"></span>
+          <a href="{{ printf "/stacks/%s/" .slug | relURL }}" style="color:var(--fg-muted);font-size:0.85rem;font-family:var(--font-mono)">{{ .name }}</a>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+    </aside>
+  </div>
+</div>
+{{ end }}

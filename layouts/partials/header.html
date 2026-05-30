@@ -1,0 +1,85 @@
+{{ $inEco   := in (slice "frameworks" "stacks" "paths") .Section }}
+{{ $inLearn := in (slice "books" "courses" "resources" "newsletters") .Section }}
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="{{ "/" | relURL }}" class="site-logo">
+      <svg width="26" height="26" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3,0)">
+          <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+          <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+          <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+          <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+          <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+          <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+        </g>
+      </svg>
+      devtools<span style="color:var(--accent)">/</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="{{ "/tools/" | relURL }}"{{ if eq .Section "tools" }} class="active"{{ end }}>tools/</a>
+      <a href="{{ "/languages/" | relURL }}"{{ if eq .Section "languages" }} class="active"{{ end }}>languages/</a>
+      <a href="{{ "/frameworks/" | relURL }}" class="nav-group-trigger{{ if $inEco }} active{{ end }}">ecosystem</a>
+      <a href="{{ "/books/" | relURL }}" class="nav-group-trigger{{ if $inLearn }} active{{ end }}">learn</a>
+      <a href="{{ "/contribute/" | relURL }}"{{ if eq .RelPermalink "/contribute/" }} class="active"{{ end }}>contribute</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="search-trigger" id="search-open" aria-label="Search">
+        <span class="search-trigger__slash">/</span>
+        <span class="search-trigger__label">search</span>
+        <kbd class="search-trigger__kbd">⌘K</kbd>
+      </button>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="{{ .Site.Params.githubRepo }}" class="header-star" target="_blank" rel="noopener">
+        <span class="header-star__prompt">$</span> star
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Sub-nav bar: only rendered when on a grouped section -->
+  {{ if $inEco }}
+  <div class="sub-nav">
+    <div class="sub-nav__inner">
+      <span class="sub-nav__group">ecosystem/</span>
+      <a href="{{ "/frameworks/" | relURL }}"{{ if eq .Section "frameworks" }} class="active"{{ end }}>frameworks/</a>
+      <a href="{{ "/stacks/" | relURL }}"{{ if eq .Section "stacks" }} class="active"{{ end }}>stacks/</a>
+      <a href="{{ "/paths/" | relURL }}"{{ if eq .Section "paths" }} class="active"{{ end }}>paths/</a>
+    </div>
+  </div>
+  {{ end }}
+  {{ if $inLearn }}
+  <div class="sub-nav">
+    <div class="sub-nav__inner">
+      <span class="sub-nav__group">learn/</span>
+      <a href="{{ "/books/" | relURL }}"{{ if eq .Section "books" }} class="active"{{ end }}>books/</a>
+      <a href="{{ "/resources/" | relURL }}"{{ if eq .Section "resources" }} class="active"{{ end }}>resources/</a>
+      <a href="{{ "/newsletters/" | relURL }}"{{ if eq .Section "newsletters" }} class="active"{{ end }}>newsletters/</a>
+      <a href="{{ "/courses/" | relURL }}"{{ if eq .Section "courses" }} class="active"{{ end }}>courses/</a>
+    </div>
+  </div>
+  {{ end }}
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', function() {
+    document.getElementById('site-nav').classList.toggle('open');
+  });
+
+  document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('devtools-theme', next);
+  });
+</script>

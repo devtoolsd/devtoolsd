@@ -1,0 +1,180 @@
+{{ define "main" }}
+{{ $p    := .Params }}
+{{ $slug := .File.BaseFileName }}
+
+{{ $langPage := .Site.GetPage (printf "/languages/%s/" $p.language) }}
+
+{{ $fwTools := slice }}
+{{ range where .Site.RegularPages "Section" "tools" }}
+  {{ if in .Params.frameworks $slug }}
+    {{ $fwTools = $fwTools | append . }}
+  {{ end }}
+{{ end }}
+
+{{ $fwBooks := slice }}
+{{ range where .Site.RegularPages "Section" "books" }}
+  {{ if eq .Params.framework $slug }}
+    {{ $fwBooks = $fwBooks | append . }}
+  {{ end }}
+{{ end }}
+
+{{ $fwCourses := slice }}
+{{ range where .Site.RegularPages "Section" "courses" }}
+  {{ if eq .Params.framework $slug }}
+    {{ $fwCourses = $fwCourses | append . }}
+  {{ end }}
+{{ end }}
+
+{{ $fwStacks := slice }}
+{{ range $path, $stack := hugo.Data.stacks }}
+  {{ if in $stack.frameworks $slug }}
+    {{ $fwStacks = $fwStacks | append $stack }}
+  {{ end }}
+{{ end }}
+
+{{ $relatedFW := slice }}
+{{ range $p.related_frameworks }}
+  {{ $rp := $.Site.GetPage (printf "/frameworks/%s/" .) }}
+  {{ if $rp }}{{ $relatedFW = $relatedFW | append $rp }}{{ end }}
+{{ end }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <a href="{{ "/frameworks/" | relURL }}">Frameworks</a>
+    {{ if $langPage }}
+    <span class="breadcrumb__sep">/</span>
+    <a href="{{ $langPage.RelPermalink }}">{{ $langPage.Params.name }}</a>
+    {{ end }}
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">{{ $p.name }}</span>
+  </div>
+
+  <!-- Hero -->
+  <div class="detail-hero">
+    <div class="detail-hero__header">
+      {{ if $p.logo }}
+        <img src="{{ $p.logo }}" alt="{{ $p.name }} logo" class="detail-logo" loading="lazy">
+      {{ else }}
+        <div class="tool-logo-placeholder" style="width:72px;height:72px;font-size:1.8rem;border-radius:12px">{{ substr $p.name 0 1 }}</div>
+      {{ end }}
+      <div>
+        <h1 class="detail-hero__name">{{ $p.name }}</h1>
+        <p class="detail-hero__tagline">{{ $p.description }}</p>
+        <div class="detail-hero__badges">
+          {{ if $langPage }}<a href="{{ $langPage.RelPermalink }}" class="badge badge-type" style="text-decoration:none">{{ $langPage.Params.name }}</a>{{ end }}
+          {{ if $p.pricing }}<span class="badge badge-{{ $p.pricing | lower }}">{{ $p.pricing }}</span>{{ end }}
+          {{ if $p.open_source }}<span class="badge badge-open">Open Source</span>{{ end }}
+          {{ if $p.tool_type }}<span class="badge badge-tag">{{ $p.tool_type }}</span>{{ end }}
+          {{ if $p.year }}<span class="badge badge-tag">since {{ $p.year }}</span>{{ end }}
+        </div>
+      </div>
+    </div>
+    <div class="detail-hero__actions">
+      {{ if $p.website }}<a href="{{ $p.website }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visit Website →</a>{{ end }}
+      {{ if $p.github }}<a href="https://github.com/{{ $p.github }}" class="btn btn-github" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        {{ $p.github }}
+      </a>{{ end }}
+    </div>
+  </div>
+
+  <div class="detail-layout">
+    <div class="detail-body">
+
+      {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+      {{ if $fwTools }}
+      <h2>// tools</h2>
+      <div class="grid-3">
+        {{ range $fwTools }}{{ partial "tool-card.html" .Params }}{{ end }}
+      </div>
+      {{ end }}
+
+      {{ if $fwStacks }}
+      <h2>// stacks using {{ $p.name }}</h2>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        {{ range $fwStacks }}
+        <a href="{{ printf "/stacks/%s/" .slug | relURL }}" class="card" style="text-decoration:none;padding:0.6rem 1rem;display:inline-flex;align-items:center;gap:0.5rem">
+          {{ if .color }}<span style="width:8px;height:8px;border-radius:50%;background:{{ .color }};flex-shrink:0"></span>{{ end }}
+          <span style="font-weight:600;font-size:0.875rem">{{ .name }}</span>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ if $fwBooks }}
+      <h2>// books</h2>
+      <div class="grid-3">
+        {{ range $fwBooks }}
+        {{ $bp := .Params }}
+        <a href="{{ .RelPermalink }}" class="card" style="text-decoration:none">
+          <div class="resource-card__title">{{ $bp.name }}</div>
+          {{ with $bp.author }}<div class="resource-card__author">{{ . }}</div>{{ end }}
+          <div class="resource-card__desc">{{ $bp.description | truncate 100 }}</div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ if $fwCourses }}
+      <h2>// courses</h2>
+      <div class="grid-3">
+        {{ range $fwCourses }}
+        {{ $cp := .Params }}
+        <a href="{{ .RelPermalink }}" class="card" style="text-decoration:none">
+          <div class="resource-card__title">{{ $cp.name }}</div>
+          {{ with $cp.provider }}<div class="resource-card__author">{{ . }}</div>{{ end }}
+          <div class="resource-card__desc">{{ $cp.description | truncate 100 }}</div>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ if $p.tags }}
+      <h2>// tags</h2>
+      <div class="tag-cloud">{{ range $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}</div>
+      {{ end }}
+
+      <div class="star-banner" style="margin-top:2.5rem">
+        <div class="star-banner__text"><strong>Something wrong?</strong> Edit this entry on GitHub.</div>
+        <a href="{{ $.Site.Params.githubRepo }}/edit/main/content/frameworks/{{ .File.BaseFileName }}.md" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">✏ Edit on GitHub</a>
+      </div>
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// details</div>
+        {{ if $langPage }}<div class="meta-row"><span class="meta-row__label">Language</span><a href="{{ $langPage.RelPermalink }}" class="meta-row__value" style="color:var(--purple)">{{ $langPage.Params.name }}</a></div>{{ end }}
+        {{ if $p.year }}<div class="meta-row"><span class="meta-row__label">Since</span><span class="meta-row__value">{{ $p.year }}</span></div>{{ end }}
+        {{ if $p.tool_type }}<div class="meta-row"><span class="meta-row__label">Type</span><span class="meta-row__value">{{ $p.tool_type }}</span></div>{{ end }}
+        {{ if $p.license }}<div class="meta-row"><span class="meta-row__label">License</span><span class="meta-row__value">{{ $p.license }}</span></div>{{ end }}
+        <div class="meta-row"><span class="meta-row__label">Open Source</span><span class="meta-row__value" style="color:{{ if $p.open_source }}var(--green){{ else }}var(--comment){{ end }}">{{ if $p.open_source }}yes{{ else }}no{{ end }}</span></div>
+      </div>
+
+      {{ if $relatedFW }}
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// related frameworks</div>
+        {{ range $relatedFW }}
+        <a href="{{ .RelPermalink }}" style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0;color:var(--fg-muted);text-decoration:none;font-size:0.875rem">
+          {{ if .Params.logo }}<img src="{{ .Params.logo }}" alt="{{ .Params.name }}" style="width:20px;height:20px;object-fit:contain;border-radius:4px;background:var(--surface2)" loading="lazy">{{ end }}
+          {{ .Params.name }}
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ if $fwTools }}
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// stats</div>
+        <div class="meta-row"><span class="meta-row__label">Tools</span><span class="meta-row__value" style="color:var(--purple)">{{ len $fwTools }}</span></div>
+        {{ if $fwStacks }}<div class="meta-row"><span class="meta-row__label">Stacks</span><span class="meta-row__value">{{ len $fwStacks }}</span></div>{{ end }}
+        {{ if $fwBooks }}<div class="meta-row"><span class="meta-row__label">Books</span><span class="meta-row__value" style="color:var(--yellow)">{{ len $fwBooks }}</span></div>{{ end }}
+        {{ if $fwCourses }}<div class="meta-row"><span class="meta-row__label">Courses</span><span class="meta-row__value" style="color:var(--green)">{{ len $fwCourses }}</span></div>{{ end }}
+      </div>
+      {{ end }}
+    </aside>
+  </div>
+</div>
+{{ end }}

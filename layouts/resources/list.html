@@ -1,0 +1,85 @@
+{{ define "main" }}
+{{ $resources := where .Site.RegularPages "Section" "resources" }}
+{{ $resources = sort $resources "Params.name" "asc" }}
+
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Resources</span>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <h1 class="section-title"><span>#</span> Developer Resources</h1>
+      <span class="text-muted text-mono" style="font-size:0.8rem">{{ len $resources }} resources</span>
+    </div>
+    <p style="color:var(--fg-muted);margin-bottom:2rem">Guides, cheatsheets, podcasts, newsletters, and reference sites for developers.</p>
+
+    <div class="search-bar">
+      <svg class="search-bar__icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="res-search" placeholder="Search resources..." autocomplete="off">
+    </div>
+
+    {{ $allTypes := slice }}
+    {{ range $resources }}{{ with .Params.tool_type }}{{ $allTypes = $allTypes | append . }}{{ end }}{{ end }}
+    {{ $allTypes = $allTypes | uniq | sort }}
+
+    <div class="category-list" id="type-filter">
+      <button class="category-chip active" data-type="all">All</button>
+      {{ range $allTypes }}
+      <button class="category-chip" data-type="{{ . }}">{{ . | title }}</button>
+      {{ end }}
+    </div>
+
+    <div class="grid-3" id="resources-grid">
+      {{ range $resources }}
+      {{ $p := .Params }}
+      <div class="res-item" data-name="{{ $p.name | lower }}" data-desc="{{ $p.description | lower }}" data-tags="{{ range $p.tags }}{{ . }} {{ end }}" data-type="{{ $p.tool_type }}">
+        <a href="{{ .RelPermalink }}" class="card" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
+          <div class="resource-card__type">{{ $p.tool_type | default "resource" | title }}</div>
+          <div class="resource-card__title">{{ $p.name }}</div>
+          <div class="resource-card__desc">{{ $p.description | truncate 120 }}</div>
+          <div style="margin-top:auto;padding-top:0.75rem;display:flex;gap:0.4rem;flex-wrap:wrap">
+            {{ if $p.free }}<span class="badge badge-free">Free</span>{{ end }}
+            {{ range first 3 $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+          </div>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+
+    <div id="no-results" class="hidden text-center" style="padding:3rem 0;color:var(--comment)">
+      No resources match. <a href="{{ .Site.Params.githubRepo }}/new/main/content/resources" target="_blank">Add one via PR?</a>
+    </div>
+
+    <div class="star-banner" style="margin-top:2.5rem">
+      <div class="star-banner__text"><strong>Know a great resource?</strong> Add it via a PR.</div>
+      <a href="{{ "/contribute/" | relURL }}" class="btn btn-primary btn-sm">Contribute a resource</a>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  const search = document.getElementById('res-search');
+  const typeBtns = document.querySelectorAll('[data-type]');
+  const items = document.querySelectorAll('.res-item');
+  const noResults = document.getElementById('no-results');
+  let activeType = 'all', query = '';
+
+  function filter() {
+    let visible = 0;
+    items.forEach(el => {
+      const matchSearch = !query || (el.dataset.name||'').includes(query) || (el.dataset.desc||'').includes(query) || (el.dataset.tags||'').includes(query);
+      const matchType = activeType === 'all' || el.dataset.type === activeType;
+      el.classList.toggle('filter-hidden', !(matchSearch && matchType));
+      if (matchSearch && matchType) visible++;
+    });
+    noResults.classList.toggle('hidden', visible > 0);
+  }
+
+  search.addEventListener('input', e => { query = e.target.value.toLowerCase(); filter(); });
+  typeBtns.forEach(btn => { btn.addEventListener('click', () => { typeBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); activeType = btn.dataset.type; filter(); }); });
+})();
+</script>
+{{ end }}

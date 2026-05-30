@@ -1,0 +1,149 @@
+{{ define "main" }}
+{{ $p := .Params }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <a href="{{ "/tools/" | relURL }}">Tools</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">{{ $p.name }}</span>
+  </div>
+
+  <div class="detail-hero">
+    <div class="detail-hero__header">
+      {{ if $p.logo }}
+        <img class="detail-logo" src="{{ $p.logo }}" alt="{{ $p.name }} logo" loading="lazy">
+      {{ else }}
+        <div class="tool-logo-placeholder" style="width:72px;height:72px;font-size:1.8rem;border-radius:12px">{{ substr $p.name 0 1 }}</div>
+      {{ end }}
+      <div>
+        <h1 class="detail-hero__name">{{ $p.name }}</h1>
+        <p class="detail-hero__tagline">{{ $p.description }}</p>
+        <div class="detail-hero__badges">
+          {{ if $p.pricing }}<span class="badge badge-{{ $p.pricing | lower }}">{{ $p.pricing }}</span>{{ end }}
+          {{ if $p.open_source }}<span class="badge badge-open">Open Source</span>{{ end }}
+          {{ if $p.tool_type }}<span class="badge badge-type">{{ $p.tool_type }}</span>{{ end }}
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-hero__actions">
+      {{ if $p.website }}<a href="{{ $p.website }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visit Website →</a>{{ end }}
+      {{ if $p.github }}<a href="https://github.com/{{ $p.github }}" class="btn btn-github" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>{{ $p.github }}</a>{{ end }}
+      {{ if $p.docs_url }}<a href="{{ $p.docs_url }}" class="btn btn-ghost" target="_blank" rel="noopener">Docs</a>{{ end }}
+    </div>
+  </div>
+
+  <div class="detail-layout">
+    <div class="detail-body">
+      {{ with .Content }}
+        {{ . }}
+      {{ else }}
+        {{ with $p.long_description }}
+        <h2>// about</h2>
+        <p>{{ . }}</p>
+        {{ end }}
+      {{ end }}
+
+      {{ with $p.features }}
+      <h2>// features</h2>
+      <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+      {{ end }}
+
+      {{ with $p.install }}
+      <h2>// install</h2>
+      <pre><code>{{ . }}</code></pre>
+      {{ end }}
+
+      {{ if $p.categories }}
+      <h2>// categories</h2>
+      <div class="tag-cloud">
+        {{ range $p.categories }}<span class="badge badge-tag" style="font-size:0.8rem;padding:0.3em 0.7em">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+
+      {{ if $p.tags }}
+      <h2>// tags</h2>
+      <div class="tag-cloud">
+        {{ range $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+
+      <!-- Stacks that include this tool -->
+      {{ $toolSlug := .File.BaseFileName }}
+      {{ $toolStacks := slice }}
+      {{ range $path, $stack := hugo.Data.stacks }}
+        {{ range $stack.tools }}
+          {{ if eq . $toolSlug }}
+            {{ $toolStacks = $toolStacks | append $stack }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if $toolStacks }}
+      <h2>// part of these stacks</h2>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        {{ range $toolStacks }}
+        <a href="{{ printf "/stacks/%s/" .slug | relURL }}" class="card" style="text-decoration:none;padding:0.6rem 1rem;display:inline-flex;align-items:center;gap:0.5rem">
+          {{ if .color }}<span style="width:8px;height:8px;border-radius:50%;background:{{ .color }};flex-shrink:0"></span>{{ end }}
+          <span style="font-weight:600;font-size:0.875rem">{{ .name }}</span>
+        </a>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <div class="star-banner" style="margin-top:2.5rem">
+        <div class="star-banner__text"><strong>Something wrong?</strong> Edit this entry on GitHub.</div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+          <a href="{{ $.Site.Params.githubRepo }}/edit/main/content/tools/{{ .File.BaseFileName }}.md" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">✏ Edit on GitHub</a>
+          <a href="{{ $.Site.Params.githubRepo }}/issues/new?title=Fix: {{ $p.name }}" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Report issue</a>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// details</div>
+        {{ if $p.language }}
+        {{ $lp := .Site.GetPage (printf "/languages/%s/" $p.language) }}
+        <div class="meta-row">
+          <span class="meta-row__label">Language</span>
+          {{ if $lp }}<a href="{{ $lp.RelPermalink }}" class="meta-row__value" style="color:var(--purple)">{{ $lp.Params.name }}</a>{{ else }}<span class="meta-row__value">{{ $p.language }}</span>{{ end }}
+        </div>
+        {{ end }}
+        {{ if $p.frameworks }}
+        <div class="meta-row" style="align-items:flex-start">
+          <span class="meta-row__label">Frameworks</span>
+          <div style="display:flex;flex-wrap:wrap;gap:0.25rem;justify-content:flex-end">
+            {{ range $p.frameworks }}
+            {{ $fp := $.Site.GetPage (printf "/frameworks/%s/" .) }}
+            {{ if $fp }}<a href="{{ $fp.RelPermalink }}" class="badge badge-type" style="text-decoration:none">{{ $fp.Params.name }}</a>{{ else }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+        {{ if $p.pricing }}<div class="meta-row"><span class="meta-row__label">Pricing</span><span class="meta-row__value">{{ $p.pricing }}</span></div>{{ end }}
+        {{ if $p.tool_type }}<div class="meta-row"><span class="meta-row__label">Type</span><span class="meta-row__value">{{ $p.tool_type }}</span></div>{{ end }}
+        {{ if $p.platforms }}<div class="meta-row"><span class="meta-row__label">Platforms</span><span class="meta-row__value">{{ delimit $p.platforms ", " }}</span></div>{{ end }}
+        <div class="meta-row">
+          <span class="meta-row__label">Open Source</span>
+          <span class="meta-row__value" style="color:{{ if $p.open_source }}var(--green){{ else }}var(--comment){{ end }}">{{ if $p.open_source }}yes{{ else }}no{{ end }}</span>
+        </div>
+        {{ if $p.license }}<div class="meta-row"><span class="meta-row__label">License</span><span class="meta-row__value">{{ $p.license }}</span></div>{{ end }}
+        {{ if $p.company }}<div class="meta-row"><span class="meta-row__label">Company</span><span class="meta-row__value">{{ $p.company }}</span></div>{{ end }}
+      </div>
+
+      {{ if $p.github }}
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// github</div>
+        <a href="https://github.com/{{ $p.github }}" class="btn btn-github" style="width:100%;justify-content:center;margin-bottom:0.75rem" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+        <div style="font-size:0.8rem;color:var(--comment);font-family:var(--font-mono)">{{ $p.github }}</div>
+      </div>
+      {{ end }}
+    </aside>
+  </div>
+</div>
+{{ end }}

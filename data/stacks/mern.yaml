@@ -1,0 +1,24 @@
+name: MERN Stack
+slug: mern
+description: Full-stack JavaScript using MongoDB, Express.js, React, and Node.js. One of the most popular stacks for building modern web applications.
+long_description: |
+  The MERN stack is a full-stack JavaScript solution that combines four key technologies. MongoDB provides a flexible NoSQL database, Express.js handles the server-side routing and middleware, React powers the frontend UI, and Node.js runs the server-side JavaScript runtime.
+
+  It's especially popular for single-page applications (SPAs) and real-time web apps. The biggest advantage is that you write JavaScript on both the frontend and backend.
+color: "#61DAFB"
+tools:
+  - react
+  - expressjs
+  - nodejs
+  - mongodb
+related_stacks:
+  - mean
+  - nextjs
+language: javascript
+frameworks: [react, express]
+
+tags:
+  - javascript
+  - full-stack
+  - spa
+  - web

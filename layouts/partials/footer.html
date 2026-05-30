@@ -1,0 +1,84 @@
+{{ $tools       := where .Site.RegularPages "Section" "tools" }}
+{{ $languages   := where .Site.RegularPages "Section" "languages" }}
+{{ $frameworks  := where .Site.RegularPages "Section" "frameworks" }}
+{{ $paths       := where .Site.RegularPages "Section" "paths" }}
+{{ $books       := where .Site.RegularPages "Section" "books" }}
+{{ $courses     := where .Site.RegularPages "Section" "courses" }}
+{{ $resources   := where .Site.RegularPages "Section" "resources" }}
+{{ $newsletters := where .Site.RegularPages "Section" "newsletters" }}
+{{ $stacks      := slice }}
+{{ range $k, $v := hugo.Data.stacks }}{{ $stacks = $stacks | append $v }}{{ end }}
+
+<footer class="site-footer">
+  <div class="footer-body">
+
+    <!-- Left: description + file tree -->
+    <div class="footer-left">
+      <div class="footer-brand-line">
+        <svg width="18" height="18" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <g transform="translate(3,0)">
+            <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+            <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+            <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+            <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+            <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+            <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+          </g>
+        </svg>
+        <span class="footer-brand-name">devtools<span style="color:var(--accent)">/</span></span>
+      </div>
+      <div class="footer-comments">
+        <span class="footer-comment">// Wikipedia for developer tools.</span>
+        <span class="footer-comment">// Community-maintained · open source · MIT.</span>
+      </div>
+
+      <div class="footer-tree">
+        <div class="footer-tree__root">content/</div>
+        <a href="{{ "/tools/" | relURL }}"      class="footer-tree__item">├── tools/      <span class="tree-count">{{ len $tools }}</span></a>
+        <a href="{{ "/languages/" | relURL }}"  class="footer-tree__item">├── languages/  <span class="tree-count">{{ len $languages }}</span></a>
+        <a href="{{ "/frameworks/" | relURL }}" class="footer-tree__item">├── frameworks/ <span class="tree-count">{{ len $frameworks }}</span></a>
+        <a href="{{ "/stacks/" | relURL }}"     class="footer-tree__item">├── stacks/     <span class="tree-count">{{ len $stacks }}</span></a>
+        <a href="{{ "/paths/" | relURL }}"      class="footer-tree__item">├── paths/      <span class="tree-count">{{ len $paths }}</span></a>
+        <a href="{{ "/books/" | relURL }}"      class="footer-tree__item">├── books/      <span class="tree-count">{{ len $books }}</span></a>
+        <a href="{{ "/courses/" | relURL }}"     class="footer-tree__item">├── courses/     <span class="tree-count">{{ len $courses }}</span></a>
+        <a href="{{ "/newsletters/" | relURL }}" class="footer-tree__item">├── newsletters/ <span class="tree-count">{{ len $newsletters }}</span></a>
+        <a href="{{ "/resources/" | relURL }}"  class="footer-tree__item">└── resources/   <span class="tree-count">{{ len $resources }}</span></a>
+      </div>
+    </div>
+
+    <!-- Middle: contribute -->
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-prompt">$</span> contribute</div>
+      <a href="{{ "/contribute/" | relURL }}"                                                      class="footer-cmd"><span class="footer-cmd__arrow">›</span> how to contribute</a>
+      <a href="{{ .Site.Params.githubRepo }}/new/main/content/tools"   target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> add a tool</a>
+      <a href="{{ .Site.Params.githubRepo }}/issues/new"                target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> report an issue</a>
+      <a href="{{ .Site.Params.githubRepo }}/pulls"                     target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> open pull requests</a>
+      <a href="{{ .Site.Params.githubRepo }}"                           target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> ★ star on github</a>
+    </div>
+
+    <!-- Right: project meta -->
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-comment-inline">//</span> project</div>
+      <a href="{{ .Site.Params.githubRepo }}/blob/main/LICENSE"        target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> license: MIT</a>
+      <a href="{{ .Site.Params.githubRepo }}/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> CONTRIBUTING.md</a>
+      <a href="{{ "/llms.txt" | relURL }}"                                                           class="footer-cmd"><span class="footer-cmd__arrow">›</span> llms.txt</a>
+      <a href="{{ "/index.json" | relURL }}"                                                         class="footer-cmd"><span class="footer-cmd__arrow">›</span> index.json</a>
+      <a href="{{ "/sitemap.xml" | relURL }}"                                                        class="footer-cmd"><span class="footer-cmd__arrow">›</span> sitemap.xml</a>
+    </div>
+
+  </div>
+
+  <!-- Status bar -->
+  <div class="footer-statusbar">
+    <span class="footer-status__left">
+      <span class="footer-status__brand">devtools/</span>
+      <span class="footer-status__sep">·</span>
+      <span>MIT</span>
+      <span class="footer-status__sep">·</span>
+      <span>hugo</span>
+      <span class="footer-status__sep">·</span>
+      <span>github pages</span>
+    </span>
+    <span class="footer-status__right">© {{ now.Year }} · open source</span>
+  </div>
+</footer>

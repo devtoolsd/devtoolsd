@@ -1,0 +1,21 @@
+{{ $slug := .slug | default .File.BaseFileName }}
+<a href="{{ printf "/languages/%s/" $slug | relURL }}" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    {{ if .logo }}
+      <img class="lang-card__logo" src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+    {{ else }}
+      <div class="lang-card__logo-placeholder">{{ substr .name 0 2 | upper }}</div>
+    {{ end }}
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">{{ .name }}</div>
+    <div class="lang-card__props">
+      {{ with .typing }}<span class="lang-prop">{{ . }}</span>{{ end }}
+      {{ with .compilation }}<span class="lang-prop">{{ . }}</span>{{ end }}
+      {{ with .year }}<span class="lang-prop lang-prop--year">{{ . }}</span>{{ end }}
+    </div>
+    {{ with .description }}
+    <p class="lang-card__desc">{{ . | truncate 90 }}</p>
+    {{ end }}
+  </div>
+</a>

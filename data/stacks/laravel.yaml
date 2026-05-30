@@ -1,0 +1,31 @@
+name: Laravel Stack
+slug: laravel
+description: PHP web application stack with Laravel, MySQL or PostgreSQL, Redis for caching, and Vue.js or Inertia.js on the frontend.
+long_description: |
+  The Laravel stack is the dominant PHP web framework ecosystem. Laravel provides elegant routing, ORM (Eloquent), authentication, queues, and more out of the box. It pairs naturally with:
+
+  - **MySQL** or **PostgreSQL** for the primary database
+  - **Redis** for caching, sessions, and queues
+  - **Vue.js** or **Inertia.js** for reactive frontends without leaving PHP
+  - **Laravel Forge** or **Ploi** for server management
+
+  The Laravel ecosystem also includes Livewire (real-time components in PHP), Laravel Sail (Docker dev env), and Laravel Vapor (serverless deployment on AWS).
+color: "#FF2D20"
+tools:
+  - laravel
+  - php
+  - mysql
+  - postgresql
+  - redis
+  - vuejs
+related_stacks:
+  - lemp
+  - django
+language: php
+frameworks: [laravel]
+
+tags:
+  - php
+  - full-stack
+  - web
+  - mvc

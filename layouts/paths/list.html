@@ -1,0 +1,82 @@
+{{ define "main" }}
+{{ $paths := where .Site.RegularPages "Section" "paths" }}
+{{ $paths   = sort $paths "Params.name" "asc" }}
+
+{{ $allLevels := slice "beginner" "intermediate" "advanced" }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Paths</span>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <h1 class="section-title"><span>#</span> Learning Paths</h1>
+      <span class="text-muted text-mono" style="font-size:0.8rem">{{ len $paths }} paths</span>
+    </div>
+    <p style="color:var(--fg-muted);margin-bottom:2rem">Curated, step-by-step journeys that take you from zero to production-ready in a specific technology or discipline.</p>
+
+    <div class="category-list" id="level-filter">
+      <button class="category-chip active" data-level="all">All levels</button>
+      {{ range $allLevels }}
+      <button class="category-chip" data-level="{{ . }}">{{ . | title }}</button>
+      {{ end }}
+    </div>
+
+    <div class="grid-3" id="paths-grid">
+      {{ range $paths }}
+      {{ $pp := .Params }}
+      {{ $lp := .Site.GetPage (printf "/languages/%s/" $pp.language) }}
+      <div class="path-item" data-level="{{ $pp.level }}">
+        <a href="{{ .RelPermalink }}" class="card path-card" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;gap:0.5rem">
+            {{ if $lp }}<a href="{{ $lp.RelPermalink }}" class="badge badge-type" style="text-decoration:none" onclick="event.stopPropagation()">{{ $lp.Params.name }}</a>{{ end }}
+            {{ if $pp.level }}<span class="badge badge-{{ $pp.level }}">{{ $pp.level }}</span>{{ end }}
+          </div>
+          <div style="font-weight:700;color:var(--fg);font-size:1rem;margin-bottom:0.4rem;line-height:1.3">{{ $pp.name }}</div>
+          <div style="font-size:0.875rem;color:var(--fg-muted);line-height:1.5;flex:1">{{ $pp.description | truncate 120 }}</div>
+          <div style="margin-top:0.75rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.4rem">
+            {{ if $pp.duration }}<span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--comment)">{{ $pp.duration }}</span>{{ end }}
+            {{ if $pp.steps }}<span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--purple)">{{ len $pp.steps }} steps</span>{{ end }}
+          </div>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+
+    <div id="no-results" class="hidden text-center" style="padding:3rem 0;color:var(--comment)">
+      No paths match. <a href="{{ .Site.Params.githubRepo }}/new/main/content/paths" target="_blank">Add one via PR?</a>
+    </div>
+
+    <div class="star-banner" style="margin-top:2.5rem">
+      <div class="star-banner__text"><strong>Know a great learning sequence?</strong> Add it as a path via a PR.</div>
+      <a href="{{ "/contribute/" | relURL }}" class="btn btn-primary btn-sm">Contribute a path</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const btns  = document.querySelectorAll('[data-level]');
+  const items = document.querySelectorAll('.path-item');
+  const noRes = document.getElementById('no-results');
+  let active  = 'all';
+  function filter() {
+    let v = 0;
+    items.forEach(el => {
+      const match = active === 'all' || el.dataset.level === active;
+      el.classList.toggle('filter-hidden', !match);
+      if (match) v++;
+    });
+    noRes.classList.toggle('hidden', v > 0);
+  }
+  btns.forEach(btn => btn.addEventListener('click', () => {
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    active = btn.dataset.level;
+    filter();
+  }));
+})();
+</script>
+{{ end }}

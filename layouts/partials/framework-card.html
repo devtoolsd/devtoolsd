@@ -1,0 +1,28 @@
+{{ $slug := .slug | default .File.BaseFileName }}
+{{ $lp   := $.Site.GetPage (printf "/languages/%s/" .language) }}
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    {{ if .logo }}
+      <img class="fw-card__logo" src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+    {{ else }}
+      <div class="fw-card__logo-placeholder">{{ substr .name 0 2 | upper }}</div>
+    {{ end }}
+    <div class="fw-card__title-block">
+      <a href="{{ printf "/frameworks/%s/" $slug | relURL }}" class="fw-card__name stretched-link">{{ .name }}</a>
+      {{ if $lp }}
+        <a href="{{ $lp.RelPermalink }}" class="fw-card__lang">{{ $lp.Params.name | lower }}/</a>
+      {{ else if .language }}
+        <span class="fw-card__lang fw-card__lang--plain">{{ .language }}/</span>
+      {{ end }}
+    </div>
+  </div>
+  {{ with .description }}
+  <p class="fw-card__desc">{{ . | truncate 95 }}</p>
+  {{ end }}
+  <div class="fw-card__foot">
+    {{ with .tool_type }}<span class="lang-prop">{{ . }}</span>{{ end }}
+    {{ with .year }}<span class="lang-prop lang-prop--year">{{ . }}</span>{{ end }}
+    {{ if .open_source }}<span class="fw-oss">open source</span>{{ end }}
+  </div>
+</div>

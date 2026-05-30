@@ -1,0 +1,40 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}
+
+Source: {{ .Site.BaseURL }}
+License: MIT
+
+## Sections
+
+- [Tools]({{ .Site.BaseURL }}tools/) — Developer tools, editors, CLIs, databases, and more
+- [Languages]({{ .Site.BaseURL }}languages/) — Programming language profiles with associated tools and frameworks
+- [Frameworks]({{ .Site.BaseURL }}frameworks/) — Web, backend, and fullstack frameworks
+- [Stacks]({{ .Site.BaseURL }}stacks/) — Curated technology stacks
+- [Learning Paths]({{ .Site.BaseURL }}paths/) — Structured learning paths for developers
+- [Books]({{ .Site.BaseURL }}books/) — Technical books for developers
+- [Courses]({{ .Site.BaseURL }}courses/) — Online courses and training
+- [Resources]({{ .Site.BaseURL }}resources/) — Guides, cheatsheets, newsletters, podcasts
+
+## Tools ({{ len (where .Site.RegularPages "Section" "tools") }} entries)
+
+{{ range where .Site.RegularPages "Section" "tools" | first 50 -}}
+- [{{ .Params.name }}]({{ .Permalink }}){{ with .Params.description }} — {{ . }}{{ end }}
+{{ end }}
+
+## Languages ({{ len (where .Site.RegularPages "Section" "languages") }} entries)
+
+{{ range where .Site.RegularPages "Section" "languages" -}}
+- [{{ .Params.name }}]({{ .Permalink }}){{ with .Params.description }} — {{ . }}{{ end }}
+{{ end }}
+
+## Frameworks ({{ len (where .Site.RegularPages "Section" "frameworks") }} entries)
+
+{{ range where .Site.RegularPages "Section" "frameworks" -}}
+- [{{ .Params.name }}]({{ .Permalink }}){{ with .Params.description }} — {{ . }}{{ end }}
+{{ end }}
+
+## Full content
+
+For full metadata on all entries, see: {{ .Site.BaseURL }}llms-full.txt
+For machine-readable JSON index: {{ .Site.BaseURL }}index.json

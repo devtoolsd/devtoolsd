@@ -1,0 +1,252 @@
+{{ define "main" }}
+{{ $tools := where .Site.RegularPages "Section" "tools" }}
+{{ $tools = sort $tools "Params.name" "asc" }}
+
+{{/* Collect unique filter values */}}
+{{ $allCats := slice }}
+{{ $allTypes := slice }}
+{{ $allPlatforms := slice }}
+{{ range $tools }}
+  {{ range .Params.categories }}{{ $allCats = $allCats | append . }}{{ end }}
+  {{ if .Params.tool_type }}{{ $allTypes = $allTypes | append .Params.tool_type }}{{ end }}
+  {{ range .Params.platforms }}{{ $allPlatforms = $allPlatforms | append . }}{{ end }}
+{{ end }}
+{{ $allCats      = $allCats      | uniq | sort }}
+{{ $allTypes     = $allTypes     | uniq | sort }}
+{{ $allPlatforms = $allPlatforms | uniq | sort }}
+
+{{/* Category counts */}}
+{{ $catCounts := dict }}
+{{ range $tools }}
+  {{ range .Params.categories }}
+    {{ $catCounts = merge $catCounts (dict . (add (index $catCounts . | default 0) 1)) }}
+  {{ end }}
+{{ end }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Tools</span>
+  </div>
+</div>
+
+<div class="tools-page">
+
+  <!-- Sidebar -->
+  <aside class="tools-sidebar" id="tools-sidebar">
+    <div class="tools-sidebar__head">
+      <span class="tools-sidebar__title"><span class="sidebar-prompt">$</span> filters</span>
+      <button class="sidebar-clear" id="clear-filters">clear</button>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// categories</div>
+      <div class="sidebar-items" id="filter-cats">
+        <button class="sf active" data-cat="all">all<span class="sf-count">{{ len $tools }}</span></button>
+        {{ range $allCats }}
+        <button class="sf" data-cat="{{ . }}">{{ . | replaceRE "-" " " }}<span class="sf-count">{{ index $catCounts . | default 0 }}</span></button>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// pricing</div>
+      <div class="sidebar-items" id="filter-pricing">
+        <button class="sf active" data-pricing="all">all</button>
+        <button class="sf" data-pricing="free">free</button>
+        <button class="sf" data-pricing="freemium">freemium</button>
+        <button class="sf" data-pricing="paid">paid</button>
+      </div>
+    </div>
+
+    {{ if $allTypes }}
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// type</div>
+      <div class="sidebar-items" id="filter-type">
+        <button class="sf active" data-type="all">all</button>
+        {{ range $allTypes }}
+        <button class="sf" data-type="{{ . }}">{{ . }}</button>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ if $allPlatforms }}
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// platform</div>
+      <div class="sidebar-items" id="filter-platform">
+        <button class="sf active" data-platform="all">all</button>
+        {{ range $allPlatforms }}
+        <button class="sf" data-platform="{{ . }}">{{ . }}</button>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// license</div>
+      <div class="sidebar-items" id="filter-oss">
+        <button class="sf active" data-oss="all">all</button>
+        <button class="sf" data-oss="true">open source</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="tools-main">
+
+    <!-- Top bar: search + count + mobile filter toggle -->
+    <div class="tools-topbar">
+      <div class="tools-search-wrap">
+        <span class="tools-search-slash">/</span>
+        <input
+          type="text"
+          id="tool-search"
+          class="tools-search-input"
+          placeholder="filter tools..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+      <span class="tools-count"><span id="tool-count">{{ len $tools }}</span> results</span>
+      <button class="tools-filter-btn" id="filter-toggle" aria-expanded="false">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        filters
+      </button>
+    </div>
+
+    <!-- Active filter tags (shown when filters are active) -->
+    <div class="active-filters" id="active-filters"></div>
+
+    <!-- Grid -->
+    <div class="tools-grid" id="tools-grid">
+      {{ range $tools }}
+      {{ $p := .Params }}
+      <div class="tool-item"
+        data-name="{{ $p.name | lower }}"
+        data-desc="{{ $p.description | lower }}"
+        data-cats="{{ range $p.categories }}{{ . }} {{ end }}"
+        data-pricing="{{ $p.pricing | lower }}"
+        data-type="{{ $p.tool_type | lower }}"
+        data-platforms="{{ range $p.platforms }}{{ . }} {{ end }}"
+        data-open="{{ $p.open_source }}"
+        data-tags="{{ range $p.tags }}{{ . }} {{ end }}">
+        {{ partial "tool-card.html" $p }}
+      </div>
+      {{ end }}
+    </div>
+
+    <div id="no-results" class="tools-empty hidden">
+      <span class="tools-empty__icon">∅</span>
+      <span>no tools match — <a href="{{ .Site.Params.githubRepo }}/new/main/content/tools" target="_blank" rel="noopener">add one via PR?</a></span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl   = document.getElementById('tool-search');
+  var countEl    = document.getElementById('tool-count');
+  var noResults  = document.getElementById('no-results');
+  var clearBtn   = document.getElementById('clear-filters');
+  var filterBtn  = document.getElementById('filter-toggle');
+  var sidebar    = document.getElementById('tools-sidebar');
+  var activeFiltersEl = document.getElementById('active-filters');
+  var items      = document.querySelectorAll('.tool-item');
+
+  var state = { query: '', cat: 'all', pricing: 'all', type: 'all', platform: 'all', oss: 'all' };
+
+  /* ── Filtering ── */
+  function filter() {
+    var q = state.query;
+    var visible = 0;
+    items.forEach(function(el) {
+      var d = el.dataset;
+      var ok =
+        (!q || (d.name||'').includes(q) || (d.desc||'').includes(q) || (d.tags||'').includes(q)) &&
+        (state.cat     === 'all' || (' ' + (d.cats||'') + ' ').includes(' ' + state.cat + ' ')) &&
+        (state.pricing === 'all' || (d.pricing||'') === state.pricing) &&
+        (state.type    === 'all' || (d.type||'') === state.type) &&
+        (state.platform=== 'all' || (' ' + (d.platforms||'') + ' ').includes(' ' + state.platform + ' ')) &&
+        (state.oss     === 'all' || (d.open||'') === state.oss);
+      el.classList.toggle('filter-hidden', !ok);
+      if (ok) visible++;
+    });
+    countEl.textContent = visible;
+    noResults.classList.toggle('hidden', visible > 0);
+    renderActiveTags();
+    var dirty = state.cat !== 'all' || state.pricing !== 'all' || state.type !== 'all' || state.platform !== 'all' || state.oss !== 'all';
+    clearBtn.style.display = dirty ? '' : 'none';
+  }
+
+  /* ── Active filter tags row ── */
+  function renderActiveTags() {
+    var tags = [];
+    if (state.cat      !== 'all') tags.push({ label: state.cat.replace(/-/g,' '),      key: 'cat' });
+    if (state.pricing  !== 'all') tags.push({ label: state.pricing,                    key: 'pricing' });
+    if (state.type     !== 'all') tags.push({ label: state.type,                       key: 'type' });
+    if (state.platform !== 'all') tags.push({ label: state.platform,                   key: 'platform' });
+    if (state.oss      !== 'all') tags.push({ label: 'open source',                    key: 'oss' });
+    if (!tags.length) { activeFiltersEl.innerHTML = ''; return; }
+    activeFiltersEl.innerHTML = tags.map(function(t) {
+      return '<button class="active-filter-tag" data-key="' + t.key + '">' + t.label + ' ×</button>';
+    }).join('');
+    activeFiltersEl.querySelectorAll('.active-filter-tag').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var k = btn.dataset.key;
+        state[k] = 'all';
+        syncButtons(k);
+        filter();
+      });
+    });
+  }
+
+  /* ── Wire up a filter group ── */
+  function wireGroup(containerId, stateKey) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        container.querySelectorAll('.sf').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state[stateKey] = btn.dataset[stateKey];
+        filter();
+      });
+    });
+  }
+
+  function syncButtons(key) {
+    var map = { cat: 'filter-cats', pricing: 'filter-pricing', type: 'filter-type', platform: 'filter-platform', oss: 'filter-oss' };
+    var container = document.getElementById(map[key]);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.classList.toggle('active', (btn.dataset[key] || 'all') === state[key]);
+    });
+  }
+
+  wireGroup('filter-cats',     'cat');
+  wireGroup('filter-pricing',  'pricing');
+  wireGroup('filter-type',     'type');
+  wireGroup('filter-platform', 'platform');
+  wireGroup('filter-oss',      'oss');
+
+  searchEl.addEventListener('input', function() { state.query = searchEl.value.toLowerCase().trim(); filter(); });
+
+  clearBtn.addEventListener('click', function() {
+    state = { query: state.query, cat: 'all', pricing: 'all', type: 'all', platform: 'all', oss: 'all' };
+    ['cat','pricing','type','platform','oss'].forEach(syncButtons);
+    filter();
+  });
+
+  /* ── Mobile sidebar toggle ── */
+  filterBtn.addEventListener('click', function() {
+    var open = sidebar.classList.toggle('is-open');
+    filterBtn.setAttribute('aria-expanded', open);
+  });
+
+  clearBtn.style.display = 'none';
+})();
+</script>
+{{ end }}

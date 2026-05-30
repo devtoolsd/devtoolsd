@@ -1,0 +1,102 @@
+{{ define "main" }}
+{{ $p    := .Params }}
+{{ $slug := .File.BaseFileName }}
+{{ $lp   := .Site.GetPage (printf "/languages/%s/" $p.language) }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <a href="{{ "/paths/" | relURL }}">Paths</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">{{ $p.name }}</span>
+  </div>
+
+  <div class="detail-hero">
+    <div class="detail-hero__header" style="gap:1rem">
+      <div style="width:64px;height:64px;border-radius:12px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0">🗺</div>
+      <div>
+        <h1 class="detail-hero__name">{{ $p.name }}</h1>
+        <p class="detail-hero__tagline">{{ $p.description }}</p>
+        <div class="detail-hero__badges">
+          {{ if $lp }}<a href="{{ $lp.RelPermalink }}" class="badge badge-type" style="text-decoration:none">{{ $lp.Params.name }}</a>{{ end }}
+          {{ if $p.level }}<span class="badge badge-{{ $p.level }}">{{ $p.level }}</span>{{ end }}
+          {{ if $p.duration }}<span class="badge badge-tag">{{ $p.duration }}</span>{{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-layout">
+    <div class="detail-body">
+
+      {{ with .Content }}<div class="prose" style="margin-bottom:2rem">{{ . }}</div>{{ end }}
+
+      {{ if $p.steps }}
+      <h2>// the path</h2>
+      <div class="path-steps">
+        {{ range $i, $step := $p.steps }}
+        {{ $section := printf "%ss" $step.type }}
+        {{ $page := $.Site.GetPage (printf "/%s/%s/" $section $step.slug) }}
+        <div class="path-step">
+          <div class="path-step__num">{{ add $i 1 }}</div>
+          <div class="path-step__content">
+            {{ if $page }}
+            <a href="{{ $page.RelPermalink }}" class="path-step__title">
+              {{ with $page.Params.logo }}<img src="{{ . }}" alt="{{ $page.Params.name }}" style="width:20px;height:20px;object-fit:contain;border-radius:4px;vertical-align:middle;margin-right:0.4rem;background:var(--surface2)" loading="lazy">{{ end }}
+              {{ $page.Params.name }}
+            </a>
+            <span class="badge badge-tag" style="margin-left:0.4rem">{{ $step.type }}</span>
+            {{ else }}
+            <span class="path-step__title" style="color:var(--comment)">{{ $step.slug }} <span class="badge badge-tag">{{ $step.type }}</span></span>
+            {{ end }}
+            {{ with $step.note }}<p class="path-step__note">{{ . }}</p>{{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ if $p.tags }}
+      <h2>// tags</h2>
+      <div class="tag-cloud">{{ range $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}</div>
+      {{ end }}
+
+      <div class="star-banner" style="margin-top:2.5rem">
+        <div class="star-banner__text"><strong>Have a better path?</strong> Edit this on GitHub or add your own.</div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+          <a href="{{ $.Site.Params.githubRepo }}/edit/main/content/paths/{{ .File.BaseFileName }}.md" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">✏ Edit on GitHub</a>
+          <a href="{{ "/contribute/" | relURL }}" class="btn btn-primary btn-sm">Add a path</a>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// overview</div>
+        {{ if $lp }}<div class="meta-row"><span class="meta-row__label">Language</span><a href="{{ $lp.RelPermalink }}" class="meta-row__value" style="color:var(--purple)">{{ $lp.Params.name }}</a></div>{{ end }}
+        {{ if $p.level }}<div class="meta-row"><span class="meta-row__label">Level</span><span class="meta-row__value">{{ $p.level }}</span></div>{{ end }}
+        {{ if $p.duration }}<div class="meta-row"><span class="meta-row__label">Duration</span><span class="meta-row__value">{{ $p.duration }}</span></div>{{ end }}
+        {{ if $p.steps }}<div class="meta-row"><span class="meta-row__label">Steps</span><span class="meta-row__value" style="color:var(--purple)">{{ len $p.steps }}</span></div>{{ end }}
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// steps</div>
+        {{ range $i, $step := $p.steps }}
+        {{ $section := printf "%ss" $step.type }}
+        {{ $page := $.Site.GetPage (printf "/%s/%s/" $section $step.slug) }}
+        <div style="display:flex;align-items:center;gap:0.5rem;padding:0.35rem 0;{{ if lt $i (sub (len $p.steps) 1) }}border-bottom:1px solid var(--line){{ end }}">
+          <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--comment);min-width:1.5rem">{{ add $i 1 }}</span>
+          {{ if $page }}
+          <a href="{{ $page.RelPermalink }}" style="font-size:0.8rem;color:var(--fg);font-weight:500;text-decoration:none;flex:1">{{ $page.Params.name }}</a>
+          {{ else }}
+          <span style="font-size:0.8rem;color:var(--comment);flex:1">{{ $step.slug }}</span>
+          {{ end }}
+          <span class="badge badge-tag" style="font-size:0.65rem">{{ $step.type }}</span>
+        </div>
+        {{ end }}
+      </div>
+    </aside>
+  </div>
+</div>
+{{ end }}

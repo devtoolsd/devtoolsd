@@ -1,0 +1,29 @@
+name: JAMstack
+slug: jamstack
+description: JavaScript, APIs, and Markup. Static-first architecture served from CDN, with dynamic functionality via APIs and serverless functions.
+long_description: |
+  JAMstack (JavaScript, APIs, Markup) is an architecture where the frontend is pre-built as static files and served from a CDN, dynamic behavior is handled through APIs (often serverless), and content comes from headless CMSes or Git-based storage.
+
+  Key characteristics:
+  - **Pre-rendered HTML** served from CDN — fast, secure, no server to manage
+  - **JavaScript** for dynamic interactions at runtime
+  - **APIs** for backend functionality (auth, payments, data)
+  - **Headless CMS** (Contentful, Sanity, Netlify CMS) for content management
+
+  Popular JAMstack tools: Astro, Next.js (static export), Hugo, Gatsby.
+color: "#F0047F"
+tools:
+  - nextjs
+  - netlify
+  - vercel
+related_stacks:
+  - nextjs
+language: javascript
+frameworks: [react, nextjs, vue]
+
+tags:
+  - javascript
+  - static-site
+  - cdn
+  - serverless
+  - web

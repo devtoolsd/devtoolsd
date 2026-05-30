@@ -1,0 +1,45 @@
+name: Newsletter
+slug: newsletter
+extends: base
+kind: data
+description: A curated newsletter delivering developer content on a regular schedule.
+fields:
+  - name: name
+    type: string
+    required: true
+  - name: slug
+    type: string
+    required: true
+  - name: description
+    type: string
+    required: true
+  - name: website
+    type: string
+    format: url
+    required: true
+  - name: author
+    type: string
+    required: false
+  - name: frequency
+    type: enum
+    values: [daily, weekly, biweekly, monthly, occasional]
+    required: true
+  - name: topics
+    type: list-ref
+    target: tag
+    free_form: true
+    required: false
+  - name: pricing
+    type: enum
+    values: [free, paid, freemium]
+    required: true
+  - name: subscribers
+    type: string
+    required: false
+  - name: logo
+    type: string
+    format: url
+    required: false
+  - name: featured
+    type: boolean
+    required: false

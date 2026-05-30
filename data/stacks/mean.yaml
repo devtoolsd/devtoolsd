@@ -1,0 +1,22 @@
+name: MEAN Stack
+slug: mean
+description: Full-stack JavaScript with MongoDB, Express.js, Angular, and Node.js. Enterprise-friendly alternative to MERN using Angular for the frontend.
+long_description: |
+  MEAN is a full-stack JavaScript framework pairing MongoDB (database), Express.js (backend), Angular (frontend), and Node.js (runtime). Angular brings a more opinionated, component-based structure compared to React, making it popular in enterprise environments.
+color: "#DD0031"
+tools:
+  - angular
+  - expressjs
+  - nodejs
+  - mongodb
+related_stacks:
+  - mern
+language: javascript
+frameworks: [react, express]
+
+tags:
+  - javascript
+  - typescript
+  - full-stack
+  - enterprise
+  - web

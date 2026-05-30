@@ -1,0 +1,30 @@
+name: Django Stack
+slug: django
+description: Python web stack with Django, PostgreSQL, Redis, and Celery for background tasks. Batteries-included and production-proven.
+long_description: |
+  Django is Python's "batteries-included" web framework. The standard production stack pairs Django with:
+
+  - **PostgreSQL** as the primary database (Django's ORM makes migrations easy)
+  - **Redis** for caching (via django-redis) and as a Celery broker
+  - **Celery** for background and scheduled tasks
+  - **Gunicorn + Nginx** in production, or **WhiteNoise** for serving static files
+  - **HTMX** or **React/Vue** for dynamic frontend interactions
+
+  Django REST Framework (DRF) is commonly added to build REST APIs.
+color: "#092E20"
+tools:
+  - django
+  - python
+  - postgresql
+  - redis
+related_stacks:
+  - fastapi
+  - flask
+language: python
+frameworks: [django]
+
+tags:
+  - python
+  - full-stack
+  - web
+  - rest-api

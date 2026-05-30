@@ -1,0 +1,484 @@
+{{ define "main" }}
+{{ $tools       := where .Site.RegularPages "Section" "tools" }}
+{{ $books       := where .Site.RegularPages "Section" "books" }}
+{{ $courses     := where .Site.RegularPages "Section" "courses" }}
+{{ $resources   := where .Site.RegularPages "Section" "resources" }}
+{{ $languages   := where .Site.RegularPages "Section" "languages" }}
+{{ $frameworks  := where .Site.RegularPages "Section" "frameworks" }}
+{{ $paths       := where .Site.RegularPages "Section" "paths" }}
+{{ $newsletters := where .Site.RegularPages "Section" "newsletters" }}
+
+{{ $stacks := slice }}
+{{ range $path, $data := hugo.Data.stacks }}
+  {{ $stacks = $stacks | append $data }}
+{{ end }}
+{{ $stacks = sort $stacks "name" }}
+
+{{/* collect unique filter values from actual content */}}
+{{ $allTypes    := slice }}
+{{ $allPricings := slice }}
+{{ range $tools }}
+  {{ with .Params.tool_type }}{{ $allTypes    = $allTypes    | append . }}{{ end }}
+  {{ with .Params.pricing   }}{{ $allPricings = $allPricings | append . }}{{ end }}
+{{ end }}
+{{ $allTypes    = $allTypes    | uniq | sort }}
+{{ $allPricings = $allPricings | uniq | sort }}
+
+<!-- ── Status bar ── -->
+<div class="home-statusbar">
+  <span class="home-statusbar__inner">
+    <span><span class="home-statusbar__num">{{ len $tools }}</span> tools</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">{{ len $languages }}</span> languages</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">{{ len $frameworks }}</span> frameworks</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">{{ len $stacks }}</span> stacks</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">{{ len $books }}</span> books</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">{{ len $courses }}</span> courses</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">{{ len $resources }}</span> resources</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">{{ len $newsletters }}</span> newsletters</span>
+    <span class="home-statusbar__sep home-statusbar__pipe">|</span>
+    <span>open source · community-maintained on GitHub</span>
+  </span>
+</div>
+
+<div class="container">
+
+  <!-- ── Section Directory ── -->
+  <section class="home-directory">
+    <div class="home-dir-label">// what's inside</div>
+    <div class="home-dir-grid">
+
+      <a href="{{ "/tools/" | relURL }}" class="home-dir-card" style="--card-accent:var(--yellow)">
+        <div class="home-dir-card__path">content/tools/</div>
+        <div class="home-dir-card__count">{{ len $tools }}</div>
+        <div class="home-dir-card__name">Tools</div>
+        <div class="home-dir-card__desc">Editors, CLIs, databases, CI/CD, and every developer utility in between.</div>
+      </a>
+
+      <a href="{{ "/languages/" | relURL }}" class="home-dir-card" style="--card-accent:var(--blue)">
+        <div class="home-dir-card__path">content/languages/</div>
+        <div class="home-dir-card__count">{{ len $languages }}</div>
+        <div class="home-dir-card__name">Languages</div>
+        <div class="home-dir-card__desc">Programming languages with typing system, compilation target, and ecosystem info.</div>
+      </a>
+
+      <a href="{{ "/frameworks/" | relURL }}" class="home-dir-card" style="--card-accent:var(--cyan)">
+        <div class="home-dir-card__path">content/frameworks/</div>
+        <div class="home-dir-card__count">{{ len $frameworks }}</div>
+        <div class="home-dir-card__name">Frameworks</div>
+        <div class="home-dir-card__desc">Web, API, mobile, and data frameworks organized by language and type.</div>
+      </a>
+
+      <a href="{{ "/stacks/" | relURL }}" class="home-dir-card" style="--card-accent:var(--green)">
+        <div class="home-dir-card__path">content/stacks/</div>
+        <div class="home-dir-card__count">{{ len $stacks }}</div>
+        <div class="home-dir-card__name">Stacks</div>
+        <div class="home-dir-card__desc">Curated technology stacks like MERN, Django, Rails, and more — with cross-linked tools.</div>
+      </a>
+
+      <a href="{{ "/paths/" | relURL }}" class="home-dir-card" style="--card-accent:var(--accent)">
+        <div class="home-dir-card__path">content/paths/</div>
+        <div class="home-dir-card__count">{{ len $paths }}</div>
+        <div class="home-dir-card__name">Paths</div>
+        <div class="home-dir-card__desc">Structured learning paths from beginner to production-ready, by role or goal.</div>
+      </a>
+
+      <a href="{{ "/books/" | relURL }}" class="home-dir-card" style="--card-accent:var(--orange)">
+        <div class="home-dir-card__path">content/books/</div>
+        <div class="home-dir-card__count">{{ len $books }}</div>
+        <div class="home-dir-card__name">Books</div>
+        <div class="home-dir-card__desc">Technical books recommended by developers — classics, deep dives, and modern guides.</div>
+      </a>
+
+      <a href="{{ "/courses/" | relURL }}" class="home-dir-card" style="--card-accent:var(--pink)">
+        <div class="home-dir-card__path">content/courses/</div>
+        <div class="home-dir-card__count">{{ len $courses }}</div>
+        <div class="home-dir-card__name">Courses</div>
+        <div class="home-dir-card__desc">Online courses and tutorials for learning new technologies at your own pace.</div>
+      </a>
+
+      <a href="{{ "/newsletters/" | relURL }}" class="home-dir-card" style="--card-accent:var(--red)">
+        <div class="home-dir-card__path">content/newsletters/</div>
+        <div class="home-dir-card__count">{{ len $newsletters }}</div>
+        <div class="home-dir-card__name">Newsletters</div>
+        <div class="home-dir-card__desc">Curated developer newsletters by topic and frequency — stay current without the noise.</div>
+      </a>
+
+      <a href="{{ "/resources/" | relURL }}" class="home-dir-card" style="--card-accent:var(--comment)">
+        <div class="home-dir-card__path">content/resources/</div>
+        <div class="home-dir-card__count">{{ len $resources }}</div>
+        <div class="home-dir-card__name">Resources</div>
+        <div class="home-dir-card__desc">Community guides, reference documentation, and learning communities.</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── Hero ── -->
+  <section class="home-hero">
+    <div class="home-hero__left">
+      <div class="home-hero__eyebrow"><span style="color:var(--accent)">devtools/</span> &nbsp;·&nbsp; open source &nbsp;·&nbsp; community-maintained</div>
+      <h1 class="home-hero__title">Wikipedia<br>for <span style="color:var(--accent)">developer tools.</span></h1>
+      <p class="home-hero__sub">Every tool, language, framework, stack, book, and learning path — documented once, kept accurate by the community, forever free. No login. No ads. Just a GitHub PR.</p>
+      <div class="home-hero__actions">
+        <a href="{{ "/tools/" | relURL }}" class="btn btn-primary">Browse Tools</a>
+        <a href="{{ "/languages/" | relURL }}" class="btn btn-ghost">Explore by Language</a>
+        <a href="{{ .Site.Params.githubRepo }}" class="btn btn-github" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          ★ Star on GitHub
+        </a>
+      </div>
+      <div class="home-hero__pillars">
+        <div class="home-hero__pillar">
+          <span class="home-hero__pillar-icon">⚙</span>
+          <div>
+            <strong>Tools</strong>
+            <span class="home-hero__pillar-sub">editors, CLIs, databases, DevOps</span>
+          </div>
+        </div>
+        <div class="home-hero__pillar">
+          <span class="home-hero__pillar-icon" style="color:var(--blue)">{ }</span>
+          <div>
+            <strong>Languages &amp; Frameworks</strong>
+            <span class="home-hero__pillar-sub">with cross-linked ecosystems</span>
+          </div>
+        </div>
+        <div class="home-hero__pillar">
+          <span class="home-hero__pillar-icon" style="color:var(--green)">→</span>
+          <div>
+            <strong>Learning Paths</strong>
+            <span class="home-hero__pillar-sub">books, courses, structured guides</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="home-hero__right">
+      <div class="home-terminal">
+        <div class="home-terminal__bar">
+          <span class="home-terminal__dot" style="background:#e06c75"></span>
+          <span class="home-terminal__dot" style="background:#e5c07b"></span>
+          <span class="home-terminal__dot" style="background:#98c379"></span>
+          <span style="margin-left:0.5rem;font-size:0.7rem;color:var(--comment)">devtools/ — contribute</span>
+        </div>
+        <pre class="home-terminal__body"><span style="color:var(--comment)"># add any tool in under 5 minutes</span>
+<span style="color:var(--cyan)">$</span> <span style="color:var(--fg)">cp template.md content/tools/mytool.md</span>
+
+<span style="color:var(--accent)">---</span>
+<span style="color:var(--cyan)">name</span><span style="color:var(--fg)">: My Tool</span>
+<span style="color:var(--cyan)">description</span><span style="color:var(--fg)">: One sentence. Factual.</span>
+<span style="color:var(--cyan)">website</span><span style="color:var(--fg)">: https://mytool.dev</span>
+<span style="color:var(--cyan)">language</span><span style="color:var(--fg)">: go</span>
+<span style="color:var(--cyan)">pricing</span><span style="color:var(--fg)">: free</span>
+<span style="color:var(--cyan)">open_source</span><span style="color:var(--fg)">: true</span>
+<span style="color:var(--accent)">---</span>
+
+<span style="color:var(--cyan)">$</span> <span style="color:var(--fg)">git commit -m </span><span style="color:var(--green)">"add: My Tool"</span>
+<span style="color:var(--cyan)">$</span> <span style="color:var(--fg)">gh pr create</span>
+<span style="color:var(--comment)"># → merged → live in ~2 min ✓</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Browse tools with sidebar filter ── -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span>#</span> Tools</h2>
+      <div style="display:flex;align-items:center;gap:0.75rem">
+        <span id="results-count" class="text-muted text-mono" style="font-size:0.8rem">{{ len $tools }} tools</span>
+        <a href="{{ "/tools/" | relURL }}" class="btn btn-ghost btn-sm">Full list →</a>
+      </div>
+    </div>
+
+    <div class="browse-layout">
+      <!-- Sidebar filters -->
+      <aside class="filter-sidebar" id="filter-sidebar">
+        <div class="filter-sidebar__header">
+          <span class="filter-sidebar__title">// filters</span>
+          <button id="clear-filters" class="btn btn-ghost btn-sm" style="display:none;padding:0.2rem 0.6rem;font-size:0.75rem">Clear all</button>
+        </div>
+
+        <!-- Search -->
+        <div class="filter-group">
+          <div class="filter-group__label">Search</div>
+          <div class="search-bar" style="max-width:none;margin:0">
+            <svg class="search-bar__icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="filter-search" placeholder="Search tools..." autocomplete="off" style="padding-left:2.5rem;padding-top:0.55rem;padding-bottom:0.55rem;font-size:0.85rem;border-radius:var(--radius)">
+          </div>
+        </div>
+
+        <!-- Language -->
+        <div class="filter-group">
+          <div class="filter-group__label">Language</div>
+          <div class="filter-chips" id="filter-language">
+            {{ range $languages }}
+            {{ $slug := .File.BaseFileName }}
+            {{ $count := 0 }}
+            {{ range $tools }}{{ if eq .Params.language $slug }}{{ $count = add $count 1 }}{{ end }}{{ end }}
+            {{ if gt $count 0 }}
+            <button class="filter-chip" data-filter="language" data-value="{{ $slug }}">
+              {{ if .Params.logo }}<img src="{{ .Params.logo }}" alt="" style="width:14px;height:14px;object-fit:contain;vertical-align:middle">{{ end }}
+              {{ .Params.name }}
+              <span class="filter-chip__count">{{ $count }}</span>
+            </button>
+            {{ end }}
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Framework -->
+        <div class="filter-group">
+          <div class="filter-group__label">Framework</div>
+          <div class="filter-chips" id="filter-framework">
+            {{ range $frameworks }}
+            {{ $slug := .File.BaseFileName }}
+            {{ $count := 0 }}
+            {{ range $tools }}
+              {{ if in .Params.frameworks $slug }}{{ $count = add $count 1 }}{{ end }}
+            {{ end }}
+            {{ if gt $count 0 }}
+            <button class="filter-chip" data-filter="framework" data-value="{{ $slug }}">
+              {{ .Params.name }}
+              <span class="filter-chip__count">{{ $count }}</span>
+            </button>
+            {{ end }}
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Tool type -->
+        <div class="filter-group">
+          <div class="filter-group__label">Type</div>
+          <div class="filter-chips" id="filter-type">
+            {{ range $allTypes }}
+            {{ $t := . }}
+            {{ $count := 0 }}
+            {{ range $tools }}{{ if eq .Params.tool_type $t }}{{ $count = add $count 1 }}{{ end }}{{ end }}
+            <button class="filter-chip" data-filter="type" data-value="{{ . }}">
+              {{ . }}
+              <span class="filter-chip__count">{{ $count }}</span>
+            </button>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="filter-group">
+          <div class="filter-group__label">Pricing</div>
+          <div class="filter-chips" id="filter-pricing">
+            {{ range $allPricings }}
+            {{ $pr := . }}
+            {{ $count := 0 }}
+            {{ range $tools }}{{ if eq .Params.pricing $pr }}{{ $count = add $count 1 }}{{ end }}{{ end }}
+            <button class="filter-chip" data-filter="pricing" data-value="{{ . }}">
+              {{ . }}
+              <span class="filter-chip__count">{{ $count }}</span>
+            </button>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Open source -->
+        <div class="filter-group">
+          <div class="filter-group__label">Open Source</div>
+          <div class="filter-chips">
+            <button class="filter-chip" data-filter="open_source" data-value="true">Yes</button>
+            <button class="filter-chip" data-filter="open_source" data-value="false">No</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Tool grid -->
+      <div class="browse-main">
+        <div class="grid-3" id="tool-grid">
+          {{ range $tools }}
+          {{ $p := .Params }}
+          {{ $fwList := "" }}
+          {{ range $p.frameworks }}{{ $fwList = printf "%s %s" $fwList . }}{{ end }}
+          <div class="tool-item"
+               data-name="{{ $p.name | lower }}"
+               data-desc="{{ $p.description | lower }}"
+               data-language="{{ $p.language | default "" }}"
+               data-frameworks="{{ $fwList | trim " " }}"
+               data-type="{{ $p.tool_type | default "" }}"
+               data-pricing="{{ $p.pricing | default "" }}"
+               data-open_source="{{ $p.open_source | default false }}"
+               data-tags="{{ range $p.tags }}{{ . }} {{ end }}">
+            {{ partial "tool-card.html" $p }}
+          </div>
+          {{ end }}
+        </div>
+
+        <div id="no-results" class="hidden text-center" style="padding:3rem 0;color:var(--comment)">
+          No tools match those filters.
+          <div style="margin-top:0.75rem">
+            <button id="no-results-clear" class="btn btn-ghost btn-sm">Clear filters</button>
+            &nbsp;or&nbsp;
+            <a href="{{ .Site.Params.githubRepo }}/new/main/content/tools" target="_blank" class="btn btn-primary btn-sm">Add one via PR</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stacks ── -->
+  {{ if $stacks }}
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span>#</span> Technology Stacks</h2>
+      <a href="{{ "/stacks/" | relURL }}" class="btn btn-ghost btn-sm">All stacks →</a>
+    </div>
+    <p style="color:var(--fg-muted);font-size:0.9rem;margin-bottom:1.5rem">Popular tech stacks with curated tools, cross-linked so you can explore the whole ecosystem.</p>
+    <div class="home-stacks">
+      {{ range first 6 $stacks }}
+      {{ $c := .color | default "var(--accent)" }}
+      <a href="{{ printf "/stacks/%s/" .slug | relURL }}" class="home-stack-card" style="--stack-color:{{ $c }}">
+        <div class="home-stack-card__accent"></div>
+        <div class="home-stack-card__body">
+          <div class="home-stack-card__name">{{ .name }}</div>
+          <div class="home-stack-card__desc">{{ .description | truncate 65 }}</div>
+          <div class="home-stack-card__tools">
+            {{ range first 4 .tools }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- ── How it works ── -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span>#</span> How it works</h2>
+    </div>
+    <div class="home-how">
+      <div class="home-how__step">
+        <div class="home-how__num">01</div>
+        <div class="home-how__title">Fork &amp; create a file</div>
+        <div class="home-how__desc">Add a <code>.md</code> file to <code>content/tools/</code>, <code>content/books/</code>, or any other content directory.</div>
+      </div>
+      <div class="home-how__arrow">→</div>
+      <div class="home-how__step">
+        <div class="home-how__num">02</div>
+        <div class="home-how__title">Fill in the YAML</div>
+        <div class="home-how__desc">Follow the schema in <a href="{{ "/contribute/" | relURL }}">CONTRIBUTING</a>. Name, description, website, tags — done.</div>
+      </div>
+      <div class="home-how__arrow">→</div>
+      <div class="home-how__step">
+        <div class="home-how__num">03</div>
+        <div class="home-how__title">Open a Pull Request</div>
+        <div class="home-how__desc">Title it <code>add: Tool Name</code>. Once merged, it's live on the site automatically.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:1.75rem">
+      <a href="{{ "/contribute/" | relURL }}" class="btn btn-primary">Read the contribution guide</a>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <div class="star-banner" style="margin-bottom:3rem">
+    <div>
+      <div style="font-weight:700;font-size:1rem;margin-bottom:0.25rem">devtools/ is built like Wikipedia — by the community, for the community.</div>
+      <div class="star-banner__text">Every entry is a Markdown file on GitHub. Spotted something wrong or missing? Open a PR in under 5 minutes.</div>
+    </div>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+      <a href="{{ "/contribute/" | relURL }}" class="btn btn-primary btn-sm">Contribute</a>
+      <a href="{{ .Site.Params.githubRepo }}" class="btn btn-github btn-sm" target="_blank" rel="noopener">★ Star on GitHub</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  const grid    = document.getElementById('tool-grid');
+  const items   = grid.querySelectorAll('.tool-item');
+  const noRes   = document.getElementById('no-results');
+  const counter = document.getElementById('results-count');
+  const clearBtn = document.getElementById('clear-filters');
+  const noResClear = document.getElementById('no-results-clear');
+  const searchInput = document.getElementById('filter-search');
+
+  const active = { language: new Set(), framework: new Set(), type: new Set(), pricing: new Set(), open_source: new Set() };
+  let query = '';
+
+  function anyActive() {
+    return query || Object.values(active).some(s => s.size > 0);
+  }
+
+  function filter() {
+    let visible = 0;
+    items.forEach(el => {
+      const d = el.dataset;
+      const langs  = d.language ? d.language.split(' ').filter(Boolean) : [];
+      const fws    = d.frameworks ? d.frameworks.split(' ').filter(Boolean) : [];
+
+      const matchSearch = !query ||
+        d.name.includes(query) ||
+        d.desc.includes(query) ||
+        d.tags.includes(query) ||
+        langs.some(v => v.includes(query)) ||
+        fws.some(v => v.includes(query));
+
+      const matchLang  = active.language.size === 0    || langs.some(v => active.language.has(v));
+      const matchFw    = active.framework.size === 0   || fws.some(v => active.framework.has(v));
+      const matchType  = active.type.size === 0        || active.type.has(d.type);
+      const matchPrice = active.pricing.size === 0     || active.pricing.has(d.pricing);
+      const matchOS    = active.open_source.size === 0 || active.open_source.has(d.open_source);
+
+      const show = matchSearch && matchLang && matchFw && matchType && matchPrice && matchOS;
+      el.classList.toggle('filter-hidden', !show);
+      if (show) visible++;
+    });
+
+    noRes.classList.toggle('hidden', visible > 0);
+    counter.textContent = visible + ' tool' + (visible !== 1 ? 's' : '');
+    clearBtn.style.display = anyActive() ? '' : 'none';
+  }
+
+  document.querySelectorAll('.filter-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.filter;
+      const val = btn.dataset.value;
+      if (active[key].has(val)) {
+        active[key].delete(val);
+        btn.classList.remove('active');
+      } else {
+        active[key].add(val);
+        btn.classList.add('active');
+      }
+      filter();
+    });
+  });
+
+  searchInput.addEventListener('input', e => {
+    query = e.target.value.toLowerCase().trim();
+    filter();
+  });
+
+  function clearAll() {
+    Object.values(active).forEach(s => s.clear());
+    document.querySelectorAll('.filter-chip.active').forEach(b => b.classList.remove('active'));
+    searchInput.value = '';
+    query = '';
+    filter();
+  }
+  clearBtn.addEventListener('click', clearAll);
+  noResClear.addEventListener('click', clearAll);
+
+  const toggleBtn = document.getElementById('sidebar-toggle');
+  const sidebar   = document.getElementById('filter-sidebar');
+  if (toggleBtn && sidebar) {
+    toggleBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
+  }
+
+  filter();
+})();
+</script>
+{{ end }}

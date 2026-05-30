@@ -1,0 +1,34 @@
+{{ define "main" }}
+{{ $p := .Params }}
+{{ $typeEmoji := dict "guide" "📖" "website" "🌐" "cheatsheet" "📋" "newsletter" "📮" "podcast" "🎙️" "video" "▶️" "repo" "🗂️" }}
+{{ $emoji := index $typeEmoji $p.tool_type | default "🗂️" }}
+<div class="container container--narrow" style="padding-top:2rem">
+  <div class="breadcrumb">
+    <a href="{{ "/" | relURL }}">Home</a><span class="breadcrumb__sep">/</span>
+    <a href="{{ "/resources/" | relURL }}">Resources</a><span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">{{ $p.name }}</span>
+  </div>
+
+  <div style="margin-bottom:2rem">
+    <div style="font-size:2.5rem;margin-bottom:0.75rem">{{ $emoji }}</div>
+    <div style="font-family:var(--font-mono);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--comment);margin-bottom:0.5rem">{{ $p.tool_type | default "resource" }}</div>
+    <h1 style="font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem">{{ $p.name }}</h1>
+    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.25rem">
+      {{ if $p.free }}<span class="badge badge-free">Free</span>{{ end }}
+      {{ range $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+    </div>
+    <p style="color:var(--fg-muted);font-size:1.05rem;line-height:1.6">{{ $p.description }}</p>
+  </div>
+
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin:2rem 0">
+    {{ if $p.website }}<a href="{{ $p.website }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Open Resource →</a>{{ end }}
+  </div>
+
+  <div class="star-banner">
+    <div class="star-banner__text"><strong>Something wrong?</strong> Edit this entry on GitHub.</div>
+    <a href="{{ $.Site.Params.githubRepo }}/edit/main/content/resources/{{ .File.BaseFileName }}.md" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">✏ Edit on GitHub</a>
+  </div>
+</div>
+{{ end }}

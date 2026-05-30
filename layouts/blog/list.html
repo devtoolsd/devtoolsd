@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="container">
+  <div class="section">
+    <div class="section-header">
+      <h1 class="section-title"><span>#</span> Blog</h1>
+      <span class="text-muted text-mono" style="font-size:0.8rem">{{ len .Pages }} posts</span>
+    </div>
+
+    {{ if .Pages }}
+    <div class="grid-3">
+      {{ range .Pages }}
+      <a href="{{ .RelPermalink }}" class="card" style="text-decoration:none;display:flex;flex-direction:column">
+        <div class="blog-card__date">{{ .Date.Format "Jan 02, 2006" }}</div>
+        <div class="blog-card__title">{{ .Title }}</div>
+        <div class="blog-card__excerpt" style="flex:1">{{ .Summary | truncate 140 }}</div>
+        <div style="margin-top:0.75rem;display:flex;gap:0.4rem;flex-wrap:wrap">
+          {{ range .Params.tags }}
+          <span class="badge badge-tag">{{ . }}</span>
+          {{ end }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
+
+    {{ template "_internal/pagination.html" . }}
+    {{ else }}
+    <div class="text-center" style="padding:4rem 0;color:var(--comment)">
+      <div style="font-size:2.5rem;margin-bottom:1rem">✍️</div>
+      <p>No posts yet. <a href="{{ .Site.Params.githubRepo }}/new/main/content/blog" target="_blank">Write the first one?</a></p>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

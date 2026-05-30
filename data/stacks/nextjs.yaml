@@ -1,0 +1,25 @@
+name: Next.js Stack
+slug: nextjs
+description: Full-stack TypeScript with Next.js, React, Tailwind CSS, and PostgreSQL or a headless CMS. The modern default for new web projects.
+long_description: |
+  The Next.js stack has emerged as the go-to choice for modern web development. Next.js builds on React with server-side rendering, static generation, API routes, and the App Router. Combined with Tailwind CSS for styling, Prisma for database access, and PostgreSQL for storage, it covers the full stack in TypeScript.
+
+  Vercel (the creators of Next.js) makes deployment trivial with GitHub integration.
+color: "#000000"
+tools:
+  - nextjs
+  - react
+  - postgresql
+  - vercel
+related_stacks:
+  - mern
+  - jamstack
+language: javascript
+frameworks: [react, nextjs]
+
+tags:
+  - typescript
+  - full-stack
+  - react
+  - web
+  - ssr

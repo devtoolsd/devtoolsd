@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Disallow submit page
+Disallow: /submit-tool
+
+# Disallow admin pages
+Disallow: /admin/
+
+# Disallow internal redirects
+Disallow: /go
+
+# Disallow login/register pages from indexing
+Disallow: /login
+Disallow: /register
+
+# Disallow profile pages
+Disallow: /profile
+
+# Allow sitemap
+Sitemap: https://devtools.directory/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1

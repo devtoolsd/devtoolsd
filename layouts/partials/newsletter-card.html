@@ -1,0 +1,29 @@
+{{ $slug := .slug | default .File.BaseFileName }}
+<a href="{{ printf "/newsletters/%s/" $slug | relURL }}" class="newsletter-card">
+  <div class="newsletter-card__head">
+    {{ if .logo }}
+      <img class="newsletter-card__logo" src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+    {{ else }}
+      <div class="newsletter-card__initial">{{ substr .name 0 1 | upper }}</div>
+    {{ end }}
+    <div class="newsletter-card__title-block">
+      <div class="newsletter-card__name">{{ .name }}</div>
+      <div class="newsletter-card__meta">
+        {{ with .frequency }}<span class="newsletter-prop">{{ . }}</span>{{ end }}
+        {{ with .pricing }}<span class="newsletter-prop newsletter-prop--pricing newsletter-prop--{{ . }}">{{ . }}</span>{{ end }}
+      </div>
+    </div>
+  </div>
+  {{ with .author }}
+  <div class="newsletter-card__author">// {{ . }}</div>
+  {{ end }}
+  <p class="newsletter-card__desc">{{ .description | truncate 110 }}</p>
+  {{ if .topics }}
+  <div class="newsletter-card__topics">
+    {{ range first 3 .topics }}<span class="stack-tag">{{ . }}</span>{{ end }}
+  </div>
+  {{ end }}
+  {{ with .subscribers }}
+  <div class="newsletter-card__subs">{{ . }} subscribers</div>
+  {{ end }}
+</a>

@@ -1,0 +1,128 @@
+# {{ .Site.Title }} — Full Content Dump
+
+> {{ .Site.Params.description }}
+> Generated: {{ now.Format "2006-01-02" }}
+> Source: {{ .Site.BaseURL }}
+
+---
+
+## TOOLS
+
+{{ range where .Site.RegularPages "Section" "tools" -}}
+### {{ .Params.name }}
+- URL: {{ .Permalink }}
+{{ with .Params.website }}- Website: {{ . }}{{ end }}
+{{ with .Params.github }}- GitHub: https://github.com/{{ . }}{{ end }}
+{{ with .Params.description }}- Description: {{ . }}{{ end }}
+{{ with .Params.language }}- Language: {{ . }}{{ end }}
+{{ with .Params.tool_type }}- Type: {{ . }}{{ end }}
+{{ with .Params.pricing }}- Pricing: {{ . }}{{ end }}
+{{ if .Params.open_source }}- Open Source: true{{ end }}
+{{ with .Params.license }}- License: {{ . }}{{ end }}
+{{ with .Params.frameworks }}- Frameworks: {{ delimit . ", " }}{{ end }}
+{{ with .Params.tags }}- Tags: {{ delimit . ", " }}{{ end }}
+
+{{ end -}}
+
+---
+
+## LANGUAGES
+
+{{ range where .Site.RegularPages "Section" "languages" -}}
+### {{ .Params.name }}
+- URL: {{ .Permalink }}
+{{ with .Params.description }}- Description: {{ . }}{{ end }}
+{{ with .Params.website }}- Website: {{ . }}{{ end }}
+{{ with .Params.year }}- Created: {{ . }}{{ end }}
+{{ with .Params.tags }}- Tags: {{ delimit . ", " }}{{ end }}
+
+{{ end -}}
+
+---
+
+## FRAMEWORKS
+
+{{ range where .Site.RegularPages "Section" "frameworks" -}}
+### {{ .Params.name }}
+- URL: {{ .Permalink }}
+{{ with .Params.website }}- Website: {{ . }}{{ end }}
+{{ with .Params.github }}- GitHub: https://github.com/{{ . }}{{ end }}
+{{ with .Params.description }}- Description: {{ . }}{{ end }}
+{{ with .Params.language }}- Language: {{ . }}{{ end }}
+{{ with .Params.tool_type }}- Type: {{ . }}{{ end }}
+{{ if .Params.open_source }}- Open Source: true{{ end }}
+{{ with .Params.tags }}- Tags: {{ delimit . ", " }}{{ end }}
+
+{{ end -}}
+
+---
+
+## STACKS
+
+{{ range where .Site.RegularPages "Section" "stacks" -}}
+### {{ .Params.name }}
+- URL: {{ .Permalink }}
+{{ with .Params.description }}- Description: {{ . }}{{ end }}
+{{ with .Params.language }}- Language: {{ . }}{{ end }}
+{{ with .Params.items }}- Items: {{ delimit . ", " }}{{ end }}
+
+{{ end -}}
+
+---
+
+## BOOKS
+
+{{ range where .Site.RegularPages "Section" "books" -}}
+### {{ .Params.name }}
+- URL: {{ .Permalink }}
+{{ with .Params.website }}- Website: {{ . }}{{ end }}
+{{ with .Params.description }}- Description: {{ . }}{{ end }}
+{{ with .Params.author }}- Author: {{ . }}{{ end }}
+{{ with .Params.year }}- Year: {{ . }}{{ end }}
+{{ with .Params.pricing }}- Pricing: {{ . }}{{ end }}
+{{ with .Params.tags }}- Tags: {{ delimit . ", " }}{{ end }}
+
+{{ end -}}
+
+---
+
+## COURSES
+
+{{ range where .Site.RegularPages "Section" "courses" -}}
+### {{ .Params.name }}
+- URL: {{ .Permalink }}
+{{ with .Params.website }}- Website: {{ . }}{{ end }}
+{{ with .Params.description }}- Description: {{ . }}{{ end }}
+{{ with .Params.provider }}- Provider: {{ . }}{{ end }}
+{{ with .Params.pricing }}- Pricing: {{ . }}{{ end }}
+{{ with .Params.tags }}- Tags: {{ delimit . ", " }}{{ end }}
+
+{{ end -}}
+
+---
+
+## RESOURCES
+
+{{ range where .Site.RegularPages "Section" "resources" -}}
+### {{ .Params.name }}
+- URL: {{ .Permalink }}
+{{ with .Params.website }}- Website: {{ . }}{{ end }}
+{{ with .Params.description }}- Description: {{ . }}{{ end }}
+{{ with .Params.tool_type }}- Type: {{ . }}{{ end }}
+{{ with .Params.tags }}- Tags: {{ delimit . ", " }}{{ end }}
+
+{{ end -}}
+
+---
+
+## LEARNING PATHS
+
+{{ range where .Site.RegularPages "Section" "paths" -}}
+### {{ .Params.name }}
+- URL: {{ .Permalink }}
+{{ with .Params.description }}- Description: {{ . }}{{ end }}
+{{ with .Params.level }}- Level: {{ . }}{{ end }}
+{{ with .Params.language }}- Language: {{ . }}{{ end }}
+{{ with .Params.tags }}- Tags: {{ delimit . ", " }}{{ end }}
+
+{{ end -}}

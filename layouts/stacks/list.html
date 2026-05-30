@@ -1,0 +1,260 @@
+{{ define "main" }}
+{{ $stacks := slice }}
+{{ range $path, $data := hugo.Data.stacks }}
+  {{ $stacks = $stacks | append $data }}
+{{ end }}
+{{ $stacks = sort $stacks "name" }}
+
+{{/* Collect filter values */}}
+{{ $allLangs  := slice }}
+{{ $allTags   := slice }}
+{{ $langCounts := dict }}
+{{ $tagCounts  := dict }}
+{{ range $stacks }}
+  {{ with .language }}
+    {{ $allLangs   = $allLangs | append . }}
+    {{ $langCounts = merge $langCounts (dict . (add (index $langCounts . | default 0) 1)) }}
+  {{ end }}
+  {{ range .tags }}
+    {{ $allTags   = $allTags | append . }}
+    {{ $tagCounts = merge $tagCounts (dict . (add (index $tagCounts . | default 0) 1)) }}
+  {{ end }}
+{{ end }}
+{{ $allLangs = $allLangs | uniq | sort }}
+{{ $allTags  = $allTags  | uniq | sort }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Stacks</span>
+  </div>
+</div>
+
+<div class="tools-page">
+
+  <!-- Sidebar -->
+  <aside class="tools-sidebar" id="tools-sidebar">
+    <div class="tools-sidebar__head">
+      <span class="tools-sidebar__title"><span class="sidebar-prompt">$</span> filters</span>
+      <button class="sidebar-clear" id="clear-filters">clear</button>
+    </div>
+
+    {{ if $allLangs }}
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// language</div>
+      <div class="sidebar-items" id="filter-lang">
+        <button class="sf active" data-lang="all">all<span class="sf-count">{{ len $stacks }}</span></button>
+        {{ range $allLangs }}
+        {{ $lp := $.Site.GetPage (printf "/languages/%s/" .) }}
+        <button class="sf" data-lang="{{ . }}">{{ if $lp }}{{ $lp.Params.name | lower }}{{ else }}{{ . }}{{ end }}<span class="sf-count">{{ index $langCounts . | default 0 }}</span></button>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ if $allTags }}
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// tags</div>
+      <div class="sidebar-items" id="filter-tag">
+        <button class="sf active" data-tag="all">all</button>
+        {{ range $allTags }}
+        <button class="sf" data-tag="{{ . }}">{{ . }}<span class="sf-count">{{ index $tagCounts . | default 0 }}</span></button>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </aside>
+
+  <!-- Main -->
+  <div class="tools-main">
+
+    <div class="tools-topbar">
+      <div class="tools-search-wrap">
+        <span class="tools-search-slash">/</span>
+        <input
+          type="text"
+          id="stack-search"
+          class="tools-search-input"
+          placeholder="filter stacks..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+      <span class="tools-count"><span id="stack-count">{{ len $stacks }}</span> results</span>
+      <button class="tools-filter-btn" id="filter-toggle" aria-expanded="false">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        filters
+      </button>
+    </div>
+
+    <div class="active-filters" id="active-filters"></div>
+
+    <div class="stacks-grid" id="stacks-grid">
+      {{ range $stacks }}
+      {{ $color := .color | default "var(--accent)" }}
+      {{ $lp    := $.Site.GetPage (printf "/languages/%s/" .language) }}
+      <div class="stack-item"
+        data-name="{{ .name | lower }}"
+        data-desc="{{ .description | lower }}"
+        data-lang="{{ .language | lower }}"
+        data-tags="{{ range .tags }}{{ . }} {{ end }}">
+
+        <div class="stack-card" style="--stack-color:{{ $color }}">
+          <a href="{{ printf "/stacks/%s/" .slug | relURL }}" class="stack-card__link" aria-label="{{ .name }}"></a>
+
+          <div class="stack-card__head">
+            <span class="stack-card__dot"></span>
+            <span class="stack-card__name">{{ .name }}</span>
+            {{ if $lp }}
+            <a href="{{ $lp.RelPermalink }}" class="stack-card__lang">{{ $lp.Params.name | lower }}/</a>
+            {{ else if .language }}
+            <span class="stack-card__lang stack-card__lang--plain">{{ .language }}/</span>
+            {{ end }}
+          </div>
+
+          <p class="stack-card__desc">{{ .description | truncate 110 }}</p>
+
+          <!-- Tool preview -->
+          {{ if .tools }}
+          <div class="stack-preview">
+            {{ range first 3 .tools }}
+            {{ $tp := $.Site.GetPage (printf "/tools/%s/" .) }}
+            <div class="stack-preview__item">
+              {{ if and $tp $tp.Params.logo }}
+                <img class="stack-preview__logo" src="{{ $tp.Params.logo }}" alt="{{ . }}" loading="lazy">
+              {{ else }}
+                <div class="stack-preview__initial">{{ substr . 0 1 | upper }}</div>
+              {{ end }}
+              <span class="stack-preview__name">{{ . }}</span>
+            </div>
+            {{ end }}
+            {{ if gt (len .tools) 3 }}
+            <div class="stack-preview__more">+{{ sub (len .tools) 3 }}</div>
+            {{ end }}
+          </div>
+          {{ end }}
+
+          <!-- Tags -->
+          {{ if .tags }}
+          <div class="stack-card__tags">
+            {{ range first 3 .tags }}<span class="stack-tag">{{ . }}</span>{{ end }}
+          </div>
+          {{ end }}
+
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    <div id="no-results" class="tools-empty hidden">
+      <span class="tools-empty__icon">∅</span>
+      <span>no stacks match your filters</span>
+    </div>
+
+    <!-- Contribute CTA -->
+    <div class="stacks-cta">
+      <div class="stacks-cta__body">
+        <span class="stacks-cta__prompt">$</span>
+        <div>
+          <div class="stacks-cta__title">missing a stack?</div>
+          <div class="stacks-cta__sub">one YAML file in <code>data/stacks/</code> is all it takes</div>
+        </div>
+      </div>
+      <a href="{{ .Site.Params.githubRepo }}/new/main/data/stacks" target="_blank" rel="noopener" class="stacks-cta__btn">› contribute a stack</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl  = document.getElementById('stack-search');
+  var countEl   = document.getElementById('stack-count');
+  var noResults = document.getElementById('no-results');
+  var clearBtn  = document.getElementById('clear-filters');
+  var filterBtn = document.getElementById('filter-toggle');
+  var sidebar   = document.getElementById('tools-sidebar');
+  var activeFiltersEl = document.getElementById('active-filters');
+  var items     = document.querySelectorAll('.stack-item');
+
+  var state = { query: '', lang: 'all', tag: 'all' };
+
+  function filter() {
+    var q = state.query;
+    var visible = 0;
+    items.forEach(function(el) {
+      var d = el.dataset;
+      var ok =
+        (!q || (d.name||'').includes(q) || (d.desc||'').includes(q) || (d.tags||'').includes(q)) &&
+        (state.lang === 'all' || (d.lang||'') === state.lang) &&
+        (state.tag  === 'all' || (' ' + (d.tags||'') + ' ').includes(' ' + state.tag + ' '));
+      el.classList.toggle('filter-hidden', !ok);
+      if (ok) visible++;
+    });
+    countEl.textContent = visible;
+    noResults.classList.toggle('hidden', visible > 0);
+    renderActiveTags();
+    var dirty = state.lang !== 'all' || state.tag !== 'all';
+    clearBtn.style.display = dirty ? '' : 'none';
+  }
+
+  function renderActiveTags() {
+    var tags = [];
+    if (state.lang !== 'all') tags.push({ label: state.lang, key: 'lang' });
+    if (state.tag  !== 'all') tags.push({ label: state.tag,  key: 'tag' });
+    if (!tags.length) { activeFiltersEl.innerHTML = ''; return; }
+    activeFiltersEl.innerHTML = tags.map(function(t) {
+      return '<button class="active-filter-tag" data-key="' + t.key + '">' + t.label + ' ×</button>';
+    }).join('');
+    activeFiltersEl.querySelectorAll('.active-filter-tag').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state[btn.dataset.key] = 'all';
+        syncButtons(btn.dataset.key);
+        filter();
+      });
+    });
+  }
+
+  function wireGroup(containerId, stateKey) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        container.querySelectorAll('.sf').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state[stateKey] = btn.dataset[stateKey];
+        filter();
+      });
+    });
+  }
+
+  function syncButtons(key) {
+    var map = { lang: 'filter-lang', tag: 'filter-tag' };
+    var container = document.getElementById(map[key]);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.classList.toggle('active', (btn.dataset[key] || 'all') === state[key]);
+    });
+  }
+
+  wireGroup('filter-lang', 'lang');
+  wireGroup('filter-tag',  'tag');
+
+  searchEl.addEventListener('input', function() { state.query = searchEl.value.toLowerCase().trim(); filter(); });
+
+  clearBtn.addEventListener('click', function() {
+    state = { query: state.query, lang: 'all', tag: 'all' };
+    ['lang', 'tag'].forEach(syncButtons);
+    filter();
+  });
+
+  filterBtn.addEventListener('click', function() {
+    var open = sidebar.classList.toggle('is-open');
+    filterBtn.setAttribute('aria-expanded', open);
+  });
+
+  clearBtn.style.display = 'none';
+})();
+</script>
+{{ end }}

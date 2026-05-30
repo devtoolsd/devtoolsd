@@ -1,0 +1,29 @@
+name: Flutter Stack
+slug: flutter
+description: Cross-platform mobile and web apps with Flutter, Dart, and Firebase or a custom backend API.
+long_description: |
+  Flutter is Google's UI toolkit for building natively compiled apps for mobile (iOS, Android), web, and desktop from a single Dart codebase.
+
+  The standard Flutter stack:
+  - **Flutter** — UI framework and rendering engine
+  - **Dart** — the programming language
+  - **Firebase** — for auth, Firestore database, and hosting (serverless backend)
+  - **Riverpod** or **BLoC** — state management
+  - **REST/GraphQL API** — when you need a custom backend
+
+  Flutter's hot reload and consistent design across platforms make it fast to iterate on.
+color: "#02569B"
+tools:
+  - flutter
+  - firebase
+  - dart
+related_stacks:
+  - react-native
+language: dart
+
+tags:
+  - dart
+  - mobile
+  - cross-platform
+  - ios
+  - android

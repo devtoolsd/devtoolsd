@@ -1,0 +1,228 @@
+{{ define "main" }}
+{{ $frameworks := where .Site.RegularPages "Section" "frameworks" }}
+{{ $frameworks  = sort $frameworks "Params.name" "asc" }}
+
+{{/* Collect unique filter values */}}
+{{ $allLangs  := slice }}
+{{ $allTypes  := slice }}
+{{ range $frameworks }}
+  {{ with .Params.language  }}{{ $allLangs  = $allLangs  | append . }}{{ end }}
+  {{ with .Params.tool_type }}{{ $allTypes  = $allTypes  | append . }}{{ end }}
+{{ end }}
+{{ $allLangs  = $allLangs  | uniq | sort }}
+{{ $allTypes  = $allTypes  | uniq | sort }}
+
+{{/* Language counts */}}
+{{ $langCounts := dict }}
+{{ range $frameworks }}
+  {{ with .Params.language }}
+    {{ $langCounts = merge $langCounts (dict . (add (index $langCounts . | default 0) 1)) }}
+  {{ end }}
+{{ end }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Frameworks</span>
+  </div>
+</div>
+
+<div class="tools-page">
+
+  <!-- Sidebar -->
+  <aside class="tools-sidebar" id="tools-sidebar">
+    <div class="tools-sidebar__head">
+      <span class="tools-sidebar__title"><span class="sidebar-prompt">$</span> filters</span>
+      <button class="sidebar-clear" id="clear-filters">clear</button>
+    </div>
+
+    {{ if $allLangs }}
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// language</div>
+      <div class="sidebar-items" id="filter-lang">
+        <button class="sf active" data-lang="all">all<span class="sf-count">{{ len $frameworks }}</span></button>
+        {{ range $allLangs }}
+        {{ $lp := $.Site.GetPage (printf "/languages/%s/" .) }}
+        <button class="sf" data-lang="{{ . }}">{{ if $lp }}{{ $lp.Params.name | lower }}{{ else }}{{ . }}{{ end }}<span class="sf-count">{{ index $langCounts . | default 0 }}</span></button>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ if $allTypes }}
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// type</div>
+      <div class="sidebar-items" id="filter-type">
+        <button class="sf active" data-type="all">all</button>
+        {{ range $allTypes }}
+        <button class="sf" data-type="{{ . }}">{{ . }}</button>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// pricing</div>
+      <div class="sidebar-items" id="filter-pricing">
+        <button class="sf active" data-pricing="all">all</button>
+        <button class="sf" data-pricing="free">free</button>
+        <button class="sf" data-pricing="freemium">freemium</button>
+        <button class="sf" data-pricing="paid">paid</button>
+      </div>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// license</div>
+      <div class="sidebar-items" id="filter-oss">
+        <button class="sf active" data-oss="all">all</button>
+        <button class="sf" data-oss="true">open source</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="tools-main">
+
+    <div class="tools-topbar">
+      <div class="tools-search-wrap">
+        <span class="tools-search-slash">/</span>
+        <input
+          type="text"
+          id="fw-search"
+          class="tools-search-input"
+          placeholder="filter frameworks..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+      <span class="tools-count"><span id="fw-count">{{ len $frameworks }}</span> results</span>
+      <button class="tools-filter-btn" id="filter-toggle" aria-expanded="false">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        filters
+      </button>
+    </div>
+
+    <div class="active-filters" id="active-filters"></div>
+
+    <div class="fw-grid" id="fw-grid">
+      {{ range $frameworks }}
+      {{ $p := .Params }}
+      <div class="fw-item"
+        data-name="{{ $p.name | lower }}"
+        data-desc="{{ $p.description | lower }}"
+        data-lang="{{ $p.language | lower }}"
+        data-type="{{ $p.tool_type | lower }}"
+        data-pricing="{{ $p.pricing | lower }}"
+        data-open="{{ $p.open_source }}"
+        data-tags="{{ range $p.tags }}{{ . }} {{ end }}">
+        {{ partial "framework-card.html" (merge $p (dict "Site" $.Site)) }}
+      </div>
+      {{ end }}
+    </div>
+
+    <div id="no-results" class="tools-empty hidden">
+      <span class="tools-empty__icon">∅</span>
+      <span>no frameworks match your filters</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl  = document.getElementById('fw-search');
+  var countEl   = document.getElementById('fw-count');
+  var noResults = document.getElementById('no-results');
+  var clearBtn  = document.getElementById('clear-filters');
+  var filterBtn = document.getElementById('filter-toggle');
+  var sidebar   = document.getElementById('tools-sidebar');
+  var activeFiltersEl = document.getElementById('active-filters');
+  var items     = document.querySelectorAll('.fw-item');
+
+  var state = { query: '', lang: 'all', type: 'all', pricing: 'all', oss: 'all' };
+
+  function filter() {
+    var q = state.query;
+    var visible = 0;
+    items.forEach(function(el) {
+      var d = el.dataset;
+      var ok =
+        (!q || (d.name||'').includes(q) || (d.desc||'').includes(q) || (d.tags||'').includes(q)) &&
+        (state.lang    === 'all' || (d.lang||'')    === state.lang) &&
+        (state.type    === 'all' || (d.type||'')    === state.type) &&
+        (state.pricing === 'all' || (d.pricing||'') === state.pricing) &&
+        (state.oss     === 'all' || (d.open||'')    === state.oss);
+      el.classList.toggle('filter-hidden', !ok);
+      if (ok) visible++;
+    });
+    countEl.textContent = visible;
+    noResults.classList.toggle('hidden', visible > 0);
+    renderActiveTags();
+    var dirty = state.lang !== 'all' || state.type !== 'all' || state.pricing !== 'all' || state.oss !== 'all';
+    clearBtn.style.display = dirty ? '' : 'none';
+  }
+
+  function renderActiveTags() {
+    var tags = [];
+    if (state.lang    !== 'all') tags.push({ label: state.lang,    key: 'lang' });
+    if (state.type    !== 'all') tags.push({ label: state.type,    key: 'type' });
+    if (state.pricing !== 'all') tags.push({ label: state.pricing, key: 'pricing' });
+    if (state.oss     !== 'all') tags.push({ label: 'open source', key: 'oss' });
+    if (!tags.length) { activeFiltersEl.innerHTML = ''; return; }
+    activeFiltersEl.innerHTML = tags.map(function(t) {
+      return '<button class="active-filter-tag" data-key="' + t.key + '">' + t.label + ' ×</button>';
+    }).join('');
+    activeFiltersEl.querySelectorAll('.active-filter-tag').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state[btn.dataset.key] = 'all';
+        syncButtons(btn.dataset.key);
+        filter();
+      });
+    });
+  }
+
+  function wireGroup(containerId, stateKey) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        container.querySelectorAll('.sf').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state[stateKey] = btn.dataset[stateKey];
+        filter();
+      });
+    });
+  }
+
+  function syncButtons(key) {
+    var map = { lang: 'filter-lang', type: 'filter-type', pricing: 'filter-pricing', oss: 'filter-oss' };
+    var container = document.getElementById(map[key]);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.classList.toggle('active', (btn.dataset[key] || 'all') === state[key]);
+    });
+  }
+
+  wireGroup('filter-lang',    'lang');
+  wireGroup('filter-type',    'type');
+  wireGroup('filter-pricing', 'pricing');
+  wireGroup('filter-oss',     'oss');
+
+  searchEl.addEventListener('input', function() { state.query = searchEl.value.toLowerCase().trim(); filter(); });
+
+  clearBtn.addEventListener('click', function() {
+    state = { query: state.query, lang: 'all', type: 'all', pricing: 'all', oss: 'all' };
+    ['lang', 'type', 'pricing', 'oss'].forEach(syncButtons);
+    filter();
+  });
+
+  filterBtn.addEventListener('click', function() {
+    var open = sidebar.classList.toggle('is-open');
+    filterBtn.setAttribute('aria-expanded', open);
+  });
+
+  clearBtn.style.display = 'none';
+})();
+</script>
+{{ end }}

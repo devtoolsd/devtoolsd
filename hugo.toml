@@ -1,0 +1,56 @@
+baseURL = "https://devtools.directory/"
+locale = "en-US"
+title = "devtools/"
+enableRobotsTXT = true
+enableGitInfo = false
+paginate = 12
+
+[params]
+  description = "A curated, open-source directory of developer tools, books, courses, and resources."
+  githubRepo = "https://github.com/devtoolsd/awesome-devtools"
+  author = "devtools.directory contributors"
+  twitterCard = "summary_large_image"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON", "LLMSTxt", "LLMSFullTxt"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[mediaTypes]
+  [mediaTypes."application/json"]
+    suffixes = ["json"]
+  [mediaTypes."text/plain"]
+    suffixes = ["txt"]
+
+[outputFormats]
+  [outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "index"
+    isPlainText = true
+    notAlternative = true
+  [outputFormats.LLMSTxt]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
+  [outputFormats.LLMSFullTxt]
+    mediaType = "text/plain"
+    baseName = "llms-full"
+    isPlainText = true
+    notAlternative = true
+
+[markup]
+  [markup.highlight]
+    style = "onedark"
+    lineNos = false
+    noClasses = true
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[minify]
+  minifyOutput = false

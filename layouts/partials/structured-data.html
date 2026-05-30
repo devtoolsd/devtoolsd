@@ -1,0 +1,118 @@
+{{/* JSON-LD structured data — included in <head> */}}
+
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "{{ .Site.Params.description }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ .Site.BaseURL }}tools/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{ else if eq .Section "tools" }}
+{{ with .Params }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ .name }}",
+  "description": "{{ .description }}",
+  "url": "{{ $.Permalink }}",
+  {{ with .website }}"sameAs": "{{ . }}",{{ end }}
+  {{ with .logo }}"image": "{{ . }}",{{ end }}
+  "applicationCategory": "DeveloperApplication",
+  {{ if eq .pricing "free" }}"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },{{ end }}
+  {{ if .open_source }}"license": "{{ with .license }}{{ . }}{{ else }}Open Source{{ end }}",{{ end }}
+  "operatingSystem": "Cross-platform"
+}
+</script>
+{{ end }}
+{{ else if eq .Section "books" }}
+{{ with .Params }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "{{ .name }}",
+  "description": "{{ .description }}",
+  "url": "{{ $.Permalink }}",
+  {{ with .author }}"author": { "@type": "Person", "name": "{{ . }}" },{{ end }}
+  {{ with .logo }}"image": "{{ . }}",{{ end }}
+  {{ with .year }}"datePublished": "{{ . }}",{{ end }}
+  {{ with .isbn }}"isbn": "{{ . }}",{{ end }}
+  "inLanguage": "en"
+}
+</script>
+{{ end }}
+{{ else if eq .Section "courses" }}
+{{ with .Params }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "{{ .name }}",
+  "description": "{{ .description }}",
+  "url": "{{ $.Permalink }}",
+  {{ with .provider }}"provider": { "@type": "Organization", "name": "{{ . }}" },{{ end }}
+  {{ with .logo }}"image": "{{ . }}",{{ end }}
+  "inLanguage": "en"
+}
+</script>
+{{ end }}
+{{ else if eq .Section "blog" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ or .Title .Params.name }}",
+  "description": "{{ or .Description .Params.description }}",
+  "url": "{{ .Permalink }}",
+  {{ with .Date }}"datePublished": "{{ .Format "2006-01-02" }}",{{ end }}
+  {{ with .Lastmod }}"dateModified": "{{ .Format "2006-01-02" }}",{{ end }}
+  "author": { "@type": "Organization", "name": "{{ .Site.Title }}" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}"
+  }
+}
+</script>
+{{ end }}
+
+{{ if not .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ .Site.BaseURL }}"
+    }{{ if .Section }},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Section | title }}",
+      "item": "{{ .Site.BaseURL }}{{ .Section }}/"
+    }{{ if .IsPage }},
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ or .Title .Params.name }}",
+      "item": "{{ .Permalink }}"
+    }{{ end }}{{ end }}
+  ]
+}
+</script>
+{{ end }}

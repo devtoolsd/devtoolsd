@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class="container container--narrow">
+  <div style="padding-top:2rem">
+    <div class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <a href="{{ "/blog/" | relURL }}">Blog</a>
+      <span class="breadcrumb__sep">/</span>
+      <span class="breadcrumb__current">{{ .Title }}</span>
+    </div>
+
+    <article>
+      <header style="margin-bottom:2.5rem">
+        <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--comment);margin-bottom:0.75rem">
+          {{ .Date.Format "January 02, 2006" }}
+          {{ with .Params.author }} · {{ . }}{{ end }}
+        </div>
+        <h1 style="font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem">{{ .Title }}</h1>
+        {{ if .Params.tags }}
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap">
+          {{ range .Params.tags }}
+          <span class="badge badge-tag">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+      </header>
+
+      <div class="prose">
+        {{ .Content }}
+      </div>
+
+      <div class="star-banner" style="margin-top:3rem">
+        <div class="star-banner__text">
+          <strong>This blog is open source.</strong> Submit a post via a GitHub PR.
+        </div>
+        <a href="{{ .Site.Params.githubRepo }}" class="btn btn-github btn-sm" target="_blank" rel="noopener">★ Star on GitHub</a>
+      </div>
+    </article>
+  </div>
+</div>
+{{ end }}

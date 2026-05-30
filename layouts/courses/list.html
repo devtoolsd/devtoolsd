@@ -1,0 +1,87 @@
+{{ define "main" }}
+{{ $courses := where .Site.RegularPages "Section" "courses" }}
+{{ $courses = sort $courses "Params.name" "asc" }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Courses</span>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <h1 class="section-title"><span>#</span> Developer Courses</h1>
+      <span class="text-muted text-mono" style="font-size:0.8rem">{{ len $courses }} courses</span>
+    </div>
+    <p style="color:var(--fg-muted);margin-bottom:2rem">Free and paid courses from universities, platforms, and independent educators.</p>
+
+    <div class="search-bar">
+      <svg class="search-bar__icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="course-search" placeholder="Search courses..." autocomplete="off">
+    </div>
+
+    <div class="filter-bar">
+      <span class="filter-bar__label">pricing:</span>
+      <button class="category-chip active" data-filter="all">All</button>
+      <button class="category-chip" data-filter="free">Free only</button>
+      <button class="category-chip" data-filter="paid">Paid</button>
+    </div>
+
+    <div class="grid-3" id="courses-grid">
+      {{ range $courses }}
+      {{ $p := .Params }}
+      <div class="course-item"
+        data-name="{{ $p.name | lower }}"
+        data-desc="{{ $p.description | lower }}"
+        data-provider="{{ $p.provider | lower }}"
+        data-tags="{{ range $p.tags }}{{ . }} {{ end }}"
+        data-free="{{ $p.free }}">
+        <a href="{{ .RelPermalink }}" class="card" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
+          <div class="resource-card__type">Course{{ with $p.provider }} · {{ . }}{{ end }}</div>
+          <div class="resource-card__title">{{ $p.name }}</div>
+          {{ with $p.author }}<div class="resource-card__author">{{ . }}</div>{{ end }}
+          <div class="resource-card__desc">{{ $p.description | truncate 120 }}</div>
+          <div style="margin-top:auto;padding-top:0.75rem;display:flex;gap:0.4rem;flex-wrap:wrap">
+            {{ if $p.free }}<span class="badge badge-free">Free</span>{{ else }}<span class="badge badge-paid">Paid</span>{{ end }}
+            {{ range first 3 $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+          </div>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+
+    <div id="no-results" class="hidden text-center" style="padding:3rem 0;color:var(--comment)">
+      No courses match. <a href="{{ .Site.Params.githubRepo }}/new/main/content/courses" target="_blank">Add one via PR?</a>
+    </div>
+
+    <div class="star-banner" style="margin-top:2.5rem">
+      <div class="star-banner__text"><strong>Know a great course?</strong> Add it via a PR.</div>
+      <a href="{{ "/contribute/" | relURL }}" class="btn btn-primary btn-sm">Contribute a course</a>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  const search = document.getElementById('course-search');
+  const filterBtns = document.querySelectorAll('[data-filter]');
+  const items = document.querySelectorAll('.course-item');
+  const noResults = document.getElementById('no-results');
+  let activeFilter = 'all', query = '';
+
+  function filter() {
+    let visible = 0;
+    items.forEach(el => {
+      const matchSearch = !query || (el.dataset.name||'').includes(query) || (el.dataset.desc||'').includes(query) || (el.dataset.provider||'').includes(query) || (el.dataset.tags||'').includes(query);
+      const isFree = el.dataset.free === 'true';
+      const matchFilter = activeFilter === 'all' || (activeFilter === 'free' && isFree) || (activeFilter === 'paid' && !isFree);
+      el.classList.toggle('filter-hidden', !(matchSearch && matchFilter));
+      if (matchSearch && matchFilter) visible++;
+    });
+    noResults.classList.toggle('hidden', visible > 0);
+  }
+
+  search.addEventListener('input', e => { query = e.target.value.toLowerCase(); filter(); });
+  filterBtns.forEach(btn => { btn.addEventListener('click', () => { filterBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); activeFilter = btn.dataset.filter; filter(); }); });
+})();
+</script>
+{{ end }}
