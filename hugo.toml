@@ -7,11 +7,11 @@ paginate = 12
 
 [params]
   description = "A curated, open-source directory of developer tools, books, courses, and resources."
-  githubRepo = "https://github.com/devtoolsd/awesome-devtools"
+  githubRepo = "https://github.com/devtoolsd/devtoolsd"
   author = "devtools.directory contributors"
   twitterCard = "summary_large_image"
 
-[taxonomies]
+[taxonomies]ßß
   category = "categories"
   tag = "tags"
 
