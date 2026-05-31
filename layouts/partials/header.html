@@ -1,4 +1,4 @@
-{{ $inEco   := in (slice "frameworks" "stacks" "paths") .Section }}
+{{ $inEco   := in (slice "frameworks" "libraries") .Section }}
 {{ $inLearn := in (slice "books" "courses" "resources" "newsletters") .Section }}
 
 <header class="site-header">
@@ -20,7 +20,9 @@
     <nav class="site-nav" id="site-nav">
       <a href="{{ "/tools/" | relURL }}"{{ if eq .Section "tools" }} class="active"{{ end }}>tools/</a>
       <a href="{{ "/languages/" | relURL }}"{{ if eq .Section "languages" }} class="active"{{ end }}>languages/</a>
-      <a href="{{ "/frameworks/" | relURL }}" class="nav-group-trigger{{ if $inEco }} active{{ end }}">ecosystem</a>
+      <a href="{{ "/libraries/" | relURL }}" class="nav-group-trigger{{ if $inEco }} active{{ end }}">libraries</a>
+      <a href="{{ "/stacks/" | relURL }}"{{ if eq .Section "stacks" }} class="active"{{ end }}>stacks/</a>
+      <a href="{{ "/paths/" | relURL }}"{{ if eq .Section "paths" }} class="active"{{ end }}>paths/</a>
       <a href="{{ "/books/" | relURL }}" class="nav-group-trigger{{ if $inLearn }} active{{ end }}">learn</a>
       <a href="{{ "/contribute/" | relURL }}"{{ if eq .RelPermalink "/contribute/" }} class="active"{{ end }}>contribute</a>
     </nav>
@@ -51,10 +53,9 @@
   {{ if $inEco }}
   <div class="sub-nav">
     <div class="sub-nav__inner">
-      <span class="sub-nav__group">ecosystem/</span>
+      <span class="sub-nav__group">libraries/</span>
+      <a href="{{ "/libraries/" | relURL }}"{{ if eq .Section "libraries" }} class="active"{{ end }}>libraries/</a>
       <a href="{{ "/frameworks/" | relURL }}"{{ if eq .Section "frameworks" }} class="active"{{ end }}>frameworks/</a>
-      <a href="{{ "/stacks/" | relURL }}"{{ if eq .Section "stacks" }} class="active"{{ end }}>stacks/</a>
-      <a href="{{ "/paths/" | relURL }}"{{ if eq .Section "paths" }} class="active"{{ end }}>paths/</a>
     </div>
   </div>
   {{ end }}

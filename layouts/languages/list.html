@@ -108,6 +108,8 @@
       {{ end }}
     </div>
 
+    <div id="langs-paginator" class="paginator"></div>
+
     <div id="no-results" class="tools-empty hidden">
       <span class="tools-empty__icon">∅</span>
       <span>no languages match your filters</span>
@@ -127,9 +129,11 @@
   var activeFiltersEl = document.getElementById('active-filters');
   var items     = document.querySelectorAll('.lang-item');
 
-  var state = { query: '', typing: 'all', compilation: 'all', paradigm: 'all' };
+  var PAGE_SIZE = 24;
+  var state = { query: '', typing: 'all', compilation: 'all', paradigm: 'all', page: 1 };
 
   function filter() {
+    state.page = 1;
     var q = state.query;
     var visible = 0;
     items.forEach(function(el) {
@@ -147,6 +151,55 @@
     renderActiveTags();
     var dirty = state.typing !== 'all' || state.compilation !== 'all' || state.paradigm !== 'all';
     clearBtn.style.display = dirty ? '' : 'none';
+    paginate();
+  }
+
+  function paginate() {
+    var visible = Array.from(items).filter(function(el) {
+      return !el.classList.contains('filter-hidden');
+    });
+    var totalPages = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
+    if (state.page > totalPages) state.page = totalPages;
+    var start = (state.page - 1) * PAGE_SIZE;
+    var end   = start + PAGE_SIZE;
+    items.forEach(function(el) { el.classList.add('page-hidden'); });
+    visible.forEach(function(el, i) {
+      if (i >= start && i < end) el.classList.remove('page-hidden');
+    });
+    renderPaginator(totalPages);
+  }
+
+  function renderPaginator(totalPages) {
+    var el = document.getElementById('langs-paginator');
+    if (totalPages <= 1) { el.innerHTML = ''; return; }
+    var pages = buildPageRange(state.page, totalPages);
+    var html = '<button class="page-btn"' + (state.page === 1 ? ' disabled' : '') + ' data-page="prev">←</button>';
+    pages.forEach(function(p) {
+      if (p === '…') html += '<span class="page-ellipsis">…</span>';
+      else html += '<button class="page-btn' + (p === state.page ? ' active' : '') + '" data-page="' + p + '">' + p + '</button>';
+    });
+    html += '<button class="page-btn"' + (state.page === totalPages ? ' disabled' : '') + ' data-page="next">→</button>';
+    el.innerHTML = html;
+    el.querySelectorAll('.page-btn:not([disabled])').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var p = btn.dataset.page;
+        if (p === 'prev') state.page--;
+        else if (p === 'next') state.page++;
+        else state.page = parseInt(p, 10);
+        paginate();
+        document.getElementById('langs-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  function buildPageRange(cur, total) {
+    if (total <= 7) return Array.from({ length: total }, function(_, i) { return i + 1; });
+    var pages = [1];
+    if (cur > 3) pages.push('…');
+    for (var i = Math.max(2, cur - 1); i <= Math.min(total - 1, cur + 1); i++) pages.push(i);
+    if (cur < total - 2) pages.push('…');
+    pages.push(total);
+    return pages;
   }
 
   function renderActiveTags() {
@@ -196,7 +249,7 @@
   searchEl.addEventListener('input', function() { state.query = searchEl.value.toLowerCase().trim(); filter(); });
 
   clearBtn.addEventListener('click', function() {
-    state = { query: state.query, typing: 'all', compilation: 'all', paradigm: 'all' };
+    state = { query: state.query, typing: 'all', compilation: 'all', paradigm: 'all', page: 1 };
     ['typing', 'compilation', 'paradigm'].forEach(syncButtons);
     filter();
   });
@@ -207,6 +260,7 @@
   });
 
   clearBtn.style.display = 'none';
+  paginate();
 })();
 </script>
 {{ end }}

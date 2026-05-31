@@ -1,6 +1,7 @@
 {{ $tools       := where .Site.RegularPages "Section" "tools" }}
 {{ $languages   := where .Site.RegularPages "Section" "languages" }}
 {{ $frameworks  := where .Site.RegularPages "Section" "frameworks" }}
+{{ $libraries   := where .Site.RegularPages "Section" "libraries" }}
 {{ $paths       := where .Site.RegularPages "Section" "paths" }}
 {{ $books       := where .Site.RegularPages "Section" "books" }}
 {{ $courses     := where .Site.RegularPages "Section" "courses" }}
@@ -37,6 +38,7 @@
         <a href="{{ "/tools/" | relURL }}"      class="footer-tree__item">├── tools/      <span class="tree-count">{{ len $tools }}</span></a>
         <a href="{{ "/languages/" | relURL }}"  class="footer-tree__item">├── languages/  <span class="tree-count">{{ len $languages }}</span></a>
         <a href="{{ "/frameworks/" | relURL }}" class="footer-tree__item">├── frameworks/ <span class="tree-count">{{ len $frameworks }}</span></a>
+        <a href="{{ "/libraries/" | relURL }}"  class="footer-tree__item">├── libraries/  <span class="tree-count">{{ len $libraries }}</span></a>
         <a href="{{ "/stacks/" | relURL }}"     class="footer-tree__item">├── stacks/     <span class="tree-count">{{ len $stacks }}</span></a>
         <a href="{{ "/paths/" | relURL }}"      class="footer-tree__item">├── paths/      <span class="tree-count">{{ len $paths }}</span></a>
         <a href="{{ "/books/" | relURL }}"      class="footer-tree__item">├── books/      <span class="tree-count">{{ len $books }}</span></a>

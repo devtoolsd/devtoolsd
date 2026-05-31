@@ -1549,6 +1549,15 @@ a.stack-sidebar-tool__name:hover { opacity: 0.75; }
 .tools-empty__icon { font-size: 1.5rem; }
 .tools-empty a { color: var(--accent); }
 
+/* ── Paginator ── */
+.page-hidden { display: none !important; }
+.paginator { display: flex; gap: 0.25rem; align-items: center; justify-content: center; padding: 1.5rem 0 0.5rem; flex-wrap: wrap; }
+.page-btn { font-family: var(--font-mono); font-size: 0.75rem; min-width: 2rem; padding: 0.3rem 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--fg-muted); cursor: pointer; transition: border-color 0.15s, color 0.15s; line-height: 1; }
+.page-btn:hover:not([disabled]) { border-color: var(--accent); color: var(--fg); }
+.page-btn.active { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.page-btn[disabled] { opacity: 0.3; cursor: default; }
+.page-ellipsis { font-family: var(--font-mono); font-size: 0.75rem; color: var(--comment); padding: 0 0.25rem; align-self: center; }
+
 /* ── Home: section directory ── */
 .home-hero__dir { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .home-dir-label { font-family: var(--font-mono); font-size: 0.72rem; color: var(--comment); margin-bottom: 0.5rem; letter-spacing: 0.04em; }
