@@ -18,6 +18,14 @@
   {{ end }}
 {{ end }}
 
+{{ $libs     := where .Site.RegularPages "Section" "libraries" }}
+{{ $langLibs := slice }}
+{{ range $libs }}
+  {{ if eq .Params.language $slug }}
+    {{ $langLibs = $langLibs | append . }}
+  {{ end }}
+{{ end }}
+
 {{ $books   := where .Site.RegularPages "Section" "books" }}
 {{ $langBooks := slice }}
 {{ range $books }}
@@ -108,6 +116,16 @@
       </div>
       {{ end }}
 
+      <!-- Libraries -->
+      {{ if $langLibs }}
+      <h2>// libraries</h2>
+      <div class="fw-grid">
+        {{ range $langLibs }}
+        {{ partial "library-card.html" (merge .Params (dict "Site" $.Site)) }}
+        {{ end }}
+      </div>
+      {{ end }}
+
       <!-- Tools -->
       {{ if $langTools }}
       <h2>// tools</h2>
@@ -191,6 +209,7 @@
       <div class="sidebar-card">
         <div class="sidebar-card__title">// stats</div>
         {{ if $langFW }}<div class="meta-row"><span class="meta-row__label">Frameworks</span><span class="meta-row__value" style="color:var(--cyan)">{{ len $langFW }}</span></div>{{ end }}
+        {{ if $langLibs }}<div class="meta-row"><span class="meta-row__label">Libraries</span><span class="meta-row__value" style="color:#a78bfa">{{ len $langLibs }}</span></div>{{ end }}
         {{ if $langTools }}<div class="meta-row"><span class="meta-row__label">Tools</span><span class="meta-row__value" style="color:var(--accent)">{{ len $langTools }}</span></div>{{ end }}
         {{ if $langBooks }}<div class="meta-row"><span class="meta-row__label">Books</span><span class="meta-row__value" style="color:var(--yellow)">{{ len $langBooks }}</span></div>{{ end }}
         {{ if $langCourses }}<div class="meta-row"><span class="meta-row__label">Courses</span><span class="meta-row__value" style="color:var(--green)">{{ len $langCourses }}</span></div>{{ end }}

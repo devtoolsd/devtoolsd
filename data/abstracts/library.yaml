@@ -1,0 +1,53 @@
+name: Library
+slug: library
+extends: base
+kind: data
+description: A reusable package or library for a specific programming language.
+fields:
+  - name: language
+    type: ref
+    target: language
+    required: true
+  - name: website
+    type: string
+    format: url
+    required: false
+  - name: github
+    type: string
+    required: false
+  - name: year
+    type: number
+    required: false
+  - name: pricing
+    type: enum
+    values: [free, freemium, paid]
+    required: false
+  - name: open_source
+    type: boolean
+    required: false
+  - name: license
+    type: string
+    required: false
+  - name: library_type
+    type: enum
+    values: [utility, http, validation, serialization, async, cli, state, testing, logging, crypto, database, other]
+    required: false
+  - name: frameworks
+    type: list-ref
+    target: framework
+    free_form: false
+    required: false
+  - name: related_libraries
+    type: list-ref
+    target: library
+    free_form: false
+    required: false
+  - name: tags
+    type: list-ref
+    target: tag
+    free_form: true
+    required: false
+  - name: logo
+    type: string
+    format: url
+    required: false

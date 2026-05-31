@@ -6,6 +6,7 @@
 {{ $languages   := where .Site.RegularPages "Section" "languages" }}
 {{ $frameworks  := where .Site.RegularPages "Section" "frameworks" }}
 {{ $paths       := where .Site.RegularPages "Section" "paths" }}
+{{ $libraries   := where .Site.RegularPages "Section" "libraries" }}
 {{ $newsletters := where .Site.RegularPages "Section" "newsletters" }}
 
 {{ $stacks := slice }}
@@ -106,6 +107,11 @@
           <span class="home-dir-row__path">frameworks/</span>
           <span class="home-dir-row__count">{{ len $frameworks }}</span>
           <span class="home-dir-row__desc">web, API, mobile, and data frameworks by language</span>
+        </a>
+        <a href="{{ "/libraries/" | relURL }}" class="home-dir-row" style="--card-accent:#a78bfa">
+          <span class="home-dir-row__path">libraries/</span>
+          <span class="home-dir-row__count">{{ len $libraries }}</span>
+          <span class="home-dir-row__desc">utility, HTTP, validation, serialization, and more</span>
         </a>
         <a href="{{ "/stacks/" | relURL }}" class="home-dir-row" style="--card-accent:var(--green)">
           <span class="home-dir-row__path">stacks/</span>

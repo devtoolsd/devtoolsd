@@ -32,6 +32,13 @@
   {{ end }}
 {{ end }}
 
+{{ $fwLibs := slice }}
+{{ range where .Site.RegularPages "Section" "libraries" }}
+  {{ if in .Params.frameworks $slug }}
+    {{ $fwLibs = $fwLibs | append . }}
+  {{ end }}
+{{ end }}
+
 {{ $relatedFW := slice }}
 {{ range $p.related_frameworks }}
   {{ $rp := $.Site.GetPage (printf "/frameworks/%s/" .) }}
@@ -89,6 +96,15 @@
       <h2>// tools</h2>
       <div class="grid-3">
         {{ range $fwTools }}{{ partial "tool-card.html" .Params }}{{ end }}
+      </div>
+      {{ end }}
+
+      {{ if $fwLibs }}
+      <h2>// commonly used libraries</h2>
+      <div class="fw-grid">
+        {{ range $fwLibs }}
+        {{ partial "library-card.html" (merge .Params (dict "Site" $.Site)) }}
+        {{ end }}
       </div>
       {{ end }}
 
@@ -165,10 +181,11 @@
       </div>
       {{ end }}
 
-      {{ if $fwTools }}
+      {{ if or $fwTools $fwLibs $fwStacks $fwBooks $fwCourses }}
       <div class="sidebar-card">
         <div class="sidebar-card__title">// stats</div>
-        <div class="meta-row"><span class="meta-row__label">Tools</span><span class="meta-row__value" style="color:var(--accent)">{{ len $fwTools }}</span></div>
+        {{ if $fwLibs }}<div class="meta-row"><span class="meta-row__label">Libraries</span><span class="meta-row__value" style="color:#a78bfa">{{ len $fwLibs }}</span></div>{{ end }}
+        {{ if $fwTools }}<div class="meta-row"><span class="meta-row__label">Tools</span><span class="meta-row__value" style="color:var(--accent)">{{ len $fwTools }}</span></div>{{ end }}
         {{ if $fwStacks }}<div class="meta-row"><span class="meta-row__label">Stacks</span><span class="meta-row__value">{{ len $fwStacks }}</span></div>{{ end }}
         {{ if $fwBooks }}<div class="meta-row"><span class="meta-row__label">Books</span><span class="meta-row__value" style="color:var(--yellow)">{{ len $fwBooks }}</span></div>{{ end }}
         {{ if $fwCourses }}<div class="meta-row"><span class="meta-row__label">Courses</span><span class="meta-row__value" style="color:var(--green)">{{ len $fwCourses }}</span></div>{{ end }}
