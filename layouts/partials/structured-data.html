@@ -4,20 +4,24 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "{{ .Site.Title }}",
-  "url": "{{ .Site.BaseURL }}",
-  "description": "{{ .Site.Params.description }}",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "{{ .Site.BaseURL }}tools/?q={search_term_string}"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "devtools/",
+      "url": "{{ .Site.BaseURL }}",
+      "description": "{{ .Site.Params.description }}"
     },
-    "query-input": "required name=search_term_string"
-  }
+    {
+      "@type": "Organization",
+      "name": "devtools/",
+      "url": "{{ .Site.BaseURL }}",
+      "description": "{{ .Site.Params.description }}",
+      "sameAs": ["{{ .Site.Params.githubRepo }}"]
+    }
+  ]
 }
 </script>
+
 {{ else if eq .Section "tools" }}
 {{ with .Params }}
 <script type="application/ld+json">
@@ -30,12 +34,73 @@
   {{ with .website }}"sameAs": "{{ . }}",{{ end }}
   {{ with .logo }}"image": "{{ . }}",{{ end }}
   "applicationCategory": "DeveloperApplication",
+  {{ with .tool_type }}"applicationSubCategory": "{{ . }}",{{ end }}
   {{ if eq .pricing "free" }}"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },{{ end }}
   {{ if .open_source }}"license": "{{ with .license }}{{ . }}{{ else }}Open Source{{ end }}",{{ end }}
   "operatingSystem": "Cross-platform"
 }
 </script>
 {{ end }}
+
+{{ else if eq .Section "frameworks" }}
+{{ with .Params }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ .name }}",
+  "description": "{{ .description }}",
+  "url": "{{ $.Permalink }}",
+  {{ with .website }}"sameAs": "{{ . }}",{{ end }}
+  {{ with .logo }}"image": "{{ . }}",{{ end }}
+  "applicationCategory": "DeveloperApplication",
+  "applicationSubCategory": "Framework",
+  {{ if eq .pricing "free" }}"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },{{ end }}
+  {{ if .open_source }}"license": "{{ with .license }}{{ . }}{{ else }}Open Source{{ end }}",{{ end }}
+  "operatingSystem": "Cross-platform"
+}
+</script>
+{{ end }}
+
+{{ else if eq .Section "libraries" }}
+{{ with .Params }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "{{ .name }}",
+  "description": "{{ .description }}",
+  "url": "{{ $.Permalink }}",
+  {{ with .website }}"sameAs": "{{ . }}",{{ end }}
+  {{ with .logo }}"image": "{{ . }}",{{ end }}
+  "applicationCategory": "DeveloperApplication",
+  "applicationSubCategory": "Library",
+  {{ if eq .pricing "free" }}"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },{{ end }}
+  {{ if .open_source }}"license": "{{ with .license }}{{ . }}{{ else }}Open Source{{ end }}",{{ end }}
+  "operatingSystem": "Cross-platform"
+}
+</script>
+{{ end }}
+
+{{ else if eq .Section "languages" }}
+{{ with .Params }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "name": "{{ .name }}",
+  "headline": "{{ .name }} — Programming Language",
+  "description": "{{ .description }}",
+  "url": "{{ $.Permalink }}",
+  {{ with .logo }}"image": "{{ . }}",{{ end }}
+  {{ with .website }}"sameAs": "{{ . }}",{{ end }}
+  "inLanguage": "en",
+  "about": { "@type": "Thing", "name": "{{ .name }}", "description": "{{ .description }}" },
+  "publisher": { "@type": "Organization", "name": "devtools/", "url": "{{ $.Site.BaseURL }}" }
+}
+</script>
+{{ end }}
+
 {{ else if eq .Section "books" }}
 {{ with .Params }}
 <script type="application/ld+json">
@@ -53,6 +118,7 @@
 }
 </script>
 {{ end }}
+
 {{ else if eq .Section "courses" }}
 {{ with .Params }}
 <script type="application/ld+json">
@@ -68,6 +134,39 @@
 }
 </script>
 {{ end }}
+
+{{ else if eq .Section "newsletters" }}
+{{ with .Params }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Periodical",
+  "name": "{{ .name }}",
+  "description": "{{ .description }}",
+  "url": "{{ $.Permalink }}",
+  {{ with .website }}"sameAs": "{{ . }}",{{ end }}
+  {{ with .logo }}"image": "{{ . }}",{{ end }}
+  {{ with .author }}"author": { "@type": "Person", "name": "{{ . }}" },{{ end }}
+  "inLanguage": "en"
+}
+</script>
+{{ end }}
+
+{{ else if eq .Section "resources" }}
+{{ with .Params }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ .name }}",
+  "description": "{{ .description }}",
+  "url": "{{ $.Permalink }}",
+  {{ with .website }}"sameAs": "{{ . }}",{{ end }}
+  "inLanguage": "en"
+}
+</script>
+{{ end }}
+
 {{ else if eq .Section "blog" }}
 <script type="application/ld+json">
 {
@@ -78,12 +177,20 @@
   "url": "{{ .Permalink }}",
   {{ with .Date }}"datePublished": "{{ .Format "2006-01-02" }}",{{ end }}
   {{ with .Lastmod }}"dateModified": "{{ .Format "2006-01-02" }}",{{ end }}
-  "author": { "@type": "Organization", "name": "{{ .Site.Title }}" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{ .Site.Title }}",
-    "url": "{{ .Site.BaseURL }}"
-  }
+  "author": { "@type": "Organization", "name": "devtools/", "url": "{{ .Site.BaseURL }}" },
+  "publisher": { "@type": "Organization", "name": "devtools/", "url": "{{ .Site.BaseURL }}" }
+}
+</script>
+
+{{ else if not .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ or .Title (.Section | title) }} — devtools/",
+  "description": "{{ or .Description .Params.description .Site.Params.description }}",
+  "url": "{{ .Permalink }}",
+  "isPartOf": { "@type": "WebSite", "name": "devtools/", "url": "{{ .Site.BaseURL }}" }
 }
 </script>
 {{ end }}

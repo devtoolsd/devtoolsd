@@ -1,31 +1,68 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{{ $pageTitle := or .Title .Params.name .Params.title }}
-{{ $desc := or .Description .Params.description .Site.Params.description }}
-{{ $ogImage := or .Params.logo (printf "%simg/og-default.png" .Site.BaseURL) }}
-{{ $ogType := "website" }}
-{{ if eq .Section "blog" }}{{ $ogType = "article" }}{{ else if .IsPage }}{{ $ogType = "website" }}{{ end }}
+<meta name="robots" content="index, follow">
 
-<title>{{ if .IsHome }}devtools/ — Wikipedia for developer tools{{ else }}{{ $pageTitle }} — devtools/{{ end }}</title>
+{{ $name    := or .Params.name .Params.title .Title }}
+{{ $desc    := or .Description .Params.description .Site.Params.description }}
+{{ $ogImage := or .Params.logo (printf "%simg/og-default.png" .Site.BaseURL) }}
+
+{{/* Contextual title suffix for item pages */}}
+{{ $sectionLabel := "" }}
+{{ if eq .Section "tools"       }}{{ $sectionLabel = "Developer Tool" }}
+{{ else if eq .Section "frameworks"  }}{{ $sectionLabel = "Framework" }}
+{{ else if eq .Section "libraries"   }}{{ $sectionLabel = "Library" }}
+{{ else if eq .Section "languages"   }}{{ $sectionLabel = "Programming Language" }}
+{{ else if eq .Section "books"       }}{{ $sectionLabel = "Book" }}
+{{ else if eq .Section "courses"     }}{{ $sectionLabel = "Course" }}
+{{ else if eq .Section "newsletters" }}{{ $sectionLabel = "Newsletter" }}
+{{ else if eq .Section "resources"   }}{{ $sectionLabel = "Resource" }}
+{{ else if eq .Section "stacks"      }}{{ $sectionLabel = "Tech Stack" }}
+{{ else if eq .Section "paths"       }}{{ $sectionLabel = "Learning Path" }}
+{{ end }}
+
+{{ $pageTitle := "" }}
+{{ if .IsHome }}
+  {{ $pageTitle = "devtools/ — The open wiki for everything developers use" }}
+{{ else if and .IsPage $sectionLabel }}
+  {{ $pageTitle = printf "%s — %s — devtools/" $name $sectionLabel }}
+{{ else if $name }}
+  {{ $pageTitle = printf "%s — devtools/" $name }}
+{{ else }}
+  {{ $pageTitle = "devtools/" }}
+{{ end }}
+
+<title>{{ $pageTitle }}</title>
 <meta name="description" content="{{ $desc }}">
 {{ with .Params.canonical }}<link rel="canonical" href="{{ . }}">{{ else }}<link rel="canonical" href="{{ .Permalink }}">{{ end }}
+<meta name="author" content="{{ .Site.Params.author }}">
 
 <!-- Open Graph -->
-<meta property="og:title" content="{{ if .IsHome }}devtools/ — Wikipedia for developer tools{{ else }}{{ $pageTitle }} — devtools/{{ end }}">
+<meta property="og:title"       content="{{ $pageTitle }}">
 <meta property="og:description" content="{{ $desc }}">
-<meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:type" content="{{ $ogType }}">
-<meta property="og:image" content="{{ $ogImage }}">
-{{ if eq .Section "blog" }}
+<meta property="og:url"         content="{{ .Permalink }}">
+<meta property="og:site_name"   content="{{ .Site.Title }}">
+<meta property="og:locale"      content="en_US">
+<meta property="og:image"       content="{{ $ogImage }}">
+<meta property="og:image:alt"   content="{{ $name }} — devtools/">
+{{ if and .IsPage (eq .Section "blog") }}
+<meta property="og:type" content="article">
 {{ with .Date }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+{{ with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+{{ else if .IsPage }}
+<meta property="og:type" content="article">
+{{ else }}
+<meta property="og:type" content="website">
 {{ end }}
 
 <!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ if .IsHome }}devtools/ — Wikipedia for developer tools{{ else }}{{ $pageTitle }} — devtools/{{ end }}">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="{{ $pageTitle }}">
 <meta name="twitter:description" content="{{ $desc }}">
-<meta name="twitter:image" content="{{ $ogImage }}">
+<meta name="twitter:image"       content="{{ $ogImage }}">
+<meta name="twitter:image:alt"   content="{{ $name }} — devtools/">
+
+<!-- RSS autodiscovery -->
+{{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">{{ end }}
 
 <!-- Structured data -->
 {{ partial "structured-data.html" . }}
