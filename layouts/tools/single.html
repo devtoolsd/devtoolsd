@@ -108,7 +108,7 @@
         {{ $lp := .Site.GetPage (printf "/languages/%s/" $p.language) }}
         <div class="meta-row">
           <span class="meta-row__label">Language</span>
-          {{ if $lp }}<a href="{{ $lp.RelPermalink }}" class="meta-row__value" style="color:var(--purple)">{{ $lp.Params.name }}</a>{{ else }}<span class="meta-row__value">{{ $p.language }}</span>{{ end }}
+          {{ if $lp }}<a href="{{ $lp.RelPermalink }}" class="meta-row__value" style="color:var(--accent)">{{ $lp.Params.name }}</a>{{ else }}<span class="meta-row__value">{{ $p.language }}</span>{{ end }}
         </div>
         {{ end }}
         {{ if $p.frameworks }}

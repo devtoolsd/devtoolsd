@@ -49,78 +49,7 @@
 
 <div class="container">
 
-  <!-- ── Section Directory ── -->
-  <section class="home-directory">
-    <div class="home-dir-label">// what's inside</div>
-    <div class="home-dir-grid">
-
-      <a href="{{ "/tools/" | relURL }}" class="home-dir-card" style="--card-accent:var(--yellow)">
-        <div class="home-dir-card__path">content/tools/</div>
-        <div class="home-dir-card__count">{{ len $tools }}</div>
-        <div class="home-dir-card__name">Tools</div>
-        <div class="home-dir-card__desc">Editors, CLIs, databases, CI/CD, and every developer utility in between.</div>
-      </a>
-
-      <a href="{{ "/languages/" | relURL }}" class="home-dir-card" style="--card-accent:var(--blue)">
-        <div class="home-dir-card__path">content/languages/</div>
-        <div class="home-dir-card__count">{{ len $languages }}</div>
-        <div class="home-dir-card__name">Languages</div>
-        <div class="home-dir-card__desc">Programming languages with typing system, compilation target, and ecosystem info.</div>
-      </a>
-
-      <a href="{{ "/frameworks/" | relURL }}" class="home-dir-card" style="--card-accent:var(--cyan)">
-        <div class="home-dir-card__path">content/frameworks/</div>
-        <div class="home-dir-card__count">{{ len $frameworks }}</div>
-        <div class="home-dir-card__name">Frameworks</div>
-        <div class="home-dir-card__desc">Web, API, mobile, and data frameworks organized by language and type.</div>
-      </a>
-
-      <a href="{{ "/stacks/" | relURL }}" class="home-dir-card" style="--card-accent:var(--green)">
-        <div class="home-dir-card__path">content/stacks/</div>
-        <div class="home-dir-card__count">{{ len $stacks }}</div>
-        <div class="home-dir-card__name">Stacks</div>
-        <div class="home-dir-card__desc">Curated technology stacks like MERN, Django, Rails, and more — with cross-linked tools.</div>
-      </a>
-
-      <a href="{{ "/paths/" | relURL }}" class="home-dir-card" style="--card-accent:var(--accent)">
-        <div class="home-dir-card__path">content/paths/</div>
-        <div class="home-dir-card__count">{{ len $paths }}</div>
-        <div class="home-dir-card__name">Paths</div>
-        <div class="home-dir-card__desc">Structured learning paths from beginner to production-ready, by role or goal.</div>
-      </a>
-
-      <a href="{{ "/books/" | relURL }}" class="home-dir-card" style="--card-accent:var(--orange)">
-        <div class="home-dir-card__path">content/books/</div>
-        <div class="home-dir-card__count">{{ len $books }}</div>
-        <div class="home-dir-card__name">Books</div>
-        <div class="home-dir-card__desc">Technical books recommended by developers — classics, deep dives, and modern guides.</div>
-      </a>
-
-      <a href="{{ "/courses/" | relURL }}" class="home-dir-card" style="--card-accent:var(--pink)">
-        <div class="home-dir-card__path">content/courses/</div>
-        <div class="home-dir-card__count">{{ len $courses }}</div>
-        <div class="home-dir-card__name">Courses</div>
-        <div class="home-dir-card__desc">Online courses and tutorials for learning new technologies at your own pace.</div>
-      </a>
-
-      <a href="{{ "/newsletters/" | relURL }}" class="home-dir-card" style="--card-accent:var(--red)">
-        <div class="home-dir-card__path">content/newsletters/</div>
-        <div class="home-dir-card__count">{{ len $newsletters }}</div>
-        <div class="home-dir-card__name">Newsletters</div>
-        <div class="home-dir-card__desc">Curated developer newsletters by topic and frequency — stay current without the noise.</div>
-      </a>
-
-      <a href="{{ "/resources/" | relURL }}" class="home-dir-card" style="--card-accent:var(--comment)">
-        <div class="home-dir-card__path">content/resources/</div>
-        <div class="home-dir-card__count">{{ len $resources }}</div>
-        <div class="home-dir-card__name">Resources</div>
-        <div class="home-dir-card__desc">Community guides, reference documentation, and learning communities.</div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ── Hero ── -->
+  <!-- ── Hero + Directory ── -->
   <section class="home-hero">
     <div class="home-hero__left">
       <div class="home-hero__eyebrow"><span style="color:var(--accent)">devtools/</span> &nbsp;·&nbsp; open source &nbsp;·&nbsp; community-maintained</div>
@@ -158,29 +87,56 @@
         </div>
       </div>
     </div>
-    <div class="home-hero__right">
-      <div class="home-terminal">
-        <div class="home-terminal__bar">
-          <span class="home-terminal__dot" style="background:#e06c75"></span>
-          <span class="home-terminal__dot" style="background:#e5c07b"></span>
-          <span class="home-terminal__dot" style="background:#98c379"></span>
-          <span style="margin-left:0.5rem;font-size:0.7rem;color:var(--comment)">devtools/ — contribute</span>
-        </div>
-        <pre class="home-terminal__body"><span style="color:var(--comment)"># add any tool in under 5 minutes</span>
-<span style="color:var(--cyan)">$</span> <span style="color:var(--fg)">cp template.md content/tools/mytool.md</span>
 
-<span style="color:var(--accent)">---</span>
-<span style="color:var(--cyan)">name</span><span style="color:var(--fg)">: My Tool</span>
-<span style="color:var(--cyan)">description</span><span style="color:var(--fg)">: One sentence. Factual.</span>
-<span style="color:var(--cyan)">website</span><span style="color:var(--fg)">: https://mytool.dev</span>
-<span style="color:var(--cyan)">language</span><span style="color:var(--fg)">: go</span>
-<span style="color:var(--cyan)">pricing</span><span style="color:var(--fg)">: free</span>
-<span style="color:var(--cyan)">open_source</span><span style="color:var(--fg)">: true</span>
-<span style="color:var(--accent)">---</span>
-
-<span style="color:var(--cyan)">$</span> <span style="color:var(--fg)">git commit -m </span><span style="color:var(--green)">"add: My Tool"</span>
-<span style="color:var(--cyan)">$</span> <span style="color:var(--fg)">gh pr create</span>
-<span style="color:var(--comment)"># → merged → live in ~2 min ✓</span></pre>
+    <!-- ── Directory ── -->
+    <div class="home-hero__dir">
+      <div class="home-dir-label">// what's inside</div>
+      <div class="home-dir-list">
+        <a href="{{ "/tools/" | relURL }}" class="home-dir-row" style="--card-accent:var(--yellow)">
+          <span class="home-dir-row__path">tools/</span>
+          <span class="home-dir-row__count">{{ len $tools }}</span>
+          <span class="home-dir-row__desc">editors, CLIs, databases, CI/CD, DevOps, and more</span>
+        </a>
+        <a href="{{ "/languages/" | relURL }}" class="home-dir-row" style="--card-accent:var(--blue)">
+          <span class="home-dir-row__path">languages/</span>
+          <span class="home-dir-row__count">{{ len $languages }}</span>
+          <span class="home-dir-row__desc">programming languages with ecosystem and typing info</span>
+        </a>
+        <a href="{{ "/frameworks/" | relURL }}" class="home-dir-row" style="--card-accent:var(--cyan)">
+          <span class="home-dir-row__path">frameworks/</span>
+          <span class="home-dir-row__count">{{ len $frameworks }}</span>
+          <span class="home-dir-row__desc">web, API, mobile, and data frameworks by language</span>
+        </a>
+        <a href="{{ "/stacks/" | relURL }}" class="home-dir-row" style="--card-accent:var(--green)">
+          <span class="home-dir-row__path">stacks/</span>
+          <span class="home-dir-row__count">{{ len $stacks }}</span>
+          <span class="home-dir-row__desc">curated tech stacks — MERN, Django, Rails, and others</span>
+        </a>
+        <a href="{{ "/paths/" | relURL }}" class="home-dir-row" style="--card-accent:var(--accent)">
+          <span class="home-dir-row__path">paths/</span>
+          <span class="home-dir-row__count">{{ len $paths }}</span>
+          <span class="home-dir-row__desc">step-by-step learning paths from zero to production</span>
+        </a>
+        <a href="{{ "/books/" | relURL }}" class="home-dir-row" style="--card-accent:var(--orange)">
+          <span class="home-dir-row__path">books/</span>
+          <span class="home-dir-row__count">{{ len $books }}</span>
+          <span class="home-dir-row__desc">technical books — classics, deep dives, modern guides</span>
+        </a>
+        <a href="{{ "/courses/" | relURL }}" class="home-dir-row" style="--card-accent:var(--pink)">
+          <span class="home-dir-row__path">courses/</span>
+          <span class="home-dir-row__count">{{ len $courses }}</span>
+          <span class="home-dir-row__desc">online courses and tutorials, free and paid</span>
+        </a>
+        <a href="{{ "/newsletters/" | relURL }}" class="home-dir-row" style="--card-accent:var(--red)">
+          <span class="home-dir-row__path">newsletters/</span>
+          <span class="home-dir-row__count">{{ len $newsletters }}</span>
+          <span class="home-dir-row__desc">dev newsletters by topic and frequency</span>
+        </a>
+        <a href="{{ "/resources/" | relURL }}" class="home-dir-row" style="--card-accent:var(--comment)">
+          <span class="home-dir-row__path">resources/</span>
+          <span class="home-dir-row__count">{{ len $resources }}</span>
+          <span class="home-dir-row__desc">guides, cheatsheets, reference sites, communities</span>
+        </a>
       </div>
     </div>
   </section>

@@ -16,11 +16,11 @@
       {{ if $p.logo }}
         <img class="detail-logo" src="{{ $p.logo }}" alt="{{ $p.name }} cover" loading="lazy">
       {{ else }}
-        <div class="tool-logo-placeholder" style="width:72px;height:72px;font-size:1.5rem;border-radius:12px;background:var(--surface2);color:var(--yellow)">B</div>
+        <div class="detail-logo-placeholder">{{ substr $p.name 0 1 }}</div>
       {{ end }}
       <div>
         <h1 class="detail-hero__name">{{ $p.name }}</h1>
-        {{ with $p.author }}<p style="color:var(--purple);font-size:1rem;margin-bottom:0.4rem">by {{ . }}</p>{{ end }}
+        {{ with $p.author }}<p style="color:var(--accent);font-size:1rem;margin-bottom:0.4rem">by {{ . }}</p>{{ end }}
         <div class="detail-hero__badges">
           {{ if $lp }}<a href="{{ $lp.RelPermalink }}" class="badge badge-type" style="text-decoration:none">{{ $lp.Params.name }}</a>{{ end }}
           {{ if $p.free }}<span class="badge badge-free">Free</span>{{ else if $p.pricing }}<span class="badge badge-{{ $p.pricing }}">{{ $p.pricing }}</span>{{ end }}
@@ -59,7 +59,7 @@
         <div class="sidebar-card__title">// details</div>
         {{ with $p.author }}<div class="meta-row"><span class="meta-row__label">Author</span><span class="meta-row__value">{{ . }}</span></div>{{ end }}
         {{ with $p.year }}<div class="meta-row"><span class="meta-row__label">Year</span><span class="meta-row__value">{{ . }}</span></div>{{ end }}
-        {{ if $lp }}<div class="meta-row"><span class="meta-row__label">Language</span><a href="{{ $lp.RelPermalink }}" class="meta-row__value" style="color:var(--purple)">{{ $lp.Params.name }}</a></div>{{ end }}
+        {{ if $lp }}<div class="meta-row"><span class="meta-row__label">Language</span><a href="{{ $lp.RelPermalink }}" class="meta-row__value" style="color:var(--accent)">{{ $lp.Params.name }}</a></div>{{ end }}
         {{ if $p.free }}
         <div class="meta-row"><span class="meta-row__label">Pricing</span><span class="meta-row__value" style="color:var(--green)">Free</span></div>
         {{ else if $p.pricing }}

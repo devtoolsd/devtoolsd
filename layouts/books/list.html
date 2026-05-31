@@ -1,6 +1,24 @@
 {{ define "main" }}
 {{ $books := where .Site.RegularPages "Section" "books" }}
-{{ $books = sort $books "Params.name" "asc" }}
+{{ $books  = sort $books "Params.name" "asc" }}
+
+{{/* Collect filter values */}}
+{{ $allTags   := slice }}
+{{ $tagCounts := dict }}
+{{ $allLangs  := slice }}
+{{ $langCounts := dict }}
+{{ range $books }}
+  {{ range .Params.tags }}
+    {{ $allTags   = $allTags | append . }}
+    {{ $tagCounts = merge $tagCounts (dict . (add (index $tagCounts . | default 0) 1)) }}
+  {{ end }}
+  {{ with .Params.language }}
+    {{ $allLangs   = $allLangs | append . }}
+    {{ $langCounts = merge $langCounts (dict . (add (index $langCounts . | default 0) 1)) }}
+  {{ end }}
+{{ end }}
+{{ $allTags  = $allTags  | uniq | sort }}
+{{ $allLangs = $allLangs | uniq | sort }}
 
 <div class="container">
   <div class="breadcrumb" style="padding-top:1.5rem">
@@ -8,62 +26,218 @@
     <span class="breadcrumb__sep">/</span>
     <span class="breadcrumb__current">Books</span>
   </div>
-  <div class="section">
-    <div class="section-header">
-      <h1 class="section-title"><span>#</span> Developer Books</h1>
-      <span class="text-muted text-mono" style="font-size:0.8rem">{{ len $books }} books</span>
-    </div>
-    <p style="color:var(--fg-muted);margin-bottom:2rem">Essential reading for software developers — community curated, open-source list.</p>
+</div>
 
-    <div class="search-bar">
-      <svg class="search-bar__icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="book-search" placeholder="Search books..." autocomplete="off">
+<div class="tools-page">
+
+  <!-- Sidebar -->
+  <aside class="tools-sidebar" id="tools-sidebar">
+    <div class="tools-sidebar__head">
+      <span class="tools-sidebar__title"><span class="sidebar-prompt">$</span> filters</span>
+      <button class="sidebar-clear" id="clear-filters">clear</button>
     </div>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// pricing</div>
+      <div class="sidebar-items" id="filter-pricing">
+        <button class="sf active" data-pricing="all">all<span class="sf-count">{{ len $books }}</span></button>
+        <button class="sf" data-pricing="free">free</button>
+        <button class="sf" data-pricing="paid">paid</button>
+      </div>
+    </div>
+
+    {{ if $allLangs }}
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// language</div>
+      <div class="sidebar-items" id="filter-lang">
+        <button class="sf active" data-lang="all">all</button>
+        {{ range $allLangs }}
+        <button class="sf" data-lang="{{ . }}">{{ . }}<span class="sf-count">{{ index $langCounts . | default 0 }}</span></button>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ if $allTags }}
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// topic</div>
+      <div class="sidebar-items" id="filter-tag">
+        <button class="sf active" data-tag="all">all</button>
+        {{ range $allTags }}
+        <button class="sf" data-tag="{{ . }}">{{ . }}<span class="sf-count">{{ index $tagCounts . | default 0 }}</span></button>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </aside>
+
+  <!-- Main -->
+  <div class="tools-main">
+
+    <div class="tools-topbar">
+      <div class="tools-search-wrap">
+        <span class="tools-search-slash">/</span>
+        <input
+          type="text"
+          id="book-search"
+          class="tools-search-input"
+          placeholder="filter books..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+      <span class="tools-count"><span id="book-count">{{ len $books }}</span> results</span>
+      <button class="tools-filter-btn" id="filter-toggle" aria-expanded="false">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        filters
+      </button>
+    </div>
+
+    <div class="active-filters" id="active-filters"></div>
 
     <div class="grid-3" id="books-grid">
       {{ range $books }}
       {{ $p := .Params }}
-      <div class="book-item" data-name="{{ $p.name | lower }}" data-author="{{ $p.author | lower }}" data-desc="{{ $p.description | lower }}" data-tags="{{ range $p.tags }}{{ . }} {{ end }}">
-        <a href="{{ .RelPermalink }}" class="card" style="text-decoration:none;display:flex;flex-direction:column;height:100%">
-          <div class="resource-card__type">Book</div>
-          <div class="resource-card__title">{{ $p.name }}</div>
-          {{ with $p.author }}<div class="resource-card__author">by {{ . }}</div>{{ end }}
-          {{ with $p.year }}<div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--comment);margin-bottom:0.5rem">{{ . }}</div>{{ end }}
-          <div class="resource-card__desc">{{ $p.description | truncate 120 }}</div>
-          <div style="margin-top:auto;padding-top:0.75rem;display:flex;gap:0.4rem;flex-wrap:wrap">
+      <div class="book-item"
+        data-name="{{ $p.name | lower }}"
+        data-author="{{ $p.author | lower }}"
+        data-desc="{{ $p.description | lower }}"
+        data-tags="{{ range $p.tags }}{{ . }} {{ end }}"
+        data-lang="{{ $p.language | lower }}"
+        data-free="{{ $p.free }}">
+        <a href="{{ .RelPermalink }}" class="lcard">
+          <div class="lcard__top">
+            <span class="lcard__type">▣ book</span>
+            {{ with $p.year }}<span class="lcard__year-badge">{{ . }}</span>{{ end }}
+          </div>
+          <div class="lcard__name">{{ $p.name }}</div>
+          {{ with $p.author }}<div class="lcard__author">by {{ . }}</div>{{ end }}
+          <p class="lcard__desc">{{ $p.description | truncate 110 }}</p>
+          <div class="lcard__foot">
+            {{ if $p.free }}<span class="badge badge-free">free</span>{{ else }}<span class="badge badge-paid">paid</span>{{ end }}
             {{ range first 3 $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
-            {{ if $p.free }}<span class="badge badge-free">Free</span>{{ end }}
           </div>
         </a>
       </div>
       {{ end }}
     </div>
 
-    <div id="no-results" class="hidden text-center" style="padding:3rem 0;color:var(--comment)">
-      No books match. <a href="{{ .Site.Params.githubRepo }}/new/main/content/books" target="_blank">Add one via PR?</a>
+    <div id="no-results" class="tools-empty hidden">
+      <span class="tools-empty__icon">∅</span>
+      <span>no books match your filters</span>
     </div>
 
-    <div class="star-banner" style="margin-top:2.5rem">
-      <div class="star-banner__text"><strong>Know a great dev book?</strong> Add it by opening a PR.</div>
-      <a href="{{ "/contribute/" | relURL }}" class="btn btn-primary btn-sm">Contribute a book</a>
+    <div class="stacks-cta">
+      <div class="stacks-cta__body">
+        <span class="stacks-cta__prompt">$</span>
+        <div>
+          <div class="stacks-cta__title">know a great dev book?</div>
+          <div class="stacks-cta__sub">add it to <code>content/books/</code> via PR</div>
+        </div>
+      </div>
+      <a href="{{ .Site.Params.githubRepo }}/new/main/content/books" target="_blank" rel="noopener" class="stacks-cta__btn">› add a book</a>
     </div>
+
   </div>
 </div>
+
 <script>
-(function() {
-  const search = document.getElementById('book-search');
-  const items = document.querySelectorAll('.book-item');
-  const noResults = document.getElementById('no-results');
-  search.addEventListener('input', e => {
-    const q = e.target.value.toLowerCase();
-    let visible = 0;
-    items.forEach(el => {
-      const match = !q || (el.dataset.name||'').includes(q) || (el.dataset.author||'').includes(q) || (el.dataset.desc||'').includes(q) || (el.dataset.tags||'').includes(q);
-      el.classList.toggle('filter-hidden', !match);
-      if (match) visible++;
+(function () {
+  var searchEl  = document.getElementById('book-search');
+  var countEl   = document.getElementById('book-count');
+  var noResults = document.getElementById('no-results');
+  var clearBtn  = document.getElementById('clear-filters');
+  var filterBtn = document.getElementById('filter-toggle');
+  var sidebar   = document.getElementById('tools-sidebar');
+  var activeFiltersEl = document.getElementById('active-filters');
+  var items     = document.querySelectorAll('.book-item');
+
+  var state = { query: '', pricing: 'all', lang: 'all', tag: 'all' };
+
+  function filter() {
+    var q = state.query;
+    var visible = 0;
+    items.forEach(function(el) {
+      var d = el.dataset;
+      var isFree = d.free === 'true';
+      var ok =
+        (!q || (d.name||'').includes(q) || (d.author||'').includes(q) || (d.desc||'').includes(q) || (d.tags||'').includes(q)) &&
+        (state.pricing === 'all' || (state.pricing === 'free' && isFree) || (state.pricing === 'paid' && !isFree)) &&
+        (state.lang === 'all' || (d.lang||'') === state.lang) &&
+        (state.tag  === 'all' || (' ' + (d.tags||'') + ' ').includes(' ' + state.tag + ' '));
+      el.classList.toggle('filter-hidden', !ok);
+      if (ok) visible++;
     });
+    countEl.textContent = visible;
     noResults.classList.toggle('hidden', visible > 0);
+    renderActiveTags();
+    var dirty = state.pricing !== 'all' || state.lang !== 'all' || state.tag !== 'all';
+    clearBtn.style.display = dirty ? '' : 'none';
+  }
+
+  function renderActiveTags() {
+    var tags = [];
+    if (state.pricing !== 'all') tags.push({ label: state.pricing, key: 'pricing' });
+    if (state.lang    !== 'all') tags.push({ label: state.lang,    key: 'lang' });
+    if (state.tag     !== 'all') tags.push({ label: state.tag,     key: 'tag' });
+    if (!tags.length) { activeFiltersEl.innerHTML = ''; return; }
+    activeFiltersEl.innerHTML = tags.map(function(t) {
+      return '<button class="active-filter-tag" data-key="' + t.key + '">' + t.label + ' ×</button>';
+    }).join('');
+    activeFiltersEl.querySelectorAll('.active-filter-tag').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state[btn.dataset.key] = 'all';
+        syncButtons(btn.dataset.key);
+        filter();
+      });
+    });
+  }
+
+  function syncButtons(key) {
+    var map = { pricing: '[data-pricing]', lang: '[data-lang]', tag: '[data-tag]' };
+    var sel = map[key];
+    if (!sel) return;
+    document.querySelectorAll(sel).forEach(function(b) {
+      b.classList.toggle('active', b.dataset[key] === 'all');
+    });
+  }
+
+  searchEl.addEventListener('input', function(e) { state.query = e.target.value.toLowerCase(); filter(); });
+
+  document.querySelectorAll('[data-pricing]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('[data-pricing]').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active'); state.pricing = btn.dataset.pricing; filter();
+    });
   });
+  document.querySelectorAll('[data-lang]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('[data-lang]').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active'); state.lang = btn.dataset.lang; filter();
+    });
+  });
+  document.querySelectorAll('[data-tag]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('[data-tag]').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active'); state.tag = btn.dataset.tag; filter();
+    });
+  });
+
+  clearBtn.addEventListener('click', function() {
+    state = { query: '', pricing: 'all', lang: 'all', tag: 'all' };
+    searchEl.value = '';
+    document.querySelectorAll('.sf').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.pricing === 'all' || b.dataset.lang === 'all' || b.dataset.tag === 'all');
+    });
+    filter();
+  });
+
+  filterBtn.addEventListener('click', function() {
+    var open = sidebar.classList.toggle('sidebar-open');
+    filterBtn.setAttribute('aria-expanded', open);
+  });
+
+  clearBtn.style.display = 'none';
 })();
 </script>
 {{ end }}

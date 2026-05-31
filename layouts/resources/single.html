@@ -1,34 +1,74 @@
 {{ define "main" }}
 {{ $p := .Params }}
-{{ $typeEmoji := dict "guide" "📖" "website" "🌐" "cheatsheet" "📋" "newsletter" "📮" "podcast" "🎙️" "video" "▶️" "repo" "🗂️" }}
-{{ $emoji := index $typeEmoji $p.tool_type | default "🗂️" }}
-<div class="container container--narrow" style="padding-top:2rem">
-  <div class="breadcrumb">
-    <a href="{{ "/" | relURL }}">Home</a><span class="breadcrumb__sep">/</span>
-    <a href="{{ "/resources/" | relURL }}">Resources</a><span class="breadcrumb__sep">/</span>
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <a href="{{ "/resources/" | relURL }}">Resources</a>
+    <span class="breadcrumb__sep">/</span>
     <span class="breadcrumb__current">{{ $p.name }}</span>
   </div>
 
-  <div style="margin-bottom:2rem">
-    <div style="font-size:2.5rem;margin-bottom:0.75rem">{{ $emoji }}</div>
-    <div style="font-family:var(--font-mono);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--comment);margin-bottom:0.5rem">{{ $p.tool_type | default "resource" }}</div>
-    <h1 style="font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem">{{ $p.name }}</h1>
-    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.25rem">
-      {{ if $p.free }}<span class="badge badge-free">Free</span>{{ end }}
-      {{ range $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+  <div class="detail-hero">
+    <div class="detail-hero__header">
+      {{ if $p.logo }}
+        <img class="detail-logo" src="{{ $p.logo }}" alt="{{ $p.name }} logo" loading="lazy">
+      {{ else }}
+        <div class="detail-logo-placeholder">{{ substr $p.name 0 1 }}</div>
+      {{ end }}
+      <div>
+        <h1 class="detail-hero__name">{{ $p.name }}</h1>
+        <div class="detail-hero__badges">
+          {{ with $p.tool_type }}<span class="badge badge-type">{{ . }}</span>{{ end }}
+          {{ if $p.free }}<span class="badge badge-free">Free</span>{{ end }}
+          {{ range first 3 $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+        </div>
+      </div>
     </div>
-    <p style="color:var(--fg-muted);font-size:1.05rem;line-height:1.6">{{ $p.description }}</p>
+    <div class="detail-hero__actions">
+      {{ if $p.website }}<a href="{{ $p.website }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">› open resource</a>{{ end }}
+    </div>
   </div>
 
-  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  <div class="detail-layout">
+    <div class="detail-body">
+      <p style="font-size:1.05rem;color:var(--fg-muted);line-height:1.7;margin-bottom:1.5rem">{{ $p.description }}</p>
 
-  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin:2rem 0">
-    {{ if $p.website }}<a href="{{ $p.website }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Open Resource →</a>{{ end }}
-  </div>
+      {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 
-  <div class="star-banner">
-    <div class="star-banner__text"><strong>Something wrong?</strong> Edit this entry on GitHub.</div>
-    <a href="{{ $.Site.Params.githubRepo }}/edit/main/content/resources/{{ .File.BaseFileName }}.md" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">✏ Edit on GitHub</a>
+      {{ if $p.tags }}
+      <h2>// tags</h2>
+      <div class="tag-cloud">{{ range $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}</div>
+      {{ end }}
+
+      <div class="star-banner" style="margin-top:2.5rem">
+        <div class="star-banner__text"><strong>Something wrong?</strong> Edit this entry on GitHub.</div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+          <a href="{{ $.Site.Params.githubRepo }}/edit/main/content/resources/{{ .File.BaseFileName }}.md" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">✏ Edit on GitHub</a>
+          <a href="{{ $.Site.Params.githubRepo }}/issues/new?title=Fix: {{ $p.name }}" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Report issue</a>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// details</div>
+        {{ with $p.tool_type }}<div class="meta-row"><span class="meta-row__label">Type</span><span class="meta-row__value">{{ . }}</span></div>{{ end }}
+        {{ with $p.author }}<div class="meta-row"><span class="meta-row__label">Author</span><span class="meta-row__value">{{ . }}</span></div>{{ end }}
+        {{ if $p.free }}
+        <div class="meta-row"><span class="meta-row__label">Pricing</span><span class="meta-row__value" style="color:var(--green)">Free</span></div>
+        {{ else if $p.pricing }}
+        <div class="meta-row"><span class="meta-row__label">Pricing</span><span class="meta-row__value">{{ $p.pricing }}</span></div>
+        {{ end }}
+      </div>
+
+      {{ if $p.website }}
+      <div class="sidebar-card">
+        <a href="{{ $p.website }}" class="stacks-cta__btn" style="display:block;text-align:center" target="_blank" rel="noopener noreferrer">› open resource</a>
+      </div>
+      {{ end }}
+    </aside>
   </div>
 </div>
 {{ end }}

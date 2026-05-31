@@ -11,7 +11,7 @@ paginate = 12
   author = "devtools.directory contributors"
   twitterCard = "summary_large_image"
 
-[taxonomies]ßß
+[taxonomies]
   category = "categories"
   tag = "tags"
 

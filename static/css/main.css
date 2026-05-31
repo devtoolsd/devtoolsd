@@ -1103,6 +1103,24 @@ a.stack-sidebar-tool__name:hover { opacity: 0.75; }
   gap: 1rem;
 }
 
+/* ── Learn cards (books, courses, resources, paths) ── */
+.lcard { display: flex; flex-direction: column; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: inherit; height: 100%; transition: border-color 0.15s, background 0.15s; gap: 0.3rem; }
+.lcard:hover { border-color: var(--accent); background: var(--surface2); opacity: 1; }
+.lcard__top { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.15rem; }
+.lcard__type { font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.02em; }
+.lcard__meta { font-family: var(--font-mono); font-size: 0.68rem; color: var(--comment); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px; }
+.lcard__year-badge { font-family: var(--font-mono); font-size: 0.65rem; color: var(--fg-faint); flex-shrink: 0; }
+.lcard__name { font-weight: 600; font-size: 0.9rem; color: var(--fg); line-height: 1.35; }
+.lcard__author { font-size: 0.78rem; color: var(--accent); font-family: var(--font-mono); }
+.lcard__desc { font-size: 0.8rem; color: var(--fg-muted); line-height: 1.5; flex: 1; margin: 0; }
+.lcard__foot { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.35rem; }
+.lcard__level { font-family: var(--font-mono); font-size: 0.65rem; padding: 0.1em 0.45em; border-radius: 3px; font-weight: 600; text-transform: lowercase; }
+.lcard__level--beginner { background: color-mix(in srgb, var(--green) 15%, transparent); color: var(--green); }
+.lcard__level--intermediate { background: color-mix(in srgb, var(--yellow) 15%, transparent); color: var(--yellow); }
+.lcard__level--advanced { background: color-mix(in srgb, var(--red) 15%, transparent); color: var(--red); }
+/* ── Detail logo placeholder ── */
+.detail-logo-placeholder { width: 72px; height: 72px; border-radius: 12px; background: var(--surface2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--font-mono); font-weight: 700; font-size: 1.8rem; color: var(--accent); }
+
 /* ── Resource cards ── */
 .resource-card__type {
   font-size: 0.68rem;
@@ -1532,63 +1550,15 @@ a.stack-sidebar-tool__name:hover { opacity: 0.75; }
 .tools-empty a { color: var(--accent); }
 
 /* ── Home: section directory ── */
-.home-directory {
-  padding: 2.5rem 0 0.5rem;
-}
-.home-dir-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--comment);
-  margin-bottom: 1rem;
-  letter-spacing: 0.04em;
-}
-.home-dir-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.65rem;
-}
-.home-dir-card {
-  display: block;
-  padding: 1rem 1.1rem 0.9rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--card-accent, var(--border));
-  border-radius: var(--radius);
-  text-decoration: none;
-  color: inherit;
-  transition: border-color 0.15s, background 0.15s;
-}
-.home-dir-card:hover {
-  background: var(--surface2);
-  border-color: var(--card-accent, var(--accent));
-  opacity: 1;
-}
-.home-dir-card__path {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--card-accent, var(--accent));
-  margin-bottom: 0.5rem;
-  opacity: 0.85;
-}
-.home-dir-card__count {
-  font-family: var(--font-mono);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--fg);
-  line-height: 1;
-  margin-bottom: 0.25rem;
-}
-.home-dir-card__name {
-  font-size: 0.83rem;
-  font-weight: 600;
-  color: var(--fg);
-  margin-bottom: 0.3rem;
-}
-.home-dir-card__desc {
-  font-size: 0.76rem;
-  color: var(--fg-faint);
-  line-height: 1.5;
-}
+.home-hero__dir { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.home-dir-label { font-family: var(--font-mono); font-size: 0.72rem; color: var(--comment); margin-bottom: 0.5rem; letter-spacing: 0.04em; }
+.home-dir-list { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.home-dir-row { display: grid; grid-template-columns: 150px 2.5rem 1fr; align-items: baseline; gap: 0.75rem; padding: 0.38rem 0.8rem; text-decoration: none; color: inherit; border-bottom: 1px solid var(--line); transition: background 0.1s; }
+.home-dir-row:last-child { border-bottom: none; }
+.home-dir-row:hover { background: var(--surface2); opacity: 1; }
+.home-dir-row__path { font-family: var(--font-mono); font-size: 0.75rem; color: var(--card-accent, var(--accent)); white-space: nowrap; }
+.home-dir-row__count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--comment); text-align: right; }
+.home-dir-row__desc { font-size: 0.75rem; color: var(--fg-faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ── Home: status bar ── */
 .home-statusbar {

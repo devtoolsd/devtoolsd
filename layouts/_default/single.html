@@ -1,5 +1,16 @@
 {{ define "main" }}
-<div class="container container--narrow" style="padding-top:2rem;padding-bottom:4rem">
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    {{ with .Parent }}{{ if ne .RelPermalink "/" }}<a href="{{ .RelPermalink }}">{{ .Title | lower }}</a><span class="breadcrumb__sep">/</span>{{ end }}{{ end }}
+    <span class="breadcrumb__current">{{ .Title | lower }}</span>
+  </div>
+</div>
+<div class="container container--narrow" style="padding-bottom:4rem">
+  {{ if .Description }}
+  <div style="font-family:var(--font-mono);font-size:0.78rem;color:var(--comment);margin-bottom:2rem;padding-top:0.5rem">// {{ .Description }}</div>
+  {{ end }}
   <div class="prose">
     <h1>{{ .Title }}</h1>
     {{ .Content }}

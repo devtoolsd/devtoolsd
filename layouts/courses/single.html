@@ -1,33 +1,80 @@
 {{ define "main" }}
-{{ $p := .Params }}
-<div class="container container--narrow" style="padding-top:2rem">
-  <div class="breadcrumb">
-    <a href="{{ "/" | relURL }}">Home</a><span class="breadcrumb__sep">/</span>
-    <a href="{{ "/courses/" | relURL }}">Courses</a><span class="breadcrumb__sep">/</span>
+{{ $p  := .Params }}
+{{ $lp := .Site.GetPage (printf "/languages/%s/" $p.language) }}
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="{{ "/" | relURL }}">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <a href="{{ "/courses/" | relURL }}">Courses</a>
+    <span class="breadcrumb__sep">/</span>
     <span class="breadcrumb__current">{{ $p.name }}</span>
   </div>
 
-  <div style="margin-bottom:2rem">
-    <div style="font-size:2.5rem;margin-bottom:0.75rem">🎓</div>
-    <h1 style="font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:0.5rem">{{ $p.name }}</h1>
-    {{ with $p.author }}<div style="color:var(--purple);margin-bottom:0.25rem">{{ . }}</div>{{ end }}
-    {{ with $p.provider }}<div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--comment);margin-bottom:0.75rem">{{ . }}</div>{{ end }}
-    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.25rem">
-      {{ if $p.free }}<span class="badge badge-free">Free</span>{{ else }}<span class="badge badge-paid">Paid</span>{{ end }}
-      {{ range $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+  <div class="detail-hero">
+    <div class="detail-hero__header">
+      {{ if $p.logo }}
+        <img class="detail-logo" src="{{ $p.logo }}" alt="{{ $p.name }} logo" loading="lazy">
+      {{ else }}
+        <div class="detail-logo-placeholder">{{ substr $p.name 0 1 }}</div>
+      {{ end }}
+      <div>
+        <h1 class="detail-hero__name">{{ $p.name }}</h1>
+        {{ with $p.author }}<p style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);margin-bottom:0.3rem">{{ . }}</p>{{ end }}
+        <div class="detail-hero__badges">
+          {{ if $lp }}<a href="{{ $lp.RelPermalink }}" class="badge badge-type" style="text-decoration:none">{{ $lp.Params.name }}</a>{{ end }}
+          {{ if $p.free }}<span class="badge badge-free">Free</span>{{ else }}<span class="badge badge-paid">Paid</span>{{ end }}
+          {{ with $p.level }}<span class="badge badge-{{ . }}">{{ . }}</span>{{ end }}
+          {{ range first 3 $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}
+        </div>
+      </div>
     </div>
-    <p style="color:var(--fg-muted);font-size:1.05rem;line-height:1.6">{{ $p.description }}</p>
+    <div class="detail-hero__actions">
+      {{ if $p.website }}<a href="{{ $p.website }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">› go to course</a>{{ end }}
+    </div>
   </div>
 
-  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  <div class="detail-layout">
+    <div class="detail-body">
+      <p style="font-size:1.05rem;color:var(--fg-muted);line-height:1.7;margin-bottom:1.5rem">{{ $p.description }}</p>
 
-  <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin:2rem 0">
-    {{ if $p.website }}<a href="{{ $p.website }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Go to Course →</a>{{ end }}
-  </div>
+      {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 
-  <div class="star-banner">
-    <div class="star-banner__text"><strong>Something wrong?</strong> Edit this entry on GitHub.</div>
-    <a href="{{ $.Site.Params.githubRepo }}/edit/main/content/courses/{{ .File.BaseFileName }}.md" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">✏ Edit on GitHub</a>
+      {{ if $p.tags }}
+      <h2>// tags</h2>
+      <div class="tag-cloud">{{ range $p.tags }}<span class="badge badge-tag">{{ . }}</span>{{ end }}</div>
+      {{ end }}
+
+      <div class="star-banner" style="margin-top:2.5rem">
+        <div class="star-banner__text"><strong>Something wrong?</strong> Edit this entry on GitHub.</div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+          <a href="{{ $.Site.Params.githubRepo }}/edit/main/content/courses/{{ .File.BaseFileName }}.md" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">✏ Edit on GitHub</a>
+          <a href="{{ $.Site.Params.githubRepo }}/issues/new?title=Fix: {{ $p.name }}" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Report issue</a>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// details</div>
+        {{ with $p.author }}<div class="meta-row"><span class="meta-row__label">Author</span><span class="meta-row__value">{{ . }}</span></div>{{ end }}
+        {{ with $p.provider }}<div class="meta-row"><span class="meta-row__label">Platform</span><span class="meta-row__value">{{ . }}</span></div>{{ end }}
+        {{ if $p.free }}
+        <div class="meta-row"><span class="meta-row__label">Pricing</span><span class="meta-row__value" style="color:var(--green)">Free</span></div>
+        {{ else }}
+        <div class="meta-row"><span class="meta-row__label">Pricing</span><span class="meta-row__value" style="color:var(--red)">Paid</span></div>
+        {{ end }}
+        {{ with $p.level }}<div class="meta-row"><span class="meta-row__label">Level</span><span class="meta-row__value">{{ . }}</span></div>{{ end }}
+        {{ with $p.duration }}<div class="meta-row"><span class="meta-row__label">Duration</span><span class="meta-row__value">{{ . }}</span></div>{{ end }}
+        {{ if $lp }}<div class="meta-row"><span class="meta-row__label">Language</span><a href="{{ $lp.RelPermalink }}" class="meta-row__value" style="color:var(--accent)">{{ $lp.Params.name }}</a></div>{{ end }}
+      </div>
+
+      {{ if $p.website }}
+      <div class="sidebar-card">
+        <a href="{{ $p.website }}" class="stacks-cta__btn" style="display:block;text-align:center" target="_blank" rel="noopener noreferrer">› go to course</a>
+      </div>
+      {{ end }}
+    </aside>
   </div>
 </div>
 {{ end }}

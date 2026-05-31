@@ -146,7 +146,7 @@
     <aside>
       <div class="sidebar-card">
         <div class="sidebar-card__title">// details</div>
-        {{ if $langPage }}<div class="meta-row"><span class="meta-row__label">Language</span><a href="{{ $langPage.RelPermalink }}" class="meta-row__value" style="color:var(--purple)">{{ $langPage.Params.name }}</a></div>{{ end }}
+        {{ if $langPage }}<div class="meta-row"><span class="meta-row__label">Language</span><a href="{{ $langPage.RelPermalink }}" class="meta-row__value" style="color:var(--accent)">{{ $langPage.Params.name }}</a></div>{{ end }}
         {{ if $p.year }}<div class="meta-row"><span class="meta-row__label">Since</span><span class="meta-row__value">{{ $p.year }}</span></div>{{ end }}
         {{ if $p.tool_type }}<div class="meta-row"><span class="meta-row__label">Type</span><span class="meta-row__value">{{ $p.tool_type }}</span></div>{{ end }}
         {{ if $p.license }}<div class="meta-row"><span class="meta-row__label">License</span><span class="meta-row__value">{{ $p.license }}</span></div>{{ end }}
@@ -168,7 +168,7 @@
       {{ if $fwTools }}
       <div class="sidebar-card">
         <div class="sidebar-card__title">// stats</div>
-        <div class="meta-row"><span class="meta-row__label">Tools</span><span class="meta-row__value" style="color:var(--purple)">{{ len $fwTools }}</span></div>
+        <div class="meta-row"><span class="meta-row__label">Tools</span><span class="meta-row__value" style="color:var(--accent)">{{ len $fwTools }}</span></div>
         {{ if $fwStacks }}<div class="meta-row"><span class="meta-row__label">Stacks</span><span class="meta-row__value">{{ len $fwStacks }}</span></div>{{ end }}
         {{ if $fwBooks }}<div class="meta-row"><span class="meta-row__label">Books</span><span class="meta-row__value" style="color:var(--yellow)">{{ len $fwBooks }}</span></div>{{ end }}
         {{ if $fwCourses }}<div class="meta-row"><span class="meta-row__label">Courses</span><span class="meta-row__value" style="color:var(--green)">{{ len $fwCourses }}</span></div>{{ end }}

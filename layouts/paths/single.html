@@ -74,10 +74,10 @@
     <aside>
       <div class="sidebar-card">
         <div class="sidebar-card__title">// overview</div>
-        {{ if $lp }}<div class="meta-row"><span class="meta-row__label">Language</span><a href="{{ $lp.RelPermalink }}" class="meta-row__value" style="color:var(--purple)">{{ $lp.Params.name }}</a></div>{{ end }}
+        {{ if $lp }}<div class="meta-row"><span class="meta-row__label">Language</span><a href="{{ $lp.RelPermalink }}" class="meta-row__value" style="color:var(--accent)">{{ $lp.Params.name }}</a></div>{{ end }}
         {{ if $p.level }}<div class="meta-row"><span class="meta-row__label">Level</span><span class="meta-row__value">{{ $p.level }}</span></div>{{ end }}
         {{ if $p.duration }}<div class="meta-row"><span class="meta-row__label">Duration</span><span class="meta-row__value">{{ $p.duration }}</span></div>{{ end }}
-        {{ if $p.steps }}<div class="meta-row"><span class="meta-row__label">Steps</span><span class="meta-row__value" style="color:var(--purple)">{{ len $p.steps }}</span></div>{{ end }}
+        {{ if $p.steps }}<div class="meta-row"><span class="meta-row__label">Steps</span><span class="meta-row__value" style="color:var(--accent)">{{ len $p.steps }}</span></div>{{ end }}
       </div>
 
       <div class="sidebar-card">
