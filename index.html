@@ -1,0 +1,3110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.162.1">
+  <script>
+    (function() {
+      var t = localStorage.getItem('devtools-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+<title>devtools/ — Wikipedia for developer tools</title>
+<meta name="description" content="A curated, open-source directory of developer tools, books, courses, and resources.">
+<link rel="canonical" href="https://devtools.directory/">
+
+
+<meta property="og:title" content="devtools/ — Wikipedia for developer tools">
+<meta property="og:description" content="A curated, open-source directory of developer tools, books, courses, and resources.">
+<meta property="og:url" content="https://devtools.directory/">
+<meta property="og:site_name" content="devtools/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="devtools/ — Wikipedia for developer tools">
+<meta name="twitter:description" content="A curated, open-source directory of developer tools, books, courses, and resources.">
+<meta name="twitter:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "devtools\/",
+  "url": "https:\/\/devtools.directory\/",
+  "description": "A curated, open-source directory of developer tools, books, courses, and resources.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https:\/\/devtools.directory\/tools/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+
+</head>
+<body>
+  
+
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo">
+      <svg width="26" height="26" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3,0)">
+          <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+          <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+          <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+          <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+          <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+          <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+        </g>
+      </svg>
+      devtools<span style="color:var(--accent)">/</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="/tools/">tools/</a>
+      <a href="/languages/">languages/</a>
+      <a href="/frameworks/" class="nav-group-trigger">ecosystem</a>
+      <a href="/books/" class="nav-group-trigger">learn</a>
+      <a href="/contribute/">contribute</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="search-trigger" id="search-open" aria-label="Search">
+        <span class="search-trigger__slash">/</span>
+        <span class="search-trigger__label">search</span>
+        <kbd class="search-trigger__kbd">⌘K</kbd>
+      </button>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="https://github.com/devtoolsd/devtoolsd" class="header-star" target="_blank" rel="noopener">
+        <span class="header-star__prompt">$</span> star
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  
+  
+  
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', function() {
+    document.getElementById('site-nav').classList.toggle('open');
+  });
+
+  document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('devtools-theme', next);
+  });
+</script>
+
+  <main>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+<div class="home-statusbar">
+  <span class="home-statusbar__inner">
+    <span><span class="home-statusbar__num">7</span> tools</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">100</span> languages</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">70</span> frameworks</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">7</span> stacks</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">1</span> books</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">1</span> courses</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">1</span> resources</span>
+    <span class="home-statusbar__sep">·</span>
+    <span><span class="home-statusbar__num">11</span> newsletters</span>
+    <span class="home-statusbar__sep home-statusbar__pipe">|</span>
+    <span>open source · community-maintained on GitHub</span>
+  </span>
+</div>
+
+<div class="container">
+
+  
+  <section class="home-hero">
+    <div class="home-hero__left">
+      <div class="home-hero__eyebrow"><span style="color:var(--accent)">devtools/</span> &nbsp;·&nbsp; open source &nbsp;·&nbsp; community-maintained</div>
+      <h1 class="home-hero__title">Wikipedia<br>for <span style="color:var(--accent)">developer tools.</span></h1>
+      <p class="home-hero__sub">Every tool, language, framework, stack, book, and learning path — documented once, kept accurate by the community, forever free. No login. No ads. Just a GitHub PR.</p>
+      <div class="home-hero__actions">
+        <a href="/tools/" class="btn btn-primary">Browse Tools</a>
+        <a href="/languages/" class="btn btn-ghost">Explore by Language</a>
+        <a href="https://github.com/devtoolsd/devtoolsd" class="btn btn-github" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          ★ Star on GitHub
+        </a>
+      </div>
+      <div class="home-hero__pillars">
+        <div class="home-hero__pillar">
+          <span class="home-hero__pillar-icon">⚙</span>
+          <div>
+            <strong>Tools</strong>
+            <span class="home-hero__pillar-sub">editors, CLIs, databases, DevOps</span>
+          </div>
+        </div>
+        <div class="home-hero__pillar">
+          <span class="home-hero__pillar-icon" style="color:var(--blue)">{ }</span>
+          <div>
+            <strong>Languages &amp; Frameworks</strong>
+            <span class="home-hero__pillar-sub">with cross-linked ecosystems</span>
+          </div>
+        </div>
+        <div class="home-hero__pillar">
+          <span class="home-hero__pillar-icon" style="color:var(--green)">→</span>
+          <div>
+            <strong>Learning Paths</strong>
+            <span class="home-hero__pillar-sub">books, courses, structured guides</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="home-hero__dir">
+      <div class="home-dir-label">// what's inside</div>
+      <div class="home-dir-list">
+        <a href="/tools/" class="home-dir-row" style="--card-accent:var(--yellow)">
+          <span class="home-dir-row__path">tools/</span>
+          <span class="home-dir-row__count">7</span>
+          <span class="home-dir-row__desc">editors, CLIs, databases, CI/CD, DevOps, and more</span>
+        </a>
+        <a href="/languages/" class="home-dir-row" style="--card-accent:var(--blue)">
+          <span class="home-dir-row__path">languages/</span>
+          <span class="home-dir-row__count">100</span>
+          <span class="home-dir-row__desc">programming languages with ecosystem and typing info</span>
+        </a>
+        <a href="/frameworks/" class="home-dir-row" style="--card-accent:var(--cyan)">
+          <span class="home-dir-row__path">frameworks/</span>
+          <span class="home-dir-row__count">70</span>
+          <span class="home-dir-row__desc">web, API, mobile, and data frameworks by language</span>
+        </a>
+        <a href="/libraries/" class="home-dir-row" style="--card-accent:#a78bfa">
+          <span class="home-dir-row__path">libraries/</span>
+          <span class="home-dir-row__count">20</span>
+          <span class="home-dir-row__desc">utility, HTTP, validation, serialization, and more</span>
+        </a>
+        <a href="/stacks/" class="home-dir-row" style="--card-accent:var(--green)">
+          <span class="home-dir-row__path">stacks/</span>
+          <span class="home-dir-row__count">7</span>
+          <span class="home-dir-row__desc">curated tech stacks — MERN, Django, Rails, and others</span>
+        </a>
+        <a href="/paths/" class="home-dir-row" style="--card-accent:var(--accent)">
+          <span class="home-dir-row__path">paths/</span>
+          <span class="home-dir-row__count">1</span>
+          <span class="home-dir-row__desc">step-by-step learning paths from zero to production</span>
+        </a>
+        <a href="/books/" class="home-dir-row" style="--card-accent:var(--orange)">
+          <span class="home-dir-row__path">books/</span>
+          <span class="home-dir-row__count">1</span>
+          <span class="home-dir-row__desc">technical books — classics, deep dives, modern guides</span>
+        </a>
+        <a href="/courses/" class="home-dir-row" style="--card-accent:var(--pink)">
+          <span class="home-dir-row__path">courses/</span>
+          <span class="home-dir-row__count">1</span>
+          <span class="home-dir-row__desc">online courses and tutorials, free and paid</span>
+        </a>
+        <a href="/newsletters/" class="home-dir-row" style="--card-accent:var(--red)">
+          <span class="home-dir-row__path">newsletters/</span>
+          <span class="home-dir-row__count">11</span>
+          <span class="home-dir-row__desc">dev newsletters by topic and frequency</span>
+        </a>
+        <a href="/resources/" class="home-dir-row" style="--card-accent:var(--comment)">
+          <span class="home-dir-row__path">resources/</span>
+          <span class="home-dir-row__count">1</span>
+          <span class="home-dir-row__desc">guides, cheatsheets, reference sites, communities</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span>#</span> Tools</h2>
+      <div style="display:flex;align-items:center;gap:0.75rem">
+        <span id="results-count" class="text-muted text-mono" style="font-size:0.8rem">7 tools</span>
+        <a href="/tools/" class="btn btn-ghost btn-sm">Full list →</a>
+      </div>
+    </div>
+
+    <div class="browse-layout">
+      
+      <aside class="filter-sidebar" id="filter-sidebar">
+        <div class="filter-sidebar__header">
+          <span class="filter-sidebar__title">// filters</span>
+          <button id="clear-filters" class="btn btn-ghost btn-sm" style="display:none;padding:0.2rem 0.6rem;font-size:0.75rem">Clear all</button>
+        </div>
+
+        
+        <div class="filter-group">
+          <div class="filter-group__label">Search</div>
+          <div class="search-bar" style="max-width:none;margin:0">
+            <svg class="search-bar__icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="filter-search" placeholder="Search tools..." autocomplete="off" style="padding-left:2.5rem;padding-top:0.55rem;padding-bottom:0.55rem;font-size:0.85rem;border-radius:var(--radius)">
+          </div>
+        </div>
+
+        
+        <div class="filter-group">
+          <div class="filter-group__label">Language</div>
+          <div class="filter-chips" id="filter-language">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="language" data-value="c">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" alt="" style="width:14px;height:14px;object-fit:contain;vertical-align:middle">
+              C
+              <span class="filter-chip__count">3</span>
+            </button>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="language" data-value="go">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="" style="width:14px;height:14px;object-fit:contain;vertical-align:middle">
+              Go
+              <span class="filter-chip__count">1</span>
+            </button>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="language" data-value="javascript">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="" style="width:14px;height:14px;object-fit:contain;vertical-align:middle">
+              JavaScript
+              <span class="filter-chip__count">2</span>
+            </button>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="language" data-value="typescript">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="" style="width:14px;height:14px;object-fit:contain;vertical-align:middle">
+              TypeScript
+              <span class="filter-chip__count">1</span>
+            </button>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+        <div class="filter-group">
+          <div class="filter-group__label">Framework</div>
+          <div class="filter-chips" id="filter-framework">
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            <button class="filter-chip" data-filter="framework" data-value="django">
+              Django
+              <span class="filter-chip__count">2</span>
+            </button>
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            <button class="filter-chip" data-filter="framework" data-value="express">
+              Express
+              <span class="filter-chip__count">2</span>
+            </button>
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            <button class="filter-chip" data-filter="framework" data-value="laravel">
+              Laravel
+              <span class="filter-chip__count">2</span>
+            </button>
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            <button class="filter-chip" data-filter="framework" data-value="nextjs">
+              Next.js
+              <span class="filter-chip__count">1</span>
+            </button>
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            <button class="filter-chip" data-filter="framework" data-value="react">
+              React
+              <span class="filter-chip__count">1</span>
+            </button>
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+            
+            
+          </div>
+        </div>
+
+        
+        <div class="filter-group">
+          <div class="filter-group__label">Type</div>
+          <div class="filter-chips" id="filter-type">
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="type" data-value="database">
+              database
+              <span class="filter-chip__count">2</span>
+            </button>
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="type" data-value="devops">
+              devops
+              <span class="filter-chip__count">1</span>
+            </button>
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="type" data-value="editor">
+              editor
+              <span class="filter-chip__count">2</span>
+            </button>
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="type" data-value="framework">
+              framework
+              <span class="filter-chip__count">2</span>
+            </button>
+            
+          </div>
+        </div>
+
+        
+        <div class="filter-group">
+          <div class="filter-group__label">Pricing</div>
+          <div class="filter-chips" id="filter-pricing">
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="pricing" data-value="free">
+              free
+              <span class="filter-chip__count">6</span>
+            </button>
+            
+            
+            
+            
+            <button class="filter-chip" data-filter="pricing" data-value="freemium">
+              freemium
+              <span class="filter-chip__count">1</span>
+            </button>
+            
+          </div>
+        </div>
+
+        
+        <div class="filter-group">
+          <div class="filter-group__label">Open Source</div>
+          <div class="filter-chips">
+            <button class="filter-chip" data-filter="open_source" data-value="true">Yes</button>
+            <button class="filter-chip" data-filter="open_source" data-value="false">No</button>
+          </div>
+        </div>
+      </aside>
+
+      
+      <div class="browse-main">
+        <div class="grid-3" id="tool-grid">
+          
+          
+          
+          
+          <div class="tool-item"
+               data-name="docker"
+               data-desc="platform for developing, shipping, and running applications in containers."
+               data-language="go"
+               data-frameworks=" "
+               data-type="devops"
+               data-pricing="freemium"
+               data-open_source="true"
+               data-tags="containers devops deployment ">
+            
+<div class="card tool-card">
+  <a href="/tools/docker/" class="card-link">
+    <div class="tool-card__header">
+      
+        <div class="tool-logo-placeholder">D</div>
+      
+      <div>
+        <h3 class="tool-card__name">Docker</h3>
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem">
+          <span class="badge badge-freemium">freemium</span>
+          <span class="badge badge-open">Open Source</span>
+        </div>
+      </div>
+    </div>
+    <p class="tool-card__desc">Platform for developing, shipping, and running applications in containers.</p>
+    <div class="tool-card__meta">
+      <span class="badge badge-type">devops</span>
+      <span class="badge badge-tag">devops</span><span class="badge badge-tag">containerization</span>
+      
+      <span class="tool-card__github">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        moby/moby
+      </span>
+      
+    </div>
+  </a>
+</div>
+
+          </div>
+          
+          
+          
+          
+          <div class="tool-item"
+               data-name="neovim"
+               data-desc="hyperextensible vim-based text editor with lua scripting, lsp support, and a thriving plugin ecosystem."
+               data-language="c"
+               data-frameworks=" "
+               data-type="editor"
+               data-pricing="free"
+               data-open_source="true"
+               data-tags="vim modal lua lsp ">
+            
+<div class="card tool-card">
+  <a href="/tools/neovim/" class="card-link">
+    <div class="tool-card__header">
+      
+        <img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Neovim-logo.svg" alt="Neovim logo" loading="lazy">
+      
+      <div>
+        <h3 class="tool-card__name">Neovim</h3>
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem">
+          <span class="badge badge-free">free</span>
+          <span class="badge badge-open">Open Source</span>
+        </div>
+      </div>
+    </div>
+    <p class="tool-card__desc">Hyperextensible Vim-based text editor with Lua scripting, LSP support, and a thriving plugin …</p>
+    <div class="tool-card__meta">
+      <span class="badge badge-type">editor</span>
+      <span class="badge badge-tag">ides-editors</span><span class="badge badge-tag">cli-tools</span>
+      
+      <span class="tool-card__github">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        neovim/neovim
+      </span>
+      
+    </div>
+  </a>
+</div>
+
+          </div>
+          
+          
+          
+          
+          <div class="tool-item"
+               data-name="next.js"
+               data-desc="full-stack react framework with server-side rendering, static generation, and app router."
+               data-language="javascript"
+               data-frameworks=""
+               data-type="framework"
+               data-pricing="free"
+               data-open_source="true"
+               data-tags="react ssr ssg typescript ">
+            
+<div class="card tool-card">
+  <a href="/tools/nextjs/" class="card-link">
+    <div class="tool-card__header">
+      
+        <div class="tool-logo-placeholder">N</div>
+      
+      <div>
+        <h3 class="tool-card__name">Next.js</h3>
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem">
+          <span class="badge badge-free">free</span>
+          <span class="badge badge-open">Open Source</span>
+        </div>
+      </div>
+    </div>
+    <p class="tool-card__desc">Full-stack React framework with server-side rendering, static generation, and App Router.</p>
+    <div class="tool-card__meta">
+      <span class="badge badge-type">framework</span>
+      <span class="badge badge-tag">frameworks</span><span class="badge badge-tag">frontend</span>
+      
+      <span class="tool-card__github">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        vercel/next.js
+      </span>
+      
+    </div>
+  </a>
+</div>
+
+          </div>
+          
+          
+          
+          
+          <div class="tool-item"
+               data-name="postgresql"
+               data-desc="advanced open-source relational database with extensive features and acid compliance."
+               data-language="c"
+               data-frameworks=""
+               data-type="database"
+               data-pricing="free"
+               data-open_source="true"
+               data-tags="sql relational acid ">
+            
+<div class="card tool-card">
+  <a href="/tools/postgresql/" class="card-link">
+    <div class="tool-card__header">
+      
+        <div class="tool-logo-placeholder">P</div>
+      
+      <div>
+        <h3 class="tool-card__name">PostgreSQL</h3>
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem">
+          <span class="badge badge-free">free</span>
+          <span class="badge badge-open">Open Source</span>
+        </div>
+      </div>
+    </div>
+    <p class="tool-card__desc">Advanced open-source relational database with extensive features and ACID compliance.</p>
+    <div class="tool-card__meta">
+      <span class="badge badge-type">database</span>
+      <span class="badge badge-tag">databases</span>
+      
+      <span class="tool-card__github">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        postgres/postgres
+      </span>
+      
+    </div>
+  </a>
+</div>
+
+          </div>
+          
+          
+          
+          
+          <div class="tool-item"
+               data-name="react"
+               data-desc="javascript library for building user interfaces with a component-based architecture."
+               data-language="javascript"
+               data-frameworks=" "
+               data-type="framework"
+               data-pricing="free"
+               data-open_source="true"
+               data-tags="ui components spa hooks ">
+            
+<div class="card tool-card">
+  <a href="/tools/react/" class="card-link">
+    <div class="tool-card__header">
+      
+        <div class="tool-logo-placeholder">R</div>
+      
+      <div>
+        <h3 class="tool-card__name">React</h3>
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem">
+          <span class="badge badge-free">free</span>
+          <span class="badge badge-open">Open Source</span>
+        </div>
+      </div>
+    </div>
+    <p class="tool-card__desc">JavaScript library for building user interfaces with a component-based architecture.</p>
+    <div class="tool-card__meta">
+      <span class="badge badge-type">framework</span>
+      <span class="badge badge-tag">frameworks</span><span class="badge badge-tag">frontend</span>
+      
+      <span class="tool-card__github">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        facebook/react
+      </span>
+      
+    </div>
+  </a>
+</div>
+
+          </div>
+          
+          
+          
+          
+          <div class="tool-item"
+               data-name="redis"
+               data-desc="in-memory data structure store used as database, cache, message broker, and streaming engine."
+               data-language="c"
+               data-frameworks=""
+               data-type="database"
+               data-pricing="free"
+               data-open_source="true"
+               data-tags="cache nosql pub-sub streams ">
+            
+<div class="card tool-card">
+  <a href="/tools/redis/" class="card-link">
+    <div class="tool-card__header">
+      
+        <div class="tool-logo-placeholder">R</div>
+      
+      <div>
+        <h3 class="tool-card__name">Redis</h3>
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem">
+          <span class="badge badge-free">free</span>
+          <span class="badge badge-open">Open Source</span>
+        </div>
+      </div>
+    </div>
+    <p class="tool-card__desc">In-memory data structure store used as database, cache, message broker, and streaming engine.</p>
+    <div class="tool-card__meta">
+      <span class="badge badge-type">database</span>
+      <span class="badge badge-tag">databases</span>
+      
+      <span class="tool-card__github">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        redis/redis
+      </span>
+      
+    </div>
+  </a>
+</div>
+
+          </div>
+          
+          
+          
+          
+          <div class="tool-item"
+               data-name="visual studio code"
+               data-desc="free, open-source code editor by microsoft with extensions, debugging, and git integration."
+               data-language="typescript"
+               data-frameworks=" "
+               data-type="editor"
+               data-pricing="free"
+               data-open_source="true"
+               data-tags="editor typescript intellisense debugging ">
+            
+<div class="card tool-card">
+  <a href="/tools/visual-studio-code/" class="card-link">
+    <div class="tool-card__header">
+      
+        <img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="Visual Studio Code logo" loading="lazy">
+      
+      <div>
+        <h3 class="tool-card__name">Visual Studio Code</h3>
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem">
+          <span class="badge badge-free">free</span>
+          <span class="badge badge-open">Open Source</span>
+        </div>
+      </div>
+    </div>
+    <p class="tool-card__desc">Free, open-source code editor by Microsoft with extensions, debugging, and Git integration.</p>
+    <div class="tool-card__meta">
+      <span class="badge badge-type">editor</span>
+      <span class="badge badge-tag">ides-editors</span><span class="badge badge-tag">extensions</span>
+      
+      <span class="tool-card__github">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        microsoft/vscode
+      </span>
+      
+    </div>
+  </a>
+</div>
+
+          </div>
+          
+        </div>
+
+        <div id="no-results" class="hidden text-center" style="padding:3rem 0;color:var(--comment)">
+          No tools match those filters.
+          <div style="margin-top:0.75rem">
+            <button id="no-results-clear" class="btn btn-ghost btn-sm">Clear filters</button>
+            &nbsp;or&nbsp;
+            <a href="https://github.com/devtoolsd/devtoolsd/new/main/content/tools" target="_blank" class="btn btn-primary btn-sm">Add one via PR</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span>#</span> Technology Stacks</h2>
+      <a href="/stacks/" class="btn btn-ghost btn-sm">All stacks →</a>
+    </div>
+    <p style="color:var(--fg-muted);font-size:0.9rem;margin-bottom:1.5rem">Popular tech stacks with curated tools, cross-linked so you can explore the whole ecosystem.</p>
+    <div class="home-stacks">
+      
+      
+      <a href="/stacks/django/" class="home-stack-card" style="--stack-color:#092E20">
+        <div class="home-stack-card__accent"></div>
+        <div class="home-stack-card__body">
+          <div class="home-stack-card__name">Django Stack</div>
+          <div class="home-stack-card__desc">Python web stack with Django, PostgreSQL, Redis, and Celery for …</div>
+          <div class="home-stack-card__tools">
+            <span class="badge badge-tag">django</span><span class="badge badge-tag">python</span><span class="badge badge-tag">postgresql</span><span class="badge badge-tag">redis</span>
+          </div>
+        </div>
+      </a>
+      
+      
+      <a href="/stacks/flutter/" class="home-stack-card" style="--stack-color:#02569B">
+        <div class="home-stack-card__accent"></div>
+        <div class="home-stack-card__body">
+          <div class="home-stack-card__name">Flutter Stack</div>
+          <div class="home-stack-card__desc">Cross-platform mobile and web apps with Flutter, Dart, and …</div>
+          <div class="home-stack-card__tools">
+            <span class="badge badge-tag">flutter</span><span class="badge badge-tag">firebase</span><span class="badge badge-tag">dart</span>
+          </div>
+        </div>
+      </a>
+      
+      
+      <a href="/stacks/jamstack/" class="home-stack-card" style="--stack-color:#F0047F">
+        <div class="home-stack-card__accent"></div>
+        <div class="home-stack-card__body">
+          <div class="home-stack-card__name">JAMstack</div>
+          <div class="home-stack-card__desc">JavaScript, APIs, and Markup. Static-first architecture served …</div>
+          <div class="home-stack-card__tools">
+            <span class="badge badge-tag">nextjs</span><span class="badge badge-tag">netlify</span><span class="badge badge-tag">vercel</span>
+          </div>
+        </div>
+      </a>
+      
+      
+      <a href="/stacks/laravel/" class="home-stack-card" style="--stack-color:#FF2D20">
+        <div class="home-stack-card__accent"></div>
+        <div class="home-stack-card__body">
+          <div class="home-stack-card__name">Laravel Stack</div>
+          <div class="home-stack-card__desc">PHP web application stack with Laravel, MySQL or PostgreSQL, …</div>
+          <div class="home-stack-card__tools">
+            <span class="badge badge-tag">laravel</span><span class="badge badge-tag">php</span><span class="badge badge-tag">mysql</span><span class="badge badge-tag">postgresql</span>
+          </div>
+        </div>
+      </a>
+      
+      
+      <a href="/stacks/mean/" class="home-stack-card" style="--stack-color:#DD0031">
+        <div class="home-stack-card__accent"></div>
+        <div class="home-stack-card__body">
+          <div class="home-stack-card__name">MEAN Stack</div>
+          <div class="home-stack-card__desc">Full-stack JavaScript with MongoDB, Express.js, Angular, and …</div>
+          <div class="home-stack-card__tools">
+            <span class="badge badge-tag">angular</span><span class="badge badge-tag">expressjs</span><span class="badge badge-tag">nodejs</span><span class="badge badge-tag">mongodb</span>
+          </div>
+        </div>
+      </a>
+      
+      
+      <a href="/stacks/mern/" class="home-stack-card" style="--stack-color:#61DAFB">
+        <div class="home-stack-card__accent"></div>
+        <div class="home-stack-card__body">
+          <div class="home-stack-card__name">MERN Stack</div>
+          <div class="home-stack-card__desc">Full-stack JavaScript using MongoDB, Express.js, React, and …</div>
+          <div class="home-stack-card__tools">
+            <span class="badge badge-tag">react</span><span class="badge badge-tag">expressjs</span><span class="badge badge-tag">nodejs</span><span class="badge badge-tag">mongodb</span>
+          </div>
+        </div>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title"><span>#</span> How it works</h2>
+    </div>
+    <div class="home-how">
+      <div class="home-how__step">
+        <div class="home-how__num">01</div>
+        <div class="home-how__title">Fork &amp; create a file</div>
+        <div class="home-how__desc">Add a <code>.md</code> file to <code>content/tools/</code>, <code>content/books/</code>, or any other content directory.</div>
+      </div>
+      <div class="home-how__arrow">→</div>
+      <div class="home-how__step">
+        <div class="home-how__num">02</div>
+        <div class="home-how__title">Fill in the YAML</div>
+        <div class="home-how__desc">Follow the schema in <a href="/contribute/">CONTRIBUTING</a>. Name, description, website, tags — done.</div>
+      </div>
+      <div class="home-how__arrow">→</div>
+      <div class="home-how__step">
+        <div class="home-how__num">03</div>
+        <div class="home-how__title">Open a Pull Request</div>
+        <div class="home-how__desc">Title it <code>add: Tool Name</code>. Once merged, it's live on the site automatically.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:1.75rem">
+      <a href="/contribute/" class="btn btn-primary">Read the contribution guide</a>
+    </div>
+  </section>
+
+  
+  <div class="star-banner" style="margin-bottom:3rem">
+    <div>
+      <div style="font-weight:700;font-size:1rem;margin-bottom:0.25rem">devtools/ is built like Wikipedia — by the community, for the community.</div>
+      <div class="star-banner__text">Every entry is a Markdown file on GitHub. Spotted something wrong or missing? Open a PR in under 5 minutes.</div>
+    </div>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+      <a href="/contribute/" class="btn btn-primary btn-sm">Contribute</a>
+      <a href="https://github.com/devtoolsd/devtoolsd" class="btn btn-github btn-sm" target="_blank" rel="noopener">★ Star on GitHub</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  const grid    = document.getElementById('tool-grid');
+  const items   = grid.querySelectorAll('.tool-item');
+  const noRes   = document.getElementById('no-results');
+  const counter = document.getElementById('results-count');
+  const clearBtn = document.getElementById('clear-filters');
+  const noResClear = document.getElementById('no-results-clear');
+  const searchInput = document.getElementById('filter-search');
+
+  const active = { language: new Set(), framework: new Set(), type: new Set(), pricing: new Set(), open_source: new Set() };
+  let query = '';
+
+  function anyActive() {
+    return query || Object.values(active).some(s => s.size > 0);
+  }
+
+  function filter() {
+    let visible = 0;
+    items.forEach(el => {
+      const d = el.dataset;
+      const langs  = d.language ? d.language.split(' ').filter(Boolean) : [];
+      const fws    = d.frameworks ? d.frameworks.split(' ').filter(Boolean) : [];
+
+      const matchSearch = !query ||
+        d.name.includes(query) ||
+        d.desc.includes(query) ||
+        d.tags.includes(query) ||
+        langs.some(v => v.includes(query)) ||
+        fws.some(v => v.includes(query));
+
+      const matchLang  = active.language.size === 0    || langs.some(v => active.language.has(v));
+      const matchFw    = active.framework.size === 0   || fws.some(v => active.framework.has(v));
+      const matchType  = active.type.size === 0        || active.type.has(d.type);
+      const matchPrice = active.pricing.size === 0     || active.pricing.has(d.pricing);
+      const matchOS    = active.open_source.size === 0 || active.open_source.has(d.open_source);
+
+      const show = matchSearch && matchLang && matchFw && matchType && matchPrice && matchOS;
+      el.classList.toggle('filter-hidden', !show);
+      if (show) visible++;
+    });
+
+    noRes.classList.toggle('hidden', visible > 0);
+    counter.textContent = visible + ' tool' + (visible !== 1 ? 's' : '');
+    clearBtn.style.display = anyActive() ? '' : 'none';
+  }
+
+  document.querySelectorAll('.filter-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.filter;
+      const val = btn.dataset.value;
+      if (active[key].has(val)) {
+        active[key].delete(val);
+        btn.classList.remove('active');
+      } else {
+        active[key].add(val);
+        btn.classList.add('active');
+      }
+      filter();
+    });
+  });
+
+  searchInput.addEventListener('input', e => {
+    query = e.target.value.toLowerCase().trim();
+    filter();
+  });
+
+  function clearAll() {
+    Object.values(active).forEach(s => s.clear());
+    document.querySelectorAll('.filter-chip.active').forEach(b => b.classList.remove('active'));
+    searchInput.value = '';
+    query = '';
+    filter();
+  }
+  clearBtn.addEventListener('click', clearAll);
+  noResClear.addEventListener('click', clearAll);
+
+  const toggleBtn = document.getElementById('sidebar-toggle');
+  const sidebar   = document.getElementById('filter-sidebar');
+  if (toggleBtn && sidebar) {
+    toggleBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
+  }
+
+  filter();
+})();
+</script>
+
+  </main>
+  
+
+
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-body">
+
+    
+    <div class="footer-left">
+      <div class="footer-brand-line">
+        <svg width="18" height="18" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <g transform="translate(3,0)">
+            <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+            <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+            <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+            <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+            <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+            <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+          </g>
+        </svg>
+        <span class="footer-brand-name">devtools<span style="color:var(--accent)">/</span></span>
+      </div>
+      <div class="footer-comments">
+        <span class="footer-comment">// Wikipedia for developer tools.</span>
+        <span class="footer-comment">// Community-maintained · open source · MIT.</span>
+      </div>
+
+      <div class="footer-tree">
+        <div class="footer-tree__root">content/</div>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
+        <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
+        <a href="/stacks/"     class="footer-tree__item">├── stacks/     <span class="tree-count">7</span></a>
+        <a href="/paths/"      class="footer-tree__item">├── paths/      <span class="tree-count">1</span></a>
+        <a href="/books/"      class="footer-tree__item">├── books/      <span class="tree-count">1</span></a>
+        <a href="/courses/"     class="footer-tree__item">├── courses/     <span class="tree-count">1</span></a>
+        <a href="/newsletters/" class="footer-tree__item">├── newsletters/ <span class="tree-count">11</span></a>
+        <a href="/resources/"  class="footer-tree__item">└── resources/   <span class="tree-count">1</span></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-prompt">$</span> contribute</div>
+      <a href="/contribute/"                                                      class="footer-cmd"><span class="footer-cmd__arrow">›</span> how to contribute</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/new/main/content/tools"   target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> add a tool</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/issues/new"                target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> report an issue</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/pulls"                     target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> open pull requests</a>
+      <a href="https://github.com/devtoolsd/devtoolsd"                           target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> ★ star on github</a>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-comment-inline">//</span> project</div>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/LICENSE"        target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> license: MIT</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> CONTRIBUTING.md</a>
+      <a href="/llms.txt"                                                           class="footer-cmd"><span class="footer-cmd__arrow">›</span> llms.txt</a>
+      <a href="/index.json"                                                         class="footer-cmd"><span class="footer-cmd__arrow">›</span> index.json</a>
+      <a href="/sitemap.xml"                                                        class="footer-cmd"><span class="footer-cmd__arrow">›</span> sitemap.xml</a>
+    </div>
+
+  </div>
+
+  
+  <div class="footer-statusbar">
+    <span class="footer-status__left">
+      <span class="footer-status__brand">devtools/</span>
+      <span class="footer-status__sep">·</span>
+      <span>MIT</span>
+      <span class="footer-status__sep">·</span>
+      <span>hugo</span>
+      <span class="footer-status__sep">·</span>
+      <span>github pages</span>
+    </span>
+    <span class="footer-status__right">© 2026 · open source</span>
+  </div>
+</footer>
+
+  <div id="search-modal" class="search-modal" hidden>
+  <div class="search-modal__backdrop" id="search-backdrop"></div>
+  <div class="search-modal__box">
+    <div class="search-modal__header">
+      <span class="search-modal__title"><span style="color:var(--accent)">devtools/</span> search</span>
+      <button class="search-modal__close" id="search-close" aria-label="Close search"><kbd>esc</kbd></button>
+    </div>
+    <div class="search-modal__input-wrap">
+      <span class="search-input-slash">/</span>
+      <input
+        type="text"
+        id="search-input"
+        class="search-modal__input"
+        placeholder="search tools, books, languages..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+    </div>
+    <div id="search-results" class="search-results" role="listbox"></div>
+    <div class="search-modal__footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var index = null;
+  var selected = -1;
+
+  var modal    = document.getElementById('search-modal');
+  var input    = document.getElementById('search-input');
+  var results  = document.getElementById('search-results');
+  var openBtn  = document.getElementById('search-open');
+  var closeBtn = document.getElementById('search-close');
+  var backdrop = document.getElementById('search-backdrop');
+
+  function openSearch() {
+    modal.removeAttribute('hidden');
+    document.body.classList.add('search-open');
+    input.focus();
+    if (!index) loadIndex();
+  }
+
+  function closeSearch() {
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('search-open');
+    input.value = '';
+    results.innerHTML = '';
+    selected = -1;
+  }
+
+  function loadIndex() {
+    fetch('/index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { index = data; })
+      .catch(function() { index = []; });
+  }
+
+  function typeLabel(section) {
+    var map = {
+      tools: 'tool', languages: 'lang', frameworks: 'fwk',
+      books: 'book', courses: 'course', resources: 'res',
+      stacks: 'stack', paths: 'path'
+    };
+    return map[section] || section;
+  }
+
+  function escape(str) {
+    return str.replace(/[&<>"']/g, function(c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function highlight(text, q) {
+    if (!q) return escape(text);
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return escape(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function search(q) {
+    selected = -1;
+    if (!q || q.length < 2) { results.innerHTML = ''; return; }
+    if (!index) { results.innerHTML = ''; return; }
+
+    var ql = q.toLowerCase();
+    var scored = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      var name = (item.name || '').toLowerCase();
+      var desc = (item.description || '').toLowerCase();
+      var score = 0;
+      if (name === ql) score = 3;
+      else if (name.startsWith(ql)) score = 2;
+      else if (name.includes(ql)) score = 1;
+      else if (desc.includes(ql)) score = 0;
+      else continue;
+      scored.push({ item: item, score: score });
+    }
+    scored.sort(function(a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 8);
+
+    if (!top.length) {
+      results.innerHTML = '<div class="search-empty">no results for <strong>' + escape(q) + '</strong></div>';
+      return;
+    }
+
+    var html = '';
+    for (var j = 0; j < top.length; j++) {
+      var it = top[j].item;
+      var desc_short = it.description ? it.description.slice(0, 80) : '';
+      html += '<a href="' + escape(it.url) + '" class="search-result" role="option" tabindex="-1">'
+        + '<span class="search-result__type">' + escape(typeLabel(it.type)) + '</span>'
+        + '<span class="search-result__body">'
+        + '<span class="search-result__name">' + highlight(it.name || it.slug, q) + '</span>'
+        + (desc_short ? '<span class="search-result__desc">' + highlight(desc_short, q) + '</span>' : '')
+        + '</span>'
+        + '</a>';
+    }
+    results.innerHTML = html;
+  }
+
+  function getItems() { return results.querySelectorAll('.search-result'); }
+
+  function setSelected(n) {
+    var items = getItems();
+    if (!items.length) return;
+    if (selected >= 0 && selected < items.length) items[selected].classList.remove('is-selected');
+    selected = Math.max(0, Math.min(n, items.length - 1));
+    items[selected].classList.add('is-selected');
+    items[selected].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function() { search(input.value.trim()); });
+
+  input.addEventListener('keydown', function(e) {
+    var items = getItems();
+    if (e.key === 'ArrowDown')  { e.preventDefault(); setSelected(selected + 1); }
+    if (e.key === 'ArrowUp')    { e.preventDefault(); setSelected(selected - 1); }
+    if (e.key === 'Enter' && selected >= 0 && selected < items.length) {
+      e.preventDefault(); items[selected].click();
+    }
+  });
+
+  results.addEventListener('click', function(e) {
+    var link = e.target.closest('.search-result');
+    if (link) closeSearch();
+  });
+
+  openBtn.addEventListener('click', openSearch);
+  closeBtn.addEventListener('click', closeSearch);
+  backdrop.addEventListener('click', closeSearch);
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal.hasAttribute('hidden') ? openSearch() : closeSearch();
+    }
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSearch();
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      var t = localStorage.getItem('devtools-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+<title>Programming Languages — devtools/</title>
+<meta name="description" content="Browse tools, frameworks, books, and courses by programming language.">
+<link rel="canonical" href="https://devtools.directory/languages/">
+
+
+<meta property="og:title" content="Programming Languages — devtools/">
+<meta property="og:description" content="Browse tools, frameworks, books, and courses by programming language.">
+<meta property="og:url" content="https://devtools.directory/languages/">
+<meta property="og:site_name" content="devtools/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Programming Languages — devtools/">
+<meta name="twitter:description" content="Browse tools, frameworks, books, and courses by programming language.">
+<meta name="twitter:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https:\/\/devtools.directory\/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Languages",
+      "item": "https:\/\/devtools.directory\/languages/"
+    }
+  ]
+}
+</script>
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+
+</head>
+<body>
+  
+
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo">
+      <svg width="26" height="26" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3,0)">
+          <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+          <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+          <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+          <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+          <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+          <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+        </g>
+      </svg>
+      devtools<span style="color:var(--accent)">/</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="/tools/">tools/</a>
+      <a href="/languages/" class="active">languages/</a>
+      <a href="/frameworks/" class="nav-group-trigger">ecosystem</a>
+      <a href="/books/" class="nav-group-trigger">learn</a>
+      <a href="/contribute/">contribute</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="search-trigger" id="search-open" aria-label="Search">
+        <span class="search-trigger__slash">/</span>
+        <span class="search-trigger__label">search</span>
+        <kbd class="search-trigger__kbd">⌘K</kbd>
+      </button>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="https://github.com/devtoolsd/devtoolsd" class="header-star" target="_blank" rel="noopener">
+        <span class="header-star__prompt">$</span> star
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  
+  
+  
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', function() {
+    document.getElementById('site-nav').classList.toggle('open');
+  });
+
+  document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('devtools-theme', next);
+  });
+</script>
+
+  <main>
+    
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+
+
+
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="/">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Languages</span>
+  </div>
+</div>
+
+<div class="tools-page">
+
+  
+  <aside class="tools-sidebar" id="tools-sidebar">
+    <div class="tools-sidebar__head">
+      <span class="tools-sidebar__title"><span class="sidebar-prompt">$</span> filters</span>
+      <button class="sidebar-clear" id="clear-filters">clear</button>
+    </div>
+
+    
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// typing</div>
+      <div class="sidebar-items" id="filter-typing">
+        <button class="sf active" data-typing="all">all<span class="sf-count">100</span></button>
+        
+        <button class="sf" data-typing="dynamic">dynamic</button>
+        
+        <button class="sf" data-typing="gradual">gradual</button>
+        
+        <button class="sf" data-typing="static">static</button>
+        
+        <button class="sf" data-typing="untyped">untyped</button>
+        
+      </div>
+    </div>
+    
+
+    
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// compilation</div>
+      <div class="sidebar-items" id="filter-compilation">
+        <button class="sf active" data-compilation="all">all</button>
+        
+        <button class="sf" data-compilation="assembled">assembled</button>
+        
+        <button class="sf" data-compilation="compiled">compiled</button>
+        
+        <button class="sf" data-compilation="interpreted">interpreted</button>
+        
+        <button class="sf" data-compilation="jit">jit</button>
+        
+        <button class="sf" data-compilation="transpiled">transpiled</button>
+        
+      </div>
+    </div>
+    
+
+    
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// paradigm</div>
+      <div class="sidebar-items" id="filter-paradigm">
+        <button class="sf active" data-paradigm="all">all</button>
+        
+        <button class="sf" data-paradigm="actor-model">actor-model</button>
+        
+        <button class="sf" data-paradigm="array">array</button>
+        
+        <button class="sf" data-paradigm="concatenative">concatenative</button>
+        
+        <button class="sf" data-paradigm="concurrent">concurrent</button>
+        
+        <button class="sf" data-paradigm="configuration">configuration</button>
+        
+        <button class="sf" data-paradigm="declarative">declarative</button>
+        
+        <button class="sf" data-paradigm="dependent-types">dependent-types</button>
+        
+        <button class="sf" data-paradigm="distributed">distributed</button>
+        
+        <button class="sf" data-paradigm="effect-oriented">effect-oriented</button>
+        
+        <button class="sf" data-paradigm="event-driven">event-driven</button>
+        
+        <button class="sf" data-paradigm="functional">functional</button>
+        
+        <button class="sf" data-paradigm="generic">generic</button>
+        
+        <button class="sf" data-paradigm="hardware">hardware</button>
+        
+        <button class="sf" data-paradigm="imperative">imperative</button>
+        
+        <button class="sf" data-paradigm="lazy">lazy</button>
+        
+        <button class="sf" data-paradigm="lisp">lisp</button>
+        
+        <button class="sf" data-paradigm="logic">logic</button>
+        
+        <button class="sf" data-paradigm="low-level">low-level</button>
+        
+        <button class="sf" data-paradigm="modular">modular</button>
+        
+        <button class="sf" data-paradigm="oop">oop</button>
+        
+        <button class="sf" data-paradigm="parallel">parallel</button>
+        
+        <button class="sf" data-paradigm="procedural">procedural</button>
+        
+        <button class="sf" data-paradigm="protocol-oriented">protocol-oriented</button>
+        
+        <button class="sf" data-paradigm="prototype-based">prototype-based</button>
+        
+        <button class="sf" data-paradigm="reactive">reactive</button>
+        
+        <button class="sf" data-paradigm="relational">relational</button>
+        
+        <button class="sf" data-paradigm="scientific">scientific</button>
+        
+        <button class="sf" data-paradigm="scripting">scripting</button>
+        
+        <button class="sf" data-paradigm="simulation">simulation</button>
+        
+        <button class="sf" data-paradigm="stack-based">stack-based</button>
+        
+        <button class="sf" data-paradigm="statistical">statistical</button>
+        
+        <button class="sf" data-paradigm="structured">structured</button>
+        
+        <button class="sf" data-paradigm="systems">systems</button>
+        
+        <button class="sf" data-paradigm="tacit">tacit</button>
+        
+        <button class="sf" data-paradigm="typed">typed</button>
+        
+      </div>
+    </div>
+    
+  </aside>
+
+  
+  <div class="tools-main">
+
+    <div class="tools-topbar">
+      <div class="tools-search-wrap">
+        <span class="tools-search-slash">/</span>
+        <input
+          type="text"
+          id="lang-search"
+          class="tools-search-input"
+          placeholder="filter languages..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+      <span class="tools-count"><span id="lang-count">100</span> results</span>
+      <button class="tools-filter-btn" id="filter-toggle" aria-expanded="false">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        filters
+      </button>
+    </div>
+
+    <div class="active-filters" id="active-filters"></div>
+
+    <div class="langs-grid" id="langs-grid">
+      
+      
+      <div class="lang-item"
+        data-name="abap"
+        data-desc="sap&#39;s proprietary language for business application programming — the backbone of sap erp systems worldwide."
+        data-typing="static"
+        data-compilation="interpreted"
+        data-paradigm="imperative oop "
+        data-tags="sap erp enterprise backend business ">
+        
+<a href="/languages/abap/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">AB</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">ABAP</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1983</span>
+    </div>
+    
+    <p class="lang-card__desc">SAP&#39;s proprietary language for business application programming — the backbone of SAP ERP …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="actionscript"
+        data-desc="ecmascript-based language that powered flash — the dominant platform for interactive web and game content in the 2000s."
+        data-typing="static"
+        data-compilation="jit"
+        data-paradigm="oop functional event-driven "
+        data-tags="flash frontend game-dev adobe legacy web ">
+        
+<a href="/languages/actionscript/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">AC</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">ActionScript</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">1998</span>
+    </div>
+    
+    <p class="lang-card__desc">ECMAScript-based language that powered Flash — the dominant platform for interactive web …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="ada"
+        data-desc="safety-critical systems language mandated by the us dod — used in aerospace, defence, and railway control systems."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative concurrent oop "
+        data-tags="safety-critical aerospace defence embedded real-time ">
+        
+<a href="/languages/ada/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">AD</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Ada</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1980</span>
+    </div>
+    
+    <p class="lang-card__desc">Safety-critical systems language mandated by the US DoD — used in aerospace, defence, and …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="agda"
+        data-desc="dependently typed proof assistant and programming language — used for formalising mathematics and verifying software correctness."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional dependent-types "
+        data-tags="proof-assistant dependent-types formal-verification academic mathematics ">
+        
+<a href="/languages/agda/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">AG</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Agda</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2007</span>
+    </div>
+    
+    <p class="lang-card__desc">Dependently typed proof assistant and programming language — used for formalising …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="apex"
+        data-desc="salesforce&#39;s proprietary java-like language for building business logic on the salesforce platform."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop imperative "
+        data-tags="salesforce crm enterprise backend cloud ">
+        
+<a href="/languages/apex/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">AP</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Apex</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2007</span>
+    </div>
+    
+    <p class="lang-card__desc">Salesforce&#39;s proprietary Java-like language for building business logic on the Salesforce …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="apl"
+        data-desc="array-oriented language using a unique notation of mathematical symbols — extraordinarily concise, operating on entire arrays at once."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="array functional imperative "
+        data-tags="array-programming financial mathematical concise ">
+        
+<a href="/languages/apl/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">AP</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">APL</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1966</span>
+    </div>
+    
+    <p class="lang-card__desc">Array-oriented language using a unique notation of mathematical symbols — extraordinarily …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="assembly"
+        data-desc="human-readable representation of machine code — the lowest-level language above raw binary, essential for os kernels, firmware, and reverse engineering."
+        data-typing="untyped"
+        data-compilation="assembled"
+        data-paradigm="imperative low-level systems "
+        data-tags="systems embedded os firmware reverse-engineering security ">
+        
+<a href="/languages/assembly/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">AS</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Assembly</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">untyped</span>
+      <span class="lang-prop">assembled</span>
+      <span class="lang-prop lang-prop--year">1947</span>
+    </div>
+    
+    <p class="lang-card__desc">Human-readable representation of machine code — the lowest-level language above raw …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="awk"
+        data-desc="pattern-action text processing language — a one-liner powerhouse for parsing and transforming structured text files."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="scripting declarative imperative "
+        data-tags="scripting text-processing unix data cli devops ">
+        
+<a href="/languages/awk/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">AW</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">AWK</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1977</span>
+    </div>
+    
+    <p class="lang-card__desc">Pattern-action text processing language — a one-liner powerhouse for parsing and …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="ballerina"
+        data-desc="cloud-native language from wso2 — built-in network types, service definitions, and json/xml handling for integration work."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="concurrent oop functional "
+        data-tags="cloud integration microservices api network ">
+        
+<a href="/languages/ballerina/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">BA</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Ballerina</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2017</span>
+    </div>
+    
+    <p class="lang-card__desc">Cloud-native language from WSO2 — built-in network types, service definitions, and …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="bash"
+        data-desc="the gnu bourne again shell — the default scripting language of linux and macos automation."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="scripting imperative "
+        data-tags="scripting automation linux devops shell cli ">
+        
+<a href="/languages/bash/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">BA</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Bash</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1989</span>
+    </div>
+    
+    <p class="lang-card__desc">The GNU Bourne Again Shell — the default scripting language of Linux and macOS automation.</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="c"
+        data-desc="the foundational systems language — close to the metal, fast, and still driving operating systems, embedded firmware, and compilers."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative procedural systems "
+        data-tags="systems embedded os performance compilers ">
+        
+<a href="/languages/c/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" alt="C" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">C</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1972</span>
+    </div>
+    
+    <p class="lang-card__desc">The foundational systems language — close to the metal, fast, and still driving operating …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="c#"
+        data-desc="microsoft&#39;s modern, type-safe language for .net — used in enterprise backends, game development with unity, and cross-platform desktop apps."
+        data-typing="static"
+        data-compilation="jit"
+        data-paradigm="oop functional imperative concurrent "
+        data-tags="backend dotnet unity enterprise desktop game-dev ">
+        
+<a href="/languages/csharp/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" alt="C#" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">C#</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">2000</span>
+    </div>
+    
+    <p class="lang-card__desc">Microsoft&#39;s modern, type-safe language for .NET — used in enterprise backends, game …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="c&#43;&#43;"
+        data-desc="systems language extending c with classes, templates, and the stl — the language of game engines, browsers, and high-frequency trading."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop imperative systems generic "
+        data-tags="systems game-dev performance embedded graphics hft ">
+        
+<a href="/languages/cpp/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C&#43;&#43;" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">C&#43;&#43;</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1985</span>
+    </div>
+    
+    <p class="lang-card__desc">Systems language extending C with classes, templates, and the STL — the language of game …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="carbon"
+        data-desc="google&#39;s experimental c&#43;&#43; successor — designed for bidirectional c&#43;&#43; interoperability and a safer, more modern syntax."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative oop systems "
+        data-tags="systems c-plus-plus google experimental performance ">
+        
+<a href="/languages/carbon/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">CA</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Carbon</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2022</span>
+    </div>
+    
+    <p class="lang-card__desc">Google&#39;s experimental C++ successor — designed for bidirectional C++ interoperability and …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="chapel"
+        data-desc="parallel programming language from cray/hpe — designed for high-performance computing on multicore and distributed systems."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="parallel imperative oop "
+        data-tags="hpc parallel distributed scientific-computing supercomputing ">
+        
+<a href="/languages/chapel/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">CH</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Chapel</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2009</span>
+    </div>
+    
+    <p class="lang-card__desc">Parallel programming language from Cray/HPE — designed for high-performance computing on …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="clean"
+        data-desc="purely functional language from the netherlands with uniqueness types for safe in-place mutation without monads."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional lazy "
+        data-tags="functional type-theory uniqueness-types academic haskell-like ">
+        
+<a href="/languages/clean/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">CL</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Clean</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1987</span>
+    </div>
+    
+    <p class="lang-card__desc">Purely functional language from the Netherlands with uniqueness types for safe in-place …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="clojure"
+        data-desc="pragmatic lisp on the jvm — immutable by default, repl-driven, and built for concurrent data transformation."
+        data-typing="dynamic"
+        data-compilation="jit"
+        data-paradigm="functional lisp concurrent "
+        data-tags="jvm functional lisp concurrent data backend ">
+        
+<a href="/languages/clojure/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Clojure_logo.svg" alt="Clojure" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Clojure</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">2007</span>
+    </div>
+    
+    <p class="lang-card__desc">Pragmatic Lisp on the JVM — immutable by default, REPL-driven, and built for concurrent …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="cobol"
+        data-desc="business-oriented language from 1959 — still processing the majority of the world&#39;s financial transactions."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative procedural "
+        data-tags="enterprise finance banking mainframe legacy ">
+        
+<a href="/languages/cobol/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">CO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">COBOL</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1959</span>
+    </div>
+    
+    <p class="lang-card__desc">Business-oriented language from 1959 — still processing the majority of the world&#39;s …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="coffeescript"
+        data-desc="syntactic sugar that compiles to javascript — introduced many clean features later adopted by es6."
+        data-typing="dynamic"
+        data-compilation="transpiled"
+        data-paradigm="scripting functional oop "
+        data-tags="frontend javascript web transpiled ">
+        
+<a href="/languages/coffeescript/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">CO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">CoffeeScript</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">transpiled</span>
+      <span class="lang-prop lang-prop--year">2009</span>
+    </div>
+    
+    <p class="lang-card__desc">Syntactic sugar that compiles to JavaScript — introduced many clean features later adopted …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="common lisp"
+        data-desc="the standardised, multi-paradigm lisp — one of the most powerful and flexible languages ever created."
+        data-typing="dynamic"
+        data-compilation="compiled"
+        data-paradigm="functional oop imperative lisp "
+        data-tags="lisp functional ai macros academic backend ">
+        
+<a href="/languages/common-lisp/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">CO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Common Lisp</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1984</span>
+    </div>
+    
+    <p class="lang-card__desc">The standardised, multi-paradigm Lisp — one of the most powerful and flexible languages …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="coq"
+        data-desc="interactive proof assistant based on the calculus of constructions — used to formally verify compiler correctness and mathematical theorems."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional dependent-types "
+        data-tags="proof-assistant formal-verification type-theory academic compilers ">
+        
+<a href="/languages/coq/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">CO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Coq</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1989</span>
+    </div>
+    
+    <p class="lang-card__desc">Interactive proof assistant based on the Calculus of Constructions — used to formally …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="crystal"
+        data-desc="statically typed language with ruby syntax — as fast as c, as readable as ruby."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop concurrent systems "
+        data-tags="web backend systems performance ruby-like ">
+        
+<a href="/languages/crystal/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Crystal_language_logo.svg" alt="Crystal" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Crystal</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2014</span>
+    </div>
+    
+    <p class="lang-card__desc">Statically typed language with Ruby syntax — as fast as C, as readable as Ruby.</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="d"
+        data-desc="systems language designed as a successor to c&#43;&#43; — safe, fast, and with built-in concurrency and metaprogramming."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative oop functional systems "
+        data-tags="systems performance native metaprogramming concurrent ">
+        
+<a href="/languages/d/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/2/24/D_Programming_Language_logo.svg" alt="D" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">D</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2001</span>
+    </div>
+    
+    <p class="lang-card__desc">Systems language designed as a successor to C++ — safe, fast, and with built-in …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="dart"
+        data-desc="client-optimised language from google — the foundation of flutter for cross-platform mobile, web, and desktop apps."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop functional concurrent "
+        data-tags="mobile flutter cross-platform frontend web ">
+        
+<a href="/languages/dart/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Dart_programming_language_logo.svg" alt="Dart" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Dart</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2011</span>
+    </div>
+    
+    <p class="lang-card__desc">Client-optimised language from Google — the foundation of Flutter for cross-platform …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="delphi"
+        data-desc="object pascal rad environment from embarcadero — used for cross-platform native desktop and mobile applications."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop imperative "
+        data-tags="desktop windows cross-platform native rapid-application-development ">
+        
+<a href="/languages/delphi/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">DE</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Delphi</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1995</span>
+    </div>
+    
+    <p class="lang-card__desc">Object Pascal RAD environment from Embarcadero — used for cross-platform native desktop …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="eiffel"
+        data-desc="object-oriented language built around design by contract — preconditions, postconditions, and invariants are first-class language features."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop imperative "
+        data-tags="oop design-by-contract safety-critical academic correctness ">
+        
+<a href="/languages/eiffel/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">EI</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Eiffel</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1985</span>
+    </div>
+    
+    <p class="lang-card__desc">Object-oriented language built around Design by Contract — preconditions, postconditions, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="elixir"
+        data-desc="functional, concurrent language built on the erlang vm — designed for fault-tolerant, distributed, low-latency systems."
+        data-typing="dynamic"
+        data-compilation="compiled"
+        data-paradigm="functional concurrent distributed "
+        data-tags="backend distributed real-time fault-tolerant phoenix ">
+        
+<a href="/languages/elixir/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/9/92/Official_Elixir_logo.png" alt="Elixir" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Elixir</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2012</span>
+    </div>
+    
+    <p class="lang-card__desc">Functional, concurrent language built on the Erlang VM — designed for fault-tolerant, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="elm"
+        data-desc="functional language that compiles to javascript — famous for its zero-runtime-error guarantee and helpful compiler messages."
+        data-typing="static"
+        data-compilation="transpiled"
+        data-paradigm="functional reactive "
+        data-tags="frontend functional web type-safe spa ">
+        
+<a href="/languages/elm/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Elm_logo.svg" alt="Elm" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Elm</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">transpiled</span>
+      <span class="lang-prop lang-prop--year">2012</span>
+    </div>
+    
+    <p class="lang-card__desc">Functional language that compiles to JavaScript — famous for its zero-runtime-error …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="erlang"
+        data-desc="concurrent, fault-tolerant language from ericsson — the foundation of the beam vm that also powers elixir."
+        data-typing="dynamic"
+        data-compilation="compiled"
+        data-paradigm="functional concurrent distributed "
+        data-tags="distributed fault-tolerant telecom real-time backend ">
+        
+<a href="/languages/erlang/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/0/04/Erlang_logo.svg" alt="Erlang" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Erlang</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1986</span>
+    </div>
+    
+    <p class="lang-card__desc">Concurrent, fault-tolerant language from Ericsson — the foundation of the BEAM VM that …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="f#"
+        data-desc="functional-first language on .net — concise, type-safe, and excellent for data transformation, financial modelling, and domain-driven design."
+        data-typing="static"
+        data-compilation="jit"
+        data-paradigm="functional oop imperative "
+        data-tags="dotnet functional finance data backend ">
+        
+<a href="/languages/fsharp/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/6/66/F_Sharp_logo.svg" alt="F#" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">F#</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">2005</span>
+    </div>
+    
+    <p class="lang-card__desc">Functional-first language on .NET — concise, type-safe, and excellent for data …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="factor"
+        data-desc="stack-based concatenative language with a rich interactive environment — programs are composed by concatenating words."
+        data-typing="dynamic"
+        data-compilation="jit"
+        data-paradigm="concatenative functional stack-based "
+        data-tags="concatenative stack-based functional scripting ">
+        
+<a href="/languages/factor/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">FA</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Factor</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">2003</span>
+    </div>
+    
+    <p class="lang-card__desc">Stack-based concatenative language with a rich interactive environment — programs are …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="fennel"
+        data-desc="lisp that compiles to lua — brings macros and functional patterns to the lua ecosystem with zero overhead."
+        data-typing="dynamic"
+        data-compilation="transpiled"
+        data-paradigm="functional lisp scripting "
+        data-tags="lisp lua game-dev neovim scripting macros ">
+        
+<a href="/languages/fennel/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">FE</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Fennel</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">transpiled</span>
+      <span class="lang-prop lang-prop--year">2016</span>
+    </div>
+    
+    <p class="lang-card__desc">Lisp that compiles to Lua — brings macros and functional patterns to the Lua ecosystem …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="forth"
+        data-desc="stack-based, extensible language used in embedded systems, bootstrapping, and as the base of openfirmware."
+        data-typing="untyped"
+        data-compilation="compiled"
+        data-paradigm="stack-based concatenative imperative "
+        data-tags="embedded systems stack-based bootstrapping minimalist ">
+        
+<a href="/languages/forth/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">FO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Forth</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">untyped</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1970</span>
+    </div>
+    
+    <p class="lang-card__desc">Stack-based, extensible language used in embedded systems, bootstrapping, and as the base …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="fortran"
+        data-desc="the first high-level programming language — still the dominant choice for high-performance scientific and numerical computing."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative scientific array "
+        data-tags="scientific-computing hpc numerical simulation physics ">
+        
+<a href="/languages/fortran/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">FO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Fortran</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1957</span>
+    </div>
+    
+    <p class="lang-card__desc">The first high-level programming language — still the dominant choice for high-performance …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="gleam"
+        data-desc="type-safe functional language on the beam vm — friendly syntax, no nulls, and runs alongside erlang and elixir."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional concurrent "
+        data-tags="beam erlang functional type-safe distributed ">
+        
+<a href="/languages/gleam/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://gleam.run/images/lucy/lucy.svg" alt="Gleam" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Gleam</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2019</span>
+    </div>
+    
+    <p class="lang-card__desc">Type-safe functional language on the BEAM VM — friendly syntax, no nulls, and runs …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="go"
+        data-desc="statically typed, compiled language from google — fast, simple, and built for concurrency."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="concurrent imperative oop "
+        data-tags="backend cloud devops cli concurrency systems ">
+        
+<a href="/languages/go/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="Go" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Go</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2009</span>
+    </div>
+    
+    <p class="lang-card__desc">Statically typed, compiled language from Google — fast, simple, and built for concurrency.</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="grain"
+        data-desc="functional language that compiles to webassembly — strongly typed with a focus on safety and web-first deployment."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional oop "
+        data-tags="wasm functional web type-safe webassembly ">
+        
+<a href="/languages/grain/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">GR</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Grain</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2019</span>
+    </div>
+    
+    <p class="lang-card__desc">Functional language that compiles to WebAssembly — strongly typed with a focus on safety …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="groovy"
+        data-desc="dynamic jvm language with optional typing and java interoperability — the language behind gradle and jenkins pipelines."
+        data-typing="dynamic"
+        data-compilation="jit"
+        data-paradigm="oop scripting functional "
+        data-tags="jvm gradle jenkins scripting dsl build ">
+        
+<a href="/languages/groovy/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg" alt="Groovy" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Groovy</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">2003</span>
+    </div>
+    
+    <p class="lang-card__desc">Dynamic JVM language with optional typing and Java interoperability — the language behind …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="hack"
+        data-desc="gradually typed php dialect from meta — adds static typing, generics, and modern language features to php."
+        data-typing="gradual"
+        data-compilation="jit"
+        data-paradigm="oop functional imperative "
+        data-tags="web backend php meta typed ">
+        
+<a href="/languages/hack/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">HA</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Hack</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">gradual</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">2014</span>
+    </div>
+    
+    <p class="lang-card__desc">Gradually typed PHP dialect from Meta — adds static typing, generics, and modern language …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="haskell"
+        data-desc="purely functional, lazily evaluated language with a powerful type system — influential in type theory, compilers, and financial systems."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional lazy "
+        data-tags="functional compilers finance type-theory academic ">
+        
+<a href="/languages/haskell/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Haskell-Logo.svg" alt="Haskell" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Haskell</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1990</span>
+    </div>
+    
+    <p class="lang-card__desc">Purely functional, lazily evaluated language with a powerful type system — influential in …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="hcl"
+        data-desc="hashicorp configuration language — the declarative language behind terraform for defining cloud infrastructure as code."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="declarative configuration "
+        data-tags="infrastructure terraform devops cloud iac configuration ">
+        
+<a href="/languages/hcl/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">HC</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">HCL</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">2014</span>
+    </div>
+    
+    <p class="lang-card__desc">HashiCorp Configuration Language — the declarative language behind Terraform for defining …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="idris"
+        data-desc="dependently typed functional language — types can express arbitrary program properties, enabling proof-carrying code."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional dependent-types "
+        data-tags="dependent-types functional type-theory proof academic ">
+        
+<a href="/languages/idris/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">ID</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Idris</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2007</span>
+    </div>
+    
+    <p class="lang-card__desc">Dependently typed functional language — types can express arbitrary program properties, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="io"
+        data-desc="prototype-based, purely message-passing language — minimal syntax, everything is a message send to an object."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="oop prototype-based concurrent "
+        data-tags="prototype-based scripting embedded minimalist concurrent ">
+        
+<a href="/languages/io/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">IO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Io</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">2002</span>
+    </div>
+    
+    <p class="lang-card__desc">Prototype-based, purely message-passing language — minimal syntax, everything is a message …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="j"
+        data-desc="apl successor from kenneth iverson using ascii symbols — array-oriented and extraordinarily expressive for mathematical computing."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="array functional tacit "
+        data-tags="array-programming mathematical apl concise financial ">
+        
+<a href="/languages/j/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">J</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">J</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1990</span>
+    </div>
+    
+    <p class="lang-card__desc">APL successor from Kenneth Iverson using ASCII symbols — array-oriented and …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="janet"
+        data-desc="lightweight lisp/clojure-inspired language designed for embedding and scripting — a single c file, no external dependencies."
+        data-typing="dynamic"
+        data-compilation="compiled"
+        data-paradigm="functional lisp scripting "
+        data-tags="lisp embedded scripting clojure-like lightweight ">
+        
+<a href="/languages/janet/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">JA</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Janet</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2019</span>
+    </div>
+    
+    <p class="lang-card__desc">Lightweight Lisp/Clojure-inspired language designed for embedding and scripting — a single …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="java"
+        data-desc="object-oriented, write-once-run-anywhere language powering enterprise backends, android, and big data."
+        data-typing="static"
+        data-compilation="jit"
+        data-paradigm="oop imperative concurrent "
+        data-tags="backend enterprise android jvm big-data ">
+        
+<a href="/languages/java/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Java</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">1995</span>
+    </div>
+    
+    <p class="lang-card__desc">Object-oriented, write-once-run-anywhere language powering enterprise backends, Android, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="javascript"
+        data-desc="the language of the web — runs in every browser and on the server via node.js."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="event-driven functional oop scripting "
+        data-tags="web frontend backend scripting nodejs ">
+        
+<a href="/languages/javascript/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">JavaScript</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1995</span>
+    </div>
+    
+    <p class="lang-card__desc">The language of the web — runs in every browser and on the server via Node.js.</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="julia"
+        data-desc="high-performance dynamic language for scientific computing — designed to be as fast as c and as easy as python."
+        data-typing="dynamic"
+        data-compilation="jit"
+        data-paradigm="scientific functional imperative "
+        data-tags="scientific-computing data-science ml numerical hpc ">
+        
+<a href="/languages/julia/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Julia_Programming_Language_Logo.svg" alt="Julia" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Julia</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">2012</span>
+    </div>
+    
+    <p class="lang-card__desc">High-performance dynamic language for scientific computing — designed to be as fast as C …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="koka"
+        data-desc="research language from microsoft that tracks side effects in the type system using algebraic effects and handlers."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional effect-oriented "
+        data-tags="effects functional type-theory research microsoft ">
+        
+<a href="/languages/koka/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">KO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Koka</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2012</span>
+    </div>
+    
+    <p class="lang-card__desc">Research language from Microsoft that tracks side effects in the type system using …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="kotlin"
+        data-desc="jvm language from jetbrains — concise, null-safe, and the preferred language for android development."
+        data-typing="static"
+        data-compilation="jit"
+        data-paradigm="oop functional concurrent "
+        data-tags="android jvm backend mobile multiplatform ">
+        
+<a href="/languages/kotlin/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png" alt="Kotlin" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Kotlin</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">2011</span>
+    </div>
+    
+    <p class="lang-card__desc">JVM language from JetBrains — concise, null-safe, and the preferred language for Android …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="lean"
+        data-desc="interactive theorem prover and functional programming language — increasingly popular for formalising mathematics."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional dependent-types "
+        data-tags="proof-assistant formal-verification mathematics type-theory academic ">
+        
+<a href="/languages/lean/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">LE</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Lean</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2013</span>
+    </div>
+    
+    <p class="lang-card__desc">Interactive theorem prover and functional programming language — increasingly popular for …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="lobster"
+        data-desc="statically typed game scripting language with flow-sensitive typing and lifetime analysis — designed for safe, fast game logic."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional imperative oop "
+        data-tags="game-dev scripting type-safe performance embedded ">
+        
+<a href="/languages/lobster/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">LO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Lobster</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2013</span>
+    </div>
+    
+    <p class="lang-card__desc">Statically typed game scripting language with flow-sensitive typing and lifetime analysis …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="lua"
+        data-desc="lightweight, embeddable scripting language — the go-to choice for game engines, config systems, and plugin runtimes."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="scripting imperative functional "
+        data-tags="scripting game-dev embedded config plugins ">
+        
+<a href="/languages/lua/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Lua-Logo.svg" alt="Lua" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Lua</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1993</span>
+    </div>
+    
+    <p class="lang-card__desc">Lightweight, embeddable scripting language — the go-to choice for game engines, config …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="matlab"
+        data-desc="numeric computing environment and language from mathworks — the standard in engineering, signal processing, and scientific simulation."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="imperative scientific array "
+        data-tags="scientific-computing engineering signal-processing simulation numerical ">
+        
+<a href="/languages/matlab/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="MATLAB" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">MATLAB</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1984</span>
+    </div>
+    
+    <p class="lang-card__desc">Numeric computing environment and language from MathWorks — the standard in engineering, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="mercury"
+        data-desc="logic/functional language with a static type and mode system — prolog with the performance and safety guarantees of a compiled language."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="logic functional declarative "
+        data-tags="logic-programming functional type-safe academic ">
+        
+<a href="/languages/mercury/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">ME</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Mercury</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1995</span>
+    </div>
+    
+    <p class="lang-card__desc">Logic/functional language with a static type and mode system — Prolog with the performance …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="modula-2"
+        data-desc="pascal successor by niklaus wirth — introduced the module system concept that influenced ada, java, and modern module systems."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative modular concurrent "
+        data-tags="systems modular pascal academic legacy ">
+        
+<a href="/languages/modula2/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">MO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Modula-2</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1978</span>
+    </div>
+    
+    <p class="lang-card__desc">Pascal successor by Niklaus Wirth — introduced the module system concept that influenced …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="mojo"
+        data-desc="python superset from modular designed for ai — combines python&#39;s ecosystem with systems-level performance via mlir."
+        data-typing="gradual"
+        data-compilation="compiled"
+        data-paradigm="imperative systems scientific "
+        data-tags="ai ml python performance gpu systems ">
+        
+<a href="/languages/mojo/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">MO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Mojo</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">gradual</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2023</span>
+    </div>
+    
+    <p class="lang-card__desc">Python superset from Modular designed for AI — combines Python&#39;s ecosystem with …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="nim"
+        data-desc="statically typed, compiled language with python-like syntax — efficient as c, expressive as python, with powerful metaprogramming via macros."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative oop functional systems "
+        data-tags="systems scripting performance macros cli ">
+        
+<a href="/languages/nim/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Nim_logo_withtext.svg" alt="Nim" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Nim</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2008</span>
+    </div>
+    
+    <p class="lang-card__desc">Statically typed, compiled language with Python-like syntax — efficient as C, expressive …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="nix"
+        data-desc="purely functional configuration language for the nix package manager — enables reproducible builds and declarative system configuration."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="functional declarative configuration "
+        data-tags="devops configuration reproducible package-management nixos ">
+        
+<a href="/languages/nix/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">NI</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Nix</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">2003</span>
+    </div>
+    
+    <p class="lang-card__desc">Purely functional configuration language for the Nix package manager — enables …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="objective-c"
+        data-desc="smalltalk-style messaging layered on top of c — apple&#39;s primary language for ios and macos before swift."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop imperative "
+        data-tags="ios macos apple cocoa legacy ">
+        
+<a href="/languages/objective-c/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">OB</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Objective-C</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1984</span>
+    </div>
+    
+    <p class="lang-card__desc">Smalltalk-style messaging layered on top of C — Apple&#39;s primary language for iOS and macOS …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="ocaml"
+        data-desc="functional language with a powerful type system and optional mutability — used in compilers, proof assistants, and financial systems."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional oop imperative "
+        data-tags="functional compilers finance systems type-theory ">
+        
+<a href="/languages/ocaml/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/f/ff/OCaml_Logo.svg" alt="OCaml" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">OCaml</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1996</span>
+    </div>
+    
+    <p class="lang-card__desc">Functional language with a powerful type system and optional mutability — used in …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="odin"
+        data-desc="systems language designed as a clean alternative to c — fast, simple, no hidden allocations, with excellent tooling."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative systems "
+        data-tags="systems game-dev performance c-alternative native ">
+        
+<a href="/languages/odin/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">OD</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Odin</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2016</span>
+    </div>
+    
+    <p class="lang-card__desc">Systems language designed as a clean alternative to C — fast, simple, no hidden …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="pascal"
+        data-desc="structured programming language designed for teaching — influenced delphi, modula-2, and a generation of programmers."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative oop structured "
+        data-tags="education structured legacy delphi desktop ">
+        
+<a href="/languages/pascal/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">PA</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Pascal</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1970</span>
+    </div>
+    
+    <p class="lang-card__desc">Structured programming language designed for teaching — influenced Delphi, Modula-2, and a …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="perl"
+        data-desc="pragmatic text-processing language with powerful regex support — once the dominant language for cgi web programming and system administration."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="scripting imperative functional oop "
+        data-tags="scripting text-processing regex sysadmin bioinformatics ">
+        
+<a href="/languages/perl/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Perl_language.svg" alt="Perl" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Perl</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1987</span>
+    </div>
+    
+    <p class="lang-card__desc">Pragmatic text-processing language with powerful regex support — once the dominant …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="php"
+        data-desc="server-side scripting language powering a huge portion of the web, including wordpress and laravel."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="oop scripting imperative "
+        data-tags="web backend scripting cms wordpress ">
+        
+<a href="/languages/php/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="PHP" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">PHP</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1994</span>
+    </div>
+    
+    <p class="lang-card__desc">Server-side scripting language powering a huge portion of the web, including WordPress and …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="pony"
+        data-desc="actor-based object-oriented language with a capability-security type system — data-race free and deadlock free by design."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop concurrent actor-model "
+        data-tags="concurrent actor-model type-safe systems performance ">
+        
+<a href="/languages/pony/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">PO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Pony</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2014</span>
+    </div>
+    
+    <p class="lang-card__desc">Actor-based object-oriented language with a capability-security type system — data-race …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="powershell"
+        data-desc="object-oriented shell and scripting language from microsoft — the standard for windows automation and cross-platform devops."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="scripting oop imperative "
+        data-tags="windows automation devops scripting sysadmin azure ">
+        
+<a href="/languages/powershell/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/af/PowerShell_Core_6.0_icon.png" alt="PowerShell" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">PowerShell</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">2006</span>
+    </div>
+    
+    <p class="lang-card__desc">Object-oriented shell and scripting language from Microsoft — the standard for Windows …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="prolog"
+        data-desc="logic programming language — programs are expressed as facts and rules, and execution is driven by backtracking search."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="logic declarative "
+        data-tags="logic-programming ai nlp academic expert-systems ">
+        
+<a href="/languages/prolog/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">PR</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Prolog</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1972</span>
+    </div>
+    
+    <p class="lang-card__desc">Logic programming language — programs are expressed as facts and rules, and execution is …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="purescript"
+        data-desc="strongly typed functional language that compiles to javascript — haskell-inspired, with a focus on correctness."
+        data-typing="static"
+        data-compilation="transpiled"
+        data-paradigm="functional typed "
+        data-tags="frontend functional haskell type-safe web ">
+        
+<a href="/languages/purescript/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">PU</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">PureScript</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">transpiled</span>
+      <span class="lang-prop lang-prop--year">2013</span>
+    </div>
+    
+    <p class="lang-card__desc">Strongly typed functional language that compiles to JavaScript — Haskell-inspired, with a …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="python"
+        data-desc="readable, batteries-included language dominant in data science, ai, and web backends."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="oop functional scripting imperative "
+        data-tags="data-science ai ml web scripting automation ">
+        
+<a href="/languages/python/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Python</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1991</span>
+    </div>
+    
+    <p class="lang-card__desc">Readable, batteries-included language dominant in data science, AI, and web backends.</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="r"
+        data-desc="statistical computing language and environment — the standard for data analysis, visualisation, and bioinformatics."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="functional statistical imperative "
+        data-tags="data-science statistics visualisation bioinformatics ml ">
+        
+<a href="/languages/r/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">R</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1993</span>
+    </div>
+    
+    <p class="lang-card__desc">Statistical computing language and environment — the standard for data analysis, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="racket"
+        data-desc="language-oriented programming platform descended from scheme — used to teach programming and build new languages."
+        data-typing="dynamic"
+        data-compilation="jit"
+        data-paradigm="functional lisp scripting "
+        data-tags="lisp education language-design functional academic ">
+        
+<a href="/languages/racket/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Racket-logo.svg" alt="Racket" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Racket</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">1994</span>
+    </div>
+    
+    <p class="lang-card__desc">Language-oriented programming platform descended from Scheme — used to teach programming …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="rebol"
+        data-desc="messaging language with a homoiconic, dialect-based approach — code and data share the same representation."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="functional scripting declarative "
+        data-tags="scripting dsl homoiconic dialects minimalist ">
+        
+<a href="/languages/rebol/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">RE</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Rebol</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1997</span>
+    </div>
+    
+    <p class="lang-card__desc">Messaging language with a homoiconic, dialect-based approach — code and data share the …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="rescript"
+        data-desc="typed language with ocaml semantics that compiles to readable javascript — formerly bucklescript/reason."
+        data-typing="static"
+        data-compilation="transpiled"
+        data-paradigm="functional oop "
+        data-tags="frontend functional ocaml type-safe web react ">
+        
+<a href="/languages/rescript/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">RE</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">ReScript</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">transpiled</span>
+      <span class="lang-prop lang-prop--year">2020</span>
+    </div>
+    
+    <p class="lang-card__desc">Typed language with OCaml semantics that compiles to readable JavaScript — formerly …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="rexx"
+        data-desc="scripting language from ibm designed to be easy to learn — widely used on ibm mainframes and still the shell language of z/os."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="scripting imperative "
+        data-tags="scripting mainframe ibm zos automation legacy ">
+        
+<a href="/languages/rexx/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">RE</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">REXX</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1979</span>
+    </div>
+    
+    <p class="lang-card__desc">Scripting language from IBM designed to be easy to learn — widely used on IBM mainframes …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="roc"
+        data-desc="fast, friendly functional language with no runtime exceptions — statically typed with algebraic effects and a focus on developer experience."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional "
+        data-tags="functional type-safe performance native friendly ">
+        
+<a href="/languages/roc/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">RO</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Roc</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2021</span>
+    </div>
+    
+    <p class="lang-card__desc">Fast, friendly functional language with no runtime exceptions — statically typed with …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="ruby"
+        data-desc="elegant, developer-friendly scripting language known for rails and a philosophy that optimises for programmer happiness."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="oop scripting functional imperative "
+        data-tags="web scripting rails backend devtools ">
+        
+<a href="/languages/ruby/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Ruby_logo.svg" alt="Ruby" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Ruby</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1995</span>
+    </div>
+    
+    <p class="lang-card__desc">Elegant, developer-friendly scripting language known for Rails and a philosophy that …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="rust"
+        data-desc="systems programming language focused on memory safety and performance without a garbage collector."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="systems functional concurrent "
+        data-tags="systems wasm cli performance memory-safety embedded ">
+        
+<a href="/languages/rust/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Rust_programming_language_black_logo.svg" alt="Rust" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Rust</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2015</span>
+    </div>
+    
+    <p class="lang-card__desc">Systems programming language focused on memory safety and performance without a garbage …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="sas"
+        data-desc="statistical analysis software and language — dominant in clinical trials, pharmaceuticals, and regulated industries."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="statistical imperative declarative "
+        data-tags="statistics clinical-trials pharma data-analysis enterprise ">
+        
+<a href="/languages/sas/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">SA</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">SAS</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1966</span>
+    </div>
+    
+    <p class="lang-card__desc">Statistical analysis software and language — dominant in clinical trials, pharmaceuticals, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="scala"
+        data-desc="hybrid functional-oop language on the jvm — the language of apache spark and large-scale data engineering."
+        data-typing="static"
+        data-compilation="jit"
+        data-paradigm="functional oop concurrent "
+        data-tags="jvm data-engineering spark backend functional big-data ">
+        
+<a href="/languages/scala/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Scala-full-color.svg" alt="Scala" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Scala</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">2004</span>
+    </div>
+    
+    <p class="lang-card__desc">Hybrid functional-OOP language on the JVM — the language of Apache Spark and large-scale …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="scheme"
+        data-desc="minimalist lisp dialect — the language of sicp and the foundation of many teaching and research languages."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="functional lisp imperative "
+        data-tags="lisp education functional academic language-design ">
+        
+<a href="/languages/scheme/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">SC</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Scheme</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1975</span>
+    </div>
+    
+    <p class="lang-card__desc">Minimalist Lisp dialect — the language of SICP and the foundation of many teaching and …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="self"
+        data-desc="prototype-based object-oriented language that pioneered jit compilation and influenced javascript&#39;s prototype model."
+        data-typing="dynamic"
+        data-compilation="jit"
+        data-paradigm="oop prototype-based "
+        data-tags="prototype-based oop pioneering jvm academic ">
+        
+<a href="/languages/self/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">SE</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Self</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">1987</span>
+    </div>
+    
+    <p class="lang-card__desc">Prototype-based object-oriented language that pioneered JIT compilation and influenced …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="simula"
+        data-desc="the world&#39;s first object-oriented language — introduced classes, objects, and inheritance in 1967."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop simulation imperative "
+        data-tags="pioneering oop academic simulation history ">
+        
+<a href="/languages/simula/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">SI</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Simula</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1962</span>
+    </div>
+    
+    <p class="lang-card__desc">The world&#39;s first object-oriented language — introduced classes, objects, and inheritance …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="smalltalk"
+        data-desc="the original object-oriented language — everything is an object, and computation happens through message passing."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="oop concurrent "
+        data-tags="oop education ide academic pioneering ">
+        
+<a href="/languages/smalltalk/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">SM</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Smalltalk</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1972</span>
+    </div>
+    
+    <p class="lang-card__desc">The original object-oriented language — everything is an object, and computation happens …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="solidity"
+        data-desc="contract-oriented language for writing ethereum smart contracts — the primary language of decentralised finance."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop imperative "
+        data-tags="blockchain ethereum smart-contracts defi web3 ">
+        
+<a href="/languages/solidity/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Solidity_logo.svg" alt="Solidity" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Solidity</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2014</span>
+    </div>
+    
+    <p class="lang-card__desc">Contract-oriented language for writing Ethereum smart contracts — the primary language of …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="sql"
+        data-desc="declarative query language for relational databases — the universal language for structured data retrieval and manipulation."
+        data-typing="static"
+        data-compilation="interpreted"
+        data-paradigm="declarative relational "
+        data-tags="databases data backend analytics etl data-engineering ">
+        
+<a href="/languages/sql/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">SQ</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">SQL</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1974</span>
+    </div>
+    
+    <p class="lang-card__desc">Declarative query language for relational databases — the universal language for …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="squirrel"
+        data-desc="lightweight scripting language designed for embedding in games — used in left 4 dead, portal 2, and source engine games."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="oop scripting imperative "
+        data-tags="game-dev embedded scripting source-engine lightweight ">
+        
+<a href="/languages/squirrel/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">SQ</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Squirrel</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">2003</span>
+    </div>
+    
+    <p class="lang-card__desc">Lightweight scripting language designed for embedding in games — used in Left 4 Dead, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="standard ml"
+        data-desc="the original ml — a statically typed functional language influential in type theory, compilers, and programming language research."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional imperative "
+        data-tags="functional type-theory compilers academic ml-family ">
+        
+<a href="/languages/standard-ml/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">ST</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Standard ML</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1983</span>
+    </div>
+    
+    <p class="lang-card__desc">The original ML — a statically typed functional language influential in type theory, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="swift"
+        data-desc="apple&#39;s fast, safe language for ios, macos, and server-side development — designed to replace objective-c."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="oop functional protocol-oriented "
+        data-tags="ios macos apple mobile server ">
+        
+<a href="/languages/swift/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Swift_logo.svg" alt="Swift" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Swift</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2014</span>
+    </div>
+    
+    <p class="lang-card__desc">Apple&#39;s fast, safe language for iOS, macOS, and server-side development — designed to …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="tcl"
+        data-desc="dynamic scripting language with an everything-is-a-string philosophy — the scripting backbone of eda tools and embedded interpreters."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="scripting imperative functional "
+        data-tags="scripting eda embedded gui automation ">
+        
+<a href="/languages/tcl/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">TC</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Tcl</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1988</span>
+    </div>
+    
+    <p class="lang-card__desc">Dynamic scripting language with an everything-is-a-string philosophy — the scripting …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="typescript"
+        data-desc="javascript with static types — catches errors at compile time and scales to large codebases."
+        data-typing="static"
+        data-compilation="transpiled"
+        data-paradigm="oop functional event-driven "
+        data-tags="web frontend backend types microsoft ">
+        
+<a href="/languages/typescript/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">TypeScript</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">transpiled</span>
+      <span class="lang-prop lang-prop--year">2012</span>
+    </div>
+    
+    <p class="lang-card__desc">JavaScript with static types — catches errors at compile time and scales to large …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="unison"
+        data-desc="functional language where code is content-addressed — functions are identified by hash, enabling distributed computing and fearless refactoring."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="functional distributed concurrent "
+        data-tags="distributed functional content-addressed cloud type-safe ">
+        
+<a href="/languages/unison/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">UN</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Unison</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2019</span>
+    </div>
+    
+    <p class="lang-card__desc">Functional language where code is content-addressed — functions are identified by hash, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="v"
+        data-desc="simple, fast compiled language inspired by go — designed for rapid compilation and safe memory management without a gc."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative oop functional "
+        data-tags="systems performance native c-interop cli ">
+        
+<a href="/languages/v/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">V</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">V</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2019</span>
+    </div>
+    
+    <p class="lang-card__desc">Simple, fast compiled language inspired by Go — designed for rapid compilation and safe …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="vale"
+        data-desc="fast, safe systems language using generational references instead of a borrow checker — aims for rust-level safety with simpler ergonomics."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="imperative systems oop "
+        data-tags="systems memory-safety performance native experimental ">
+        
+<a href="/languages/vale/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">VA</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Vale</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2020</span>
+    </div>
+    
+    <p class="lang-card__desc">Fast, safe systems language using generational references instead of a borrow checker — …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="vba"
+        data-desc="visual basic for applications — microsoft office&#39;s embedded language for automating excel, word, and access."
+        data-typing="static"
+        data-compilation="interpreted"
+        data-paradigm="imperative oop scripting "
+        data-tags="excel office automation scripting microsoft enterprise ">
+        
+<a href="/languages/vba/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">VB</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">VBA</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">1993</span>
+    </div>
+    
+    <p class="lang-card__desc">Visual Basic for Applications — Microsoft Office&#39;s embedded language for automating Excel, …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="verilog"
+        data-desc="hardware description language for designing and simulating digital circuits — the standard for asic and fpga development."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="concurrent declarative hardware "
+        data-tags="hardware fpga asic eda digital-design chip-design ">
+        
+<a href="/languages/verilog/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">VE</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Verilog</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1984</span>
+    </div>
+    
+    <p class="lang-card__desc">Hardware description language for designing and simulating digital circuits — the standard …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="vhdl"
+        data-desc="ieee-standardised hardware description language — the dominant choice for military and aerospace fpga design."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="concurrent declarative hardware "
+        data-tags="hardware fpga asic eda digital-design defence ">
+        
+<a href="/languages/vhdl/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">VH</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">VHDL</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">1983</span>
+    </div>
+    
+    <p class="lang-card__desc">IEEE-standardised hardware description language — the dominant choice for military and …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="visual basic"
+        data-desc="microsoft&#39;s event-driven rad language — introduced millions of developers to windows programming in the 1990s and 2000s."
+        data-typing="static"
+        data-compilation="jit"
+        data-paradigm="oop imperative event-driven "
+        data-tags="windows desktop microsoft dotnet enterprise legacy ">
+        
+<a href="/languages/visual-basic/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">VI</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Visual Basic</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">jit</span>
+      <span class="lang-prop lang-prop--year">1991</span>
+    </div>
+    
+    <p class="lang-card__desc">Microsoft&#39;s event-driven RAD language — introduced millions of developers to Windows …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="wren"
+        data-desc="small, fast scripting language designed for embedding — class-based with a clean syntax and a single-file implementation."
+        data-typing="dynamic"
+        data-compilation="interpreted"
+        data-paradigm="oop scripting concurrent "
+        data-tags="embedded scripting game-dev lightweight embedding ">
+        
+<a href="/languages/wren/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <div class="lang-card__logo-placeholder">WR</div>
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Wren</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">dynamic</span>
+      <span class="lang-prop">interpreted</span>
+      <span class="lang-prop lang-prop--year">2016</span>
+    </div>
+    
+    <p class="lang-card__desc">Small, fast scripting language designed for embedding — class-based with a clean syntax …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+      
+      <div class="lang-item"
+        data-name="zig"
+        data-desc="modern systems language aiming to replace c — explicit, no hidden allocations, and with a powerful compile-time metaprogramming model."
+        data-typing="static"
+        data-compilation="compiled"
+        data-paradigm="systems imperative "
+        data-tags="systems embedded performance wasm c-interop ">
+        
+<a href="/languages/zig/" class="lang-card">
+  <div class="lang-card__logo-wrap">
+    
+      <img class="lang-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Zig_logo_2020.svg" alt="Zig" loading="lazy">
+    
+  </div>
+  <div class="lang-card__body">
+    <div class="lang-card__name">Zig</div>
+    <div class="lang-card__props">
+      <span class="lang-prop">static</span>
+      <span class="lang-prop">compiled</span>
+      <span class="lang-prop lang-prop--year">2016</span>
+    </div>
+    
+    <p class="lang-card__desc">Modern systems language aiming to replace C — explicit, no hidden allocations, and with a …</p>
+    
+  </div>
+</a>
+
+      </div>
+      
+    </div>
+
+    <div id="no-results" class="tools-empty hidden">
+      <span class="tools-empty__icon">∅</span>
+      <span>no languages match your filters</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl  = document.getElementById('lang-search');
+  var countEl   = document.getElementById('lang-count');
+  var noResults = document.getElementById('no-results');
+  var clearBtn  = document.getElementById('clear-filters');
+  var filterBtn = document.getElementById('filter-toggle');
+  var sidebar   = document.getElementById('tools-sidebar');
+  var activeFiltersEl = document.getElementById('active-filters');
+  var items     = document.querySelectorAll('.lang-item');
+
+  var state = { query: '', typing: 'all', compilation: 'all', paradigm: 'all' };
+
+  function filter() {
+    var q = state.query;
+    var visible = 0;
+    items.forEach(function(el) {
+      var d = el.dataset;
+      var ok =
+        (!q || (d.name||'').includes(q) || (d.desc||'').includes(q) || (d.tags||'').includes(q)) &&
+        (state.typing      === 'all' || (d.typing||'')      === state.typing) &&
+        (state.compilation === 'all' || (d.compilation||'') === state.compilation) &&
+        (state.paradigm    === 'all' || (' ' + (d.paradigm||'') + ' ').includes(' ' + state.paradigm + ' '));
+      el.classList.toggle('filter-hidden', !ok);
+      if (ok) visible++;
+    });
+    countEl.textContent = visible;
+    noResults.classList.toggle('hidden', visible > 0);
+    renderActiveTags();
+    var dirty = state.typing !== 'all' || state.compilation !== 'all' || state.paradigm !== 'all';
+    clearBtn.style.display = dirty ? '' : 'none';
+  }
+
+  function renderActiveTags() {
+    var tags = [];
+    if (state.typing      !== 'all') tags.push({ label: state.typing,      key: 'typing' });
+    if (state.compilation !== 'all') tags.push({ label: state.compilation, key: 'compilation' });
+    if (state.paradigm    !== 'all') tags.push({ label: state.paradigm,    key: 'paradigm' });
+    if (!tags.length) { activeFiltersEl.innerHTML = ''; return; }
+    activeFiltersEl.innerHTML = tags.map(function(t) {
+      return '<button class="active-filter-tag" data-key="' + t.key + '">' + t.label + ' ×</button>';
+    }).join('');
+    activeFiltersEl.querySelectorAll('.active-filter-tag').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state[btn.dataset.key] = 'all';
+        syncButtons(btn.dataset.key);
+        filter();
+      });
+    });
+  }
+
+  function wireGroup(containerId, stateKey) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        container.querySelectorAll('.sf').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state[stateKey] = btn.dataset[stateKey];
+        filter();
+      });
+    });
+  }
+
+  function syncButtons(key) {
+    var map = { typing: 'filter-typing', compilation: 'filter-compilation', paradigm: 'filter-paradigm' };
+    var container = document.getElementById(map[key]);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.classList.toggle('active', (btn.dataset[key] || 'all') === state[key]);
+    });
+  }
+
+  wireGroup('filter-typing',      'typing');
+  wireGroup('filter-compilation', 'compilation');
+  wireGroup('filter-paradigm',    'paradigm');
+
+  searchEl.addEventListener('input', function() { state.query = searchEl.value.toLowerCase().trim(); filter(); });
+
+  clearBtn.addEventListener('click', function() {
+    state = { query: state.query, typing: 'all', compilation: 'all', paradigm: 'all' };
+    ['typing', 'compilation', 'paradigm'].forEach(syncButtons);
+    filter();
+  });
+
+  filterBtn.addEventListener('click', function() {
+    var open = sidebar.classList.toggle('is-open');
+    filterBtn.setAttribute('aria-expanded', open);
+  });
+
+  clearBtn.style.display = 'none';
+})();
+</script>
+
+  </main>
+  
+
+
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-body">
+
+    
+    <div class="footer-left">
+      <div class="footer-brand-line">
+        <svg width="18" height="18" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <g transform="translate(3,0)">
+            <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+            <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+            <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+            <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+            <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+            <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+          </g>
+        </svg>
+        <span class="footer-brand-name">devtools<span style="color:var(--accent)">/</span></span>
+      </div>
+      <div class="footer-comments">
+        <span class="footer-comment">// Wikipedia for developer tools.</span>
+        <span class="footer-comment">// Community-maintained · open source · MIT.</span>
+      </div>
+
+      <div class="footer-tree">
+        <div class="footer-tree__root">content/</div>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
+        <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
+        <a href="/stacks/"     class="footer-tree__item">├── stacks/     <span class="tree-count">7</span></a>
+        <a href="/paths/"      class="footer-tree__item">├── paths/      <span class="tree-count">1</span></a>
+        <a href="/books/"      class="footer-tree__item">├── books/      <span class="tree-count">1</span></a>
+        <a href="/courses/"     class="footer-tree__item">├── courses/     <span class="tree-count">1</span></a>
+        <a href="/newsletters/" class="footer-tree__item">├── newsletters/ <span class="tree-count">11</span></a>
+        <a href="/resources/"  class="footer-tree__item">└── resources/   <span class="tree-count">1</span></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-prompt">$</span> contribute</div>
+      <a href="/contribute/"                                                      class="footer-cmd"><span class="footer-cmd__arrow">›</span> how to contribute</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/new/main/content/tools"   target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> add a tool</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/issues/new"                target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> report an issue</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/pulls"                     target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> open pull requests</a>
+      <a href="https://github.com/devtoolsd/devtoolsd"                           target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> ★ star on github</a>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-comment-inline">//</span> project</div>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/LICENSE"        target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> license: MIT</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> CONTRIBUTING.md</a>
+      <a href="/llms.txt"                                                           class="footer-cmd"><span class="footer-cmd__arrow">›</span> llms.txt</a>
+      <a href="/index.json"                                                         class="footer-cmd"><span class="footer-cmd__arrow">›</span> index.json</a>
+      <a href="/sitemap.xml"                                                        class="footer-cmd"><span class="footer-cmd__arrow">›</span> sitemap.xml</a>
+    </div>
+
+  </div>
+
+  
+  <div class="footer-statusbar">
+    <span class="footer-status__left">
+      <span class="footer-status__brand">devtools/</span>
+      <span class="footer-status__sep">·</span>
+      <span>MIT</span>
+      <span class="footer-status__sep">·</span>
+      <span>hugo</span>
+      <span class="footer-status__sep">·</span>
+      <span>github pages</span>
+    </span>
+    <span class="footer-status__right">© 2026 · open source</span>
+  </div>
+</footer>
+
+  <div id="search-modal" class="search-modal" hidden>
+  <div class="search-modal__backdrop" id="search-backdrop"></div>
+  <div class="search-modal__box">
+    <div class="search-modal__header">
+      <span class="search-modal__title"><span style="color:var(--accent)">devtools/</span> search</span>
+      <button class="search-modal__close" id="search-close" aria-label="Close search"><kbd>esc</kbd></button>
+    </div>
+    <div class="search-modal__input-wrap">
+      <span class="search-input-slash">/</span>
+      <input
+        type="text"
+        id="search-input"
+        class="search-modal__input"
+        placeholder="search tools, books, languages..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+    </div>
+    <div id="search-results" class="search-results" role="listbox"></div>
+    <div class="search-modal__footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var index = null;
+  var selected = -1;
+
+  var modal    = document.getElementById('search-modal');
+  var input    = document.getElementById('search-input');
+  var results  = document.getElementById('search-results');
+  var openBtn  = document.getElementById('search-open');
+  var closeBtn = document.getElementById('search-close');
+  var backdrop = document.getElementById('search-backdrop');
+
+  function openSearch() {
+    modal.removeAttribute('hidden');
+    document.body.classList.add('search-open');
+    input.focus();
+    if (!index) loadIndex();
+  }
+
+  function closeSearch() {
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('search-open');
+    input.value = '';
+    results.innerHTML = '';
+    selected = -1;
+  }
+
+  function loadIndex() {
+    fetch('/index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { index = data; })
+      .catch(function() { index = []; });
+  }
+
+  function typeLabel(section) {
+    var map = {
+      tools: 'tool', languages: 'lang', frameworks: 'fwk',
+      books: 'book', courses: 'course', resources: 'res',
+      stacks: 'stack', paths: 'path'
+    };
+    return map[section] || section;
+  }
+
+  function escape(str) {
+    return str.replace(/[&<>"']/g, function(c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function highlight(text, q) {
+    if (!q) return escape(text);
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return escape(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function search(q) {
+    selected = -1;
+    if (!q || q.length < 2) { results.innerHTML = ''; return; }
+    if (!index) { results.innerHTML = ''; return; }
+
+    var ql = q.toLowerCase();
+    var scored = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      var name = (item.name || '').toLowerCase();
+      var desc = (item.description || '').toLowerCase();
+      var score = 0;
+      if (name === ql) score = 3;
+      else if (name.startsWith(ql)) score = 2;
+      else if (name.includes(ql)) score = 1;
+      else if (desc.includes(ql)) score = 0;
+      else continue;
+      scored.push({ item: item, score: score });
+    }
+    scored.sort(function(a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 8);
+
+    if (!top.length) {
+      results.innerHTML = '<div class="search-empty">no results for <strong>' + escape(q) + '</strong></div>';
+      return;
+    }
+
+    var html = '';
+    for (var j = 0; j < top.length; j++) {
+      var it = top[j].item;
+      var desc_short = it.description ? it.description.slice(0, 80) : '';
+      html += '<a href="' + escape(it.url) + '" class="search-result" role="option" tabindex="-1">'
+        + '<span class="search-result__type">' + escape(typeLabel(it.type)) + '</span>'
+        + '<span class="search-result__body">'
+        + '<span class="search-result__name">' + highlight(it.name || it.slug, q) + '</span>'
+        + (desc_short ? '<span class="search-result__desc">' + highlight(desc_short, q) + '</span>' : '')
+        + '</span>'
+        + '</a>';
+    }
+    results.innerHTML = html;
+  }
+
+  function getItems() { return results.querySelectorAll('.search-result'); }
+
+  function setSelected(n) {
+    var items = getItems();
+    if (!items.length) return;
+    if (selected >= 0 && selected < items.length) items[selected].classList.remove('is-selected');
+    selected = Math.max(0, Math.min(n, items.length - 1));
+    items[selected].classList.add('is-selected');
+    items[selected].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function() { search(input.value.trim()); });
+
+  input.addEventListener('keydown', function(e) {
+    var items = getItems();
+    if (e.key === 'ArrowDown')  { e.preventDefault(); setSelected(selected + 1); }
+    if (e.key === 'ArrowUp')    { e.preventDefault(); setSelected(selected - 1); }
+    if (e.key === 'Enter' && selected >= 0 && selected < items.length) {
+      e.preventDefault(); items[selected].click();
+    }
+  });
+
+  results.addEventListener('click', function(e) {
+    var link = e.target.closest('.search-result');
+    if (link) closeSearch();
+  });
+
+  openBtn.addEventListener('click', openSearch);
+  closeBtn.addEventListener('click', closeSearch);
+  backdrop.addEventListener('click', closeSearch);
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal.hasAttribute('hidden') ? openSearch() : closeSearch();
+    }
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSearch();
+  });
+})();
+</script>
+
+</body>
+</html>

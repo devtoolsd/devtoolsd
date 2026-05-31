@@ -1,0 +1,3679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      var t = localStorage.getItem('devtools-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+<title>Frameworks — devtools/</title>
+<meta name="description" content="Browse frameworks by language — web, mobile, data, desktop, and more.">
+<link rel="canonical" href="https://devtools.directory/frameworks/">
+
+
+<meta property="og:title" content="Frameworks — devtools/">
+<meta property="og:description" content="Browse frameworks by language — web, mobile, data, desktop, and more.">
+<meta property="og:url" content="https://devtools.directory/frameworks/">
+<meta property="og:site_name" content="devtools/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Frameworks — devtools/">
+<meta name="twitter:description" content="Browse frameworks by language — web, mobile, data, desktop, and more.">
+<meta name="twitter:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https:\/\/devtools.directory\/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Frameworks",
+      "item": "https:\/\/devtools.directory\/frameworks/"
+    }
+  ]
+}
+</script>
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+
+</head>
+<body>
+  
+
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo">
+      <svg width="26" height="26" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3,0)">
+          <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+          <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+          <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+          <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+          <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+          <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+        </g>
+      </svg>
+      devtools<span style="color:var(--accent)">/</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="/tools/">tools/</a>
+      <a href="/languages/">languages/</a>
+      <a href="/frameworks/" class="nav-group-trigger active">ecosystem</a>
+      <a href="/books/" class="nav-group-trigger">learn</a>
+      <a href="/contribute/">contribute</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="search-trigger" id="search-open" aria-label="Search">
+        <span class="search-trigger__slash">/</span>
+        <span class="search-trigger__label">search</span>
+        <kbd class="search-trigger__kbd">⌘K</kbd>
+      </button>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="https://github.com/devtoolsd/devtoolsd" class="header-star" target="_blank" rel="noopener">
+        <span class="header-star__prompt">$</span> star
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  
+  
+  <div class="sub-nav">
+    <div class="sub-nav__inner">
+      <span class="sub-nav__group">ecosystem/</span>
+      <a href="/frameworks/" class="active">frameworks/</a>
+      <a href="/stacks/">stacks/</a>
+      <a href="/paths/">paths/</a>
+    </div>
+  </div>
+  
+  
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', function() {
+    document.getElementById('site-nav').classList.toggle('open');
+  });
+
+  document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('devtools-theme', next);
+  });
+</script>
+
+  <main>
+    
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="/">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Frameworks</span>
+  </div>
+</div>
+
+<div class="tools-page">
+
+  
+  <aside class="tools-sidebar" id="tools-sidebar">
+    <div class="tools-sidebar__head">
+      <span class="tools-sidebar__title"><span class="sidebar-prompt">$</span> filters</span>
+      <button class="sidebar-clear" id="clear-filters">clear</button>
+    </div>
+
+    
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// language</div>
+      <div class="sidebar-items" id="filter-lang">
+        <button class="sf active" data-lang="all">all<span class="sf-count">70</span></button>
+        
+        
+        <button class="sf" data-lang="csharp">c#<span class="sf-count">2</span></button>
+        
+        
+        <button class="sf" data-lang="dart">dart<span class="sf-count">1</span></button>
+        
+        
+        <button class="sf" data-lang="elixir">elixir<span class="sf-count">1</span></button>
+        
+        
+        <button class="sf" data-lang="go">go<span class="sf-count">4</span></button>
+        
+        
+        <button class="sf" data-lang="java">java<span class="sf-count">6</span></button>
+        
+        
+        <button class="sf" data-lang="javascript">javascript<span class="sf-count">17</span></button>
+        
+        
+        <button class="sf" data-lang="kotlin">kotlin<span class="sf-count">2</span></button>
+        
+        
+        <button class="sf" data-lang="php">php<span class="sf-count">4</span></button>
+        
+        
+        <button class="sf" data-lang="python">python<span class="sf-count">14</span></button>
+        
+        
+        <button class="sf" data-lang="ruby">ruby<span class="sf-count">3</span></button>
+        
+        
+        <button class="sf" data-lang="rust">rust<span class="sf-count">4</span></button>
+        
+        
+        <button class="sf" data-lang="scala">scala<span class="sf-count">1</span></button>
+        
+        
+        <button class="sf" data-lang="swift">swift<span class="sf-count">1</span></button>
+        
+        
+        <button class="sf" data-lang="typescript">typescript<span class="sf-count">10</span></button>
+        
+      </div>
+    </div>
+    
+
+    
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// type</div>
+      <div class="sidebar-items" id="filter-type">
+        <button class="sf active" data-type="all">all</button>
+        
+        <button class="sf" data-type="data">data</button>
+        
+        <button class="sf" data-type="desktop">desktop</button>
+        
+        <button class="sf" data-type="mobile">mobile</button>
+        
+        <button class="sf" data-type="other">other</button>
+        
+        <button class="sf" data-type="testing">testing</button>
+        
+        <button class="sf" data-type="web">web</button>
+        
+      </div>
+    </div>
+    
+
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// pricing</div>
+      <div class="sidebar-items" id="filter-pricing">
+        <button class="sf active" data-pricing="all">all</button>
+        <button class="sf" data-pricing="free">free</button>
+        <button class="sf" data-pricing="freemium">freemium</button>
+        <button class="sf" data-pricing="paid">paid</button>
+      </div>
+    </div>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// license</div>
+      <div class="sidebar-items" id="filter-oss">
+        <button class="sf active" data-oss="all">all</button>
+        <button class="sf" data-oss="true">open source</button>
+      </div>
+    </div>
+  </aside>
+
+  
+  <div class="tools-main">
+
+    <div class="tools-topbar">
+      <div class="tools-search-wrap">
+        <span class="tools-search-slash">/</span>
+        <input
+          type="text"
+          id="fw-search"
+          class="tools-search-input"
+          placeholder="filter frameworks..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+      <span class="tools-count"><span id="fw-count">70</span> results</span>
+      <button class="tools-filter-btn" id="filter-toggle" aria-expanded="false">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        filters
+      </button>
+    </div>
+
+    <div class="active-filters" id="active-filters"></div>
+
+    <div class="fw-grid" id="fw-grid">
+      
+      
+      <div class="fw-item"
+        data-name="actix web"
+        data-desc="powerful, high-performance rust web framework — async-first, type-safe extractors, and consistently ranked among the world&#39;s fastest web servers."
+        data-lang="rust"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend rust performance async api rest type-safe ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://actix.rs/img/logo.png" alt="Actix Web" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/actix-web/" class="fw-card__name stretched-link">Actix Web</a>
+      
+        <a href="/languages/rust/" class="fw-card__lang">rust/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Powerful, high-performance Rust web framework — async-first, type-safe extractors, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2017</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="angular"
+        data-desc="full-featured typescript framework from google — opinionated, batteries-included, built for large-scale enterprise spas."
+        data-lang="typescript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="frontend spa typescript enterprise google components ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" alt="Angular" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/angular/" class="fw-card__name stretched-link">Angular</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Full-featured TypeScript framework from Google — opinionated, batteries-included, built for …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="asp.net core"
+        data-desc="cross-platform, high-performance web framework from microsoft — rest apis, mvc, razor pages, and real-time with signalr."
+        data-lang="csharp"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend csharp dotnet api rest mvc microsoft cross-platform ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg" alt="ASP.NET Core" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/aspnet-core/" class="fw-card__name stretched-link">ASP.NET Core</a>
+      
+        <a href="/languages/csharp/" class="fw-card__lang">c#/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Cross-platform, high-performance web framework from Microsoft — REST APIs, MVC, Razor Pages, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="astro"
+        data-desc="content-focused web framework with islands architecture — ships zero javascript by default, integrates any ui framework."
+        data-lang="typescript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="frontend static ssr performance islands content multi-framework ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/8/80/Wordpress_Astro_-_Full_Logo_Light_Color_%281%29.svg" alt="Astro" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/astro/" class="fw-card__name stretched-link">Astro</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Content-focused web framework with islands architecture — ships zero JavaScript by default, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2021</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="axum"
+        data-desc="ergonomic rust web framework from the tokio team — macro-free routing, extractors, and seamless tower middleware compatibility."
+        data-lang="rust"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend rust async tokio tower api rest ergonomic ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">AX</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/axum/" class="fw-card__name stretched-link">Axum</a>
+      
+        <a href="/languages/rust/" class="fw-card__lang">rust/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Ergonomic Rust web framework from the Tokio team — macro-free routing, extractors, and seamless …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2021</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="blazor"
+        data-desc="c# ui framework for the web — run .net code in the browser via webassembly or server-side with signalr."
+        data-lang="csharp"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="frontend csharp dotnet wasm webassembly spa server-side ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">BL</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/blazor/" class="fw-card__name stretched-link">Blazor</a>
+      
+        <a href="/languages/csharp/" class="fw-card__lang">c#/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">C# UI framework for the web — run .NET code in the browser via WebAssembly or server-side with …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2018</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="bootstrap"
+        data-desc="responsive css component framework — grid system, pre-built components, and the web&#39;s most widely used frontend toolkit."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="css frontend responsive components ui grid jquery ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="Bootstrap" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/bootstrap/" class="fw-card__name stretched-link">Bootstrap</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Responsive CSS component framework — grid system, pre-built components, and the web&#39;s most …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2011</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="celery"
+        data-desc="distributed task queue for python — async background jobs, scheduled tasks, and workflows with redis or rabbitmq."
+        data-lang="python"
+        data-type="other"
+        data-pricing="free"
+        data-open="true"
+        data-tags="background-tasks async queue redis rabbitmq python distributed scheduling ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">CE</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/celery/" class="fw-card__name stretched-link">Celery</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Distributed task queue for Python — async background jobs, scheduled tasks, and workflows with …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">other</span>
+    <span class="lang-prop lang-prop--year">2009</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="chi"
+        data-desc="lightweight, idiomatic go router — composable middleware, 100% net/http compatibility, zero external dependencies."
+        data-lang="go"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend go router middleware stdlib idiomatic minimal ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">CH</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/chi/" class="fw-card__name stretched-link">Chi</a>
+      
+        <a href="/languages/go/" class="fw-card__lang">go/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Lightweight, idiomatic Go router — composable middleware, 100% net/http compatibility, zero …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="codeigniter"
+        data-desc="lightweight php framework with a small footprint — fast to set up, minimal configuration, popular for hosting-constrained environments."
+        data-lang="php"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend php lightweight mvc api shared-hosting ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Codeigniter.svg" alt="CodeIgniter" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/codeigniter/" class="fw-card__name stretched-link">CodeIgniter</a>
+      
+        <a href="/languages/php/" class="fw-card__lang">php/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Lightweight PHP framework with a small footprint — fast to set up, minimal configuration, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2006</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="cypress"
+        data-desc="end-to-end and component testing framework for web apps — runs in-browser with real-time reloading and a time-travel debugger."
+        data-lang="javascript"
+        data-type="testing"
+        data-pricing="freemium"
+        data-open="true"
+        data-tags="testing e2e browser component-testing javascript debug time-travel ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://asset.brandfetch.io/idIq_kJ0rb/idv3zwmSiY.jpeg" alt="Cypress" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/cypress/" class="fw-card__name stretched-link">Cypress</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">End-to-end and component testing framework for web apps — runs in-browser with real-time …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">testing</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="django"
+        data-desc="batteries-included python web framework — orm, admin panel, auth, and routing out of the box."
+        data-lang="python"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="web orm mvc rest python backend batteries-included ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg" alt="Django" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/django/" class="fw-card__name stretched-link">Django</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Batteries-included Python web framework — ORM, admin panel, auth, and routing out of the box.</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2005</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="echo"
+        data-desc="high-performance, extensible go web framework — minimalist api with automatic tls, websocket support, and data binding."
+        data-lang="go"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend go api rest websocket minimalist middleware ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">EC</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/echo/" class="fw-card__name stretched-link">Echo</a>
+      
+        <a href="/languages/go/" class="fw-card__lang">go/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">High-performance, extensible Go web framework — minimalist API with automatic TLS, WebSocket …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="electron"
+        data-desc="build cross-platform desktop apps with javascript, html, and css — powers vs code, slack, figma, and thousands of other apps."
+        data-lang="javascript"
+        data-type="desktop"
+        data-pricing="free"
+        data-open="true"
+        data-tags="desktop cross-platform nodejs chromium javascript gui ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Electron_Software_Framework_Logo.svg" alt="Electron" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/electron/" class="fw-card__name stretched-link">Electron</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Build cross-platform desktop apps with JavaScript, HTML, and CSS — powers VS Code, Slack, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">desktop</span>
+    <span class="lang-prop lang-prop--year">2013</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="expo"
+        data-desc="react native framework and platform — managed workflow, eas build, and over-the-air updates for cross-platform mobile apps."
+        data-lang="typescript"
+        data-type="mobile"
+        data-pricing="freemium"
+        data-open="true"
+        data-tags="mobile ios android react-native ota cross-platform typescript ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://expo.dev/static/images/blog/expo-logo.png" alt="Expo" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/expo/" class="fw-card__name stretched-link">Expo</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">React Native framework and platform — managed workflow, EAS Build, and over-the-air updates for …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">mobile</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="express"
+        data-desc="minimal, unopinionated node.js web framework — the backbone of most node.js apis and servers."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="nodejs backend api rest middleware server ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="Express" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/express/" class="fw-card__name stretched-link">Express</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Minimal, unopinionated Node.js web framework — the backbone of most Node.js APIs and servers.</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2010</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="fastapi"
+        data-desc="modern, async python web framework with automatic openapi docs and pydantic-powered type validation."
+        data-lang="python"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend api rest async openapi pydantic python ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="FastAPI" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/fastapi/" class="fw-card__name stretched-link">FastAPI</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Modern, async Python web framework with automatic OpenAPI docs and Pydantic-powered type …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2018</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="fastify"
+        data-desc="high-performance node.js web framework — schema-based validation, plugin architecture, and up to 2x the throughput of express."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend nodejs api rest performance schema plugins ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Fastify_logo.svg" alt="Fastify" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/fastify/" class="fw-card__name stretched-link">Fastify</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">High-performance Node.js web framework — schema-based validation, plugin architecture, and up …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="fiber"
+        data-desc="express-inspired go framework built on top of fasthttp — the fastest go web framework with a node.js-like api."
+        data-lang="go"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend go performance express-like api rest fasthttp ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://raw.githubusercontent.com/gofiber/docs/master/static/img/logo.svg" alt="Fiber" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/fiber/" class="fw-card__name stretched-link">Fiber</a>
+      
+        <a href="/languages/go/" class="fw-card__lang">go/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Express-inspired Go framework built on top of Fasthttp — the fastest Go web framework with a …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2020</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="flask"
+        data-desc="lightweight python web micro-framework — minimal core, wsgi-based, and highly extensible via blueprints and extensions."
+        data-lang="python"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend web api rest python micro wsgi ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Flask_logo.svg" alt="Flask" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/flask/" class="fw-card__name stretched-link">Flask</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Lightweight Python web micro-framework — minimal core, WSGI-based, and highly extensible via …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2010</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="flutter"
+        data-desc="google&#39;s ui toolkit for building natively compiled apps for mobile, web, and desktop from a single dart codebase."
+        data-lang="dart"
+        data-type="mobile"
+        data-pricing="free"
+        data-open="true"
+        data-tags="mobile ios android cross-platform dart desktop web google ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png" alt="Flutter" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/flutter/" class="fw-card__name stretched-link">Flutter</a>
+      
+        <a href="/languages/dart/" class="fw-card__lang">dart/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Google&#39;s UI toolkit for building natively compiled apps for mobile, web, and desktop from a …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">mobile</span>
+    <span class="lang-prop lang-prop--year">2017</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="gatsby"
+        data-desc="react-based static site generator with a graphql data layer — pioneered the jamstack approach for content-heavy websites."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="static react graphql jamstack frontend cms performance ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Gatsby.png" alt="Gatsby" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/gatsby/" class="fw-card__name stretched-link">Gatsby</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">React-based static site generator with a GraphQL data layer — pioneered the JAMstack approach …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="gin"
+        data-desc="fast, lightweight http web framework for go — radix tree router, middleware support, and idiomatic go api."
+        data-lang="go"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend go api rest router middleware performance ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Gin_Logo.svg" alt="Gin" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/gin/" class="fw-card__name stretched-link">Gin</a>
+      
+        <a href="/languages/go/" class="fw-card__lang">go/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Fast, lightweight HTTP web framework for Go — radix tree router, middleware support, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="hibernate"
+        data-desc="java orm framework — maps java objects to relational database tables with hql, caching, and lazy loading."
+        data-lang="java"
+        data-type="data"
+        data-pricing="free"
+        data-open="true"
+        data-tags="orm database java jpa sql persistence caching ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/2/22/Hibernate_logo_a.png" alt="Hibernate" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/hibernate/" class="fw-card__name stretched-link">Hibernate</a>
+      
+        <a href="/languages/java/" class="fw-card__lang">java/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Java ORM framework — maps Java objects to relational database tables with HQL, caching, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2001</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="hono"
+        data-desc="ultrafast web framework for the edge — runs on cloudflare workers, deno, bun, node.js, and aws lambda with zero dependencies."
+        data-lang="typescript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend edge cloudflare deno bun api rest typescript ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://hono.dev/images/logo.svg" alt="Hono" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/hono/" class="fw-card__name stretched-link">Hono</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Ultrafast web framework for the edge — runs on Cloudflare Workers, Deno, Bun, Node.js, and AWS …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2021</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="ionic"
+        data-desc="cross-platform mobile framework using web technologies — angular, react, or vue components rendered in a native webview."
+        data-lang="typescript"
+        data-type="mobile"
+        data-pricing="freemium"
+        data-open="true"
+        data-tags="mobile ios android pwa web-technologies angular react vue ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Ioniclogo.svg" alt="Ionic" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/ionic/" class="fw-card__name stretched-link">Ionic</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Cross-platform mobile framework using web technologies — Angular, React, or Vue components …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">mobile</span>
+    <span class="lang-prop lang-prop--year">2013</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="jest"
+        data-desc="delightful javascript testing framework from meta — zero config, snapshot testing, mocking, and code coverage built in."
+        data-lang="javascript"
+        data-type="testing"
+        data-pricing="free"
+        data-open="true"
+        data-tags="testing unit-testing javascript typescript mocking snapshots meta ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/NewJestLogo.png" alt="Jest" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/jest/" class="fw-card__name stretched-link">Jest</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Delightful JavaScript testing framework from Meta — zero config, snapshot testing, mocking, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">testing</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="jetpack compose"
+        data-desc="android&#39;s modern declarative ui toolkit — kotlin-first, composable functions replacing xml layouts."
+        data-lang="kotlin"
+        data-type="mobile"
+        data-pricing="free"
+        data-open="true"
+        data-tags="android mobile kotlin ui declarative google compose ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">JE</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/jetpack-compose/" class="fw-card__name stretched-link">Jetpack Compose</a>
+      
+        <a href="/languages/kotlin/" class="fw-card__lang">kotlin/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Android&#39;s modern declarative UI toolkit — Kotlin-first, composable functions replacing XML …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">mobile</span>
+    <span class="lang-prop lang-prop--year">2020</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="junit"
+        data-desc="the standard unit testing framework for java — annotations, assertions, parameterised tests, and a rich extension model."
+        data-lang="java"
+        data-type="testing"
+        data-pricing="free"
+        data-open="true"
+        data-tags="testing java unit-testing tdd annotations jupiter ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">JU</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/junit/" class="fw-card__name stretched-link">JUnit</a>
+      
+        <a href="/languages/java/" class="fw-card__lang">java/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">The standard unit testing framework for Java — annotations, assertions, parameterised tests, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">testing</span>
+    <span class="lang-prop lang-prop--year">1997</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="keras"
+        data-desc="high-level deep learning api — simple model building with backends for tensorflow, pytorch, and jax."
+        data-lang="python"
+        data-type="data"
+        data-pricing="free"
+        data-open="true"
+        data-tags="ml deep-learning neural-networks python tensorflow multi-backend ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg" alt="Keras" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/keras/" class="fw-card__name stretched-link">Keras</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">High-level deep learning API — simple model building with backends for TensorFlow, PyTorch, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="koa"
+        data-desc="next-generation node.js web framework from the express team — async/await middleware pipeline, minimal core."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend nodejs api middleware async minimal ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">KO</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/koa/" class="fw-card__name stretched-link">Koa</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Next-generation Node.js web framework from the Express team — async/await middleware pipeline, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2013</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="ktor"
+        data-desc="async kotlin framework from jetbrains — coroutine-native, multiplatform, for both server-side and client http."
+        data-lang="kotlin"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend kotlin async coroutines api rest jetbrains multiplatform ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Ktor_logo.svg" alt="Ktor" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/ktor/" class="fw-card__name stretched-link">Ktor</a>
+      
+        <a href="/languages/kotlin/" class="fw-card__lang">kotlin/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Async Kotlin framework from JetBrains — coroutine-native, multiplatform, for both server-side …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2017</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="langchain"
+        data-desc="framework for building llm-powered applications — chains, agents, retrieval-augmented generation, and tool use."
+        data-lang="python"
+        data-type="data"
+        data-pricing="free"
+        data-open="true"
+        data-tags="ai llm rag agents tools python generative-ai ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://langchain.com/static/images/branding/langchain-logo-full-dark.svg" alt="LangChain" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/langchain/" class="fw-card__name stretched-link">LangChain</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Framework for building LLM-powered applications — chains, agents, retrieval-augmented …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2022</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="laravel"
+        data-desc="elegant php web framework with expressive syntax, an orm, queue system, and rich ecosystem."
+        data-lang="php"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="web php orm eloquent artisan mvc backend ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="Laravel" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/laravel/" class="fw-card__name stretched-link">Laravel</a>
+      
+        <a href="/languages/php/" class="fw-card__lang">php/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Elegant PHP web framework with expressive syntax, an ORM, queue system, and rich ecosystem.</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2011</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="micronaut"
+        data-desc="jvm microservices framework with compile-time dependency injection — no reflection, fast startup, and low memory."
+        data-lang="java"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend java microservices cloud-native kotlin groovy fast-startup ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Micronaut_Framework_Logo.png" alt="Micronaut" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/micronaut/" class="fw-card__name stretched-link">Micronaut</a>
+      
+        <a href="/languages/java/" class="fw-card__lang">java/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">JVM microservices framework with compile-time dependency injection — no reflection, fast …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2018</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="mocha"
+        data-desc="flexible javascript test runner — browser and node.js support, unopinionated about assertions and mocking."
+        data-lang="javascript"
+        data-type="testing"
+        data-pricing="free"
+        data-open="true"
+        data-tags="testing javascript nodejs bdd tdd browser flexible ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">MO</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/mocha/" class="fw-card__name stretched-link">Mocha</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Flexible JavaScript test runner — browser and Node.js support, unopinionated about assertions …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">testing</span>
+    <span class="lang-prop lang-prop--year">2011</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="nestjs"
+        data-desc="progressive node.js framework inspired by angular — decorators, dependency injection, and modules for scalable server-side apps."
+        data-lang="typescript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend nodejs typescript api rest graphql microservices ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/NestJS.svg" alt="NestJS" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/nestjs/" class="fw-card__name stretched-link">NestJS</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Progressive Node.js framework inspired by Angular — decorators, dependency injection, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2017</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="next.js"
+        data-desc="react framework with file-based routing, ssr, ssg, and api routes — the standard for production react apps."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="react ssr ssg full-stack vercel routing ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="Next.js" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/nextjs/" class="fw-card__name stretched-link">Next.js</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">React framework with file-based routing, SSR, SSG, and API routes — the standard for production …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="numpy"
+        data-desc="fundamental array computing library for python — the backbone of the entire scientific python ecosystem."
+        data-lang="python"
+        data-type="data"
+        data-pricing="free"
+        data-open="true"
+        data-tags="scientific-computing arrays math python data-science linear-algebra ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg" alt="NumPy" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/numpy/" class="fw-card__name stretched-link">NumPy</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Fundamental array computing library for Python — the backbone of the entire scientific Python …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2005</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="nuxt"
+        data-desc="full-stack vue framework with ssr, file-based routing, and auto-imports — the standard way to build production vue apps."
+        data-lang="typescript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="fullstack vue ssr typescript routing auto-imports ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Nuxt_logo.svg" alt="Nuxt" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/nuxt/" class="fw-card__name stretched-link">Nuxt</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Full-stack Vue framework with SSR, file-based routing, and auto-imports — the standard way to …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="pandas"
+        data-desc="fast, flexible data analysis library — dataframes, time series, and data wrangling for python."
+        data-lang="python"
+        data-type="data"
+        data-pricing="free"
+        data-open="true"
+        data-tags="data data-science dataframe etl analysis python wrangling ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" alt="Pandas" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/pandas/" class="fw-card__name stretched-link">Pandas</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Fast, flexible data analysis library — DataFrames, time series, and data wrangling for Python.</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2008</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="phoenix"
+        data-desc="productive elixir web framework — real-time channels, liveview, and rails-like conventions on the fault-tolerant beam vm."
+        data-lang="elixir"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend elixir real-time channels liveview websocket beam ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Phoenix_framework_logo.svg" alt="Phoenix" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/phoenix/" class="fw-card__name stretched-link">Phoenix</a>
+      
+        <a href="/languages/elixir/" class="fw-card__lang">elixir/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Productive Elixir web framework — real-time channels, LiveView, and Rails-like conventions on …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="play framework"
+        data-desc="reactive web framework for scala and java — stateless, asynchronous, and built on akka for high-throughput services."
+        data-lang="scala"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend scala java reactive async rest akka ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/6/61/Playframework_logo.svg" alt="Play Framework" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/play/" class="fw-card__name stretched-link">Play Framework</a>
+      
+        <a href="/languages/scala/" class="fw-card__lang">scala/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Reactive web framework for Scala and Java — stateless, asynchronous, and built on Akka for …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2007</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="playwright"
+        data-desc="end-to-end browser testing framework from microsoft — reliable, fast, and supports chromium, firefox, and webkit."
+        data-lang="typescript"
+        data-type="testing"
+        data-pricing="free"
+        data-open="true"
+        data-tags="testing e2e browser automation typescript microsoft cross-browser ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://playwright.dev/img/playwright-logo.svg" alt="Playwright" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/playwright/" class="fw-card__name stretched-link">Playwright</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">End-to-end browser testing framework from Microsoft — reliable, fast, and supports Chromium, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">testing</span>
+    <span class="lang-prop lang-prop--year">2020</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="prisma"
+        data-desc="next-generation typescript orm — schema-first, auto-generated type-safe client, and prisma studio for data browsing."
+        data-lang="typescript"
+        data-type="data"
+        data-pricing="freemium"
+        data-open="true"
+        data-tags="orm database typescript postgresql mysql sqlite schema type-safe ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://prismaio.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F06aaeab8-7584-4c11-b52b-b9be41e6cecc%2Fprisma-logo-3.png" alt="Prisma" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/prisma/" class="fw-card__name stretched-link">Prisma</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Next-generation TypeScript ORM — schema-first, auto-generated type-safe client, and Prisma …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="pytest"
+        data-desc="the standard python testing framework — simple assert statements, powerful fixtures, and a vast plugin ecosystem."
+        data-lang="python"
+        data-type="testing"
+        data-pricing="free"
+        data-open="true"
+        data-tags="testing python unit-testing fixtures plugins parametrize ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">PY</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/pytest/" class="fw-card__name stretched-link">pytest</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">The standard Python testing framework — simple assert statements, powerful fixtures, and a vast …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">testing</span>
+    <span class="lang-prop lang-prop--year">2004</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="pytorch"
+        data-desc="dynamic neural network framework from meta — the dominant platform for ml research and increasingly for production."
+        data-lang="python"
+        data-type="data"
+        data-pricing="free"
+        data-open="true"
+        data-tags="ml ai deep-learning research gpu python meta dynamic ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" alt="PyTorch" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/pytorch/" class="fw-card__name stretched-link">PyTorch</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Dynamic neural network framework from Meta — the dominant platform for ML research and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="quarkus"
+        data-desc="kubernetes-native java framework — fast startup, low memory footprint, native compilation via graalvm."
+        data-lang="java"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend java kubernetes cloud-native native graalvm microservices ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/3/31/Quarkus_Logo.svg" alt="Quarkus" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/quarkus/" class="fw-card__name stretched-link">Quarkus</a>
+      
+        <a href="/languages/java/" class="fw-card__lang">java/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Kubernetes-native Java framework — fast startup, low memory footprint, native compilation via …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2019</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="react"
+        data-desc="declarative ui library from meta for building component-based web interfaces."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="ui frontend spa jsx components meta ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/react/" class="fw-card__name stretched-link">React</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Declarative UI library from Meta for building component-based web interfaces.</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2013</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="react native"
+        data-desc="build native ios and android apps using react — bridge to native components, shared logic with web react codebases."
+        data-lang="javascript"
+        data-type="mobile"
+        data-pricing="free"
+        data-open="true"
+        data-tags="mobile ios android cross-platform react javascript meta ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Native" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/react-native/" class="fw-card__name stretched-link">React Native</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Build native iOS and Android apps using React — bridge to native components, shared logic with …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">mobile</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="remix"
+        data-desc="full-stack react framework built on web standards — loaders, actions, and nested routing with progressive enhancement."
+        data-lang="typescript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="fullstack react ssr web-standards routing typescript ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/af/Remix.run_logo_wordmark.svg" alt="Remix" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/remix/" class="fw-card__name stretched-link">Remix</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Full-stack React framework built on web standards — loaders, actions, and nested routing with …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2021</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="rocket"
+        data-desc="web framework for rust focused on developer experience — type-checked routes, request guards, and zero-boilerplate handlers."
+        data-lang="rust"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend rust ergonomic type-safe api rest macros ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">RO</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/rocket/" class="fw-card__name stretched-link">Rocket</a>
+      
+        <a href="/languages/rust/" class="fw-card__lang">rust/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Web framework for Rust focused on developer experience — type-checked routes, request guards, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="rspec"
+        data-desc="behaviour-driven development testing framework for ruby — readable `describe/it/expect` dsl and the standard for rails testing."
+        data-lang="ruby"
+        data-type="testing"
+        data-pricing="free"
+        data-open="true"
+        data-tags="testing ruby bdd rails unit-testing integration-testing ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">RS</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/rspec/" class="fw-card__name stretched-link">RSpec</a>
+      
+        <a href="/languages/ruby/" class="fw-card__lang">ruby/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Behaviour-driven development testing framework for Ruby — readable `describe/it/expect` DSL and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">testing</span>
+    <span class="lang-prop lang-prop--year">2005</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="ruby on rails"
+        data-desc="full-stack web framework that popularised convention over configuration — mvc, activerecord orm, and developer productivity by default."
+        data-lang="ruby"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend fullstack mvc orm ruby web productivity ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg" alt="Ruby on Rails" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/rails/" class="fw-card__name stretched-link">Ruby on Rails</a>
+      
+        <a href="/languages/ruby/" class="fw-card__lang">ruby/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Full-stack web framework that popularised convention over configuration — MVC, ActiveRecord …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2004</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="scikit-learn"
+        data-desc="the standard python machine learning library — consistent api for classification, regression, clustering, and preprocessing."
+        data-lang="python"
+        data-type="data"
+        data-pricing="free"
+        data-open="true"
+        data-tags="ml data-science classification regression clustering python preprocessing ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit-learn" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/scikit-learn/" class="fw-card__name stretched-link">scikit-learn</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">The standard Python machine learning library — consistent API for classification, regression, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2007</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="sinatra"
+        data-desc="minimal ruby dsl for building web applications — route definitions in a handful of lines, no mvc overhead."
+        data-lang="ruby"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend micro ruby api rest dsl minimal ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">SI</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/sinatra/" class="fw-card__name stretched-link">Sinatra</a>
+      
+        <a href="/languages/ruby/" class="fw-card__lang">ruby/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Minimal Ruby DSL for building web applications — route definitions in a handful of lines, no …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2007</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="slim"
+        data-desc="micro-framework for php apis and web apps — psr-7 middleware stack, fast routing, and minimal overhead."
+        data-lang="php"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend php micro api rest psr-7 middleware ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">SL</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/slim/" class="fw-card__name stretched-link">Slim</a>
+      
+        <a href="/languages/php/" class="fw-card__lang">php/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Micro-framework for PHP APIs and web apps — PSR-7 middleware stack, fast routing, and minimal …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2011</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="solid"
+        data-desc="fine-grained reactive ui library — no virtual dom, jsx compiled to real dom operations, with react-like ergonomics."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="frontend reactive jsx performance spa ui fine-grained ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">SO</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/solid/" class="fw-card__name stretched-link">Solid</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Fine-grained reactive UI library — no virtual DOM, JSX compiled to real DOM operations, with …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2018</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="spring boot"
+        data-desc="opinionated spring framework for production-ready java microservices — auto-configuration, embedded servers, and a vast ecosystem."
+        data-lang="java"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend java microservices enterprise rest dependency-injection ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Spring_Boot.svg" alt="Spring Boot" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/spring-boot/" class="fw-card__name stretched-link">Spring Boot</a>
+      
+        <a href="/languages/java/" class="fw-card__lang">java/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Opinionated Spring framework for production-ready Java microservices — auto-configuration, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="sqlalchemy"
+        data-desc="python sql toolkit and orm — both low-level sql expression language and high-level orm, the standard for python database access."
+        data-lang="python"
+        data-type="data"
+        data-pricing="free"
+        data-open="true"
+        data-tags="orm database sql python postgresql mysql sqlite backend ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">SQ</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/sqlalchemy/" class="fw-card__name stretched-link">SQLAlchemy</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Python SQL toolkit and ORM — both low-level SQL expression language and high-level ORM, the …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2006</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="starlette"
+        data-desc="lightweight asgi framework and toolkit — the foundation that fastapi and other async python frameworks are built on."
+        data-lang="python"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend async asgi python websockets api lightweight ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">ST</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/starlette/" class="fw-card__name stretched-link">Starlette</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Lightweight ASGI framework and toolkit — the foundation that FastAPI and other async Python …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2018</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="svelte"
+        data-desc="compiler-based ui framework — no virtual dom, components compile to vanilla js for minimal bundle size and maximum performance."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="frontend components compiler performance spa ui ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg" alt="Svelte" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/svelte/" class="fw-card__name stretched-link">Svelte</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Compiler-based UI framework — no virtual DOM, components compile to vanilla JS for minimal …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="sveltekit"
+        data-desc="full-stack svelte framework with ssr, file-based routing, and edge-ready deployment — the official way to build svelte apps."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="fullstack ssr routing svelte edge deployment ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg" alt="SvelteKit" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/sveltekit/" class="fw-card__name stretched-link">SvelteKit</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Full-stack Svelte framework with SSR, file-based routing, and edge-ready deployment — the …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2020</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="swiftui"
+        data-desc="apple&#39;s declarative ui framework — build native apps for ios, macos, watchos, and tvos with a single swift codebase."
+        data-lang="swift"
+        data-type="mobile"
+        data-pricing="free"
+        data-open="false"
+        data-tags="ios macos mobile apple ui declarative cross-platform ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">SW</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/swiftui/" class="fw-card__name stretched-link">SwiftUI</a>
+      
+        <a href="/languages/swift/" class="fw-card__lang">swift/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Apple&#39;s declarative UI framework — build native apps for iOS, macOS, watchOS, and tvOS with a …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">mobile</span>
+    <span class="lang-prop lang-prop--year">2019</span>
+    
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="symfony"
+        data-desc="enterprise-grade php framework — reusable components powering laravel, drupal, magento, and countless other php projects."
+        data-lang="php"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend php enterprise components api fullstack ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Symfony2.svg" alt="Symfony" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/symfony/" class="fw-card__name stretched-link">Symfony</a>
+      
+        <a href="/languages/php/" class="fw-card__lang">php/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Enterprise-grade PHP framework — reusable components powering Laravel, Drupal, Magento, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2005</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="tailwind css"
+        data-desc="utility-first css framework — compose designs directly in markup with small, single-purpose classes."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="css frontend utility-first styling ui design-system ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/tailwindcss/" class="fw-card__name stretched-link">Tailwind CSS</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Utility-first CSS framework — compose designs directly in markup with small, single-purpose …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2017</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="tauri"
+        data-desc="build tiny, fast desktop apps with a rust core and any web frontend — 10x smaller bundles than electron with lower memory usage."
+        data-lang="rust"
+        data-type="desktop"
+        data-pricing="free"
+        data-open="true"
+        data-tags="desktop cross-platform rust webview performance security lightweight ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://tauri.app/meta/tauri_logo_light.svg" alt="Tauri" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/tauri/" class="fw-card__name stretched-link">Tauri</a>
+      
+        <a href="/languages/rust/" class="fw-card__lang">rust/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Build tiny, fast desktop apps with a Rust core and any web frontend — 10x smaller bundles than …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">desktop</span>
+    <span class="lang-prop lang-prop--year">2020</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="tensorflow"
+        data-desc="end-to-end open-source ml platform from google — model building, training, deployment across cpu, gpu, tpu, and mobile."
+        data-lang="python"
+        data-type="data"
+        data-pricing="free"
+        data-open="true"
+        data-tags="ml ai deep-learning neural-networks gpu python google ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/tensorflow/" class="fw-card__name stretched-link">TensorFlow</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">End-to-end open-source ML platform from Google — model building, training, deployment across …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">data</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="vert.x"
+        data-desc="reactive toolkit for building event-driven applications on the jvm — polyglot, non-blocking, and massively scalable."
+        data-lang="java"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="backend java reactive event-driven non-blocking polyglot microservices ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Vert.x_Logo.svg" alt="Vert.x" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/vert-x/" class="fw-card__name stretched-link">Vert.x</a>
+      
+        <a href="/languages/java/" class="fw-card__lang">java/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Reactive toolkit for building event-driven applications on the JVM — polyglot, non-blocking, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2011</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="vue"
+        data-desc="progressive javascript framework for building uis — approachable, flexible, and incrementally adoptable."
+        data-lang="javascript"
+        data-type="web"
+        data-pricing="free"
+        data-open="true"
+        data-tags="ui frontend spa sfc components progressive ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <img class="fw-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" alt="Vue" loading="lazy">
+    
+    <div class="fw-card__title-block">
+      <a href="/frameworks/vue/" class="fw-card__name stretched-link">Vue</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Progressive JavaScript framework for building UIs — approachable, flexible, and incrementally …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">web</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+    </div>
+
+    <div id="no-results" class="tools-empty hidden">
+      <span class="tools-empty__icon">∅</span>
+      <span>no frameworks match your filters</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl  = document.getElementById('fw-search');
+  var countEl   = document.getElementById('fw-count');
+  var noResults = document.getElementById('no-results');
+  var clearBtn  = document.getElementById('clear-filters');
+  var filterBtn = document.getElementById('filter-toggle');
+  var sidebar   = document.getElementById('tools-sidebar');
+  var activeFiltersEl = document.getElementById('active-filters');
+  var items     = document.querySelectorAll('.fw-item');
+
+  var state = { query: '', lang: 'all', type: 'all', pricing: 'all', oss: 'all' };
+
+  function filter() {
+    var q = state.query;
+    var visible = 0;
+    items.forEach(function(el) {
+      var d = el.dataset;
+      var ok =
+        (!q || (d.name||'').includes(q) || (d.desc||'').includes(q) || (d.tags||'').includes(q)) &&
+        (state.lang    === 'all' || (d.lang||'')    === state.lang) &&
+        (state.type    === 'all' || (d.type||'')    === state.type) &&
+        (state.pricing === 'all' || (d.pricing||'') === state.pricing) &&
+        (state.oss     === 'all' || (d.open||'')    === state.oss);
+      el.classList.toggle('filter-hidden', !ok);
+      if (ok) visible++;
+    });
+    countEl.textContent = visible;
+    noResults.classList.toggle('hidden', visible > 0);
+    renderActiveTags();
+    var dirty = state.lang !== 'all' || state.type !== 'all' || state.pricing !== 'all' || state.oss !== 'all';
+    clearBtn.style.display = dirty ? '' : 'none';
+  }
+
+  function renderActiveTags() {
+    var tags = [];
+    if (state.lang    !== 'all') tags.push({ label: state.lang,    key: 'lang' });
+    if (state.type    !== 'all') tags.push({ label: state.type,    key: 'type' });
+    if (state.pricing !== 'all') tags.push({ label: state.pricing, key: 'pricing' });
+    if (state.oss     !== 'all') tags.push({ label: 'open source', key: 'oss' });
+    if (!tags.length) { activeFiltersEl.innerHTML = ''; return; }
+    activeFiltersEl.innerHTML = tags.map(function(t) {
+      return '<button class="active-filter-tag" data-key="' + t.key + '">' + t.label + ' ×</button>';
+    }).join('');
+    activeFiltersEl.querySelectorAll('.active-filter-tag').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state[btn.dataset.key] = 'all';
+        syncButtons(btn.dataset.key);
+        filter();
+      });
+    });
+  }
+
+  function wireGroup(containerId, stateKey) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        container.querySelectorAll('.sf').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state[stateKey] = btn.dataset[stateKey];
+        filter();
+      });
+    });
+  }
+
+  function syncButtons(key) {
+    var map = { lang: 'filter-lang', type: 'filter-type', pricing: 'filter-pricing', oss: 'filter-oss' };
+    var container = document.getElementById(map[key]);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.classList.toggle('active', (btn.dataset[key] || 'all') === state[key]);
+    });
+  }
+
+  wireGroup('filter-lang',    'lang');
+  wireGroup('filter-type',    'type');
+  wireGroup('filter-pricing', 'pricing');
+  wireGroup('filter-oss',     'oss');
+
+  searchEl.addEventListener('input', function() { state.query = searchEl.value.toLowerCase().trim(); filter(); });
+
+  clearBtn.addEventListener('click', function() {
+    state = { query: state.query, lang: 'all', type: 'all', pricing: 'all', oss: 'all' };
+    ['lang', 'type', 'pricing', 'oss'].forEach(syncButtons);
+    filter();
+  });
+
+  filterBtn.addEventListener('click', function() {
+    var open = sidebar.classList.toggle('is-open');
+    filterBtn.setAttribute('aria-expanded', open);
+  });
+
+  clearBtn.style.display = 'none';
+})();
+</script>
+
+  </main>
+  
+
+
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-body">
+
+    
+    <div class="footer-left">
+      <div class="footer-brand-line">
+        <svg width="18" height="18" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <g transform="translate(3,0)">
+            <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+            <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+            <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+            <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+            <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+            <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+          </g>
+        </svg>
+        <span class="footer-brand-name">devtools<span style="color:var(--accent)">/</span></span>
+      </div>
+      <div class="footer-comments">
+        <span class="footer-comment">// Wikipedia for developer tools.</span>
+        <span class="footer-comment">// Community-maintained · open source · MIT.</span>
+      </div>
+
+      <div class="footer-tree">
+        <div class="footer-tree__root">content/</div>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
+        <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
+        <a href="/stacks/"     class="footer-tree__item">├── stacks/     <span class="tree-count">7</span></a>
+        <a href="/paths/"      class="footer-tree__item">├── paths/      <span class="tree-count">1</span></a>
+        <a href="/books/"      class="footer-tree__item">├── books/      <span class="tree-count">1</span></a>
+        <a href="/courses/"     class="footer-tree__item">├── courses/     <span class="tree-count">1</span></a>
+        <a href="/newsletters/" class="footer-tree__item">├── newsletters/ <span class="tree-count">11</span></a>
+        <a href="/resources/"  class="footer-tree__item">└── resources/   <span class="tree-count">1</span></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-prompt">$</span> contribute</div>
+      <a href="/contribute/"                                                      class="footer-cmd"><span class="footer-cmd__arrow">›</span> how to contribute</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/new/main/content/tools"   target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> add a tool</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/issues/new"                target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> report an issue</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/pulls"                     target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> open pull requests</a>
+      <a href="https://github.com/devtoolsd/devtoolsd"                           target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> ★ star on github</a>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-comment-inline">//</span> project</div>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/LICENSE"        target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> license: MIT</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> CONTRIBUTING.md</a>
+      <a href="/llms.txt"                                                           class="footer-cmd"><span class="footer-cmd__arrow">›</span> llms.txt</a>
+      <a href="/index.json"                                                         class="footer-cmd"><span class="footer-cmd__arrow">›</span> index.json</a>
+      <a href="/sitemap.xml"                                                        class="footer-cmd"><span class="footer-cmd__arrow">›</span> sitemap.xml</a>
+    </div>
+
+  </div>
+
+  
+  <div class="footer-statusbar">
+    <span class="footer-status__left">
+      <span class="footer-status__brand">devtools/</span>
+      <span class="footer-status__sep">·</span>
+      <span>MIT</span>
+      <span class="footer-status__sep">·</span>
+      <span>hugo</span>
+      <span class="footer-status__sep">·</span>
+      <span>github pages</span>
+    </span>
+    <span class="footer-status__right">© 2026 · open source</span>
+  </div>
+</footer>
+
+  <div id="search-modal" class="search-modal" hidden>
+  <div class="search-modal__backdrop" id="search-backdrop"></div>
+  <div class="search-modal__box">
+    <div class="search-modal__header">
+      <span class="search-modal__title"><span style="color:var(--accent)">devtools/</span> search</span>
+      <button class="search-modal__close" id="search-close" aria-label="Close search"><kbd>esc</kbd></button>
+    </div>
+    <div class="search-modal__input-wrap">
+      <span class="search-input-slash">/</span>
+      <input
+        type="text"
+        id="search-input"
+        class="search-modal__input"
+        placeholder="search tools, books, languages..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+    </div>
+    <div id="search-results" class="search-results" role="listbox"></div>
+    <div class="search-modal__footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var index = null;
+  var selected = -1;
+
+  var modal    = document.getElementById('search-modal');
+  var input    = document.getElementById('search-input');
+  var results  = document.getElementById('search-results');
+  var openBtn  = document.getElementById('search-open');
+  var closeBtn = document.getElementById('search-close');
+  var backdrop = document.getElementById('search-backdrop');
+
+  function openSearch() {
+    modal.removeAttribute('hidden');
+    document.body.classList.add('search-open');
+    input.focus();
+    if (!index) loadIndex();
+  }
+
+  function closeSearch() {
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('search-open');
+    input.value = '';
+    results.innerHTML = '';
+    selected = -1;
+  }
+
+  function loadIndex() {
+    fetch('/index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { index = data; })
+      .catch(function() { index = []; });
+  }
+
+  function typeLabel(section) {
+    var map = {
+      tools: 'tool', languages: 'lang', frameworks: 'fwk',
+      books: 'book', courses: 'course', resources: 'res',
+      stacks: 'stack', paths: 'path'
+    };
+    return map[section] || section;
+  }
+
+  function escape(str) {
+    return str.replace(/[&<>"']/g, function(c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function highlight(text, q) {
+    if (!q) return escape(text);
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return escape(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function search(q) {
+    selected = -1;
+    if (!q || q.length < 2) { results.innerHTML = ''; return; }
+    if (!index) { results.innerHTML = ''; return; }
+
+    var ql = q.toLowerCase();
+    var scored = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      var name = (item.name || '').toLowerCase();
+      var desc = (item.description || '').toLowerCase();
+      var score = 0;
+      if (name === ql) score = 3;
+      else if (name.startsWith(ql)) score = 2;
+      else if (name.includes(ql)) score = 1;
+      else if (desc.includes(ql)) score = 0;
+      else continue;
+      scored.push({ item: item, score: score });
+    }
+    scored.sort(function(a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 8);
+
+    if (!top.length) {
+      results.innerHTML = '<div class="search-empty">no results for <strong>' + escape(q) + '</strong></div>';
+      return;
+    }
+
+    var html = '';
+    for (var j = 0; j < top.length; j++) {
+      var it = top[j].item;
+      var desc_short = it.description ? it.description.slice(0, 80) : '';
+      html += '<a href="' + escape(it.url) + '" class="search-result" role="option" tabindex="-1">'
+        + '<span class="search-result__type">' + escape(typeLabel(it.type)) + '</span>'
+        + '<span class="search-result__body">'
+        + '<span class="search-result__name">' + highlight(it.name || it.slug, q) + '</span>'
+        + (desc_short ? '<span class="search-result__desc">' + highlight(desc_short, q) + '</span>' : '')
+        + '</span>'
+        + '</a>';
+    }
+    results.innerHTML = html;
+  }
+
+  function getItems() { return results.querySelectorAll('.search-result'); }
+
+  function setSelected(n) {
+    var items = getItems();
+    if (!items.length) return;
+    if (selected >= 0 && selected < items.length) items[selected].classList.remove('is-selected');
+    selected = Math.max(0, Math.min(n, items.length - 1));
+    items[selected].classList.add('is-selected');
+    items[selected].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function() { search(input.value.trim()); });
+
+  input.addEventListener('keydown', function(e) {
+    var items = getItems();
+    if (e.key === 'ArrowDown')  { e.preventDefault(); setSelected(selected + 1); }
+    if (e.key === 'ArrowUp')    { e.preventDefault(); setSelected(selected - 1); }
+    if (e.key === 'Enter' && selected >= 0 && selected < items.length) {
+      e.preventDefault(); items[selected].click();
+    }
+  });
+
+  results.addEventListener('click', function(e) {
+    var link = e.target.closest('.search-result');
+    if (link) closeSearch();
+  });
+
+  openBtn.addEventListener('click', openSearch);
+  closeBtn.addEventListener('click', closeSearch);
+  backdrop.addEventListener('click', closeSearch);
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal.hasAttribute('hidden') ? openSearch() : closeSearch();
+    }
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSearch();
+  });
+})();
+</script>
+
+</body>
+</html>

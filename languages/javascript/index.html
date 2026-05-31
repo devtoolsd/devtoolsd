@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      var t = localStorage.getItem('devtools-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+<title>JavaScript — devtools/</title>
+<meta name="description" content="The language of the web — runs in every browser and on the server via Node.js.">
+<link rel="canonical" href="https://devtools.directory/languages/javascript/">
+
+
+<meta property="og:title" content="JavaScript — devtools/">
+<meta property="og:description" content="The language of the web — runs in every browser and on the server via Node.js.">
+<meta property="og:url" content="https://devtools.directory/languages/javascript/">
+<meta property="og:site_name" content="devtools/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JavaScript — devtools/">
+<meta name="twitter:description" content="The language of the web — runs in every browser and on the server via Node.js.">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https:\/\/devtools.directory\/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Languages",
+      "item": "https:\/\/devtools.directory\/languages/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "JavaScript",
+      "item": "https:\/\/devtools.directory\/languages\/javascript\/"
+    }
+  ]
+}
+</script>
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+
+</head>
+<body>
+  
+
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo">
+      <svg width="26" height="26" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3,0)">
+          <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+          <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+          <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+          <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+          <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+          <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+        </g>
+      </svg>
+      devtools<span style="color:var(--accent)">/</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="/tools/">tools/</a>
+      <a href="/languages/" class="active">languages/</a>
+      <a href="/frameworks/" class="nav-group-trigger">ecosystem</a>
+      <a href="/books/" class="nav-group-trigger">learn</a>
+      <a href="/contribute/">contribute</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="search-trigger" id="search-open" aria-label="Search">
+        <span class="search-trigger__slash">/</span>
+        <span class="search-trigger__label">search</span>
+        <kbd class="search-trigger__kbd">⌘K</kbd>
+      </button>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="https://github.com/devtoolsd/devtoolsd" class="header-star" target="_blank" rel="noopener">
+        <span class="header-star__prompt">$</span> star
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  
+  
+  
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', function() {
+    document.getElementById('site-nav').classList.toggle('open');
+  });
+
+  document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('devtools-theme', next);
+  });
+</script>
+
+  <main>
+    
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+
+
+
+
+  
+    
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    
+  
+
+
+
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="/">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <a href="/languages/">Languages</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">JavaScript</span>
+  </div>
+
+  
+  <div class="detail-hero">
+    <div class="detail-hero__header">
+      
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript logo" class="detail-logo" loading="lazy">
+      
+      <div>
+        <h1 class="detail-hero__name">JavaScript</h1>
+        <p class="detail-hero__tagline">The language of the web — runs in every browser and on the server via Node.js.</p>
+        <div class="detail-hero__badges">
+          <span class="badge badge-type">dynamic</span>
+          <span class="badge badge-tag">interpreted</span>
+          <span class="badge badge-tag">since 1995</span>
+          <span class="badge badge-tag">event-driven</span><span class="badge badge-tag">functional</span><span class="badge badge-tag">oop</span><span class="badge badge-tag">scripting</span>
+        </div>
+      </div>
+    </div>
+    <div class="detail-hero__actions">
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" class="btn btn-primary" target="_blank" rel="noopener">Official Site →</a>
+      <a href="https://github.com/nicolo-ribaudo/tc39-proposal-tracker" class="btn btn-github" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="detail-layout">
+    <div class="detail-body">
+
+      
+      <div class="prose"><p>JavaScript is the only language that runs natively in web browsers, making it the universal language of the web. With Node.js it also powers backends, CLIs, and desktop apps.</p>
+</div>
+      
+
+      
+      
+      <h2>// frameworks</h2>
+      <div class="grid-3">
+        
+        
+        <a href="/frameworks/bootstrap/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="Bootstrap" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Bootstrap</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Responsive CSS component framework — grid system, pre-built components, and the …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/cypress/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://asset.brandfetch.io/idIq_kJ0rb/idv3zwmSiY.jpeg" alt="Cypress" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Cypress</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">End-to-end and component testing framework for web apps — runs in-browser with …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/electron/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Electron_Software_Framework_Logo.svg" alt="Electron" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Electron</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Build cross-platform desktop apps with JavaScript, HTML, and CSS — powers VS …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/express/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="Express" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Express</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Minimal, unopinionated Node.js web framework — the backbone of most Node.js APIs …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/fastify/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Fastify_logo.svg" alt="Fastify" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Fastify</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">High-performance Node.js web framework — schema-based validation, plugin …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/gatsby/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Gatsby.png" alt="Gatsby" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Gatsby</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">React-based static site generator with a GraphQL data layer — pioneered the …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/jest/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/NewJestLogo.png" alt="Jest" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Jest</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Delightful JavaScript testing framework from Meta — zero config, snapshot …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/koa/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Koa</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Next-generation Node.js web framework from the Express team — async/await …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/mocha/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Mocha</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Flexible JavaScript test runner — browser and Node.js support, unopinionated …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/nextjs/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="Next.js" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Next.js</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">React framework with file-based routing, SSR, SSG, and API routes — the standard …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/react-native/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Native" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">React Native</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Build native iOS and Android apps using React — bridge to native components, …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/react/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">React</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Declarative UI library from Meta for building component-based web interfaces.</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/solid/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Solid</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Fine-grained reactive UI library — no virtual DOM, JSX compiled to real DOM …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/svelte/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg" alt="Svelte" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Svelte</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Compiler-based UI framework — no virtual DOM, components compile to vanilla JS …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/sveltekit/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg" alt="SvelteKit" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">SvelteKit</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Full-stack Svelte framework with SSR, file-based routing, and edge-ready …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/tailwindcss/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Tailwind CSS</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Utility-first CSS framework — compose designs directly in markup with small, …</div>
+          </div>
+        </a>
+        
+        
+        <a href="/frameworks/vue/" class="card" style="text-decoration:none;display:flex;align-items:flex-start;gap:0.75rem">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" alt="Vue" style="width:36px;height:36px;object-fit:contain;flex-shrink:0;border-radius:6px;background:var(--surface2);padding:4px" loading="lazy">
+          <div>
+            <div style="font-weight:700;color:var(--fg);margin-bottom:0.2rem">Vue</div>
+            <div style="font-size:0.82rem;color:var(--fg-muted);line-height:1.4">Progressive JavaScript framework for building UIs — approachable, flexible, and …</div>
+          </div>
+        </a>
+        
+      </div>
+      
+
+      
+      
+      <h2>// libraries</h2>
+      <div class="fw-grid">
+        
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">AX</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/axios/" class="fw-card__name stretched-link">Axios</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Promise-based HTTP client for the browser and Node.js — interceptors, automatic JSON …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">http</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+        
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">DA</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/date-fns/" class="fw-card__name stretched-link">date-fns</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Modern JavaScript date utility library — pure functions, immutable, tree-shakeable, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">utility</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+        
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">IM</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/immer/" class="fw-card__name stretched-link">Immer</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Create the next immutable state by mutating a draft — structural sharing under the hood, zero …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">state</span>
+    <span class="lang-prop lang-prop--year">2017</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+        
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">LO</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/lodash/" class="fw-card__name stretched-link">Lodash</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Utility library delivering modularity, performance, and extras for working with arrays, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">utility</span>
+    <span class="lang-prop lang-prop--year">2012</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+        
+      </div>
+      
+
+      
+      
+      <h2>// tools</h2>
+      <div class="grid-3">
+        
+<div class="card tool-card">
+  <a href="/tools/nextjs/" class="card-link">
+    <div class="tool-card__header">
+      
+        <div class="tool-logo-placeholder">N</div>
+      
+      <div>
+        <h3 class="tool-card__name">Next.js</h3>
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem">
+          <span class="badge badge-free">free</span>
+          <span class="badge badge-open">Open Source</span>
+        </div>
+      </div>
+    </div>
+    <p class="tool-card__desc">Full-stack React framework with server-side rendering, static generation, and App Router.</p>
+    <div class="tool-card__meta">
+      <span class="badge badge-type">framework</span>
+      <span class="badge badge-tag">frameworks</span><span class="badge badge-tag">frontend</span>
+      
+      <span class="tool-card__github">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        vercel/next.js
+      </span>
+      
+    </div>
+  </a>
+</div>
+
+<div class="card tool-card">
+  <a href="/tools/react/" class="card-link">
+    <div class="tool-card__header">
+      
+        <div class="tool-logo-placeholder">R</div>
+      
+      <div>
+        <h3 class="tool-card__name">React</h3>
+        <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem">
+          <span class="badge badge-free">free</span>
+          <span class="badge badge-open">Open Source</span>
+        </div>
+      </div>
+    </div>
+    <p class="tool-card__desc">JavaScript library for building user interfaces with a component-based architecture.</p>
+    <div class="tool-card__meta">
+      <span class="badge badge-type">framework</span>
+      <span class="badge badge-tag">frameworks</span><span class="badge badge-tag">frontend</span>
+      
+      <span class="tool-card__github">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        facebook/react
+      </span>
+      
+    </div>
+  </a>
+</div>
+
+      </div>
+      
+
+      
+      
+      <h2>// stacks</h2>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        
+        <a href="/stacks/jamstack/" class="card" style="text-decoration:none;padding:0.6rem 1rem;display:inline-flex;align-items:center;gap:0.5rem">
+          <span style="width:8px;height:8px;border-radius:50%;background:#F0047F;flex-shrink:0"></span>
+          <span style="font-weight:600;font-size:0.875rem">JAMstack</span>
+        </a>
+        
+        <a href="/stacks/mean/" class="card" style="text-decoration:none;padding:0.6rem 1rem;display:inline-flex;align-items:center;gap:0.5rem">
+          <span style="width:8px;height:8px;border-radius:50%;background:#DD0031;flex-shrink:0"></span>
+          <span style="font-weight:600;font-size:0.875rem">MEAN Stack</span>
+        </a>
+        
+        <a href="/stacks/mern/" class="card" style="text-decoration:none;padding:0.6rem 1rem;display:inline-flex;align-items:center;gap:0.5rem">
+          <span style="width:8px;height:8px;border-radius:50%;background:#61DAFB;flex-shrink:0"></span>
+          <span style="font-weight:600;font-size:0.875rem">MERN Stack</span>
+        </a>
+        
+        <a href="/stacks/nextjs/" class="card" style="text-decoration:none;padding:0.6rem 1rem;display:inline-flex;align-items:center;gap:0.5rem">
+          <span style="width:8px;height:8px;border-radius:50%;background:#000000;flex-shrink:0"></span>
+          <span style="font-weight:600;font-size:0.875rem">Next.js Stack</span>
+        </a>
+        
+      </div>
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      <h2>// learning paths</h2>
+      <div class="grid-3">
+        
+        
+        <a href="/paths/javascript-fullstack/" class="card" style="text-decoration:none">
+          <div style="font-weight:700;color:var(--fg);margin-bottom:0.35rem">JavaScript Full-Stack Developer</div>
+          <span class="badge badge-type" style="margin-bottom:0.5rem;display:inline-block">beginner</span>
+          <div class="resource-card__desc">From JavaScript fundamentals to shipping a full-stack app with React and Node.js.</div>
+          <div style="margin-top:0.5rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--comment)">~4 months</div>
+        </a>
+        
+      </div>
+      
+
+      <div class="star-banner" style="margin-top:2.5rem">
+        <div class="star-banner__text"><strong>Missing something?</strong> Add a tool, framework, or book via a PR.</div>
+        <a href="/contribute/" class="btn btn-primary btn-sm">Contribute</a>
+      </div>
+    </div>
+
+    <aside>
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// stats</div>
+        <div class="meta-row"><span class="meta-row__label">Frameworks</span><span class="meta-row__value" style="color:var(--cyan)">17</span></div>
+        <div class="meta-row"><span class="meta-row__label">Libraries</span><span class="meta-row__value" style="color:#a78bfa">4</span></div>
+        <div class="meta-row"><span class="meta-row__label">Tools</span><span class="meta-row__value" style="color:var(--accent)">2</span></div>
+        
+        
+        <div class="meta-row"><span class="meta-row__label">Paths</span><span class="meta-row__value" style="color:var(--orange)">1</span></div>
+        <div class="meta-row"><span class="meta-row__label">Stacks</span><span class="meta-row__value">4</span></div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// details</div>
+        <div class="meta-row"><span class="meta-row__label">First release</span><span class="meta-row__value">1995</span></div>
+        <div class="meta-row"><span class="meta-row__label">Typing</span><span class="meta-row__value">dynamic</span></div>
+        <div class="meta-row"><span class="meta-row__label">Execution</span><span class="meta-row__value">interpreted</span></div>
+        <div class="meta-row"><span class="meta-row__label">Paradigm</span><span class="meta-row__value">event-driven, functional, oop, scripting</span></div>
+      </div>
+
+      
+      <div class="sidebar-card">
+        <div class="sidebar-card__title">// tags</div>
+        <div class="tag-cloud">
+          <span class="badge badge-tag">web</span><span class="badge badge-tag">frontend</span><span class="badge badge-tag">backend</span><span class="badge badge-tag">scripting</span><span class="badge badge-tag">nodejs</span>
+        </div>
+      </div>
+      
+    </aside>
+  </div>
+</div>
+
+  </main>
+  
+
+
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-body">
+
+    
+    <div class="footer-left">
+      <div class="footer-brand-line">
+        <svg width="18" height="18" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <g transform="translate(3,0)">
+            <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+            <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+            <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+            <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+            <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+            <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+          </g>
+        </svg>
+        <span class="footer-brand-name">devtools<span style="color:var(--accent)">/</span></span>
+      </div>
+      <div class="footer-comments">
+        <span class="footer-comment">// Wikipedia for developer tools.</span>
+        <span class="footer-comment">// Community-maintained · open source · MIT.</span>
+      </div>
+
+      <div class="footer-tree">
+        <div class="footer-tree__root">content/</div>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
+        <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
+        <a href="/stacks/"     class="footer-tree__item">├── stacks/     <span class="tree-count">7</span></a>
+        <a href="/paths/"      class="footer-tree__item">├── paths/      <span class="tree-count">1</span></a>
+        <a href="/books/"      class="footer-tree__item">├── books/      <span class="tree-count">1</span></a>
+        <a href="/courses/"     class="footer-tree__item">├── courses/     <span class="tree-count">1</span></a>
+        <a href="/newsletters/" class="footer-tree__item">├── newsletters/ <span class="tree-count">11</span></a>
+        <a href="/resources/"  class="footer-tree__item">└── resources/   <span class="tree-count">1</span></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-prompt">$</span> contribute</div>
+      <a href="/contribute/"                                                      class="footer-cmd"><span class="footer-cmd__arrow">›</span> how to contribute</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/new/main/content/tools"   target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> add a tool</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/issues/new"                target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> report an issue</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/pulls"                     target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> open pull requests</a>
+      <a href="https://github.com/devtoolsd/devtoolsd"                           target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> ★ star on github</a>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-comment-inline">//</span> project</div>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/LICENSE"        target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> license: MIT</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> CONTRIBUTING.md</a>
+      <a href="/llms.txt"                                                           class="footer-cmd"><span class="footer-cmd__arrow">›</span> llms.txt</a>
+      <a href="/index.json"                                                         class="footer-cmd"><span class="footer-cmd__arrow">›</span> index.json</a>
+      <a href="/sitemap.xml"                                                        class="footer-cmd"><span class="footer-cmd__arrow">›</span> sitemap.xml</a>
+    </div>
+
+  </div>
+
+  
+  <div class="footer-statusbar">
+    <span class="footer-status__left">
+      <span class="footer-status__brand">devtools/</span>
+      <span class="footer-status__sep">·</span>
+      <span>MIT</span>
+      <span class="footer-status__sep">·</span>
+      <span>hugo</span>
+      <span class="footer-status__sep">·</span>
+      <span>github pages</span>
+    </span>
+    <span class="footer-status__right">© 2026 · open source</span>
+  </div>
+</footer>
+
+  <div id="search-modal" class="search-modal" hidden>
+  <div class="search-modal__backdrop" id="search-backdrop"></div>
+  <div class="search-modal__box">
+    <div class="search-modal__header">
+      <span class="search-modal__title"><span style="color:var(--accent)">devtools/</span> search</span>
+      <button class="search-modal__close" id="search-close" aria-label="Close search"><kbd>esc</kbd></button>
+    </div>
+    <div class="search-modal__input-wrap">
+      <span class="search-input-slash">/</span>
+      <input
+        type="text"
+        id="search-input"
+        class="search-modal__input"
+        placeholder="search tools, books, languages..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+    </div>
+    <div id="search-results" class="search-results" role="listbox"></div>
+    <div class="search-modal__footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var index = null;
+  var selected = -1;
+
+  var modal    = document.getElementById('search-modal');
+  var input    = document.getElementById('search-input');
+  var results  = document.getElementById('search-results');
+  var openBtn  = document.getElementById('search-open');
+  var closeBtn = document.getElementById('search-close');
+  var backdrop = document.getElementById('search-backdrop');
+
+  function openSearch() {
+    modal.removeAttribute('hidden');
+    document.body.classList.add('search-open');
+    input.focus();
+    if (!index) loadIndex();
+  }
+
+  function closeSearch() {
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('search-open');
+    input.value = '';
+    results.innerHTML = '';
+    selected = -1;
+  }
+
+  function loadIndex() {
+    fetch('/index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { index = data; })
+      .catch(function() { index = []; });
+  }
+
+  function typeLabel(section) {
+    var map = {
+      tools: 'tool', languages: 'lang', frameworks: 'fwk',
+      books: 'book', courses: 'course', resources: 'res',
+      stacks: 'stack', paths: 'path'
+    };
+    return map[section] || section;
+  }
+
+  function escape(str) {
+    return str.replace(/[&<>"']/g, function(c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function highlight(text, q) {
+    if (!q) return escape(text);
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return escape(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function search(q) {
+    selected = -1;
+    if (!q || q.length < 2) { results.innerHTML = ''; return; }
+    if (!index) { results.innerHTML = ''; return; }
+
+    var ql = q.toLowerCase();
+    var scored = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      var name = (item.name || '').toLowerCase();
+      var desc = (item.description || '').toLowerCase();
+      var score = 0;
+      if (name === ql) score = 3;
+      else if (name.startsWith(ql)) score = 2;
+      else if (name.includes(ql)) score = 1;
+      else if (desc.includes(ql)) score = 0;
+      else continue;
+      scored.push({ item: item, score: score });
+    }
+    scored.sort(function(a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 8);
+
+    if (!top.length) {
+      results.innerHTML = '<div class="search-empty">no results for <strong>' + escape(q) + '</strong></div>';
+      return;
+    }
+
+    var html = '';
+    for (var j = 0; j < top.length; j++) {
+      var it = top[j].item;
+      var desc_short = it.description ? it.description.slice(0, 80) : '';
+      html += '<a href="' + escape(it.url) + '" class="search-result" role="option" tabindex="-1">'
+        + '<span class="search-result__type">' + escape(typeLabel(it.type)) + '</span>'
+        + '<span class="search-result__body">'
+        + '<span class="search-result__name">' + highlight(it.name || it.slug, q) + '</span>'
+        + (desc_short ? '<span class="search-result__desc">' + highlight(desc_short, q) + '</span>' : '')
+        + '</span>'
+        + '</a>';
+    }
+    results.innerHTML = html;
+  }
+
+  function getItems() { return results.querySelectorAll('.search-result'); }
+
+  function setSelected(n) {
+    var items = getItems();
+    if (!items.length) return;
+    if (selected >= 0 && selected < items.length) items[selected].classList.remove('is-selected');
+    selected = Math.max(0, Math.min(n, items.length - 1));
+    items[selected].classList.add('is-selected');
+    items[selected].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function() { search(input.value.trim()); });
+
+  input.addEventListener('keydown', function(e) {
+    var items = getItems();
+    if (e.key === 'ArrowDown')  { e.preventDefault(); setSelected(selected + 1); }
+    if (e.key === 'ArrowUp')    { e.preventDefault(); setSelected(selected - 1); }
+    if (e.key === 'Enter' && selected >= 0 && selected < items.length) {
+      e.preventDefault(); items[selected].click();
+    }
+  });
+
+  results.addEventListener('click', function(e) {
+    var link = e.target.closest('.search-result');
+    if (link) closeSearch();
+  });
+
+  openBtn.addEventListener('click', openSearch);
+  closeBtn.addEventListener('click', closeSearch);
+  backdrop.addEventListener('click', closeSearch);
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal.hasAttribute('hidden') ? openSearch() : closeSearch();
+    }
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSearch();
+  });
+})();
+</script>
+
+</body>
+</html>

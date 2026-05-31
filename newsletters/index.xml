@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Newsletters on devtools/</title>
+		<link>https://devtools.directory/newsletters/</link>
+		<description>Recent content in Newsletters on devtools/</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<atom:link href="https://devtools.directory/newsletters/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/bytes/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/bytes/</guid>
+				<description>&lt;p&gt;Bytes is a weekly JavaScript newsletter that manages to be genuinely funny while covering the most important news in the ecosystem. It covers React, TypeScript, tooling, and the broader JS world. Published by Tyler McGinnis and the ui.dev team.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/css-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/css-weekly/</guid>
+				<description>&lt;p&gt;CSS Weekly has been curating the best CSS content since 2012. Each issue covers new CSS features, layout techniques, animation, tooling, browser support news, and design inspiration. Great for developers who want to stay sharp on the ever-evolving CSS platform.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/db-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/db-weekly/</guid>
+				<description>&lt;p&gt;DB Weekly covers all things databases — PostgreSQL, MySQL, SQLite, Redis, MongoDB, and emerging data stores. Each issue includes news, performance tips, schema design articles, and interesting projects from the database community.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/frontend-focus/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/frontend-focus/</guid>
+				<description>&lt;p&gt;Frontend Focus (formerly HTML5 Weekly) is a weekly newsletter focused on the browser platform — CSS, HTML, accessibility, web performance, and everything that makes the front-end tick. Part of the Cooperpress family of newsletters.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/golang-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/golang-weekly/</guid>
+				<description>&lt;p&gt;Golang Weekly delivers the best Go content from the past week — language news, library releases, tutorials, performance tips, and interesting open-source Go projects. Part of the Cooperpress newsletter family.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/hacker-newsletter/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/hacker-newsletter/</guid>
+				<description>&lt;p&gt;Hacker Newsletter distills the best content from Hacker News each week into a single digest. If you don&amp;rsquo;t have time to follow HN daily, this newsletter picks the most discussed and highest-quality stories — tech news, programming posts, startup stories, and the best Ask HN threads.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/javascript-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/javascript-weekly/</guid>
+				<description>&lt;p&gt;JavaScript Weekly has been running since 2010 and is one of the most widely read newsletters in the JavaScript community. Each issue curates the most important news, releases, tutorials, and projects from the past week. Run by Cooperpress, the same publisher behind Node Weekly, React Status, and Frontend Focus.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/node-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/node-weekly/</guid>
+				<description>&lt;p&gt;Node Weekly keeps Node.js developers up to date with the latest releases, ecosystem news, security advisories, tutorials, and projects from the Node.js community. Part of the Cooperpress family alongside JavaScript Weekly.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/pragmatic-engineer/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/pragmatic-engineer/</guid>
+				<description>&lt;p&gt;The Pragmatic Engineer by Gergely Orosz is one of the highest-quality engineering newsletters available. Free subscribers get one article per week; paid subscribers get two. Topics cover engineering culture at big tech, compensation benchmarks, career advice, and how software engineering works inside large companies. Gergely previously worked at Uber and Skype.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/python-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/python-weekly/</guid>
+				<description>&lt;p&gt;Python Weekly has been one of the go-to resources for Python developers since 2012. Every issue brings a handpicked selection of Python tutorials, projects, libraries, job posts, and conference announcements. Essential reading for Python developers of all levels.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/tldr/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/tldr/</guid>
+				<description>&lt;p&gt;TLDR is a concise daily digest covering the most interesting stories in tech, science, and programming. Each edition takes about 5 minutes to read and covers big tech news, interesting projects, science breakthroughs, and quick tips. TLDR also has specialized editions for AI, DevOps, Web Dev, and more.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

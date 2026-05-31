@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      var t = localStorage.getItem('devtools-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+<title>Technology Stacks — devtools/</title>
+<meta name="description" content="Curated technology stacks with tool recommendations and how they fit together.">
+<link rel="canonical" href="https://devtools.directory/stacks/">
+
+
+<meta property="og:title" content="Technology Stacks — devtools/">
+<meta property="og:description" content="Curated technology stacks with tool recommendations and how they fit together.">
+<meta property="og:url" content="https://devtools.directory/stacks/">
+<meta property="og:site_name" content="devtools/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technology Stacks — devtools/">
+<meta name="twitter:description" content="Curated technology stacks with tool recommendations and how they fit together.">
+<meta name="twitter:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https:\/\/devtools.directory\/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Stacks",
+      "item": "https:\/\/devtools.directory\/stacks/"
+    }
+  ]
+}
+</script>
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+
+</head>
+<body>
+  
+
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo">
+      <svg width="26" height="26" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3,0)">
+          <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+          <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+          <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+          <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+          <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+          <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+        </g>
+      </svg>
+      devtools<span style="color:var(--accent)">/</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="/tools/">tools/</a>
+      <a href="/languages/">languages/</a>
+      <a href="/frameworks/" class="nav-group-trigger active">ecosystem</a>
+      <a href="/books/" class="nav-group-trigger">learn</a>
+      <a href="/contribute/">contribute</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="search-trigger" id="search-open" aria-label="Search">
+        <span class="search-trigger__slash">/</span>
+        <span class="search-trigger__label">search</span>
+        <kbd class="search-trigger__kbd">⌘K</kbd>
+      </button>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="https://github.com/devtoolsd/devtoolsd" class="header-star" target="_blank" rel="noopener">
+        <span class="header-star__prompt">$</span> star
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  
+  
+  <div class="sub-nav">
+    <div class="sub-nav__inner">
+      <span class="sub-nav__group">ecosystem/</span>
+      <a href="/frameworks/">frameworks/</a>
+      <a href="/stacks/" class="active">stacks/</a>
+      <a href="/paths/">paths/</a>
+    </div>
+  </div>
+  
+  
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', function() {
+    document.getElementById('site-nav').classList.toggle('open');
+  });
+
+  document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('devtools-theme', next);
+  });
+</script>
+
+  <main>
+    
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+    
+    
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+    
+    
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+    
+    
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+    
+    
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+    
+    
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+    
+    
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+
+
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="/">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Stacks</span>
+  </div>
+</div>
+
+<div class="tools-page">
+
+  
+  <aside class="tools-sidebar" id="tools-sidebar">
+    <div class="tools-sidebar__head">
+      <span class="tools-sidebar__title"><span class="sidebar-prompt">$</span> filters</span>
+      <button class="sidebar-clear" id="clear-filters">clear</button>
+    </div>
+
+    
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// language</div>
+      <div class="sidebar-items" id="filter-lang">
+        <button class="sf active" data-lang="all">all<span class="sf-count">7</span></button>
+        
+        
+        <button class="sf" data-lang="dart">dart<span class="sf-count">1</span></button>
+        
+        
+        <button class="sf" data-lang="javascript">javascript<span class="sf-count">4</span></button>
+        
+        
+        <button class="sf" data-lang="php">php<span class="sf-count">1</span></button>
+        
+        
+        <button class="sf" data-lang="python">python<span class="sf-count">1</span></button>
+        
+      </div>
+    </div>
+    
+
+    
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// tags</div>
+      <div class="sidebar-items" id="filter-tag">
+        <button class="sf active" data-tag="all">all</button>
+        
+        <button class="sf" data-tag="android">android<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="cdn">cdn<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="cross-platform">cross-platform<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="dart">dart<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="enterprise">enterprise<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="full-stack">full-stack<span class="sf-count">5</span></button>
+        
+        <button class="sf" data-tag="ios">ios<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="javascript">javascript<span class="sf-count">3</span></button>
+        
+        <button class="sf" data-tag="mobile">mobile<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="mvc">mvc<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="php">php<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="python">python<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="react">react<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="rest-api">rest-api<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="serverless">serverless<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="spa">spa<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="ssr">ssr<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="static-site">static-site<span class="sf-count">1</span></button>
+        
+        <button class="sf" data-tag="typescript">typescript<span class="sf-count">2</span></button>
+        
+        <button class="sf" data-tag="web">web<span class="sf-count">6</span></button>
+        
+      </div>
+    </div>
+    
+  </aside>
+
+  
+  <div class="tools-main">
+
+    <div class="tools-topbar">
+      <div class="tools-search-wrap">
+        <span class="tools-search-slash">/</span>
+        <input
+          type="text"
+          id="stack-search"
+          class="tools-search-input"
+          placeholder="filter stacks..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+      <span class="tools-count"><span id="stack-count">7</span> results</span>
+      <button class="tools-filter-btn" id="filter-toggle" aria-expanded="false">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        filters
+      </button>
+    </div>
+
+    <div class="active-filters" id="active-filters"></div>
+
+    <div class="stacks-grid" id="stacks-grid">
+      
+      
+      
+      <div class="stack-item"
+        data-name="django stack"
+        data-desc="python web stack with django, postgresql, redis, and celery for background tasks. batteries-included and production-proven."
+        data-lang="python"
+        data-tags="python full-stack web rest-api ">
+
+        <div class="stack-card" style="--stack-color:#092E20">
+          <a href="/stacks/django/" class="stack-card__link" aria-label="Django Stack"></a>
+
+          <div class="stack-card__head">
+            <span class="stack-card__dot"></span>
+            <span class="stack-card__name">Django Stack</span>
+            
+            <a href="/languages/python/" class="stack-card__lang">python/</a>
+            
+          </div>
+
+          <p class="stack-card__desc">Python web stack with Django, PostgreSQL, Redis, and Celery for background tasks. Batteries-included and …</p>
+
+          
+          
+          <div class="stack-preview">
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">D</div>
+              
+              <span class="stack-preview__name">django</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">P</div>
+              
+              <span class="stack-preview__name">python</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">P</div>
+              
+              <span class="stack-preview__name">postgresql</span>
+            </div>
+            
+            
+            <div class="stack-preview__more">+1</div>
+            
+          </div>
+          
+
+          
+          
+          <div class="stack-card__tags">
+            <span class="stack-tag">python</span><span class="stack-tag">full-stack</span><span class="stack-tag">web</span>
+          </div>
+          
+
+        </div>
+      </div>
+      
+      
+      
+      <div class="stack-item"
+        data-name="flutter stack"
+        data-desc="cross-platform mobile and web apps with flutter, dart, and firebase or a custom backend api."
+        data-lang="dart"
+        data-tags="dart mobile cross-platform ios android ">
+
+        <div class="stack-card" style="--stack-color:#02569B">
+          <a href="/stacks/flutter/" class="stack-card__link" aria-label="Flutter Stack"></a>
+
+          <div class="stack-card__head">
+            <span class="stack-card__dot"></span>
+            <span class="stack-card__name">Flutter Stack</span>
+            
+            <a href="/languages/dart/" class="stack-card__lang">dart/</a>
+            
+          </div>
+
+          <p class="stack-card__desc">Cross-platform mobile and web apps with Flutter, Dart, and Firebase or a custom backend API.</p>
+
+          
+          
+          <div class="stack-preview">
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">F</div>
+              
+              <span class="stack-preview__name">flutter</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">F</div>
+              
+              <span class="stack-preview__name">firebase</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">D</div>
+              
+              <span class="stack-preview__name">dart</span>
+            </div>
+            
+            
+          </div>
+          
+
+          
+          
+          <div class="stack-card__tags">
+            <span class="stack-tag">dart</span><span class="stack-tag">mobile</span><span class="stack-tag">cross-platform</span>
+          </div>
+          
+
+        </div>
+      </div>
+      
+      
+      
+      <div class="stack-item"
+        data-name="jamstack"
+        data-desc="javascript, apis, and markup. static-first architecture served from cdn, with dynamic functionality via apis and serverless functions."
+        data-lang="javascript"
+        data-tags="javascript static-site cdn serverless web ">
+
+        <div class="stack-card" style="--stack-color:#F0047F">
+          <a href="/stacks/jamstack/" class="stack-card__link" aria-label="JAMstack"></a>
+
+          <div class="stack-card__head">
+            <span class="stack-card__dot"></span>
+            <span class="stack-card__name">JAMstack</span>
+            
+            <a href="/languages/javascript/" class="stack-card__lang">javascript/</a>
+            
+          </div>
+
+          <p class="stack-card__desc">JavaScript, APIs, and Markup. Static-first architecture served from CDN, with dynamic functionality via APIs …</p>
+
+          
+          
+          <div class="stack-preview">
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">N</div>
+              
+              <span class="stack-preview__name">nextjs</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">N</div>
+              
+              <span class="stack-preview__name">netlify</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">V</div>
+              
+              <span class="stack-preview__name">vercel</span>
+            </div>
+            
+            
+          </div>
+          
+
+          
+          
+          <div class="stack-card__tags">
+            <span class="stack-tag">javascript</span><span class="stack-tag">static-site</span><span class="stack-tag">cdn</span>
+          </div>
+          
+
+        </div>
+      </div>
+      
+      
+      
+      <div class="stack-item"
+        data-name="laravel stack"
+        data-desc="php web application stack with laravel, mysql or postgresql, redis for caching, and vue.js or inertia.js on the frontend."
+        data-lang="php"
+        data-tags="php full-stack web mvc ">
+
+        <div class="stack-card" style="--stack-color:#FF2D20">
+          <a href="/stacks/laravel/" class="stack-card__link" aria-label="Laravel Stack"></a>
+
+          <div class="stack-card__head">
+            <span class="stack-card__dot"></span>
+            <span class="stack-card__name">Laravel Stack</span>
+            
+            <a href="/languages/php/" class="stack-card__lang">php/</a>
+            
+          </div>
+
+          <p class="stack-card__desc">PHP web application stack with Laravel, MySQL or PostgreSQL, Redis for caching, and Vue.js or Inertia.js on …</p>
+
+          
+          
+          <div class="stack-preview">
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">L</div>
+              
+              <span class="stack-preview__name">laravel</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">P</div>
+              
+              <span class="stack-preview__name">php</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">M</div>
+              
+              <span class="stack-preview__name">mysql</span>
+            </div>
+            
+            
+            <div class="stack-preview__more">+3</div>
+            
+          </div>
+          
+
+          
+          
+          <div class="stack-card__tags">
+            <span class="stack-tag">php</span><span class="stack-tag">full-stack</span><span class="stack-tag">web</span>
+          </div>
+          
+
+        </div>
+      </div>
+      
+      
+      
+      <div class="stack-item"
+        data-name="mean stack"
+        data-desc="full-stack javascript with mongodb, express.js, angular, and node.js. enterprise-friendly alternative to mern using angular for the frontend."
+        data-lang="javascript"
+        data-tags="javascript typescript full-stack enterprise web ">
+
+        <div class="stack-card" style="--stack-color:#DD0031">
+          <a href="/stacks/mean/" class="stack-card__link" aria-label="MEAN Stack"></a>
+
+          <div class="stack-card__head">
+            <span class="stack-card__dot"></span>
+            <span class="stack-card__name">MEAN Stack</span>
+            
+            <a href="/languages/javascript/" class="stack-card__lang">javascript/</a>
+            
+          </div>
+
+          <p class="stack-card__desc">Full-stack JavaScript with MongoDB, Express.js, Angular, and Node.js. Enterprise-friendly alternative to MERN …</p>
+
+          
+          
+          <div class="stack-preview">
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">A</div>
+              
+              <span class="stack-preview__name">angular</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">E</div>
+              
+              <span class="stack-preview__name">expressjs</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">N</div>
+              
+              <span class="stack-preview__name">nodejs</span>
+            </div>
+            
+            
+            <div class="stack-preview__more">+1</div>
+            
+          </div>
+          
+
+          
+          
+          <div class="stack-card__tags">
+            <span class="stack-tag">javascript</span><span class="stack-tag">typescript</span><span class="stack-tag">full-stack</span>
+          </div>
+          
+
+        </div>
+      </div>
+      
+      
+      
+      <div class="stack-item"
+        data-name="mern stack"
+        data-desc="full-stack javascript using mongodb, express.js, react, and node.js. one of the most popular stacks for building modern web applications."
+        data-lang="javascript"
+        data-tags="javascript full-stack spa web ">
+
+        <div class="stack-card" style="--stack-color:#61DAFB">
+          <a href="/stacks/mern/" class="stack-card__link" aria-label="MERN Stack"></a>
+
+          <div class="stack-card__head">
+            <span class="stack-card__dot"></span>
+            <span class="stack-card__name">MERN Stack</span>
+            
+            <a href="/languages/javascript/" class="stack-card__lang">javascript/</a>
+            
+          </div>
+
+          <p class="stack-card__desc">Full-stack JavaScript using MongoDB, Express.js, React, and Node.js. One of the most popular stacks for …</p>
+
+          
+          
+          <div class="stack-preview">
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">R</div>
+              
+              <span class="stack-preview__name">react</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">E</div>
+              
+              <span class="stack-preview__name">expressjs</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">N</div>
+              
+              <span class="stack-preview__name">nodejs</span>
+            </div>
+            
+            
+            <div class="stack-preview__more">+1</div>
+            
+          </div>
+          
+
+          
+          
+          <div class="stack-card__tags">
+            <span class="stack-tag">javascript</span><span class="stack-tag">full-stack</span><span class="stack-tag">spa</span>
+          </div>
+          
+
+        </div>
+      </div>
+      
+      
+      
+      <div class="stack-item"
+        data-name="next.js stack"
+        data-desc="full-stack typescript with next.js, react, tailwind css, and postgresql or a headless cms. the modern default for new web projects."
+        data-lang="javascript"
+        data-tags="typescript full-stack react web ssr ">
+
+        <div class="stack-card" style="--stack-color:#000000">
+          <a href="/stacks/nextjs/" class="stack-card__link" aria-label="Next.js Stack"></a>
+
+          <div class="stack-card__head">
+            <span class="stack-card__dot"></span>
+            <span class="stack-card__name">Next.js Stack</span>
+            
+            <a href="/languages/javascript/" class="stack-card__lang">javascript/</a>
+            
+          </div>
+
+          <p class="stack-card__desc">Full-stack TypeScript with Next.js, React, Tailwind CSS, and PostgreSQL or a headless CMS. The modern default …</p>
+
+          
+          
+          <div class="stack-preview">
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">N</div>
+              
+              <span class="stack-preview__name">nextjs</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">R</div>
+              
+              <span class="stack-preview__name">react</span>
+            </div>
+            
+            
+            <div class="stack-preview__item">
+              
+                <div class="stack-preview__initial">P</div>
+              
+              <span class="stack-preview__name">postgresql</span>
+            </div>
+            
+            
+            <div class="stack-preview__more">+1</div>
+            
+          </div>
+          
+
+          
+          
+          <div class="stack-card__tags">
+            <span class="stack-tag">typescript</span><span class="stack-tag">full-stack</span><span class="stack-tag">react</span>
+          </div>
+          
+
+        </div>
+      </div>
+      
+    </div>
+
+    <div id="no-results" class="tools-empty hidden">
+      <span class="tools-empty__icon">∅</span>
+      <span>no stacks match your filters</span>
+    </div>
+
+    
+    <div class="stacks-cta">
+      <div class="stacks-cta__body">
+        <span class="stacks-cta__prompt">$</span>
+        <div>
+          <div class="stacks-cta__title">missing a stack?</div>
+          <div class="stacks-cta__sub">one YAML file in <code>data/stacks/</code> is all it takes</div>
+        </div>
+      </div>
+      <a href="https://github.com/devtoolsd/devtoolsd/new/main/data/stacks" target="_blank" rel="noopener" class="stacks-cta__btn">› contribute a stack</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl  = document.getElementById('stack-search');
+  var countEl   = document.getElementById('stack-count');
+  var noResults = document.getElementById('no-results');
+  var clearBtn  = document.getElementById('clear-filters');
+  var filterBtn = document.getElementById('filter-toggle');
+  var sidebar   = document.getElementById('tools-sidebar');
+  var activeFiltersEl = document.getElementById('active-filters');
+  var items     = document.querySelectorAll('.stack-item');
+
+  var state = { query: '', lang: 'all', tag: 'all' };
+
+  function filter() {
+    var q = state.query;
+    var visible = 0;
+    items.forEach(function(el) {
+      var d = el.dataset;
+      var ok =
+        (!q || (d.name||'').includes(q) || (d.desc||'').includes(q) || (d.tags||'').includes(q)) &&
+        (state.lang === 'all' || (d.lang||'') === state.lang) &&
+        (state.tag  === 'all' || (' ' + (d.tags||'') + ' ').includes(' ' + state.tag + ' '));
+      el.classList.toggle('filter-hidden', !ok);
+      if (ok) visible++;
+    });
+    countEl.textContent = visible;
+    noResults.classList.toggle('hidden', visible > 0);
+    renderActiveTags();
+    var dirty = state.lang !== 'all' || state.tag !== 'all';
+    clearBtn.style.display = dirty ? '' : 'none';
+  }
+
+  function renderActiveTags() {
+    var tags = [];
+    if (state.lang !== 'all') tags.push({ label: state.lang, key: 'lang' });
+    if (state.tag  !== 'all') tags.push({ label: state.tag,  key: 'tag' });
+    if (!tags.length) { activeFiltersEl.innerHTML = ''; return; }
+    activeFiltersEl.innerHTML = tags.map(function(t) {
+      return '<button class="active-filter-tag" data-key="' + t.key + '">' + t.label + ' ×</button>';
+    }).join('');
+    activeFiltersEl.querySelectorAll('.active-filter-tag').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state[btn.dataset.key] = 'all';
+        syncButtons(btn.dataset.key);
+        filter();
+      });
+    });
+  }
+
+  function wireGroup(containerId, stateKey) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        container.querySelectorAll('.sf').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state[stateKey] = btn.dataset[stateKey];
+        filter();
+      });
+    });
+  }
+
+  function syncButtons(key) {
+    var map = { lang: 'filter-lang', tag: 'filter-tag' };
+    var container = document.getElementById(map[key]);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.classList.toggle('active', (btn.dataset[key] || 'all') === state[key]);
+    });
+  }
+
+  wireGroup('filter-lang', 'lang');
+  wireGroup('filter-tag',  'tag');
+
+  searchEl.addEventListener('input', function() { state.query = searchEl.value.toLowerCase().trim(); filter(); });
+
+  clearBtn.addEventListener('click', function() {
+    state = { query: state.query, lang: 'all', tag: 'all' };
+    ['lang', 'tag'].forEach(syncButtons);
+    filter();
+  });
+
+  filterBtn.addEventListener('click', function() {
+    var open = sidebar.classList.toggle('is-open');
+    filterBtn.setAttribute('aria-expanded', open);
+  });
+
+  clearBtn.style.display = 'none';
+})();
+</script>
+
+  </main>
+  
+
+
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-body">
+
+    
+    <div class="footer-left">
+      <div class="footer-brand-line">
+        <svg width="18" height="18" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <g transform="translate(3,0)">
+            <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+            <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+            <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+            <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+            <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+            <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+          </g>
+        </svg>
+        <span class="footer-brand-name">devtools<span style="color:var(--accent)">/</span></span>
+      </div>
+      <div class="footer-comments">
+        <span class="footer-comment">// Wikipedia for developer tools.</span>
+        <span class="footer-comment">// Community-maintained · open source · MIT.</span>
+      </div>
+
+      <div class="footer-tree">
+        <div class="footer-tree__root">content/</div>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
+        <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
+        <a href="/stacks/"     class="footer-tree__item">├── stacks/     <span class="tree-count">7</span></a>
+        <a href="/paths/"      class="footer-tree__item">├── paths/      <span class="tree-count">1</span></a>
+        <a href="/books/"      class="footer-tree__item">├── books/      <span class="tree-count">1</span></a>
+        <a href="/courses/"     class="footer-tree__item">├── courses/     <span class="tree-count">1</span></a>
+        <a href="/newsletters/" class="footer-tree__item">├── newsletters/ <span class="tree-count">11</span></a>
+        <a href="/resources/"  class="footer-tree__item">└── resources/   <span class="tree-count">1</span></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-prompt">$</span> contribute</div>
+      <a href="/contribute/"                                                      class="footer-cmd"><span class="footer-cmd__arrow">›</span> how to contribute</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/new/main/content/tools"   target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> add a tool</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/issues/new"                target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> report an issue</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/pulls"                     target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> open pull requests</a>
+      <a href="https://github.com/devtoolsd/devtoolsd"                           target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> ★ star on github</a>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-comment-inline">//</span> project</div>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/LICENSE"        target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> license: MIT</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> CONTRIBUTING.md</a>
+      <a href="/llms.txt"                                                           class="footer-cmd"><span class="footer-cmd__arrow">›</span> llms.txt</a>
+      <a href="/index.json"                                                         class="footer-cmd"><span class="footer-cmd__arrow">›</span> index.json</a>
+      <a href="/sitemap.xml"                                                        class="footer-cmd"><span class="footer-cmd__arrow">›</span> sitemap.xml</a>
+    </div>
+
+  </div>
+
+  
+  <div class="footer-statusbar">
+    <span class="footer-status__left">
+      <span class="footer-status__brand">devtools/</span>
+      <span class="footer-status__sep">·</span>
+      <span>MIT</span>
+      <span class="footer-status__sep">·</span>
+      <span>hugo</span>
+      <span class="footer-status__sep">·</span>
+      <span>github pages</span>
+    </span>
+    <span class="footer-status__right">© 2026 · open source</span>
+  </div>
+</footer>
+
+  <div id="search-modal" class="search-modal" hidden>
+  <div class="search-modal__backdrop" id="search-backdrop"></div>
+  <div class="search-modal__box">
+    <div class="search-modal__header">
+      <span class="search-modal__title"><span style="color:var(--accent)">devtools/</span> search</span>
+      <button class="search-modal__close" id="search-close" aria-label="Close search"><kbd>esc</kbd></button>
+    </div>
+    <div class="search-modal__input-wrap">
+      <span class="search-input-slash">/</span>
+      <input
+        type="text"
+        id="search-input"
+        class="search-modal__input"
+        placeholder="search tools, books, languages..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+    </div>
+    <div id="search-results" class="search-results" role="listbox"></div>
+    <div class="search-modal__footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var index = null;
+  var selected = -1;
+
+  var modal    = document.getElementById('search-modal');
+  var input    = document.getElementById('search-input');
+  var results  = document.getElementById('search-results');
+  var openBtn  = document.getElementById('search-open');
+  var closeBtn = document.getElementById('search-close');
+  var backdrop = document.getElementById('search-backdrop');
+
+  function openSearch() {
+    modal.removeAttribute('hidden');
+    document.body.classList.add('search-open');
+    input.focus();
+    if (!index) loadIndex();
+  }
+
+  function closeSearch() {
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('search-open');
+    input.value = '';
+    results.innerHTML = '';
+    selected = -1;
+  }
+
+  function loadIndex() {
+    fetch('/index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { index = data; })
+      .catch(function() { index = []; });
+  }
+
+  function typeLabel(section) {
+    var map = {
+      tools: 'tool', languages: 'lang', frameworks: 'fwk',
+      books: 'book', courses: 'course', resources: 'res',
+      stacks: 'stack', paths: 'path'
+    };
+    return map[section] || section;
+  }
+
+  function escape(str) {
+    return str.replace(/[&<>"']/g, function(c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function highlight(text, q) {
+    if (!q) return escape(text);
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return escape(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function search(q) {
+    selected = -1;
+    if (!q || q.length < 2) { results.innerHTML = ''; return; }
+    if (!index) { results.innerHTML = ''; return; }
+
+    var ql = q.toLowerCase();
+    var scored = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      var name = (item.name || '').toLowerCase();
+      var desc = (item.description || '').toLowerCase();
+      var score = 0;
+      if (name === ql) score = 3;
+      else if (name.startsWith(ql)) score = 2;
+      else if (name.includes(ql)) score = 1;
+      else if (desc.includes(ql)) score = 0;
+      else continue;
+      scored.push({ item: item, score: score });
+    }
+    scored.sort(function(a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 8);
+
+    if (!top.length) {
+      results.innerHTML = '<div class="search-empty">no results for <strong>' + escape(q) + '</strong></div>';
+      return;
+    }
+
+    var html = '';
+    for (var j = 0; j < top.length; j++) {
+      var it = top[j].item;
+      var desc_short = it.description ? it.description.slice(0, 80) : '';
+      html += '<a href="' + escape(it.url) + '" class="search-result" role="option" tabindex="-1">'
+        + '<span class="search-result__type">' + escape(typeLabel(it.type)) + '</span>'
+        + '<span class="search-result__body">'
+        + '<span class="search-result__name">' + highlight(it.name || it.slug, q) + '</span>'
+        + (desc_short ? '<span class="search-result__desc">' + highlight(desc_short, q) + '</span>' : '')
+        + '</span>'
+        + '</a>';
+    }
+    results.innerHTML = html;
+  }
+
+  function getItems() { return results.querySelectorAll('.search-result'); }
+
+  function setSelected(n) {
+    var items = getItems();
+    if (!items.length) return;
+    if (selected >= 0 && selected < items.length) items[selected].classList.remove('is-selected');
+    selected = Math.max(0, Math.min(n, items.length - 1));
+    items[selected].classList.add('is-selected');
+    items[selected].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function() { search(input.value.trim()); });
+
+  input.addEventListener('keydown', function(e) {
+    var items = getItems();
+    if (e.key === 'ArrowDown')  { e.preventDefault(); setSelected(selected + 1); }
+    if (e.key === 'ArrowUp')    { e.preventDefault(); setSelected(selected - 1); }
+    if (e.key === 'Enter' && selected >= 0 && selected < items.length) {
+      e.preventDefault(); items[selected].click();
+    }
+  });
+
+  results.addEventListener('click', function(e) {
+    var link = e.target.closest('.search-result');
+    if (link) closeSearch();
+  });
+
+  openBtn.addEventListener('click', openSearch);
+  closeBtn.addEventListener('click', closeSearch);
+  backdrop.addEventListener('click', closeSearch);
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal.hasAttribute('hidden') ? openSearch() : closeSearch();
+    }
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSearch();
+  });
+})();
+</script>
+
+</body>
+</html>

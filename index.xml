@@ -1,0 +1,1562 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>devtools/</title>
+		<link>https://devtools.directory/</link>
+		<description>Recent content on devtools/</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<atom:link href="https://devtools.directory/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://devtools.directory/books/pragmatic-programmer/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/books/pragmatic-programmer/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/courses/cs50/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/courses/cs50/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/actix-web/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/actix-web/</guid>
+				<description>&lt;p&gt;Actix Web consistently tops the TechEmpower benchmarks. Its extractor pattern — &lt;code&gt;web::Json&amp;lt;T&amp;gt;&lt;/code&gt;, &lt;code&gt;web::Path&amp;lt;T&amp;gt;&lt;/code&gt;, &lt;code&gt;web::Query&amp;lt;T&amp;gt;&lt;/code&gt; — provides zero-overhead type-safe request parsing. Actix&amp;rsquo;s actor system underpins WebSocket handling and stateful connections. It is the most widely deployed Rust web framework in production.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/angular/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/angular/</guid>
+				<description>&lt;p&gt;Angular provides a complete, opinionated solution — dependency injection, reactive forms, routing, and HTTP all built in. Its strict TypeScript integration and CLI-driven development make it the dominant choice for large enterprise teams building complex SPAs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/aspnet-core/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/aspnet-core/</guid>
+				<description>&lt;p&gt;ASP.NET Core is Microsoft&amp;rsquo;s ground-up rewrite of ASP.NET — cross-platform, cloud-ready, and consistently among the fastest web frameworks in TechEmpower benchmarks. Minimal APIs (introduced in .NET 6) allow Express-style route handlers alongside the full MVC pattern. SignalR provides real-time WebSocket communication.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/astro/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/astro/</guid>
+				<description>&lt;p&gt;Astro&amp;rsquo;s islands architecture renders pages as static HTML and hydrates only the interactive components that need JavaScript. It is framework-agnostic — you can mix React, Vue, Svelte, and Solid components in the same project. Content collections with typed schemas make it the ideal choice for documentation sites, blogs, and marketing pages.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/axum/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/axum/</guid>
+				<description>&lt;p&gt;Axum is built on Tokio and the Tower ecosystem — any Tower middleware (rate limiting, tracing, auth) works out of the box. Its macro-free routing and type-safe extractors provide an ergonomic API without code generation. Axum has rapidly become the preferred Rust web framework for new projects.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/blazor/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/blazor/</guid>
+				<description>&lt;p&gt;Blazor lets C# developers build interactive web UIs without JavaScript. Blazor WebAssembly runs .NET code directly in the browser sandbox; Blazor Server keeps UI logic on the server and sends updates via SignalR. For .NET shops, Blazor eliminates the context switch between C# backend and JavaScript frontend.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/bootstrap/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/bootstrap/</guid>
+				<description>&lt;p&gt;Bootstrap&amp;rsquo;s 12-column grid and pre-built components (navbar, modal, card, form) allowed developers to build responsive sites without design skills. It dominated web development in the 2010s and its approach of component classes influenced virtually every CSS framework that followed. Bootstrap 5 dropped jQuery and added CSS custom properties throughout.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/celery/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/celery/</guid>
+				<description>&lt;p&gt;Celery offloads time-consuming or periodic work — email sending, image processing, ML inference, API calls — to a pool of worker processes. Tasks are defined as Python functions and triggered synchronously or scheduled via Celery Beat. It integrates natively with Django, Flask, and FastAPI and supports Redis, RabbitMQ, and AWS SQS as brokers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/chi/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/chi/</guid>
+				<description>&lt;p&gt;Chi is built entirely on Go&amp;rsquo;s standard &lt;code&gt;net/http&lt;/code&gt; interface — any existing &lt;code&gt;http.Handler&lt;/code&gt; works without modification. Its composable middleware groups, context-based routing, and zero external dependencies make it the choice of developers who want Go&amp;rsquo;s stdlib performance with cleaner routing ergonomics.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/codeigniter/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/codeigniter/</guid>
+				<description>&lt;p&gt;CodeIgniter was designed for shared hosting environments where installing packages is difficult — its small footprint and minimal dependencies make it easy to drop into any PHP host. CodeIgniter 4 is a modern rewrite with namespaces, type hints, and an async-ready foundation while retaining the lightweight philosophy.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/cypress/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/cypress/</guid>
+				<description>&lt;p&gt;Cypress runs directly inside the browser alongside the application under test — no WebDriver, no network latency. Its time-travel debugger lets you hover over each test step and see what the browser looked like at that moment. Cypress Component Testing extends it to isolated component-level testing without a full browser environment.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/django/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/django/</guid>
+				<description>&lt;p&gt;Django&amp;rsquo;s &amp;ldquo;batteries included&amp;rdquo; philosophy means authentication, an admin interface, an ORM, and routing come built in. It powers Instagram, Disqus, and many data-driven web apps.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/echo/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/echo/</guid>
+				<description>&lt;p&gt;Echo sits between Gin&amp;rsquo;s popularity and Fiber&amp;rsquo;s performance — a clean, extensible API with auto TLS via Let&amp;rsquo;s Encrypt, WebSocket support, and a straightforward middleware system. Its context-based API and data binding via struct tags make building REST APIs idiomatic in Go.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/electron/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/electron/</guid>
+				<description>&lt;p&gt;Electron bundles Chromium and Node.js into a single package, letting web developers ship desktop apps for Windows, macOS, and Linux without learning native SDKs. VS Code, Slack, Figma, Discord, and 1Password all use Electron. Its main drawback — large bundle size and memory usage — led to Tauri as a lighter alternative.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/expo/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/expo/</guid>
+				<description>&lt;p&gt;Expo wraps React Native with a managed SDK of pre-built native modules (camera, notifications, maps), a hosted build service (EAS Build), and over-the-air JavaScript updates. The Expo Router provides file-based navigation. For most React Native projects, Expo is the recommended starting point.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/express/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/express/</guid>
+				<description>&lt;p&gt;Express is the minimal, flexible Node.js web application framework. Its middleware model and routing API underpin countless Node.js backends and REST APIs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/fastapi/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/fastapi/</guid>
+				<description>&lt;p&gt;FastAPI uses Python type hints to drive both input validation (via Pydantic) and automatic OpenAPI/Swagger documentation generation. Built on Starlette and ASGI, it handles async code natively. It has become the most popular Python framework for building APIs and ML model serving endpoints.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/fastify/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/fastify/</guid>
+				<description>&lt;p&gt;Fastify&amp;rsquo;s JSON schema validation pipeline and low overhead make it one of the fastest Node.js frameworks available. Its plugin system with dependency injection ensures encapsulation and reuse across large applications. Full TypeScript support and OpenAPI plugin make it popular for building typed APIs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/fiber/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/fiber/</guid>
+				<description>&lt;p&gt;Fiber uses Fasthttp instead of net/http and is consistently one of the fastest web frameworks in any language. Its Express-inspired API helps Node.js developers transition to Go without a steep learning curve. Zero memory allocation routing and low-level tuning options make it ideal for high-throughput microservices.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/flask/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/flask/</guid>
+				<description>&lt;p&gt;Flask gives you routing, templates, and a request context — nothing more. Everything else (ORM, auth, migrations) comes from the large ecosystem of Flask extensions. Its simplicity makes it the go-to for small APIs, microservices, and projects where Django&amp;rsquo;s batteries are overhead.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/flutter/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/flutter/</guid>
+				<description>&lt;p&gt;Flutter renders UI with its own Skia/Impeller graphics engine rather than using native widgets — every pixel is Flutter&amp;rsquo;s, enabling pixel-perfect consistency across platforms. Hot reload, rich widget library, and strong Dart tooling make it one of the fastest cross-platform UI development experiences.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/gatsby/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/gatsby/</guid>
+				<description>&lt;p&gt;Gatsby popularised the idea of pulling content from CMSes, APIs, and files into a unified GraphQL layer at build time, then shipping static HTML and JavaScript. Its plugin ecosystem handles image optimisation, PWA features, and dozens of CMS integrations. Gatsby 5 added partial hydration and Slice APIs for large-scale content sites.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/gin/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/gin/</guid>
+				<description>&lt;p&gt;Gin&amp;rsquo;s httprouter-based radix tree delivers ~40x the performance of a standard net/http router. Its chainable middleware, parameter binding, and JSON validation make it the most widely used Go web framework. Clean request/response helpers and extensive documentation make it the entry point for most Go web developers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/hibernate/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/hibernate/</guid>
+				<description>&lt;p&gt;Hibernate is the reference implementation of JPA (Java Persistence API) and the standard ORM for Java applications. Its query language (HQL/JPQL) is database-agnostic, and its second-level cache with Ehcache or Redis reduces database load dramatically. Spring Boot&amp;rsquo;s Spring Data JPA is backed by Hibernate by default.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/hono/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/hono/</guid>
+				<description>&lt;p&gt;Hono is designed for the modern edge runtime landscape — the same code runs on Cloudflare Workers, Deno Deploy, Bun, and Node.js. Its trie-based router is among the fastest available, and full TypeScript support with RPC-style client generation makes end-to-end type safety straightforward.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/ionic/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/ionic/</guid>
+				<description>&lt;p&gt;Ionic wraps web app UIs in a native shell using Capacitor (or Cordova), giving access to native device APIs while writing HTML, CSS, and TypeScript. It ships native mobile apps and progressive web apps from the same codebase. Its component library mimics native iOS and Android UI patterns for each platform.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/jest/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/jest/</guid>
+				<description>&lt;p&gt;Jest is the dominant JavaScript testing framework — it runs tests in parallel in isolated environments, provides snapshot testing for UI components, and has a built-in mocking library. Its zero-configuration setup works with React, Vue, Node.js, and TypeScript out of the box. Vitest is a modern alternative that reuses Vite&amp;rsquo;s build pipeline.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/jetpack-compose/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/jetpack-compose/</guid>
+				<description>&lt;p&gt;Jetpack Compose replaces Android&amp;rsquo;s XML layout system with composable Kotlin functions that describe UI as a function of state. Its unidirectional data flow, state hoisting, and rich animation APIs make complex UIs simpler to build and test. Compose Multiplatform extends it to iOS, desktop, and web.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/junit/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/junit/</guid>
+				<description>&lt;p&gt;JUnit 5 (Jupiter) redesigned the framework around Java 8 features — lambdas, extensions, and nested test classes. Its &lt;code&gt;@Test&lt;/code&gt;, &lt;code&gt;@BeforeEach&lt;/code&gt;, &lt;code&gt;@ParameterizedTest&lt;/code&gt;, and &lt;code&gt;@ExtendWith&lt;/code&gt; annotations form the foundation of Java testing. Mockito, Spring Boot Test, and virtually every Java testing tool integrates with JUnit.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/keras/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/keras/</guid>
+				<description>&lt;p&gt;Keras provides an intuitive API for building neural networks with &lt;code&gt;Sequential&lt;/code&gt; models, functional API, and subclassing. Keras 3 is backend-agnostic — the same model code runs on TensorFlow, PyTorch, or JAX. As TensorFlow&amp;rsquo;s official high-level API it is the first framework most practitioners encounter when learning deep learning.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/koa/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/koa/</guid>
+				<description>&lt;p&gt;Koa was built by the Express team to address its callback-based design — its async middleware cascade uses &lt;code&gt;async/await&lt;/code&gt; natively and avoids callback hell. With no bundled routing or templates, Koa is a thin foundation that teams assemble with their own middleware stack.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/ktor/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/ktor/</guid>
+				<description>&lt;p&gt;Ktor is built around Kotlin coroutines — every handler is a suspend function, making async code read like synchronous code. Its plugin-based architecture (routing, auth, serialisation, WebSockets) keeps the core minimal and composable. Ktor Multiplatform also provides an HTTP client for Android, iOS, and desktop.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/langchain/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/langchain/</guid>
+				<description>&lt;p&gt;LangChain provides composable building blocks for LLM applications — prompt templates, retrieval pipelines, tool-calling agents, and memory. Its integration library connects to OpenAI, Anthropic, local models, vector databases, and dozens of data sources. LangGraph extends it with stateful, graph-based agent orchestration.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/laravel/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/laravel/</guid>
+				<description>&lt;p&gt;Laravel brings developer-friendly conventions to PHP with Eloquent ORM, Blade templating, Artisan CLI, and a massive ecosystem of first-party packages (Sanctum, Horizon, Forge).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/micronaut/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/micronaut/</guid>
+				<description>&lt;p&gt;Micronaut processes annotations at compile time rather than runtime reflection, eliminating Spring&amp;rsquo;s slow startup and high memory usage. It supports Java, Kotlin, and Groovy and provides first-class support for GraalVM native images, serverless functions, and service discovery.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/mocha/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/mocha/</guid>
+				<description>&lt;p&gt;Mocha is a flexible test runner that doesn&amp;rsquo;t include assertions or mocking — you pair it with Chai for assertions and Sinon for spies. This flexibility made it the dominant Node.js testing framework before Jest&amp;rsquo;s rise. It remains widely used in projects that prefer modular testing toolchains and in browser environments.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/nestjs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/nestjs/</guid>
+				<description>&lt;p&gt;NestJS brings Angular&amp;rsquo;s architecture to backend development — modules, controllers, providers, and guards give large teams a consistent structure. It can run on Express or Fastify underneath and supports REST, GraphQL, WebSockets, and microservice transports out of the box.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/nextjs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/nextjs/</guid>
+				<description>&lt;p&gt;Next.js adds server-side rendering, static generation, file-based routing, and API routes on top of React. It&amp;rsquo;s the default choice for production React applications.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/numpy/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/numpy/</guid>
+				<description>&lt;p&gt;NumPy provides multi-dimensional arrays and a library of mathematical operations that run in optimised C and Fortran code. It is the common data exchange format of the scientific Python stack — Pandas, SciPy, scikit-learn, PyTorch, and TensorFlow all interoperate with NumPy arrays. Vectorised operations over arrays replace explicit loops, giving 10-100x speedups.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/nuxt/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/nuxt/</guid>
+				<description>&lt;p&gt;Nuxt provides a complete application framework on top of Vue — server-side rendering, static generation, file-based routing, auto-imported components, and composables. Nuxt 3 is built on Nitro (a universal server runtime) and Vite, enabling deployment to Node.js, edge functions, and serverless environments.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/pandas/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/pandas/</guid>
+				<description>&lt;p&gt;Pandas is the foundation of Python data science — its DataFrame structure brings SQL-like operations (groupby, merge, pivot) and time series handling to Python. It reads and writes CSV, Excel, SQL, Parquet, and JSON. For larger datasets, Polars and Dask offer faster or distributed alternatives with a similar API.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/phoenix/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/phoenix/</guid>
+				<description>&lt;p&gt;Phoenix combines Rails-like productivity with the BEAM VM&amp;rsquo;s concurrency model. Phoenix Channels (WebSockets) handle millions of connections on a single server. Phoenix LiveView enables rich, interactive server-rendered UIs without writing JavaScript — state lives on the server and diffs are pushed to the browser.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/play/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/play/</guid>
+				<description>&lt;p&gt;Play was one of the first JVM frameworks to embrace reactive, non-blocking I/O throughout — no thread blocking, no synchronous calls. Its hot-reload, type-safe routing, and Twirl templates made Scala web development productive. Used at LinkedIn, Walmart, and many data-heavy applications requiring high concurrent throughput.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/playwright/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/playwright/</guid>
+				<description>&lt;p&gt;Playwright auto-waits for elements to be ready before interacting, eliminating flaky tests caused by timing issues. It supports parallel test execution across Chromium, Firefox, and WebKit — including mobile viewports. Its codegen tool records browser interactions and generates test code, making it accessible to non-programmers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/prisma/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/prisma/</guid>
+				<description>&lt;p&gt;Prisma generates a fully type-safe database client from your schema file — every query is typed based on your exact data model. Prisma Migrate handles schema migrations, Prisma Studio provides a visual data browser, and Prisma Accelerate adds connection pooling and query caching. It is the most popular ORM in the TypeScript ecosystem.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/pytest/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/pytest/</guid>
+				<description>&lt;p&gt;pytest replaces Python&amp;rsquo;s verbose &lt;code&gt;unittest&lt;/code&gt; with plain assert statements, automatic test discovery, and a fixture system that handles setup/teardown with dependency injection. Over 1,000 plugins extend it with coverage, parallel execution, Django integration, snapshot testing, and more. It is the de facto standard for Python testing across all domains.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/pytorch/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/pytorch/</guid>
+				<description>&lt;p&gt;PyTorch&amp;rsquo;s dynamic computation graph (&amp;ldquo;define-by-run&amp;rdquo;) makes debugging neural networks intuitive — you use standard Python control flow and print statements. It became the dominant framework for ML research and, with TorchServe and TorchDeploy, is now widely used in production at Meta, Tesla, and OpenAI. Most modern LLMs are built and trained in PyTorch.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/quarkus/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/quarkus/</guid>
+				<description>&lt;p&gt;Quarkus was built for containers — it starts in milliseconds and uses a fraction of the memory of traditional Spring Boot apps when compiled to native with GraalVM. It is developer-friendly with live reload, unified configuration, and familiar extensions for JPA, RESTEasy, Kafka, and more.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/rails/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/rails/</guid>
+				<description>&lt;p&gt;Rails introduced convention over configuration and DRY principles to web development, enabling a full CRUD application in minutes. It powers Shopify, GitHub (historically), and Basecamp. Rails&amp;rsquo; opinionated defaults — ActiveRecord, Action Cable, Hotwire — cover everything from database to real-time updates.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/react-native/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/react-native/</guid>
+				<description>&lt;p&gt;React Native renders genuine native UI components — not a WebView — using React&amp;rsquo;s component model and JavaScript business logic. The New Architecture (JSI, Fabric, TurboModules) eliminated the JavaScript bridge for significantly lower latency. Used by Meta, Microsoft, Shopify, and thousands of apps in production.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/react/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/react/</guid>
+				<description>&lt;p&gt;React introduced the component model and the virtual DOM to mainstream frontend development. It remains the most widely used UI library and underpins frameworks like Next.js and Remix.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/remix/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/remix/</guid>
+				<description>&lt;p&gt;Remix embraces web platform primitives — HTML forms, HTTP caching, and Response/Request APIs — so apps work without JavaScript and progressively enhance. Its nested routing model co-locates data loading with UI components, and every route can define its own loader and action for server-side data fetching and mutations.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/rocket/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/rocket/</guid>
+				<description>&lt;p&gt;Rocket uses procedural macros to validate routes, inputs, and guards at compile time — invalid routes simply don&amp;rsquo;t compile. Its request guard trait provides a clean extension point for authentication, rate limiting, and validation. Rocket 0.5 added async support and is the most beginner-friendly Rust web framework.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/rspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/rspec/</guid>
+				<description>&lt;p&gt;RSpec&amp;rsquo;s &lt;code&gt;describe&lt;/code&gt;, &lt;code&gt;context&lt;/code&gt;, and &lt;code&gt;it&lt;/code&gt; blocks produce test output that reads like a specification. Combined with FactoryBot for test data and Capybara for integration testing, RSpec forms the standard Rails test stack. Its shared examples, custom matchers, and &lt;code&gt;let&lt;/code&gt;/&lt;code&gt;subject&lt;/code&gt; helpers enable DRY, expressive test suites.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/scikit-learn/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/scikit-learn/</guid>
+				<description>&lt;p&gt;Scikit-learn provides a consistent &lt;code&gt;fit/transform/predict&lt;/code&gt; API across dozens of classical ML algorithms — SVMs, decision trees, random forests, gradient boosting, k-means, and more. It integrates seamlessly with NumPy and Pandas and is the starting point for most data science ML workflows before graduating to deep learning.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/sinatra/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/sinatra/</guid>
+				<description>&lt;p&gt;Sinatra&amp;rsquo;s domain-specific language maps HTTP verbs and paths to blocks of code — a complete API can fit in a single file. It influenced Flask, Express, and a generation of micro-frameworks. For Ruby services where Rails&amp;rsquo; weight is unnecessary, Sinatra remains the clean, minimal choice.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/slim/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/slim/</guid>
+				<description>&lt;p&gt;Slim follows PHP-FIG standards (PSR-7, PSR-15) for its HTTP message and middleware interfaces. Its tiny core — router, DI container, error handling — is ideal for PHP microservices and REST APIs where Laravel or Symfony would be overkill.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/solid/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/solid/</guid>
+				<description>&lt;p&gt;Solid&amp;rsquo;s reactive primitives — signals, effects, and memos — update only the exact DOM nodes that change, with no diffing overhead. It uses JSX like React but compiles it to direct DOM operations. Solid consistently ranks as one of the fastest UI frameworks while providing a familiar development model for React developers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/spring-boot/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/spring-boot/</guid>
+				<description>&lt;p&gt;Spring Boot makes production-grade Spring applications by providing opinionated auto-configuration and embedded Tomcat/Jetty/Undertow servers. It is the dominant Java backend framework — used at Netflix, Airbnb, and virtually every enterprise Java shop. Spring&amp;rsquo;s ecosystem covers security, data access, messaging, batch processing, and cloud-native patterns.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/sqlalchemy/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/sqlalchemy/</guid>
+				<description>&lt;p&gt;SQLAlchemy provides two distinct APIs — the Core SQL expression language for precise SQL control, and the ORM for mapping Python classes to tables. Its unit-of-work pattern, lazy loading, and connection pooling make it robust for complex applications. FastAPI and Flask both use SQLAlchemy as the recommended ORM.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/starlette/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/starlette/</guid>
+				<description>&lt;p&gt;Starlette provides the async primitives — request/response handling, routing, middleware, WebSockets, background tasks — that FastAPI and other frameworks build on. Used directly, it is a production-ready micro-framework for high-performance async Python services with no overhead beyond what you need.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/svelte/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/svelte/</guid>
+				<description>&lt;p&gt;Svelte shifts work from the browser to compile time — there&amp;rsquo;s no runtime framework overhead, just optimised vanilla JavaScript. Its reactive assignments and simple syntax make it approachable for beginners while its performance characteristics appeal to production teams building fast, lightweight UIs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/sveltekit/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/sveltekit/</guid>
+				<description>&lt;p&gt;SvelteKit is to Svelte what Next.js is to React — a full-stack framework with file-based routing, server-side rendering, form actions, and adapters for Vercel, Netlify, Cloudflare Workers, and Node.js. Its +page.server.js convention cleanly separates server and client code.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/swiftui/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/swiftui/</guid>
+				<description>&lt;p&gt;SwiftUI replaced UIKit&amp;rsquo;s imperative model with a declarative syntax where UI is a function of state. Property wrappers like &lt;code&gt;@State&lt;/code&gt;, &lt;code&gt;@Binding&lt;/code&gt;, and &lt;code&gt;@ObservedObject&lt;/code&gt; handle reactivity. SwiftUI runs across the entire Apple platform family, and Apple has made clear it is the future of Apple platform development.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/symfony/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/symfony/</guid>
+				<description>&lt;p&gt;Symfony is both a full-stack framework and a collection of standalone PHP components — HttpFoundation, Console, DependencyInjection, EventDispatcher — that form the plumbing of the PHP ecosystem. Laravel, Drupal, Magento, and phpBB are all built on Symfony components.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/tailwindcss/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/tailwindcss/</guid>
+				<description>&lt;p&gt;Tailwind replaces hand-written CSS with composable utility classes — &lt;code&gt;flex&lt;/code&gt;, &lt;code&gt;pt-4&lt;/code&gt;, &lt;code&gt;text-center&lt;/code&gt;, &lt;code&gt;bg-blue-500&lt;/code&gt; — applied directly in HTML. Its PurgeCSS integration removes unused classes in production, often resulting in smaller stylesheets than traditional approaches. Tailwind v4 rewrites the engine in Rust for near-instant builds.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/tauri/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/tauri/</guid>
+				<description>&lt;p&gt;Tauri uses the OS&amp;rsquo;s built-in WebView (WebKit on macOS/Linux, WebView2 on Windows) instead of bundling Chromium, resulting in app sizes under 10MB vs. Electron&amp;rsquo;s 100MB+. The Rust backend handles system integration securely. Tauri 2 added mobile support for iOS and Android from the same codebase.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/tensorflow/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/tensorflow/</guid>
+				<description>&lt;p&gt;TensorFlow is Google&amp;rsquo;s production ML platform, covering the full pipeline from research to deployment. TensorFlow Serving, TensorFlow Lite, and TensorFlow.js handle server, mobile, and browser inference. Keras is TensorFlow&amp;rsquo;s high-level API since TF2, making model definition intuitive while TensorFlow handles the underlying computation graph.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/vert-x/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/vert-x/</guid>
+				<description>&lt;p&gt;Vert.x is built on a non-blocking event loop model — a single thread handles thousands of concurrent connections without thread-per-request overhead. It is polyglot by design and runs Java, Kotlin, Groovy, JavaScript, Scala, and Ruby code on the same event bus. Used at Red Hat, Hulu, and in high-throughput financial systems.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/vue/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/vue/</guid>
+				<description>&lt;p&gt;Vue&amp;rsquo;s single-file components and progressive adoption model make it a popular choice for teams wanting a gentler learning curve than React with a more opinionated structure.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/abap/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/abap/</guid>
+				<description>&lt;p&gt;ABAP (Advanced Business Application Programming) runs inside the SAP NetWeaver application server and powers the business logic of SAP ERP, S/4HANA, and related enterprise systems. With an installed base spanning most large enterprises worldwide, there are millions of lines of ABAP in production. Modern ABAP supports object-oriented programming, RESTful APIs, and cloud deployment.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/actionscript/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/actionscript/</guid>
+				<description>&lt;p&gt;ActionScript 3 powered the Flash ecosystem that dominated interactive web content, online games, and video delivery before HTML5. Its class system and event model influenced early JavaScript frameworks. Adobe AIR allowed ActionScript to build cross-platform desktop applications. Flash&amp;rsquo;s end-of-life in 2020 has made ActionScript legacy, but large codebases and game libraries survive in emulation.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/ada/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/ada/</guid>
+				<description>&lt;p&gt;Ada was designed to be readable, verifiable, and correct — features that matter when software controls aircraft, missiles, or train signalling systems. Its strong typing, range constraints, and tasking model prevent entire categories of bugs at compile time. SPARK, a formally verifiable subset of Ada, is used to prove software correctness in safety-critical domains.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/agda/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/agda/</guid>
+				<description>&lt;p&gt;Agda is both a proof assistant and a programming language — proofs are programs and programs are proofs. It is used in academic research to formalise mathematics (the HoTT book was typeset using Agda proofs) and to verify correctness of algorithms and protocols. Its interactive editor mode in Emacs allows filling in proof holes incrementally.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/apex/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/apex/</guid>
+				<description>&lt;p&gt;Apex runs in a multi-tenant cloud environment inside Salesforce and enforces strict governor limits on CPU time, heap, and DML operations to protect shared infrastructure. It is used to write triggers, batch jobs, web services, and complex business workflows on the Salesforce platform. Knowledge of Apex is essential for Salesforce developers and administrators.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/apl/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/apl/</guid>
+				<description>&lt;p&gt;APL&amp;rsquo;s symbol-based notation allows entire algorithms to be expressed in a single line by composing operations over arrays. Developed by Kenneth Iverson, it pioneered array-oriented programming and influenced languages from MATLAB to Julia. Its direct descendants J and K are used extensively in high-frequency trading for their terseness and performance.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/assembly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/assembly/</guid>
+				<description>&lt;p&gt;Assembly language maps one-to-one to CPU instructions, giving complete control over registers, memory, and hardware. While rarely used for full applications today, it remains essential for boot loaders, hardware drivers, crypto primitives, and performance-critical hot paths. Popular assemblers include NASM (x86), GAS (GNU), and LLVM&amp;rsquo;s integrated assembler.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/awk/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/awk/</guid>
+				<description>&lt;p&gt;AWK processes text files line by line, matching each line against patterns and executing corresponding actions. A one-liner can sum a column, filter rows, reformat CSV, or extract fields from log files. gawk (GNU AWK) extends the original with network I/O, arrays, and Unicode. AWK is available on every Unix-like system and remains invaluable for data wrangling in pipelines.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/ballerina/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/ballerina/</guid>
+				<description>&lt;p&gt;Ballerina treats network communication as a first-class concern — services, clients, and data formats (JSON, XML, CSV) are built into the type system. Its graphical sequence diagram view is automatically generated from code, making service interactions visible. It targets integration and API development as a higher-level alternative to Java or Go microservices.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/bash/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/bash/</guid>
+				<description>&lt;p&gt;Bash is the lingua franca of Unix automation — cron jobs, deployment scripts, CI pipelines, and dotfiles are almost universally written in it. Despite quirky syntax, its ubiquity on every Linux server and macOS machine makes it an essential tool for every developer.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/c/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/c/</guid>
+				<description>&lt;p&gt;C was designed to write Unix and has since become the lingua franca of systems programming. Nearly every operating system kernel, embedded microcontroller, and runtime (including Python and Ruby) has C at its core. Its manual memory model and minimal runtime overhead make it irreplaceable for performance-critical software.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/carbon/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/carbon/</guid>
+				<description>&lt;p&gt;Carbon is designed as a successor to C++ rather than a rewrite-from-scratch language, offering bidirectional C++ interop so teams can migrate incrementally. It addresses C++&amp;rsquo;s legacy technical debt — complex syntax, undefined behaviour, and slow compile times — while targeting the same performance-critical use cases. As of 2024 it is still pre-1.0 and under active development.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/chapel/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/chapel/</guid>
+				<description>&lt;p&gt;Chapel was designed at Cray to make parallel computing productive without sacrificing performance. Its unified memory model, domain maps, and forall loops enable the same code to scale from a laptop to a supercomputer. Chapel has been used to build large-scale data analytics tools and genomics pipelines that run on thousands of nodes.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/clean/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/clean/</guid>
+				<description>&lt;p&gt;Clean is a lazily-evaluated, purely functional language similar to Haskell, but with uniqueness types instead of monads for handling state and I/O. Uniqueness types allow safe in-place mutation of values when it can be proved only one reference exists. Clean compiles to highly efficient native code and influenced the linear and affine type systems in Rust and other languages.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/clojure/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/clojure/</guid>
+				<description>&lt;p&gt;Clojure brings Lisp&amp;rsquo;s power to the JVM with persistent immutable data structures, software transactional memory, and a culture of interactive REPL-driven development. ClojureScript compiles to JavaScript for frontend use. Its emphasis on simplicity and data-oriented programming has made it influential in the functional programming community and successful at companies like Nubank.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/cobol/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/cobol/</guid>
+				<description>&lt;p&gt;COBOL was designed to be readable by non-programmers and to process business records at scale. Roughly 95% of ATM transactions and the majority of banking core systems worldwide still run on COBOL. Billions of lines of COBOL code run on IBM mainframes, and skilled COBOL developers remain in high demand.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/coffeescript/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/coffeescript/</guid>
+				<description>&lt;p&gt;CoffeeScript pioneered many features — arrow functions, destructuring, classes, string interpolation — years before they appeared in ES6. While largely superseded by modern JavaScript and TypeScript, it influenced the entire JavaScript ecosystem&amp;rsquo;s evolution and introduced a generation of developers to cleaner syntax.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/common-lisp/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/common-lisp/</guid>
+				<description>&lt;p&gt;Common Lisp was standardised by ANSI in 1994 and remains one of the most powerful general-purpose languages. Its macro system operates on the abstract syntax tree, enabling language-level abstractions impossible in other languages. SBCL produces highly optimised native code. Common Lisp was the dominant AI language of the 1980s and is still used in production at companies like Grammarly.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/coq/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/coq/</guid>
+				<description>&lt;p&gt;Coq is one of the most widely used proof assistants in computer science. The CompCert formally verified C compiler was proved correct in Coq, as was the seL4 microkernel. Coq proofs are checked by a small trusted kernel, making it applicable to safety-critical certification. Coq is now renamed Rocq following a 2024 community decision.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/cpp/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/cpp/</guid>
+				<description>&lt;p&gt;C++ adds zero-cost abstractions, templates, and RAII to C while retaining full control over memory and hardware. It powers game engines (Unreal, Unity&amp;rsquo;s runtime), browsers (Chrome, Firefox), databases (MySQL, MongoDB), and any software where raw throughput matters. Modern C++20/23 continues to evolve the language toward safer, more expressive code.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/crystal/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/crystal/</guid>
+				<description>&lt;p&gt;Crystal gives Ruby developers a familiar syntax with static type checking and LLVM-backed native compilation. Type inference keeps code clean while eliminating entire categories of runtime errors. Its built-in concurrency primitives (fibers and channels) and zero-overhead C bindings make it suitable for high-performance web services and systems tooling.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/csharp/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/csharp/</guid>
+				<description>&lt;p&gt;C# combines Java-style object orientation with modern language features like pattern matching, records, nullable reference types, and async/await. On .NET 8+ it compiles to native via AOT for performance-sensitive workloads. Unity&amp;rsquo;s adoption of C# for game scripting makes it one of the most widely used game development languages.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/d/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/d/</guid>
+				<description>&lt;p&gt;D was designed by Walter Bright to address C++&amp;rsquo;s complexity while retaining its performance characteristics. It supports both garbage-collected and manual memory management, has a sophisticated template metaprogramming system, and includes built-in unit testing and contract programming. The Dub package manager and DMD compiler make the development experience approachable.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/dart/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/dart/</guid>
+				<description>&lt;p&gt;Dart compiles to native ARM code for mobile and desktop, and to JavaScript for the web. Flutter&amp;rsquo;s adoption of Dart as its primary language has driven significant growth in the Dart ecosystem. Sound null safety, hot reload, and a fast ahead-of-time compiler make it well-suited for UI-heavy applications.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/delphi/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/delphi/</guid>
+				<description>&lt;p&gt;Delphi combines Object Pascal with a visual component library for rapid native application development. It compiles to native binaries for Windows, macOS, iOS, Android, and Linux from a single codebase. Despite low visibility in open-source communities, it has a large installed base in healthcare, finance, and logistics applications, many of which have run continuously for decades.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/eiffel/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/eiffel/</guid>
+				<description>&lt;p&gt;Eiffel introduced Design by Contract as a first-class language feature — methods declare preconditions they expect, postconditions they guarantee, and class invariants that must always hold. Violations are caught at runtime with precise diagnostics. Its concepts directly influenced the &lt;code&gt;assert&lt;/code&gt; and &lt;code&gt;ensure&lt;/code&gt; patterns in many languages and formal methods research.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/elixir/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/elixir/</guid>
+				<description>&lt;p&gt;Elixir runs on the BEAM virtual machine, inheriting Erlang&amp;rsquo;s proven model for building systems that handle millions of concurrent connections with sub-millisecond latency. The Phoenix framework and LiveView have made Elixir popular for real-time web applications. Its actor model, lightweight processes, and supervision trees make it uniquely suited for building reliable distributed systems.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/elm/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/elm/</guid>
+				<description>&lt;p&gt;Elm&amp;rsquo;s strict functional model means every value is immutable and every function is pure — the compiler catches all type errors before runtime, famously producing no runtime exceptions in production applications. Its Elm Architecture (Model-Update-View) pattern influenced Redux and many modern state management solutions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/erlang/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/erlang/</guid>
+				<description>&lt;p&gt;Erlang was built by Ericsson to power telephone switches that could not go down. Its actor model, supervision trees, and hot code reloading enable systems with &amp;ldquo;nine nines&amp;rdquo; (99.9999999%) uptime. WhatsApp ran on Erlang and scaled to 2 million concurrent connections per server. Elixir inherits the BEAM VM and all its reliability guarantees.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/factor/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/factor/</guid>
+				<description>&lt;p&gt;Factor is a modern concatenative language where all computation operates on a data stack and programs are built by composing named words. It features an image-based development environment, a JIT compiler, and a comprehensive standard library covering web, crypto, and parsing. Its quotation-based higher-order functions make functional patterns natural and concise.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/fennel/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/fennel/</guid>
+				<description>&lt;p&gt;Fennel compiles to Lua with no runtime overhead — the output is idiomatic Lua code. It adds destructuring, pattern matching, and a hygienic macro system to Lua&amp;rsquo;s platform. It is popular in the Neovim plugin ecosystem, game development with LÖVE, and anywhere Lua is already embedded. Fennel configuration is used by many Neovim users as an alternative to Lua.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/forth/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/forth/</guid>
+				<description>&lt;p&gt;Forth is built around a data stack and a return stack — all operations push and pop values. Its self-hosting compiler can be implemented in under 1000 words of machine code, making it popular for bootstrapping systems with minimal resources. OpenFirmware (used in Sun, Apple PowerPC, and OLPC machines) is implemented in Forth, as are many embedded microcontroller environments.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/fortran/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/fortran/</guid>
+				<description>&lt;p&gt;Fortran (Formula Translation) was the first language to demonstrate that high-level code could match hand-written assembly in performance. It remains in active use for climate models, computational fluid dynamics, quantum chemistry codes, and any domain where numerical performance is paramount. Modern Fortran (2018+) supports coarrays, object-orientation, and interoperability with C.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/fsharp/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/fsharp/</guid>
+				<description>&lt;p&gt;F# brings OCaml-style functional programming to the .NET ecosystem. Its algebraic data types, pattern matching, and type inference result in concise, correct code with minimal boilerplate. It is widely used in financial services (Jet.com, Kaggle), scientific computing, and anywhere data transformation pipelines benefit from immutable types.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/gleam/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/gleam/</guid>
+				<description>&lt;p&gt;Gleam brings static typing to the BEAM VM — the runtime behind Erlang and Elixir — without sacrificing interoperability with the existing ecosystem. Its friendly error messages, algebraic data types, and pattern matching make concurrent, fault-tolerant systems accessible to developers coming from typed languages like Rust or TypeScript.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/go/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/go/</guid>
+				<description>&lt;p&gt;Go was designed at Google to be fast to compile, easy to read, and excellent at handling concurrency. It powers Docker, Kubernetes, and many cloud-native tools.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/grain/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/grain/</guid>
+				<description>&lt;p&gt;Grain compiles to WebAssembly as a first-class target, making it suitable for browser plugins, serverless functions, and edge computing. Its type system with automatic memory management and immutable-by-default values makes it safe for untrusted execution environments. Grain&amp;rsquo;s syntax draws from ML and Rust, targeting developers who want functional safety in Wasm contexts.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/groovy/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/groovy/</guid>
+				<description>&lt;p&gt;Groovy&amp;rsquo;s seamless Java interoperability and concise syntax made it the language of choice for Gradle build scripts and Jenkins pipeline definitions. Its closure support and dynamic capabilities enable expressive DSLs. The Grails web framework brought Groovy to full-stack web development.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/hack/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/hack/</guid>
+				<description>&lt;p&gt;Hack was developed at Facebook to bring static typing to a PHP codebase with hundreds of millions of lines. It runs on HHVM and adds generics, nullable types, lambdas, and async/await to PHP&amp;rsquo;s model. The gradual type system allows incremental migration of existing PHP code.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/haskell/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/haskell/</guid>
+				<description>&lt;p&gt;Haskell enforces pure functional programming — functions have no side effects unless explicitly typed that way — enabling the compiler to make strong guarantees about code correctness. Its type system, including type classes and higher-kinded types, has influenced languages from Rust to Scala. It is widely used in compilers, formal verification, and quantitative finance.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/hcl/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/hcl/</guid>
+				<description>&lt;p&gt;HCL is designed to be readable by humans and parseable by machines, striking a balance between JSON&amp;rsquo;s machine-friendliness and YAML&amp;rsquo;s human-friendliness. It is the language of Terraform and Packer, where it describes cloud resources, providers, and modules. Its expression language, functions, and for-loops make it capable of non-trivial infrastructure logic.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/idris/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/idris/</guid>
+				<description>&lt;p&gt;Idris extends the Curry-Howard correspondence to its logical conclusion — a dependent type system where the distinction between programs and proofs dissolves. You can write a type that says &amp;ldquo;this function returns a sorted list&amp;rdquo; and the compiler will enforce it. Idris 2 is built on Quantitative Type Theory and compiles to native code via Chez Scheme.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/io/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/io/</guid>
+				<description>&lt;p&gt;Io was designed as a thought experiment in minimalism — the entire language is built from objects that pass messages to each other. There are no classes, only prototypes. Coroutines and actors are built in. Steve Dekorte created Io as an exploration of the smallest syntax that could support a complete programming model, influencing several later languages.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/j/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/j/</guid>
+				<description>&lt;p&gt;J is Kenneth Iverson&amp;rsquo;s redesign of APL using ASCII characters instead of special symbols. Like APL, it operates natively on arrays — a single expression can process an entire dataset. Tacit (point-free) programming style allows composing verbs without naming arguments. J is used in quantitative finance and mathematical research where dense, exact notation matters.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/janet/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/janet/</guid>
+				<description>&lt;p&gt;Janet is a Lisp that compiles to bytecode and is easy to embed in C applications. Its persistent data structures, coroutines, and macro system make it expressive for scripting and configuration. The entire runtime fits in a few hundred KB, making it suitable for resource-constrained environments. It is used as the build system DSL for jpm (Janet&amp;rsquo;s package manager).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/java/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/java/</guid>
+				<description>&lt;p&gt;Java&amp;rsquo;s JVM compiles once and runs anywhere, making it the backbone of enterprise software, Android apps, and distributed systems like Hadoop and Kafka. Its strong typing, mature ecosystem, and vast library of frameworks (Spring, Jakarta EE) keep it one of the most deployed languages in the world.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/javascript/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/javascript/</guid>
+				<description>&lt;p&gt;JavaScript is the only language that runs natively in web browsers, making it the universal language of the web. With Node.js it also powers backends, CLIs, and desktop apps.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/julia/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/julia/</guid>
+				<description>&lt;p&gt;Julia uses LLVM-based JIT compilation to achieve performance competitive with C for numerical workloads, while retaining Python-like syntax and interactivity. Multiple dispatch is a first-class language feature rather than an afterthought. It is widely adopted in computational biology, climate modelling, quantum computing research, and high-performance numerical simulation.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/koka/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/koka/</guid>
+				<description>&lt;p&gt;Koka&amp;rsquo;s type system tracks all side effects — exceptions, state, I/O, concurrency — as first-class row-typed effect labels. Algebraic effect handlers provide a structured way to implement custom control flow, coroutines, and exception systems. Koka pioneered Reuse Analysis, a compile-time technique for in-place mutation of functional data structures that Lean 4 and other languages have adopted.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/kotlin/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/kotlin/</guid>
+				<description>&lt;p&gt;Kotlin is fully interoperable with Java but eliminates much of its boilerplate — data classes, extension functions, null safety, and coroutines are all first-class. Google made it the preferred language for Android in 2019. Kotlin Multiplatform now allows sharing business logic across Android, iOS, and the web from a single codebase.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/lean/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/lean/</guid>
+				<description>&lt;p&gt;Lean 4 is both a proof assistant and a full-featured functional programming language with dependent types. The Mathlib library contains tens of thousands of formalised mathematical results. Projects like the Liquid Tensor Experiment demonstrated that professional mathematicians can use Lean to formalise cutting-edge research, driving significant growth in its community.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/lobster/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/lobster/</guid>
+				<description>&lt;p&gt;Lobster combines a Python-like syntax with a sophisticated static type system that infers types flow-sensitively and tracks object lifetimes without a garbage collector. It compiles to C++ or WASM for deployment and is designed as a safe scripting layer for games. Its coroutine support and vector operations make it expressive for game AI and procedural generation.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/lua/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/lua/</guid>
+				<description>&lt;p&gt;Lua was designed to be small, fast, and easy to embed in larger applications. It powers game scripting in engines like Corona, Defold, and Roblox, configuration in tools like Neovim and Redis, and plugin systems in dozens of applications. LuaJIT&amp;rsquo;s tracing compiler makes it one of the fastest dynamic languages available.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/matlab/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/matlab/</guid>
+				<description>&lt;p&gt;MATLAB combines a matrix-centric language with a rich toolbox ecosystem covering signal processing, control systems, machine learning, and image processing. It is deeply embedded in academia and engineering workflows at aerospace, automotive, and electronics companies worldwide. GNU Octave provides a largely compatible open-source alternative.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/mercury/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/mercury/</guid>
+				<description>&lt;p&gt;Mercury combines Prolog&amp;rsquo;s logic programming model with a strict static type system, determinism annotations, and compilation to efficient native code. The mode system tracks whether variables are inputs or outputs, eliminating the non-determinism pitfalls of Prolog. It is used in research and in the Aditi deductive database system.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/modula2/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/modula2/</guid>
+				<description>&lt;p&gt;Modula-2 was designed by Niklaus Wirth as a systems programming language addressing Pascal&amp;rsquo;s limitations. Its module system — separate interface and implementation units with explicit imports — directly influenced the module systems of Ada, Oberon, and indirectly Java packages and C++ namespaces. It was used to write operating systems and embedded software in the 1980s.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/mojo/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/mojo/</guid>
+				<description>&lt;p&gt;Mojo is designed to be a superset of Python that can compile to hardware-specific code via MLIR, achieving performance competitive with C++ and CUDA while retaining Python syntax. It targets AI and machine learning engineers who want GPU-level performance without leaving the Python ecosystem. Developed by the team behind LLVM and Swift.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/nim/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/nim/</guid>
+				<description>&lt;p&gt;Nim compiles to C, C++, or JavaScript and produces binaries competitive with hand-written C. Its macro system enables compile-time code generation without preprocessor hacks. Nim occupies a sweet spot between the expressiveness of Python and the performance of C, making it appealing for systems tooling, game development, and embedded scripting.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/nix/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/nix/</guid>
+				<description>&lt;p&gt;The Nix language is a lazily-evaluated, purely functional expression language used to describe packages, their dependencies, and system configurations. Everything in Nix is an expression that evaluates to a derivation — a precise, reproducible build specification. NixOS uses it to describe an entire Linux system, enabling atomic upgrades and rollbacks.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/objective-c/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/objective-c/</guid>
+				<description>&lt;p&gt;Objective-C was the dominant language for Apple platform development for over 30 years. Its dynamic message-passing runtime powers Cocoa and UIKit, and a vast body of iOS and macOS libraries are still written in it. Apple introduced Swift in 2014 as its successor, but Objective-C codebases remain widespread and the two languages interoperate seamlessly.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/ocaml/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/ocaml/</guid>
+				<description>&lt;p&gt;OCaml&amp;rsquo;s Hindley-Milner type system catches entire classes of bugs at compile time while its module system enables large-scale software architecture. It was the language of choice at Jane Street (financial trading) and inspired Rust&amp;rsquo;s ownership model. The Reason/ReScript dialects bring OCaml&amp;rsquo;s type system to JavaScript development.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/odin/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/odin/</guid>
+				<description>&lt;p&gt;Odin was designed with game development and systems programming in mind — explicit allocators, context-based memory management, and a clear, readable syntax without C&amp;rsquo;s historical baggage. It compiles via LLVM and supports multiple calling conventions for C interop. The Odin compiler itself, a game engine, and several tools are written in Odin.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/pascal/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/pascal/</guid>
+				<description>&lt;p&gt;Pascal was designed by Niklaus Wirth as a clean, teachable language that enforced structured programming. It was the dominant language in computer science education through the 1980s and early 1990s. Free Pascal and Lazarus keep it alive as a cross-platform compiled language; Delphi (Object Pascal) is Pascal&amp;rsquo;s commercial descendant still in active use.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/perl/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/perl/</guid>
+				<description>&lt;p&gt;Perl&amp;rsquo;s &amp;ldquo;there&amp;rsquo;s more than one way to do it&amp;rdquo; philosophy and unmatched regular expression integration made it the dominant glue language of the early web. It remains heavily used in bioinformatics (BioPerl), legacy systems administration, and anywhere dense text transformation is required. CPAN, Perl&amp;rsquo;s package repository, contains over 200,000 modules.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/php/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/php/</guid>
+				<description>&lt;p&gt;PHP runs on the majority of web servers and is the foundation of WordPress, Drupal, and many CMSes. Modern PHP (8.x) has a mature type system, JIT compilation, and a thriving ecosystem via Composer.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/pony/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/pony/</guid>
+				<description>&lt;p&gt;Pony&amp;rsquo;s reference capability system encodes aliasing and mutability at the type level, making data races and deadlocks impossible by construction — not just unlikely, but unrepresentable. Its actor model uses work-stealing for efficient concurrency without locks. Pony compiles to native code via LLVM and is used in research into safe high-performance concurrent systems.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/powershell/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/powershell/</guid>
+				<description>&lt;p&gt;PowerShell treats everything as a .NET object — pipelines pass structured objects rather than plain text, making complex system administration tasks concise and composable. PowerShell Core 6+ is fully cross-platform. It is the primary automation language for Azure, Active Directory, and Windows infrastructure management.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/prolog/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/prolog/</guid>
+				<description>&lt;p&gt;Prolog executes by unifying terms and performing depth-first search with backtracking — the runtime figures out &lt;em&gt;how&lt;/em&gt; to satisfy a query from a set of declared facts and rules. It was central to the Japanese Fifth Generation Computer project and is still used in natural language processing, theorem proving, and expert systems.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/purescript/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/purescript/</guid>
+				<description>&lt;p&gt;PureScript brings Haskell&amp;rsquo;s type system to JavaScript compilation — row polymorphism, type classes, higher-kinded types, and strict evaluation. Unlike Elm it makes no simplifying concessions, giving developers the full power of a Haskell-like type system for frontend code. It is used in production at SlamData, Awake Security, and other companies valuing correctness.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/python/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/python/</guid>
+				<description>&lt;p&gt;Python&amp;rsquo;s readable syntax and vast standard library make it the go-to language for data science, machine learning, scripting, and web backends. It consistently ranks as the world&amp;rsquo;s most popular language.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/r/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/r/</guid>
+				<description>&lt;p&gt;R was built by statisticians for statistics and remains the dominant language in academia, biostatistics, and quantitative research. The tidyverse ecosystem (ggplot2, dplyr, tidyr) provides a coherent, expressive grammar for data manipulation and visualisation. R Shiny enables interactive web-based dashboards from pure R code.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/racket/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/racket/</guid>
+				<description>&lt;p&gt;Racket&amp;rsquo;s defining feature is its language tower — you can define new languages with custom syntax and semantics within the same ecosystem, using &lt;code&gt;#lang&lt;/code&gt; directives. It is the platform behind &lt;em&gt;How to Design Programs&lt;/em&gt;, one of the most influential programming curricula. Typed Racket adds a gradual type system, and it is widely used in programming language research.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/rebol/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/rebol/</guid>
+				<description>&lt;p&gt;Rebol&amp;rsquo;s central concept is that code is data and data is code — its flexible value types and lack of reserved words allow defining domain-specific dialects within the same parser. Red, an open-source successor, adds native compilation and a GUI toolkit. Carl Sassenrath designed Rebol after working on the Amiga OS; its ideas influenced several modern DSL-oriented languages.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/rescript/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/rescript/</guid>
+				<description>&lt;p&gt;ReScript combines OCaml&amp;rsquo;s sound type system with a JavaScript-friendly syntax, producing readable and performant JavaScript output. Its type inference is fast and complete — zero &lt;code&gt;any&lt;/code&gt;, zero runtime type errors. It has first-class React bindings and is used by teams at Meta and in the broader OCaml/Reason community.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/rexx/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/rexx/</guid>
+				<description>&lt;p&gt;REXX (Restructured Extended Executor) was designed with readability as its primary goal — it reads like pseudocode. It remains the native scripting language for IBM z/OS mainframes and is used for automating JCL, TSO/ISPF interfaces, and batch processing. NetRexx compiles REXX to the JVM; Open Object REXX adds OOP capabilities.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/roc/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/roc/</guid>
+				<description>&lt;p&gt;Roc is designed to be fast, friendly, and correct — no null values, no runtime exceptions, and a type system that catches errors before they reach production. It uses algebraic effects for managing side effects and compiles via LLVM to native code. Roc&amp;rsquo;s platform model cleanly separates pure logic from effect-ful platform code, making business logic fully portable.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/ruby/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/ruby/</guid>
+				<description>&lt;p&gt;Ruby&amp;rsquo;s clean syntax and powerful metaprogramming capabilities made it the language that popularised convention-over-configuration with Ruby on Rails. It remains widely used for web applications, developer tooling, and automation scripts. The YJIT compiler introduced in Ruby 3.1 significantly improved runtime performance.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/rust/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/rust/</guid>
+				<description>&lt;p&gt;Rust&amp;rsquo;s ownership model guarantees memory safety at compile time — no null pointers, no data races, no garbage collector. It&amp;rsquo;s the language behind many modern CLI tools, WebAssembly runtimes, and systems software.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/sas/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/sas/</guid>
+				<description>&lt;p&gt;SAS combines a procedural programming language with integrated statistical procedures for data management and analysis. It holds a dominant position in pharmaceutical clinical trials, banking risk analysis, and government statistics — sectors where regulatory requirements mandate validated, reproducible analysis environments. The SAS data step and PROC SQL remain foundational for millions of analysts.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/scala/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/scala/</guid>
+				<description>&lt;p&gt;Scala unifies object-oriented and functional programming on the JVM, with a powerful type system and expressive syntax. It became the dominant language for big data pipelines through Apache Spark and is used in high-throughput backend services at Twitter, LinkedIn, and Databricks. Scala 3 introduced significant improvements to the type system and syntax clarity.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/scheme/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/scheme/</guid>
+				<description>&lt;p&gt;Scheme distilled Lisp to a minimal core — first-class functions, proper tail calls, hygienic macros, and continuations — without sacrificing power. It is the language of &lt;em&gt;Structure and Interpretation of Computer Programs&lt;/em&gt; (SICP), one of the most influential programming textbooks. R7RS is the current standard; implementations include Guile, Chez Scheme, and MIT Scheme.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/self/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/self/</guid>
+				<description>&lt;p&gt;Self pioneered prototype-based OOP, where objects are cloned and modified rather than instantiated from classes — an approach JavaScript later adopted. The Self VM pioneered adaptive optimisation and polymorphic inline caching, JIT techniques that became the foundation of modern JavaScript engines like V8 and SpiderMonkey. It remains an influential research language.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/simula/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/simula/</guid>
+				<description>&lt;p&gt;Simula was created by Ole-Johan Dahl and Kristen Nygaard at the Norwegian Computing Center to simulate discrete-event systems. It introduced the class concept, object instantiation, and inheritance — every OOP language from C++ to Java descends from Simula&amp;rsquo;s ideas. Bjarne Stroustrup cited Simula as the primary inspiration for C++.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/smalltalk/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/smalltalk/</guid>
+				<description>&lt;p&gt;Smalltalk pioneered the concepts of objects, message passing, garbage collection, and the live IDE environment where you modify running code. Every modern OOP language owes conceptual debt to Smalltalk. Pharo and Squeak keep the tradition alive, and Smalltalk remains widely used in finance and insurance at companies like JP Morgan.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/solidity/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/solidity/</guid>
+				<description>&lt;p&gt;Solidity compiles to EVM bytecode that runs on the Ethereum network and every EVM-compatible chain. Its syntax draws from JavaScript and C++, and it includes concepts specific to blockchain like &lt;code&gt;payable&lt;/code&gt; functions, &lt;code&gt;msg.sender&lt;/code&gt;, and &lt;code&gt;require&lt;/code&gt; guards for access control. Security auditing is critical — bugs in deployed contracts are often irreversible.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/sql/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/sql/</guid>
+				<description>&lt;p&gt;SQL (Structured Query Language) is the standard interface to relational databases including PostgreSQL, MySQL, SQLite, and SQL Server. Its declarative style lets developers describe &lt;em&gt;what&lt;/em&gt; data they need rather than &lt;em&gt;how&lt;/em&gt; to retrieve it. SQL dialects power everything from OLTP transactions to analytical data warehouses like BigQuery, Snowflake, and Redshift.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/squirrel/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/squirrel/</guid>
+				<description>&lt;p&gt;Squirrel was designed as a scripting layer for the Source game engine at Valve and is used in Left 4 Dead, Portal 2, and Dota 2 for game logic, AI, and level scripting. Its C-like syntax, class system, and generator support make it approachable for game designers. It is also used in vehicle firmware (Tesla) and IoT scripting environments.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/standard-ml/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/standard-ml/</guid>
+				<description>&lt;p&gt;Standard ML was the first language to be formally specified with a mathematical semantics. Its Hindley-Milner type inference, module system, and pattern matching influenced Haskell, OCaml, F#, Rust, and Swift. MLton produces highly optimised native code; SML/NJ provides an interactive environment. It is widely used in compilers courses and PL research.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/swift/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/swift/</guid>
+				<description>&lt;p&gt;Swift was built to be faster and safer than Objective-C while remaining expressive and modern. Its optionals eliminate null pointer errors at compile time, and its protocol-oriented design encourages composable code. Beyond Apple platforms, Swift on Server (Vapor) is gaining adoption for high-performance HTTP services.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/tcl/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/tcl/</guid>
+				<description>&lt;p&gt;Tcl (Tool Command Language) paired with the Tk GUI toolkit was the first accessible cross-platform GUI toolkit for Unix, Windows, and macOS. It remains the scripting language embedded in electronic design automation tools (Cadence, Synopsys, Xilinx Vivado) and network devices. Expect, a Tcl extension, is the standard for automating interactive programs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/typescript/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/typescript/</guid>
+				<description>&lt;p&gt;TypeScript is a typed superset of JavaScript developed by Microsoft. It compiles to plain JavaScript and adds interfaces, generics, and a powerful type system that makes large applications maintainable.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/unison/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/unison/</guid>
+				<description>&lt;p&gt;Unison stores code by the hash of its abstract syntax tree rather than by name — renaming a function never breaks anything. This content-addressed model enables Unison Cloud, where functions are deployed to distributed nodes by their hash. Its ability type system tracks effects (IO, exceptions, state) as a first-class feature.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/v/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/v/</guid>
+				<description>&lt;p&gt;V (Vlang) compiles to C for portability and produces small native binaries without a garbage collector. It draws heavily on Go&amp;rsquo;s syntax and philosophy while adding features like sum types, optional types, and compile-time memory safety checks. The compiler itself is written in V and compiles in under a second.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/vale/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/vale/</guid>
+				<description>&lt;p&gt;Vale achieves memory safety through generational references — every allocation has a generation number, and pointer reads check the generation at runtime, catching use-after-free without requiring a borrow checker. This trades a small runtime overhead for dramatically simpler code compared to Rust. Vale is pre-1.0 and targeting game development and systems programming as primary domains.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/vba/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/vba/</guid>
+				<description>&lt;p&gt;VBA is embedded in every copy of Microsoft Office and remains the primary tool for automating complex Excel spreadsheets, Word document generation, and Access database workflows in enterprise environments. Despite its age, it processes billions of dollars in financial calculations daily through Excel macros that have run untouched for decades.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/verilog/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/verilog/</guid>
+				<description>&lt;p&gt;Verilog describes digital hardware at the register-transfer level — circuits are described as modules with inputs, outputs, and logic that executes concurrently. It is used to design CPUs, FPGAs, ASICs, and every other digital chip. SystemVerilog extends Verilog with object-oriented features for testbench development.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/vhdl/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/vhdl/</guid>
+				<description>&lt;p&gt;VHDL (VHSIC Hardware Description Language) was developed under a US Department of Defense initiative and is strongly typed compared to Verilog. Its verbosity makes intent explicit, which suits safety-critical military and aerospace applications. GHDL provides an open-source VHDL simulator; commercial tools from Xilinx and Intel/Altera support both Verilog and VHDL.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/visual-basic/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/visual-basic/</guid>
+				<description>&lt;p&gt;Visual Basic&amp;rsquo;s drag-and-drop form designer and approachable syntax made Windows application development accessible to non-specialists. VB.NET is the modern evolution running on .NET, fully interoperable with C#. Despite being eclipsed by C#, there are billions of lines of VB.NET in enterprise applications and Office add-ins that continue to run in production.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/wren/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/wren/</guid>
+				<description>&lt;p&gt;Wren is designed to be embedded in applications as a scripting layer — the core interpreter fits in a single C file. Its class-based OOP and concurrency via fibers are approachable for game designers and end users. Bob Nystrom, the author of &lt;em&gt;Crafting Interpreters&lt;/em&gt;, wrote Wren, and the book documents many of the implementation techniques used in it.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/languages/zig/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/languages/zig/</guid>
+				<description>&lt;p&gt;Zig targets the same use cases as C — operating systems, embedded firmware, compilers — but with a design that eliminates undefined behaviour, makes allocations explicit, and provides powerful &lt;code&gt;comptime&lt;/code&gt; metaprogramming without macros or templates. Zig can cross-compile C/C++ projects and is used as a drop-in C toolchain by projects like Bun and TigerBeetle.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/axios/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/axios/</guid>
+				<description>&lt;p&gt;Axios wraps &lt;code&gt;XMLHttpRequest&lt;/code&gt; and Node&amp;rsquo;s &lt;code&gt;http&lt;/code&gt; module behind a clean promise API. Its interceptor system lets you attach auth headers, log requests, or retry on failure globally. Despite the Fetch API&amp;rsquo;s rise, Axios remains dominant in Vue and Angular projects for its ergonomics.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/click/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/click/</guid>
+				<description>&lt;p&gt;Click uses a decorator-based API — &lt;code&gt;@click.command()&lt;/code&gt;, &lt;code&gt;@click.option()&lt;/code&gt;, and &lt;code&gt;@click.argument()&lt;/code&gt; transform any Python function into a fully featured CLI with automatic &lt;code&gt;--help&lt;/code&gt; generation, type coercion, and shell completion. Flask uses Click for its own CLI; FastAPI and many ML tools build CLIs on top of it.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/cobra/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/cobra/</guid>
+				<description>&lt;p&gt;Cobra provides a POSIX-compliant flag system, nested subcommands, shell autocompletion for bash/zsh/fish/PowerShell, and automatic help generation. The &lt;code&gt;cobra-cli&lt;/code&gt; generator scaffolds new commands. It pairs with Viper for configuration management — the combination powers kubectl, Hugo, and the GitHub CLI.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/date-fns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/date-fns/</guid>
+				<description>&lt;p&gt;date-fns provides over 200 functions for formatting, parsing, comparing, and manipulating dates. Unlike Moment.js it is immutable, tree-shakeable, and adds nothing to bundle size beyond what you import. The v3 release ships native TypeScript types and ESM-only packages.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/fmtlib/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/fmtlib/</guid>
+				<description>&lt;p&gt;&lt;code&gt;{fmt}&lt;/code&gt; is significantly faster than &lt;code&gt;printf&lt;/code&gt; and &lt;code&gt;std::cout&lt;/code&gt; — its compile-time format string checking catches errors before runtime. It became the blueprint for &lt;code&gt;std::format&lt;/code&gt; in C++20 and supports custom formatters for user-defined types. Used in spdlog, Qt, and many systems-level projects.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/guava/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/guava/</guid>
+				<description>&lt;p&gt;Guava fills in the gaps the JDK leaves open — immutable collections (&lt;code&gt;ImmutableList&lt;/code&gt;, &lt;code&gt;ImmutableMap&lt;/code&gt;), &lt;code&gt;Optional&lt;/code&gt; before Java 8, &lt;code&gt;LoadingCache&lt;/code&gt; for in-process caching, &lt;code&gt;Multimap&lt;/code&gt;, &lt;code&gt;Table&lt;/code&gt;, &lt;code&gt;Preconditions&lt;/code&gt;, and &lt;code&gt;Strings&lt;/code&gt;. It is one of the most depended-upon Java libraries in the Maven ecosystem.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/httpx/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/httpx/</guid>
+				<description>&lt;p&gt;HTTPX is the modern async successor to Requests — it provides the same intuitive API with native &lt;code&gt;async/await&lt;/code&gt; support, HTTP/2, and connection timeouts. Its sync client is a drop-in Requests replacement while the async client pairs naturally with FastAPI and Starlette applications.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/immer/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/immer/</guid>
+				<description>&lt;p&gt;Immer lets you write update logic by directly mutating a draft object — it records changes via Proxy and produces a new immutable value using structural sharing. Used as Redux Toolkit&amp;rsquo;s default update mechanism, it eliminates the spread-heavy reducer pattern without sacrificing immutability guarantees.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/jackson/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/jackson/</guid>
+				<description>&lt;p&gt;Jackson is the standard JSON library for Java. Its &lt;code&gt;ObjectMapper&lt;/code&gt; converts between JSON and POJOs with annotated field control (&lt;code&gt;@JsonProperty&lt;/code&gt;, &lt;code&gt;@JsonIgnore&lt;/code&gt;). Spring Boot auto-configures Jackson as the default HTTP message converter; Quarkus and Micronaut both support it out of the box.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/lodash/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/lodash/</guid>
+				<description>&lt;p&gt;Lodash is the most downloaded npm package of all time — a drop-in replacement for Underscore.js with a consistent API for &lt;code&gt;_.map&lt;/code&gt;, &lt;code&gt;_.filter&lt;/code&gt;, &lt;code&gt;_.groupBy&lt;/code&gt;, &lt;code&gt;_.debounce&lt;/code&gt;, and hundreds of other utilities. Tree-shakeable with ES module imports so only the functions you use end up in your bundle.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/nlohmann-json/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/nlohmann-json/</guid>
+				<description>&lt;p&gt;nlohmann/json is a single &lt;code&gt;json.hpp&lt;/code&gt; header — drop it in and you have idiomatic C++ JSON with &lt;code&gt;auto j = json::parse(str)&lt;/code&gt;, subscript access, and STL container integration. It supports BSON, CBOR, MessagePack, and UBJSON alongside JSON. The most starred C++ library on GitHub.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/pydantic/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/pydantic/</guid>
+				<description>&lt;p&gt;Pydantic v2 is rewritten in Rust for 5-50x performance improvements over v1. It turns annotated Python classes into data models that parse, coerce, and validate inputs automatically. FastAPI uses Pydantic for request/response schemas, generating OpenAPI docs from the same class definitions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/rayon/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/rayon/</guid>
+				<description>&lt;p&gt;Rayon turns &lt;code&gt;.iter()&lt;/code&gt; into &lt;code&gt;.par_iter()&lt;/code&gt; — that single change saturates all available CPU cores using a work-stealing thread pool. It handles nested parallelism automatically and composes with the standard iterator API. Ideal for CPU-bound batch processing in data pipelines and scientific computing.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/requests/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/requests/</guid>
+				<description>&lt;p&gt;Requests is the canonical Python HTTP library — its tagline &amp;ldquo;HTTP for Humans&amp;rdquo; captures the idea perfectly. Session objects, automatic JSON decoding, connection pooling, and transparent redirect handling make it the go-to for scripting API calls. Synchronous only; see httpx for async alternatives.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/rich/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/rich/</guid>
+				<description>&lt;p&gt;Rich makes Python terminal output beautiful with zero effort — wrap any &lt;code&gt;print&lt;/code&gt; call or add &lt;code&gt;RichHandler&lt;/code&gt; to Python&amp;rsquo;s logging module. Supports syntax-highlighted tracebacks, progress spinners, live tables, Markdown rendering, and side-by-side panels. Powers the Textual TUI framework.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/serde/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/serde/</guid>
+				<description>&lt;p&gt;Serde&amp;rsquo;s &lt;code&gt;#[derive(Serialize, Deserialize)]&lt;/code&gt; macros make struct-to-JSON round-trips trivial with zero runtime overhead. The trait system allows any format (JSON via &lt;code&gt;serde_json&lt;/code&gt;, TOML via &lt;code&gt;toml&lt;/code&gt;, YAML via &lt;code&gt;serde_yaml&lt;/code&gt;, MessagePack, bincode) to plug in without changing application code.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/tanstack-query/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/tanstack-query/</guid>
+				<description>&lt;p&gt;Formerly React Query, TanStack Query abstracts the fetch-cache-sync lifecycle with &lt;code&gt;useQuery&lt;/code&gt; and &lt;code&gt;useMutation&lt;/code&gt; hooks. It automatically deduplicates requests, caches responses, refetches stale data in the background, and handles loading/error states. Adapters exist for React, Vue, Solid, Svelte, and Angular.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/tokio/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/tokio/</guid>
+				<description>&lt;p&gt;Tokio is the de facto async runtime for Rust — virtually every async Rust project targets its executor. It provides a multi-threaded scheduler, async TCP/UDP sockets, timers, and a channel ecosystem (&lt;code&gt;mpsc&lt;/code&gt;, &lt;code&gt;oneshot&lt;/code&gt;, &lt;code&gt;broadcast&lt;/code&gt;). Axum, Tonic, and Reqwest all run on Tokio.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/viper/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/viper/</guid>
+				<description>&lt;p&gt;Viper resolves config from a priority chain — remote KV stores, environment variables, config files, default values — all with a single &lt;code&gt;viper.Get()&lt;/code&gt; call. It watches config files for live reloading and integrates with Cobra so CLI flags and env vars automatically map to configuration keys.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/zod/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/zod/</guid>
+				<description>&lt;p&gt;Zod schemas are runtime validators that also serve as TypeScript type sources — &lt;code&gt;z.infer&amp;lt;typeof schema&amp;gt;&lt;/code&gt; extracts the static type automatically. It integrates with React Hook Form, tRPC, and Prisma. The API covers primitives, objects, arrays, unions, transforms, and refinements with a fluent chainable style.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/bytes/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/bytes/</guid>
+				<description>&lt;p&gt;Bytes is a weekly JavaScript newsletter that manages to be genuinely funny while covering the most important news in the ecosystem. It covers React, TypeScript, tooling, and the broader JS world. Published by Tyler McGinnis and the ui.dev team.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/css-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/css-weekly/</guid>
+				<description>&lt;p&gt;CSS Weekly has been curating the best CSS content since 2012. Each issue covers new CSS features, layout techniques, animation, tooling, browser support news, and design inspiration. Great for developers who want to stay sharp on the ever-evolving CSS platform.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/db-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/db-weekly/</guid>
+				<description>&lt;p&gt;DB Weekly covers all things databases — PostgreSQL, MySQL, SQLite, Redis, MongoDB, and emerging data stores. Each issue includes news, performance tips, schema design articles, and interesting projects from the database community.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/frontend-focus/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/frontend-focus/</guid>
+				<description>&lt;p&gt;Frontend Focus (formerly HTML5 Weekly) is a weekly newsletter focused on the browser platform — CSS, HTML, accessibility, web performance, and everything that makes the front-end tick. Part of the Cooperpress family of newsletters.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/golang-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/golang-weekly/</guid>
+				<description>&lt;p&gt;Golang Weekly delivers the best Go content from the past week — language news, library releases, tutorials, performance tips, and interesting open-source Go projects. Part of the Cooperpress newsletter family.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/hacker-newsletter/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/hacker-newsletter/</guid>
+				<description>&lt;p&gt;Hacker Newsletter distills the best content from Hacker News each week into a single digest. If you don&amp;rsquo;t have time to follow HN daily, this newsletter picks the most discussed and highest-quality stories — tech news, programming posts, startup stories, and the best Ask HN threads.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/javascript-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/javascript-weekly/</guid>
+				<description>&lt;p&gt;JavaScript Weekly has been running since 2010 and is one of the most widely read newsletters in the JavaScript community. Each issue curates the most important news, releases, tutorials, and projects from the past week. Run by Cooperpress, the same publisher behind Node Weekly, React Status, and Frontend Focus.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/node-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/node-weekly/</guid>
+				<description>&lt;p&gt;Node Weekly keeps Node.js developers up to date with the latest releases, ecosystem news, security advisories, tutorials, and projects from the Node.js community. Part of the Cooperpress family alongside JavaScript Weekly.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/pragmatic-engineer/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/pragmatic-engineer/</guid>
+				<description>&lt;p&gt;The Pragmatic Engineer by Gergely Orosz is one of the highest-quality engineering newsletters available. Free subscribers get one article per week; paid subscribers get two. Topics cover engineering culture at big tech, compensation benchmarks, career advice, and how software engineering works inside large companies. Gergely previously worked at Uber and Skype.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/python-weekly/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/python-weekly/</guid>
+				<description>&lt;p&gt;Python Weekly has been one of the go-to resources for Python developers since 2012. Every issue brings a handpicked selection of Python tutorials, projects, libraries, job posts, and conference announcements. Essential reading for Python developers of all levels.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/newsletters/tldr/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/newsletters/tldr/</guid>
+				<description>&lt;p&gt;TLDR is a concise daily digest covering the most interesting stories in tech, science, and programming. Each edition takes about 5 minutes to read and covers big tech news, interesting projects, science breakthroughs, and quick tips. TLDR also has specialized editions for AI, DevOps, Web Dev, and more.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/paths/javascript-fullstack/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/paths/javascript-fullstack/</guid>
+				<description>&lt;p&gt;This path takes you from writing your first line of JavaScript to deploying a full-stack application. It covers the browser, a UI framework, a backend framework, a database, and containerisation — everything you need to ship.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/resources/twelve-factor-app/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/resources/twelve-factor-app/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/tools/docker/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/tools/docker/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/tools/neovim/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/tools/neovim/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/tools/nextjs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/tools/nextjs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/tools/postgresql/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/tools/postgresql/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/tools/react/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/tools/react/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/tools/redis/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/tools/redis/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/tools/visual-studio-code/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/tools/visual-studio-code/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>About DevTools Directory</title>
+				<link>https://devtools.directory/about/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/about/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;DevTools Directory&lt;/strong&gt; is a curated, open-source listing of tools and learning resources for software developers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-this-exists&#34;&gt;Why this exists&lt;/h2&gt;&#xA;&lt;p&gt;There are thousands of developer tools, and finding the right one for your stack is hard. This directory solves that by:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Curating&lt;/strong&gt; only genuinely useful tools and resources&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Being transparent&lt;/strong&gt; — all data is YAML on GitHub, not locked in a database&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Community-driven&lt;/strong&gt; — anyone can add or fix entries via a Pull Request&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;No lock-in&lt;/strong&gt; — MIT licensed, fork it, host your own&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;&#xA;&lt;p&gt;All content lives in &lt;code&gt;data/&lt;/code&gt; directories in the &lt;a href=&#34;https://github.com/dariubs/devtools.directory&#34;&gt;GitHub repository&lt;/a&gt;:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Django Stack</title>
+				<link>https://devtools.directory/stacks/django/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/django/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Flutter Stack</title>
+				<link>https://devtools.directory/stacks/flutter/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/flutter/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>How to Contribute</title>
+				<link>https://devtools.directory/contribute/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/contribute/</guid>
+				<description>&lt;p&gt;This directory is &lt;strong&gt;100% open source&lt;/strong&gt; — all data is YAML files in the GitHub repository. No login needed. Contributions happen via Pull Requests.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Quick version:&lt;/strong&gt; Fork the repo → create a YAML file in the right &lt;code&gt;data/&lt;/code&gt; directory → open a PR. Done.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;what-you-can-add&#34;&gt;What you can add&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tools&lt;/strong&gt; — Dev tools, IDEs, frameworks, CLIs, databases, DevOps tools, etc.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Books&lt;/strong&gt; — Books about software development, architecture, career growth, etc.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Courses&lt;/strong&gt; — Online courses, tutorials, and learning programs&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Resources&lt;/strong&gt; — Guides, cheatsheets, podcasts, newsletters, reference sites&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;adding-a-tool&#34;&gt;Adding a Tool&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-create-the-file&#34;&gt;1. Create the file&lt;/h3&gt;&#xA;&lt;p&gt;Create &lt;code&gt;data/tools/your-tool-slug.yaml&lt;/code&gt; in your fork.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>JAMstack</title>
+				<link>https://devtools.directory/stacks/jamstack/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/jamstack/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Laravel Stack</title>
+				<link>https://devtools.directory/stacks/laravel/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/laravel/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>MEAN Stack</title>
+				<link>https://devtools.directory/stacks/mean/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/mean/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>MERN Stack</title>
+				<link>https://devtools.directory/stacks/mern/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/mern/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Next.js Stack</title>
+				<link>https://devtools.directory/stacks/nextjs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/nextjs/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>

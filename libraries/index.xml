@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Libraries on devtools/</title>
+		<link>https://devtools.directory/libraries/</link>
+		<description>Recent content in Libraries on devtools/</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<atom:link href="https://devtools.directory/libraries/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/axios/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/axios/</guid>
+				<description>&lt;p&gt;Axios wraps &lt;code&gt;XMLHttpRequest&lt;/code&gt; and Node&amp;rsquo;s &lt;code&gt;http&lt;/code&gt; module behind a clean promise API. Its interceptor system lets you attach auth headers, log requests, or retry on failure globally. Despite the Fetch API&amp;rsquo;s rise, Axios remains dominant in Vue and Angular projects for its ergonomics.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/click/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/click/</guid>
+				<description>&lt;p&gt;Click uses a decorator-based API — &lt;code&gt;@click.command()&lt;/code&gt;, &lt;code&gt;@click.option()&lt;/code&gt;, and &lt;code&gt;@click.argument()&lt;/code&gt; transform any Python function into a fully featured CLI with automatic &lt;code&gt;--help&lt;/code&gt; generation, type coercion, and shell completion. Flask uses Click for its own CLI; FastAPI and many ML tools build CLIs on top of it.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/cobra/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/cobra/</guid>
+				<description>&lt;p&gt;Cobra provides a POSIX-compliant flag system, nested subcommands, shell autocompletion for bash/zsh/fish/PowerShell, and automatic help generation. The &lt;code&gt;cobra-cli&lt;/code&gt; generator scaffolds new commands. It pairs with Viper for configuration management — the combination powers kubectl, Hugo, and the GitHub CLI.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/date-fns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/date-fns/</guid>
+				<description>&lt;p&gt;date-fns provides over 200 functions for formatting, parsing, comparing, and manipulating dates. Unlike Moment.js it is immutable, tree-shakeable, and adds nothing to bundle size beyond what you import. The v3 release ships native TypeScript types and ESM-only packages.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/fmtlib/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/fmtlib/</guid>
+				<description>&lt;p&gt;&lt;code&gt;{fmt}&lt;/code&gt; is significantly faster than &lt;code&gt;printf&lt;/code&gt; and &lt;code&gt;std::cout&lt;/code&gt; — its compile-time format string checking catches errors before runtime. It became the blueprint for &lt;code&gt;std::format&lt;/code&gt; in C++20 and supports custom formatters for user-defined types. Used in spdlog, Qt, and many systems-level projects.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/guava/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/guava/</guid>
+				<description>&lt;p&gt;Guava fills in the gaps the JDK leaves open — immutable collections (&lt;code&gt;ImmutableList&lt;/code&gt;, &lt;code&gt;ImmutableMap&lt;/code&gt;), &lt;code&gt;Optional&lt;/code&gt; before Java 8, &lt;code&gt;LoadingCache&lt;/code&gt; for in-process caching, &lt;code&gt;Multimap&lt;/code&gt;, &lt;code&gt;Table&lt;/code&gt;, &lt;code&gt;Preconditions&lt;/code&gt;, and &lt;code&gt;Strings&lt;/code&gt;. It is one of the most depended-upon Java libraries in the Maven ecosystem.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/httpx/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/httpx/</guid>
+				<description>&lt;p&gt;HTTPX is the modern async successor to Requests — it provides the same intuitive API with native &lt;code&gt;async/await&lt;/code&gt; support, HTTP/2, and connection timeouts. Its sync client is a drop-in Requests replacement while the async client pairs naturally with FastAPI and Starlette applications.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/immer/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/immer/</guid>
+				<description>&lt;p&gt;Immer lets you write update logic by directly mutating a draft object — it records changes via Proxy and produces a new immutable value using structural sharing. Used as Redux Toolkit&amp;rsquo;s default update mechanism, it eliminates the spread-heavy reducer pattern without sacrificing immutability guarantees.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/jackson/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/jackson/</guid>
+				<description>&lt;p&gt;Jackson is the standard JSON library for Java. Its &lt;code&gt;ObjectMapper&lt;/code&gt; converts between JSON and POJOs with annotated field control (&lt;code&gt;@JsonProperty&lt;/code&gt;, &lt;code&gt;@JsonIgnore&lt;/code&gt;). Spring Boot auto-configures Jackson as the default HTTP message converter; Quarkus and Micronaut both support it out of the box.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/lodash/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/lodash/</guid>
+				<description>&lt;p&gt;Lodash is the most downloaded npm package of all time — a drop-in replacement for Underscore.js with a consistent API for &lt;code&gt;_.map&lt;/code&gt;, &lt;code&gt;_.filter&lt;/code&gt;, &lt;code&gt;_.groupBy&lt;/code&gt;, &lt;code&gt;_.debounce&lt;/code&gt;, and hundreds of other utilities. Tree-shakeable with ES module imports so only the functions you use end up in your bundle.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/nlohmann-json/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/nlohmann-json/</guid>
+				<description>&lt;p&gt;nlohmann/json is a single &lt;code&gt;json.hpp&lt;/code&gt; header — drop it in and you have idiomatic C++ JSON with &lt;code&gt;auto j = json::parse(str)&lt;/code&gt;, subscript access, and STL container integration. It supports BSON, CBOR, MessagePack, and UBJSON alongside JSON. The most starred C++ library on GitHub.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/pydantic/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/pydantic/</guid>
+				<description>&lt;p&gt;Pydantic v2 is rewritten in Rust for 5-50x performance improvements over v1. It turns annotated Python classes into data models that parse, coerce, and validate inputs automatically. FastAPI uses Pydantic for request/response schemas, generating OpenAPI docs from the same class definitions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/rayon/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/rayon/</guid>
+				<description>&lt;p&gt;Rayon turns &lt;code&gt;.iter()&lt;/code&gt; into &lt;code&gt;.par_iter()&lt;/code&gt; — that single change saturates all available CPU cores using a work-stealing thread pool. It handles nested parallelism automatically and composes with the standard iterator API. Ideal for CPU-bound batch processing in data pipelines and scientific computing.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/requests/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/requests/</guid>
+				<description>&lt;p&gt;Requests is the canonical Python HTTP library — its tagline &amp;ldquo;HTTP for Humans&amp;rdquo; captures the idea perfectly. Session objects, automatic JSON decoding, connection pooling, and transparent redirect handling make it the go-to for scripting API calls. Synchronous only; see httpx for async alternatives.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/rich/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/rich/</guid>
+				<description>&lt;p&gt;Rich makes Python terminal output beautiful with zero effort — wrap any &lt;code&gt;print&lt;/code&gt; call or add &lt;code&gt;RichHandler&lt;/code&gt; to Python&amp;rsquo;s logging module. Supports syntax-highlighted tracebacks, progress spinners, live tables, Markdown rendering, and side-by-side panels. Powers the Textual TUI framework.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/serde/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/serde/</guid>
+				<description>&lt;p&gt;Serde&amp;rsquo;s &lt;code&gt;#[derive(Serialize, Deserialize)]&lt;/code&gt; macros make struct-to-JSON round-trips trivial with zero runtime overhead. The trait system allows any format (JSON via &lt;code&gt;serde_json&lt;/code&gt;, TOML via &lt;code&gt;toml&lt;/code&gt;, YAML via &lt;code&gt;serde_yaml&lt;/code&gt;, MessagePack, bincode) to plug in without changing application code.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/tanstack-query/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/tanstack-query/</guid>
+				<description>&lt;p&gt;Formerly React Query, TanStack Query abstracts the fetch-cache-sync lifecycle with &lt;code&gt;useQuery&lt;/code&gt; and &lt;code&gt;useMutation&lt;/code&gt; hooks. It automatically deduplicates requests, caches responses, refetches stale data in the background, and handles loading/error states. Adapters exist for React, Vue, Solid, Svelte, and Angular.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/tokio/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/tokio/</guid>
+				<description>&lt;p&gt;Tokio is the de facto async runtime for Rust — virtually every async Rust project targets its executor. It provides a multi-threaded scheduler, async TCP/UDP sockets, timers, and a channel ecosystem (&lt;code&gt;mpsc&lt;/code&gt;, &lt;code&gt;oneshot&lt;/code&gt;, &lt;code&gt;broadcast&lt;/code&gt;). Axum, Tonic, and Reqwest all run on Tokio.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/viper/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/viper/</guid>
+				<description>&lt;p&gt;Viper resolves config from a priority chain — remote KV stores, environment variables, config files, default values — all with a single &lt;code&gt;viper.Get()&lt;/code&gt; call. It watches config files for live reloading and integrates with Cobra so CLI flags and env vars automatically map to configuration keys.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/libraries/zod/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/libraries/zod/</guid>
+				<description>&lt;p&gt;Zod schemas are runtime validators that also serve as TypeScript type sources — &lt;code&gt;z.infer&amp;lt;typeof schema&amp;gt;&lt;/code&gt; extracts the static type automatically. It integrates with React Hook Form, tRPC, and Prisma. The API covers primitives, objects, arrays, unions, transforms, and refinements with a fluent chainable style.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

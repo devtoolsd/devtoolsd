@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      var t = localStorage.getItem('devtools-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+<title>Libraries — devtools/</title>
+<meta name="description" content="Popular open-source libraries and packages across all major programming languages.">
+<link rel="canonical" href="https://devtools.directory/libraries/">
+
+
+<meta property="og:title" content="Libraries — devtools/">
+<meta property="og:description" content="Popular open-source libraries and packages across all major programming languages.">
+<meta property="og:url" content="https://devtools.directory/libraries/">
+<meta property="og:site_name" content="devtools/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Libraries — devtools/">
+<meta name="twitter:description" content="Popular open-source libraries and packages across all major programming languages.">
+<meta name="twitter:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https:\/\/devtools.directory\/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Libraries",
+      "item": "https:\/\/devtools.directory\/libraries/"
+    }
+  ]
+}
+</script>
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+
+</head>
+<body>
+  
+
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo">
+      <svg width="26" height="26" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3,0)">
+          <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+          <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+          <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+          <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+          <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+          <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+        </g>
+      </svg>
+      devtools<span style="color:var(--accent)">/</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="/tools/">tools/</a>
+      <a href="/languages/">languages/</a>
+      <a href="/frameworks/" class="nav-group-trigger">ecosystem</a>
+      <a href="/books/" class="nav-group-trigger">learn</a>
+      <a href="/contribute/">contribute</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="search-trigger" id="search-open" aria-label="Search">
+        <span class="search-trigger__slash">/</span>
+        <span class="search-trigger__label">search</span>
+        <kbd class="search-trigger__kbd">⌘K</kbd>
+      </button>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="https://github.com/devtoolsd/devtoolsd" class="header-star" target="_blank" rel="noopener">
+        <span class="header-star__prompt">$</span> star
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  
+  
+  
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', function() {
+    document.getElementById('site-nav').classList.toggle('open');
+  });
+
+  document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('devtools-theme', next);
+  });
+</script>
+
+  <main>
+    
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+<div class="container">
+  <div class="breadcrumb" style="padding-top:1.5rem">
+    <a href="/">Home</a>
+    <span class="breadcrumb__sep">/</span>
+    <span class="breadcrumb__current">Libraries</span>
+  </div>
+</div>
+
+<div class="tools-page">
+
+  
+  <aside class="tools-sidebar" id="tools-sidebar">
+    <div class="tools-sidebar__head">
+      <span class="tools-sidebar__title"><span class="sidebar-prompt">$</span> filters</span>
+      <button class="sidebar-clear" id="clear-filters">clear</button>
+    </div>
+
+    
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// language</div>
+      <div class="sidebar-items" id="filter-lang">
+        <button class="sf active" data-lang="all">all<span class="sf-count">20</span></button>
+        
+        
+        <button class="sf" data-lang="cpp">c&#43;&#43;<span class="sf-count">2</span></button>
+        
+        
+        <button class="sf" data-lang="go">go<span class="sf-count">2</span></button>
+        
+        
+        <button class="sf" data-lang="java">java<span class="sf-count">2</span></button>
+        
+        
+        <button class="sf" data-lang="javascript">javascript<span class="sf-count">4</span></button>
+        
+        
+        <button class="sf" data-lang="python">python<span class="sf-count">5</span></button>
+        
+        
+        <button class="sf" data-lang="rust">rust<span class="sf-count">3</span></button>
+        
+        
+        <button class="sf" data-lang="typescript">typescript<span class="sf-count">2</span></button>
+        
+      </div>
+    </div>
+    
+
+    
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// type</div>
+      <div class="sidebar-items" id="filter-type">
+        <button class="sf active" data-type="all">all</button>
+        
+        <button class="sf" data-type="async">async</button>
+        
+        <button class="sf" data-type="cli">cli</button>
+        
+        <button class="sf" data-type="http">http</button>
+        
+        <button class="sf" data-type="serialization">serialization</button>
+        
+        <button class="sf" data-type="state">state</button>
+        
+        <button class="sf" data-type="utility">utility</button>
+        
+        <button class="sf" data-type="validation">validation</button>
+        
+      </div>
+    </div>
+    
+
+    <div class="sidebar-group">
+      <div class="sidebar-group__label">// license</div>
+      <div class="sidebar-items" id="filter-oss">
+        <button class="sf active" data-oss="all">all</button>
+        <button class="sf" data-oss="true">open source</button>
+      </div>
+    </div>
+  </aside>
+
+  
+  <div class="tools-main">
+
+    <div class="tools-topbar">
+      <div class="tools-search-wrap">
+        <span class="tools-search-slash">/</span>
+        <input
+          type="text"
+          id="lib-search"
+          class="tools-search-input"
+          placeholder="filter libraries..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+      <span class="tools-count"><span id="lib-count">20</span> results</span>
+      <button class="tools-filter-btn" id="filter-toggle" aria-expanded="false">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        filters
+      </button>
+    </div>
+
+    <div class="active-filters" id="active-filters"></div>
+
+    <div class="fw-grid" id="lib-grid">
+      
+      
+      <div class="fw-item"
+        data-name="{fmt}"
+        data-desc="fast, safe, and expressive string formatting library for c&#43;&#43; — the basis for std::format in c&#43;&#43;20."
+        data-lang="cpp"
+        data-type="utility"
+        data-open="true"
+        data-tags="formatting strings cpp modern-cpp output logging ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">{F</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/fmtlib/" class="fw-card__name stretched-link">{fmt}</a>
+      
+        <a href="/languages/cpp/" class="fw-card__lang">c&#43;&#43;/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Fast, safe, and expressive string formatting library for C++ — the basis for std::format in …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">utility</span>
+    <span class="lang-prop lang-prop--year">2012</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="axios"
+        data-desc="promise-based http client for the browser and node.js — interceptors, automatic json transforms, and request cancellation."
+        data-lang="javascript"
+        data-type="http"
+        data-open="true"
+        data-tags="http ajax fetch promises node browser ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">AX</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/axios/" class="fw-card__name stretched-link">Axios</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Promise-based HTTP client for the browser and Node.js — interceptors, automatic JSON …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">http</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="click"
+        data-desc="composable command-line interface toolkit for python — decorators turn functions into commands with options, arguments, and help text."
+        data-lang="python"
+        data-type="cli"
+        data-open="true"
+        data-tags="cli argparse commands python terminal devtools ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">CL</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/click/" class="fw-card__name stretched-link">Click</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Composable command-line interface toolkit for Python — decorators turn functions into commands …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">cli</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="cobra"
+        data-desc="library for building powerful cli applications in go — used by kubectl, hugo, github cli, and most major go tools."
+        data-lang="go"
+        data-type="cli"
+        data-open="true"
+        data-tags="cli commands flags shell-completion go devtools ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">CO</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/cobra/" class="fw-card__name stretched-link">Cobra</a>
+      
+        <a href="/languages/go/" class="fw-card__lang">go/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Library for building powerful CLI applications in Go — used by kubectl, Hugo, GitHub CLI, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">cli</span>
+    <span class="lang-prop lang-prop--year">2013</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="date-fns"
+        data-desc="modern javascript date utility library — pure functions, immutable, tree-shakeable, and locale-aware."
+        data-lang="javascript"
+        data-type="utility"
+        data-open="true"
+        data-tags="dates utility immutable functional i18n ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">DA</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/date-fns/" class="fw-card__name stretched-link">date-fns</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Modern JavaScript date utility library — pure functions, immutable, tree-shakeable, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">utility</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="guava"
+        data-desc="google&#39;s core java libraries — collections, caching, primitives, concurrency, i/o, and string processing utilities."
+        data-lang="java"
+        data-type="utility"
+        data-open="true"
+        data-tags="utility collections caching java google immutable ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">GU</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/guava/" class="fw-card__name stretched-link">Guava</a>
+      
+        <a href="/languages/java/" class="fw-card__lang">java/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Google&#39;s core Java libraries — collections, caching, primitives, concurrency, I/O, and string …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">utility</span>
+    <span class="lang-prop lang-prop--year">2007</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="httpx"
+        data-desc="fully featured async http client for python — requests-compatible api with http/2 and async/await support."
+        data-lang="python"
+        data-type="http"
+        data-open="true"
+        data-tags="http async python http2 networking rest ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">HT</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/httpx/" class="fw-card__name stretched-link">HTTPX</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Fully featured async HTTP client for Python — Requests-compatible API with HTTP/2 and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">http</span>
+    <span class="lang-prop lang-prop--year">2019</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="immer"
+        data-desc="create the next immutable state by mutating a draft — structural sharing under the hood, zero boilerplate."
+        data-lang="javascript"
+        data-type="state"
+        data-open="true"
+        data-tags="immutable state redux javascript typescript ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">IM</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/immer/" class="fw-card__name stretched-link">Immer</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Create the next immutable state by mutating a draft — structural sharing under the hood, zero …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">state</span>
+    <span class="lang-prop lang-prop--year">2017</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="jackson"
+        data-desc="high-performance json processor for java — object mapping, streaming api, data binding, and a rich module ecosystem."
+        data-lang="java"
+        data-type="serialization"
+        data-open="true"
+        data-tags="json serialization java rest data-binding spring ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">JA</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/jackson/" class="fw-card__name stretched-link">Jackson</a>
+      
+        <a href="/languages/java/" class="fw-card__lang">java/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">High-performance JSON processor for Java — object mapping, streaming API, data binding, and a …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">serialization</span>
+    <span class="lang-prop lang-prop--year">2009</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="lodash"
+        data-desc="utility library delivering modularity, performance, and extras for working with arrays, objects, strings, and functions."
+        data-lang="javascript"
+        data-type="utility"
+        data-open="true"
+        data-tags="utility arrays objects functional javascript ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">LO</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/lodash/" class="fw-card__name stretched-link">Lodash</a>
+      
+        <a href="/languages/javascript/" class="fw-card__lang">javascript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Utility library delivering modularity, performance, and extras for working with arrays, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">utility</span>
+    <span class="lang-prop lang-prop--year">2012</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="nlohmann/json"
+        data-desc="single-header json library for modern c&#43;&#43; — intuitive syntax, stl integration, and no external dependencies."
+        data-lang="cpp"
+        data-type="serialization"
+        data-open="true"
+        data-tags="json serialization cpp modern-cpp header-only parsing ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">NL</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/nlohmann-json/" class="fw-card__name stretched-link">nlohmann/json</a>
+      
+        <a href="/languages/cpp/" class="fw-card__lang">c&#43;&#43;/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Single-header JSON library for Modern C++ — intuitive syntax, STL integration, and no external …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">serialization</span>
+    <span class="lang-prop lang-prop--year">2013</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="pydantic"
+        data-desc="data validation using python type hints — parse and validate json payloads, configs, and env vars at runtime."
+        data-lang="python"
+        data-type="validation"
+        data-open="true"
+        data-tags="validation schema python type-hints serialization fastapi ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">PY</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/pydantic/" class="fw-card__name stretched-link">Pydantic</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Data validation using Python type hints — parse and validate JSON payloads, configs, and env …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">validation</span>
+    <span class="lang-prop lang-prop--year">2017</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="rayon"
+        data-desc="data-parallelism library for rust — parallel iterators that use all cpu cores with no unsafe code."
+        data-lang="rust"
+        data-type="utility"
+        data-open="true"
+        data-tags="parallel concurrency performance iterators rust ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">RA</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/rayon/" class="fw-card__name stretched-link">Rayon</a>
+      
+        <a href="/languages/rust/" class="fw-card__lang">rust/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Data-parallelism library for Rust — parallel iterators that use all CPU cores with no unsafe …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">utility</span>
+    <span class="lang-prop lang-prop--year">2015</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="requests"
+        data-desc="simple, elegant http library for python — human-friendly api for get, post, sessions, authentication, and ssl."
+        data-lang="python"
+        data-type="http"
+        data-open="true"
+        data-tags="http rest api python networking ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">RE</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/requests/" class="fw-card__name stretched-link">Requests</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Simple, elegant HTTP library for Python — human-friendly API for GET, POST, sessions, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">http</span>
+    <span class="lang-prop lang-prop--year">2011</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="rich"
+        data-desc="beautiful rich text and formatting in the terminal — syntax highlighting, tables, progress bars, and markdown rendering."
+        data-lang="python"
+        data-type="utility"
+        data-open="true"
+        data-tags="terminal cli pretty-printing logging python ui ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">RI</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/rich/" class="fw-card__name stretched-link">Rich</a>
+      
+        <a href="/languages/python/" class="fw-card__lang">python/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Beautiful rich text and formatting in the terminal — syntax highlighting, tables, progress …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">utility</span>
+    <span class="lang-prop lang-prop--year">2019</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="serde"
+        data-desc="serialization and deserialization framework for rust — derive macros generate blazing-fast json, toml, yaml, and more."
+        data-lang="rust"
+        data-type="serialization"
+        data-open="true"
+        data-tags="serialization json toml yaml rust macros ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">SE</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/serde/" class="fw-card__name stretched-link">Serde</a>
+      
+        <a href="/languages/rust/" class="fw-card__lang">rust/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Serialization and deserialization framework for Rust — derive macros generate blazing-fast …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">serialization</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="tanstack query"
+        data-desc="powerful async state management for server data — caching, background refetching, pagination, and optimistic updates."
+        data-lang="typescript"
+        data-type="http"
+        data-open="true"
+        data-tags="data-fetching caching async react-query state typescript ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">TA</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/tanstack-query/" class="fw-card__name stretched-link">TanStack Query</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Powerful async state management for server data — caching, background refetching, pagination, …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">http</span>
+    <span class="lang-prop lang-prop--year">2019</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="tokio"
+        data-desc="async runtime for rust — event-driven, non-blocking i/o, task scheduling, and networking primitives."
+        data-lang="rust"
+        data-type="async"
+        data-open="true"
+        data-tags="async runtime networking io rust concurrency ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">TO</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/tokio/" class="fw-card__name stretched-link">Tokio</a>
+      
+        <a href="/languages/rust/" class="fw-card__lang">rust/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Async runtime for Rust — event-driven, non-blocking I/O, task scheduling, and networking …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">async</span>
+    <span class="lang-prop lang-prop--year">2016</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="viper"
+        data-desc="complete configuration solution for go — reads from json, toml, yaml, env vars, flags, and remote config stores."
+        data-lang="go"
+        data-type="utility"
+        data-open="true"
+        data-tags="config environment yaml toml go twelve-factor ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">VI</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/viper/" class="fw-card__name stretched-link">Viper</a>
+      
+        <a href="/languages/go/" class="fw-card__lang">go/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">Complete configuration solution for Go — reads from JSON, TOML, YAML, env vars, flags, and …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">utility</span>
+    <span class="lang-prop lang-prop--year">2014</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+      
+      <div class="fw-item"
+        data-name="zod"
+        data-desc="typescript-first schema declaration and validation — parse untrusted data and infer static types from schemas."
+        data-lang="typescript"
+        data-type="validation"
+        data-open="true"
+        data-tags="validation schema typescript type-safe parsing ">
+        
+
+
+<div class="fw-card">
+  <div class="fw-card__header">
+    
+      <div class="fw-card__logo-placeholder">ZO</div>
+    
+    <div class="fw-card__title-block">
+      <a href="/libraries/zod/" class="fw-card__name stretched-link">Zod</a>
+      
+        <a href="/languages/typescript/" class="fw-card__lang">typescript/</a>
+      
+    </div>
+  </div>
+  
+  <p class="fw-card__desc">TypeScript-first schema declaration and validation — parse untrusted data and infer static …</p>
+  
+  <div class="fw-card__foot">
+    <span class="lang-prop">validation</span>
+    <span class="lang-prop lang-prop--year">2020</span>
+    <span class="fw-oss">open source</span>
+  </div>
+</div>
+
+      </div>
+      
+    </div>
+
+    <div id="no-results" class="tools-empty hidden">
+      <span class="tools-empty__icon">∅</span>
+      <span>no libraries match your filters</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl  = document.getElementById('lib-search');
+  var countEl   = document.getElementById('lib-count');
+  var noResults = document.getElementById('no-results');
+  var clearBtn  = document.getElementById('clear-filters');
+  var filterBtn = document.getElementById('filter-toggle');
+  var sidebar   = document.getElementById('tools-sidebar');
+  var activeFiltersEl = document.getElementById('active-filters');
+  var items     = document.querySelectorAll('.fw-item');
+
+  var state = { query: '', lang: 'all', type: 'all', oss: 'all' };
+
+  function filter() {
+    var q = state.query;
+    var visible = 0;
+    items.forEach(function(el) {
+      var d = el.dataset;
+      var ok =
+        (!q || (d.name||'').includes(q) || (d.desc||'').includes(q) || (d.tags||'').includes(q)) &&
+        (state.lang === 'all' || (d.lang||'') === state.lang) &&
+        (state.type === 'all' || (d.type||'') === state.type) &&
+        (state.oss  === 'all' || (d.open||'') === state.oss);
+      el.classList.toggle('filter-hidden', !ok);
+      if (ok) visible++;
+    });
+    countEl.textContent = visible;
+    noResults.classList.toggle('hidden', visible > 0);
+    renderActiveTags();
+    var dirty = state.lang !== 'all' || state.type !== 'all' || state.oss !== 'all';
+    clearBtn.style.display = dirty ? '' : 'none';
+  }
+
+  function renderActiveTags() {
+    var tags = [];
+    if (state.lang !== 'all') tags.push({ label: state.lang, key: 'lang' });
+    if (state.type !== 'all') tags.push({ label: state.type, key: 'type' });
+    if (state.oss  !== 'all') tags.push({ label: 'open source', key: 'oss' });
+    if (!tags.length) { activeFiltersEl.innerHTML = ''; return; }
+    activeFiltersEl.innerHTML = tags.map(function(t) {
+      return '<button class="active-filter-tag" data-key="' + t.key + '">' + t.label + ' ×</button>';
+    }).join('');
+    activeFiltersEl.querySelectorAll('.active-filter-tag').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state[btn.dataset.key] = 'all';
+        syncButtons(btn.dataset.key);
+        filter();
+      });
+    });
+  }
+
+  function wireGroup(containerId, stateKey) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        container.querySelectorAll('.sf').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state[stateKey] = btn.dataset[stateKey];
+        filter();
+      });
+    });
+  }
+
+  function syncButtons(key) {
+    var map = { lang: 'filter-lang', type: 'filter-type', oss: 'filter-oss' };
+    var container = document.getElementById(map[key]);
+    if (!container) return;
+    container.querySelectorAll('.sf').forEach(function(btn) {
+      btn.classList.toggle('active', (btn.dataset[key] || 'all') === state[key]);
+    });
+  }
+
+  wireGroup('filter-lang', 'lang');
+  wireGroup('filter-type', 'type');
+  wireGroup('filter-oss',  'oss');
+
+  searchEl.addEventListener('input', function() { state.query = searchEl.value.toLowerCase().trim(); filter(); });
+
+  clearBtn.addEventListener('click', function() {
+    state = { query: state.query, lang: 'all', type: 'all', oss: 'all' };
+    ['lang', 'type', 'oss'].forEach(syncButtons);
+    filter();
+  });
+
+  filterBtn.addEventListener('click', function() {
+    var open = sidebar.classList.toggle('is-open');
+    filterBtn.setAttribute('aria-expanded', open);
+  });
+
+  clearBtn.style.display = 'none';
+})();
+</script>
+
+  </main>
+  
+
+
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-body">
+
+    
+    <div class="footer-left">
+      <div class="footer-brand-line">
+        <svg width="18" height="18" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <g transform="translate(3,0)">
+            <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+            <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+            <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+            <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+            <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+            <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+          </g>
+        </svg>
+        <span class="footer-brand-name">devtools<span style="color:var(--accent)">/</span></span>
+      </div>
+      <div class="footer-comments">
+        <span class="footer-comment">// Wikipedia for developer tools.</span>
+        <span class="footer-comment">// Community-maintained · open source · MIT.</span>
+      </div>
+
+      <div class="footer-tree">
+        <div class="footer-tree__root">content/</div>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
+        <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
+        <a href="/stacks/"     class="footer-tree__item">├── stacks/     <span class="tree-count">7</span></a>
+        <a href="/paths/"      class="footer-tree__item">├── paths/      <span class="tree-count">1</span></a>
+        <a href="/books/"      class="footer-tree__item">├── books/      <span class="tree-count">1</span></a>
+        <a href="/courses/"     class="footer-tree__item">├── courses/     <span class="tree-count">1</span></a>
+        <a href="/newsletters/" class="footer-tree__item">├── newsletters/ <span class="tree-count">11</span></a>
+        <a href="/resources/"  class="footer-tree__item">└── resources/   <span class="tree-count">1</span></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-prompt">$</span> contribute</div>
+      <a href="/contribute/"                                                      class="footer-cmd"><span class="footer-cmd__arrow">›</span> how to contribute</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/new/main/content/tools"   target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> add a tool</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/issues/new"                target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> report an issue</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/pulls"                     target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> open pull requests</a>
+      <a href="https://github.com/devtoolsd/devtoolsd"                           target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> ★ star on github</a>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-comment-inline">//</span> project</div>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/LICENSE"        target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> license: MIT</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> CONTRIBUTING.md</a>
+      <a href="/llms.txt"                                                           class="footer-cmd"><span class="footer-cmd__arrow">›</span> llms.txt</a>
+      <a href="/index.json"                                                         class="footer-cmd"><span class="footer-cmd__arrow">›</span> index.json</a>
+      <a href="/sitemap.xml"                                                        class="footer-cmd"><span class="footer-cmd__arrow">›</span> sitemap.xml</a>
+    </div>
+
+  </div>
+
+  
+  <div class="footer-statusbar">
+    <span class="footer-status__left">
+      <span class="footer-status__brand">devtools/</span>
+      <span class="footer-status__sep">·</span>
+      <span>MIT</span>
+      <span class="footer-status__sep">·</span>
+      <span>hugo</span>
+      <span class="footer-status__sep">·</span>
+      <span>github pages</span>
+    </span>
+    <span class="footer-status__right">© 2026 · open source</span>
+  </div>
+</footer>
+
+  <div id="search-modal" class="search-modal" hidden>
+  <div class="search-modal__backdrop" id="search-backdrop"></div>
+  <div class="search-modal__box">
+    <div class="search-modal__header">
+      <span class="search-modal__title"><span style="color:var(--accent)">devtools/</span> search</span>
+      <button class="search-modal__close" id="search-close" aria-label="Close search"><kbd>esc</kbd></button>
+    </div>
+    <div class="search-modal__input-wrap">
+      <span class="search-input-slash">/</span>
+      <input
+        type="text"
+        id="search-input"
+        class="search-modal__input"
+        placeholder="search tools, books, languages..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+    </div>
+    <div id="search-results" class="search-results" role="listbox"></div>
+    <div class="search-modal__footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var index = null;
+  var selected = -1;
+
+  var modal    = document.getElementById('search-modal');
+  var input    = document.getElementById('search-input');
+  var results  = document.getElementById('search-results');
+  var openBtn  = document.getElementById('search-open');
+  var closeBtn = document.getElementById('search-close');
+  var backdrop = document.getElementById('search-backdrop');
+
+  function openSearch() {
+    modal.removeAttribute('hidden');
+    document.body.classList.add('search-open');
+    input.focus();
+    if (!index) loadIndex();
+  }
+
+  function closeSearch() {
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('search-open');
+    input.value = '';
+    results.innerHTML = '';
+    selected = -1;
+  }
+
+  function loadIndex() {
+    fetch('/index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { index = data; })
+      .catch(function() { index = []; });
+  }
+
+  function typeLabel(section) {
+    var map = {
+      tools: 'tool', languages: 'lang', frameworks: 'fwk',
+      books: 'book', courses: 'course', resources: 'res',
+      stacks: 'stack', paths: 'path'
+    };
+    return map[section] || section;
+  }
+
+  function escape(str) {
+    return str.replace(/[&<>"']/g, function(c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function highlight(text, q) {
+    if (!q) return escape(text);
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return escape(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function search(q) {
+    selected = -1;
+    if (!q || q.length < 2) { results.innerHTML = ''; return; }
+    if (!index) { results.innerHTML = ''; return; }
+
+    var ql = q.toLowerCase();
+    var scored = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      var name = (item.name || '').toLowerCase();
+      var desc = (item.description || '').toLowerCase();
+      var score = 0;
+      if (name === ql) score = 3;
+      else if (name.startsWith(ql)) score = 2;
+      else if (name.includes(ql)) score = 1;
+      else if (desc.includes(ql)) score = 0;
+      else continue;
+      scored.push({ item: item, score: score });
+    }
+    scored.sort(function(a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 8);
+
+    if (!top.length) {
+      results.innerHTML = '<div class="search-empty">no results for <strong>' + escape(q) + '</strong></div>';
+      return;
+    }
+
+    var html = '';
+    for (var j = 0; j < top.length; j++) {
+      var it = top[j].item;
+      var desc_short = it.description ? it.description.slice(0, 80) : '';
+      html += '<a href="' + escape(it.url) + '" class="search-result" role="option" tabindex="-1">'
+        + '<span class="search-result__type">' + escape(typeLabel(it.type)) + '</span>'
+        + '<span class="search-result__body">'
+        + '<span class="search-result__name">' + highlight(it.name || it.slug, q) + '</span>'
+        + (desc_short ? '<span class="search-result__desc">' + highlight(desc_short, q) + '</span>' : '')
+        + '</span>'
+        + '</a>';
+    }
+    results.innerHTML = html;
+  }
+
+  function getItems() { return results.querySelectorAll('.search-result'); }
+
+  function setSelected(n) {
+    var items = getItems();
+    if (!items.length) return;
+    if (selected >= 0 && selected < items.length) items[selected].classList.remove('is-selected');
+    selected = Math.max(0, Math.min(n, items.length - 1));
+    items[selected].classList.add('is-selected');
+    items[selected].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function() { search(input.value.trim()); });
+
+  input.addEventListener('keydown', function(e) {
+    var items = getItems();
+    if (e.key === 'ArrowDown')  { e.preventDefault(); setSelected(selected + 1); }
+    if (e.key === 'ArrowUp')    { e.preventDefault(); setSelected(selected - 1); }
+    if (e.key === 'Enter' && selected >= 0 && selected < items.length) {
+      e.preventDefault(); items[selected].click();
+    }
+  });
+
+  results.addEventListener('click', function(e) {
+    var link = e.target.closest('.search-result');
+    if (link) closeSearch();
+  });
+
+  openBtn.addEventListener('click', openSearch);
+  closeBtn.addEventListener('click', closeSearch);
+  backdrop.addEventListener('click', closeSearch);
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal.hasAttribute('hidden') ? openSearch() : closeSearch();
+    }
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSearch();
+  });
+})();
+</script>
+
+</body>
+</html>

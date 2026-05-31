@@ -1,0 +1,1602 @@
+# devtools/ — Full Content Dump
+
+> A curated, open-source directory of developer tools, books, courses, and resources.
+> Generated: 2026-05-31
+> Source: https://devtools.directory/
+
+---
+
+## TOOLS
+
+### Docker
+- URL: https://devtools.directory/tools/docker/
+- Website: https://docker.com
+- GitHub: https://github.com/moby/moby
+- Description: Platform for developing, shipping, and running applications in containers.
+- Language: go
+- Type: devops
+- Pricing: freemium
+- Open Source: true
+- License: Apache-2.0
+
+- Tags: containers, devops, deployment
+
+### Neovim
+- URL: https://devtools.directory/tools/neovim/
+- Website: https://neovim.io
+- GitHub: https://github.com/neovim/neovim
+- Description: Hyperextensible Vim-based text editor with Lua scripting, LSP support, and a thriving plugin ecosystem.
+- Language: c
+- Type: editor
+- Pricing: free
+- Open Source: true
+- License: Apache-2.0
+
+- Tags: vim, modal, lua, lsp
+
+### Next.js
+- URL: https://devtools.directory/tools/nextjs/
+- Website: https://nextjs.org
+- GitHub: https://github.com/vercel/next.js
+- Description: Full-stack React framework with server-side rendering, static generation, and App Router.
+- Language: javascript
+- Type: framework
+- Pricing: free
+- Open Source: true
+- License: MIT
+- Frameworks: react
+- Tags: react, ssr, ssg, typescript
+
+### PostgreSQL
+- URL: https://devtools.directory/tools/postgresql/
+- Website: https://postgresql.org
+- GitHub: https://github.com/postgres/postgres
+- Description: Advanced open-source relational database with extensive features and ACID compliance.
+- Language: c
+- Type: database
+- Pricing: free
+- Open Source: true
+- License: PostgreSQL
+- Frameworks: django, laravel, express, nextjs
+- Tags: sql, relational, acid
+
+### React
+- URL: https://devtools.directory/tools/react/
+- Website: https://react.dev
+- GitHub: https://github.com/facebook/react
+- Description: JavaScript library for building user interfaces with a component-based architecture.
+- Language: javascript
+- Type: framework
+- Pricing: free
+- Open Source: true
+- License: MIT
+
+- Tags: ui, components, spa, hooks
+
+### Redis
+- URL: https://devtools.directory/tools/redis/
+- Website: https://redis.io
+- GitHub: https://github.com/redis/redis
+- Description: In-memory data structure store used as database, cache, message broker, and streaming engine.
+- Language: c
+- Type: database
+- Pricing: free
+- Open Source: true
+- License: BSD-3-Clause
+- Frameworks: django, laravel, express
+- Tags: cache, nosql, pub-sub, streams
+
+### Visual Studio Code
+- URL: https://devtools.directory/tools/visual-studio-code/
+- Website: https://code.visualstudio.com
+- GitHub: https://github.com/microsoft/vscode
+- Description: Free, open-source code editor by Microsoft with extensions, debugging, and Git integration.
+- Language: typescript
+- Type: editor
+- Pricing: free
+- Open Source: true
+- License: MIT
+
+- Tags: editor, typescript, intellisense, debugging
+
+---
+
+## LANGUAGES
+
+### ABAP
+- URL: https://devtools.directory/languages/abap/
+- Description: SAP's proprietary language for business application programming — the backbone of SAP ERP systems worldwide.
+- Website: https://community.sap.com/topics/abap
+- Created: 1983
+- Tags: sap, erp, enterprise, backend, business
+
+### ActionScript
+- URL: https://devtools.directory/languages/actionscript/
+- Description: ECMAScript-based language that powered Flash — the dominant platform for interactive web and game content in the 2000s.
+- Website: https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/
+- Created: 1998
+- Tags: flash, frontend, game-dev, adobe, legacy, web
+
+### Ada
+- URL: https://devtools.directory/languages/ada/
+- Description: Safety-critical systems language mandated by the US DoD — used in aerospace, defence, and railway control systems.
+- Website: https://ada-lang.io
+- Created: 1980
+- Tags: safety-critical, aerospace, defence, embedded, real-time
+
+### Agda
+- URL: https://devtools.directory/languages/agda/
+- Description: Dependently typed proof assistant and programming language — used for formalising mathematics and verifying software correctness.
+- Website: https://agda.readthedocs.io
+- Created: 2007
+- Tags: proof-assistant, dependent-types, formal-verification, academic, mathematics
+
+### Apex
+- URL: https://devtools.directory/languages/apex/
+- Description: Salesforce's proprietary Java-like language for building business logic on the Salesforce platform.
+- Website: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/
+- Created: 2007
+- Tags: salesforce, crm, enterprise, backend, cloud
+
+### APL
+- URL: https://devtools.directory/languages/apl/
+- Description: Array-oriented language using a unique notation of mathematical symbols — extraordinarily concise, operating on entire arrays at once.
+- Website: https://aplwiki.com
+- Created: 1966
+- Tags: array-programming, financial, mathematical, concise
+
+### Assembly
+- URL: https://devtools.directory/languages/assembly/
+- Description: Human-readable representation of machine code — the lowest-level language above raw binary, essential for OS kernels, firmware, and reverse engineering.
+- Website: https://nasm.us
+- Created: 1947
+- Tags: systems, embedded, os, firmware, reverse-engineering, security
+
+### AWK
+- URL: https://devtools.directory/languages/awk/
+- Description: Pattern-action text processing language — a one-liner powerhouse for parsing and transforming structured text files.
+- Website: https://gnu.org/software/gawk/
+- Created: 1977
+- Tags: scripting, text-processing, unix, data, cli, devops
+
+### Ballerina
+- URL: https://devtools.directory/languages/ballerina/
+- Description: Cloud-native language from WSO2 — built-in network types, service definitions, and JSON/XML handling for integration work.
+- Website: https://ballerina.io
+- Created: 2017
+- Tags: cloud, integration, microservices, api, network
+
+### Bash
+- URL: https://devtools.directory/languages/bash/
+- Description: The GNU Bourne Again Shell — the default scripting language of Linux and macOS automation.
+- Website: https://gnu.org/software/bash/
+- Created: 1989
+- Tags: scripting, automation, linux, devops, shell, cli
+
+### C
+- URL: https://devtools.directory/languages/c/
+- Description: The foundational systems language — close to the metal, fast, and still driving operating systems, embedded firmware, and compilers.
+- Website: https://en.wikipedia.org/wiki/C_(programming_language)
+- Created: 1972
+- Tags: systems, embedded, os, performance, compilers
+
+### Carbon
+- URL: https://devtools.directory/languages/carbon/
+- Description: Google's experimental C++ successor — designed for bidirectional C++ interoperability and a safer, more modern syntax.
+- Website: https://github.com/carbon-language/carbon-lang
+- Created: 2022
+- Tags: systems, c-plus-plus, google, experimental, performance
+
+### Chapel
+- URL: https://devtools.directory/languages/chapel/
+- Description: Parallel programming language from Cray/HPE — designed for high-performance computing on multicore and distributed systems.
+- Website: https://chapel-lang.org
+- Created: 2009
+- Tags: hpc, parallel, distributed, scientific-computing, supercomputing
+
+### Clean
+- URL: https://devtools.directory/languages/clean/
+- Description: Purely functional language from the Netherlands with uniqueness types for safe in-place mutation without monads.
+- Website: https://clean-lang.org
+- Created: 1987
+- Tags: functional, type-theory, uniqueness-types, academic, haskell-like
+
+### Clojure
+- URL: https://devtools.directory/languages/clojure/
+- Description: Pragmatic Lisp on the JVM — immutable by default, REPL-driven, and built for concurrent data transformation.
+- Website: https://clojure.org
+- Created: 2007
+- Tags: jvm, functional, lisp, concurrent, data, backend
+
+### COBOL
+- URL: https://devtools.directory/languages/cobol/
+- Description: Business-oriented language from 1959 — still processing the majority of the world's financial transactions.
+- Website: https://gnucobol.sourceforge.io
+- Created: 1959
+- Tags: enterprise, finance, banking, mainframe, legacy
+
+### CoffeeScript
+- URL: https://devtools.directory/languages/coffeescript/
+- Description: Syntactic sugar that compiles to JavaScript — introduced many clean features later adopted by ES6.
+- Website: https://coffeescript.org
+- Created: 2009
+- Tags: frontend, javascript, web, transpiled
+
+### Common Lisp
+- URL: https://devtools.directory/languages/common-lisp/
+- Description: The standardised, multi-paradigm Lisp — one of the most powerful and flexible languages ever created.
+- Website: https://common-lisp.net
+- Created: 1984
+- Tags: lisp, functional, ai, macros, academic, backend
+
+### Coq
+- URL: https://devtools.directory/languages/coq/
+- Description: Interactive proof assistant based on the Calculus of Constructions — used to formally verify compiler correctness and mathematical theorems.
+- Website: https://coq.inria.fr
+- Created: 1989
+- Tags: proof-assistant, formal-verification, type-theory, academic, compilers
+
+### C++
+- URL: https://devtools.directory/languages/cpp/
+- Description: Systems language extending C with classes, templates, and the STL — the language of game engines, browsers, and high-frequency trading.
+- Website: https://isocpp.org
+- Created: 1985
+- Tags: systems, game-dev, performance, embedded, graphics, hft
+
+### Crystal
+- URL: https://devtools.directory/languages/crystal/
+- Description: Statically typed language with Ruby syntax — as fast as C, as readable as Ruby.
+- Website: https://crystal-lang.org
+- Created: 2014
+- Tags: web, backend, systems, performance, ruby-like
+
+### C#
+- URL: https://devtools.directory/languages/csharp/
+- Description: Microsoft's modern, type-safe language for .NET — used in enterprise backends, game development with Unity, and cross-platform desktop apps.
+- Website: https://dotnet.microsoft.com/languages/csharp
+- Created: 2000
+- Tags: backend, dotnet, unity, enterprise, desktop, game-dev
+
+### D
+- URL: https://devtools.directory/languages/d/
+- Description: Systems language designed as a successor to C++ — safe, fast, and with built-in concurrency and metaprogramming.
+- Website: https://dlang.org
+- Created: 2001
+- Tags: systems, performance, native, metaprogramming, concurrent
+
+### Dart
+- URL: https://devtools.directory/languages/dart/
+- Description: Client-optimised language from Google — the foundation of Flutter for cross-platform mobile, web, and desktop apps.
+- Website: https://dart.dev
+- Created: 2011
+- Tags: mobile, flutter, cross-platform, frontend, web
+
+### Delphi
+- URL: https://devtools.directory/languages/delphi/
+- Description: Object Pascal RAD environment from Embarcadero — used for cross-platform native desktop and mobile applications.
+- Website: https://embarcadero.com/products/delphi
+- Created: 1995
+- Tags: desktop, windows, cross-platform, native, rapid-application-development
+
+### Eiffel
+- URL: https://devtools.directory/languages/eiffel/
+- Description: Object-oriented language built around Design by Contract — preconditions, postconditions, and invariants are first-class language features.
+- Website: https://eiffel.org
+- Created: 1985
+- Tags: oop, design-by-contract, safety-critical, academic, correctness
+
+### Elixir
+- URL: https://devtools.directory/languages/elixir/
+- Description: Functional, concurrent language built on the Erlang VM — designed for fault-tolerant, distributed, low-latency systems.
+- Website: https://elixir-lang.org
+- Created: 2012
+- Tags: backend, distributed, real-time, fault-tolerant, phoenix
+
+### Elm
+- URL: https://devtools.directory/languages/elm/
+- Description: Functional language that compiles to JavaScript — famous for its zero-runtime-error guarantee and helpful compiler messages.
+- Website: https://elm-lang.org
+- Created: 2012
+- Tags: frontend, functional, web, type-safe, spa
+
+### Erlang
+- URL: https://devtools.directory/languages/erlang/
+- Description: Concurrent, fault-tolerant language from Ericsson — the foundation of the BEAM VM that also powers Elixir.
+- Website: https://erlang.org
+- Created: 1986
+- Tags: distributed, fault-tolerant, telecom, real-time, backend
+
+### Factor
+- URL: https://devtools.directory/languages/factor/
+- Description: Stack-based concatenative language with a rich interactive environment — programs are composed by concatenating words.
+- Website: https://factorcode.org
+- Created: 2003
+- Tags: concatenative, stack-based, functional, scripting
+
+### Fennel
+- URL: https://devtools.directory/languages/fennel/
+- Description: Lisp that compiles to Lua — brings macros and functional patterns to the Lua ecosystem with zero overhead.
+- Website: https://fennel-lang.org
+- Created: 2016
+- Tags: lisp, lua, game-dev, neovim, scripting, macros
+
+### Forth
+- URL: https://devtools.directory/languages/forth/
+- Description: Stack-based, extensible language used in embedded systems, bootstrapping, and as the base of OpenFirmware.
+- Website: https://forth.com
+- Created: 1970
+- Tags: embedded, systems, stack-based, bootstrapping, minimalist
+
+### Fortran
+- URL: https://devtools.directory/languages/fortran/
+- Description: The first high-level programming language — still the dominant choice for high-performance scientific and numerical computing.
+- Website: https://fortran-lang.org
+- Created: 1957
+- Tags: scientific-computing, hpc, numerical, simulation, physics
+
+### F#
+- URL: https://devtools.directory/languages/fsharp/
+- Description: Functional-first language on .NET — concise, type-safe, and excellent for data transformation, financial modelling, and domain-driven design.
+- Website: https://fsharp.org
+- Created: 2005
+- Tags: dotnet, functional, finance, data, backend
+
+### Gleam
+- URL: https://devtools.directory/languages/gleam/
+- Description: Type-safe functional language on the BEAM VM — friendly syntax, no nulls, and runs alongside Erlang and Elixir.
+- Website: https://gleam.run
+- Created: 2019
+- Tags: beam, erlang, functional, type-safe, distributed
+
+### Go
+- URL: https://devtools.directory/languages/go/
+- Description: Statically typed, compiled language from Google — fast, simple, and built for concurrency.
+- Website: https://go.dev
+- Created: 2009
+- Tags: backend, cloud, devops, cli, concurrency, systems
+
+### Grain
+- URL: https://devtools.directory/languages/grain/
+- Description: Functional language that compiles to WebAssembly — strongly typed with a focus on safety and web-first deployment.
+- Website: https://grain-lang.org
+- Created: 2019
+- Tags: wasm, functional, web, type-safe, webassembly
+
+### Groovy
+- URL: https://devtools.directory/languages/groovy/
+- Description: Dynamic JVM language with optional typing and Java interoperability — the language behind Gradle and Jenkins pipelines.
+- Website: https://groovy-lang.org
+- Created: 2003
+- Tags: jvm, gradle, jenkins, scripting, dsl, build
+
+### Hack
+- URL: https://devtools.directory/languages/hack/
+- Description: Gradually typed PHP dialect from Meta — adds static typing, generics, and modern language features to PHP.
+- Website: https://hacklang.org
+- Created: 2014
+- Tags: web, backend, php, meta, typed
+
+### Haskell
+- URL: https://devtools.directory/languages/haskell/
+- Description: Purely functional, lazily evaluated language with a powerful type system — influential in type theory, compilers, and financial systems.
+- Website: https://haskell.org
+- Created: 1990
+- Tags: functional, compilers, finance, type-theory, academic
+
+### HCL
+- URL: https://devtools.directory/languages/hcl/
+- Description: HashiCorp Configuration Language — the declarative language behind Terraform for defining cloud infrastructure as code.
+- Website: https://github.com/hashicorp/hcl
+- Created: 2014
+- Tags: infrastructure, terraform, devops, cloud, iac, configuration
+
+### Idris
+- URL: https://devtools.directory/languages/idris/
+- Description: Dependently typed functional language — types can express arbitrary program properties, enabling proof-carrying code.
+- Website: https://idris-lang.org
+- Created: 2007
+- Tags: dependent-types, functional, type-theory, proof, academic
+
+### Io
+- URL: https://devtools.directory/languages/io/
+- Description: Prototype-based, purely message-passing language — minimal syntax, everything is a message send to an object.
+- Website: https://iolanguage.org
+- Created: 2002
+- Tags: prototype-based, scripting, embedded, minimalist, concurrent
+
+### J
+- URL: https://devtools.directory/languages/j/
+- Description: APL successor from Kenneth Iverson using ASCII symbols — array-oriented and extraordinarily expressive for mathematical computing.
+- Website: https://jsoftware.com
+- Created: 1990
+- Tags: array-programming, mathematical, apl, concise, financial
+
+### Janet
+- URL: https://devtools.directory/languages/janet/
+- Description: Lightweight Lisp/Clojure-inspired language designed for embedding and scripting — a single C file, no external dependencies.
+- Website: https://janet-lang.org
+- Created: 2019
+- Tags: lisp, embedded, scripting, clojure-like, lightweight
+
+### Java
+- URL: https://devtools.directory/languages/java/
+- Description: Object-oriented, write-once-run-anywhere language powering enterprise backends, Android, and big data.
+- Website: https://java.com
+- Created: 1995
+- Tags: backend, enterprise, android, jvm, big-data
+
+### JavaScript
+- URL: https://devtools.directory/languages/javascript/
+- Description: The language of the web — runs in every browser and on the server via Node.js.
+- Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- Created: 1995
+- Tags: web, frontend, backend, scripting, nodejs
+
+### Julia
+- URL: https://devtools.directory/languages/julia/
+- Description: High-performance dynamic language for scientific computing — designed to be as fast as C and as easy as Python.
+- Website: https://julialang.org
+- Created: 2012
+- Tags: scientific-computing, data-science, ml, numerical, hpc
+
+### Koka
+- URL: https://devtools.directory/languages/koka/
+- Description: Research language from Microsoft that tracks side effects in the type system using algebraic effects and handlers.
+- Website: https://koka-lang.github.io
+- Created: 2012
+- Tags: effects, functional, type-theory, research, microsoft
+
+### Kotlin
+- URL: https://devtools.directory/languages/kotlin/
+- Description: JVM language from JetBrains — concise, null-safe, and the preferred language for Android development.
+- Website: https://kotlinlang.org
+- Created: 2011
+- Tags: android, jvm, backend, mobile, multiplatform
+
+### Lean
+- URL: https://devtools.directory/languages/lean/
+- Description: Interactive theorem prover and functional programming language — increasingly popular for formalising mathematics.
+- Website: https://lean-lang.org
+- Created: 2013
+- Tags: proof-assistant, formal-verification, mathematics, type-theory, academic
+
+### Lobster
+- URL: https://devtools.directory/languages/lobster/
+- Description: Statically typed game scripting language with flow-sensitive typing and lifetime analysis — designed for safe, fast game logic.
+- Website: https://strlen.com/lobster/
+- Created: 2013
+- Tags: game-dev, scripting, type-safe, performance, embedded
+
+### Lua
+- URL: https://devtools.directory/languages/lua/
+- Description: Lightweight, embeddable scripting language — the go-to choice for game engines, config systems, and plugin runtimes.
+- Website: https://lua.org
+- Created: 1993
+- Tags: scripting, game-dev, embedded, config, plugins
+
+### MATLAB
+- URL: https://devtools.directory/languages/matlab/
+- Description: Numeric computing environment and language from MathWorks — the standard in engineering, signal processing, and scientific simulation.
+- Website: https://mathworks.com/products/matlab.html
+- Created: 1984
+- Tags: scientific-computing, engineering, signal-processing, simulation, numerical
+
+### Mercury
+- URL: https://devtools.directory/languages/mercury/
+- Description: Logic/functional language with a static type and mode system — Prolog with the performance and safety guarantees of a compiled language.
+- Website: https://mercurylang.org
+- Created: 1995
+- Tags: logic-programming, functional, type-safe, academic
+
+### Modula-2
+- URL: https://devtools.directory/languages/modula2/
+- Description: Pascal successor by Niklaus Wirth — introduced the module system concept that influenced Ada, Java, and modern module systems.
+- Website: https://modula2.org
+- Created: 1978
+- Tags: systems, modular, pascal, academic, legacy
+
+### Mojo
+- URL: https://devtools.directory/languages/mojo/
+- Description: Python superset from Modular designed for AI — combines Python's ecosystem with systems-level performance via MLIR.
+- Website: https://modular.com/mojo
+- Created: 2023
+- Tags: ai, ml, python, performance, gpu, systems
+
+### Nim
+- URL: https://devtools.directory/languages/nim/
+- Description: Statically typed, compiled language with Python-like syntax — efficient as C, expressive as Python, with powerful metaprogramming via macros.
+- Website: https://nim-lang.org
+- Created: 2008
+- Tags: systems, scripting, performance, macros, cli
+
+### Nix
+- URL: https://devtools.directory/languages/nix/
+- Description: Purely functional configuration language for the Nix package manager — enables reproducible builds and declarative system configuration.
+- Website: https://nixos.org/manual/nix/stable/language/
+- Created: 2003
+- Tags: devops, configuration, reproducible, package-management, nixos
+
+### Objective-C
+- URL: https://devtools.directory/languages/objective-c/
+- Description: Smalltalk-style messaging layered on top of C — Apple's primary language for iOS and macOS before Swift.
+- Website: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html
+- Created: 1984
+- Tags: ios, macos, apple, cocoa, legacy
+
+### OCaml
+- URL: https://devtools.directory/languages/ocaml/
+- Description: Functional language with a powerful type system and optional mutability — used in compilers, proof assistants, and financial systems.
+- Website: https://ocaml.org
+- Created: 1996
+- Tags: functional, compilers, finance, systems, type-theory
+
+### Odin
+- URL: https://devtools.directory/languages/odin/
+- Description: Systems language designed as a clean alternative to C — fast, simple, no hidden allocations, with excellent tooling.
+- Website: https://odin-lang.org
+- Created: 2016
+- Tags: systems, game-dev, performance, c-alternative, native
+
+### Pascal
+- URL: https://devtools.directory/languages/pascal/
+- Description: Structured programming language designed for teaching — influenced Delphi, Modula-2, and a generation of programmers.
+- Website: https://freepascal.org
+- Created: 1970
+- Tags: education, structured, legacy, delphi, desktop
+
+### Perl
+- URL: https://devtools.directory/languages/perl/
+- Description: Pragmatic text-processing language with powerful regex support — once the dominant language for CGI web programming and system administration.
+- Website: https://perl.org
+- Created: 1987
+- Tags: scripting, text-processing, regex, sysadmin, bioinformatics
+
+### PHP
+- URL: https://devtools.directory/languages/php/
+- Description: Server-side scripting language powering a huge portion of the web, including WordPress and Laravel.
+- Website: https://php.net
+- Created: 1994
+- Tags: web, backend, scripting, cms, wordpress
+
+### Pony
+- URL: https://devtools.directory/languages/pony/
+- Description: Actor-based object-oriented language with a capability-security type system — data-race free and deadlock free by design.
+- Website: https://ponylang.io
+- Created: 2014
+- Tags: concurrent, actor-model, type-safe, systems, performance
+
+### PowerShell
+- URL: https://devtools.directory/languages/powershell/
+- Description: Object-oriented shell and scripting language from Microsoft — the standard for Windows automation and cross-platform DevOps.
+- Website: https://microsoft.com/powershell
+- Created: 2006
+- Tags: windows, automation, devops, scripting, sysadmin, azure
+
+### Prolog
+- URL: https://devtools.directory/languages/prolog/
+- Description: Logic programming language — programs are expressed as facts and rules, and execution is driven by backtracking search.
+- Website: https://swi-prolog.org
+- Created: 1972
+- Tags: logic-programming, ai, nlp, academic, expert-systems
+
+### PureScript
+- URL: https://devtools.directory/languages/purescript/
+- Description: Strongly typed functional language that compiles to JavaScript — Haskell-inspired, with a focus on correctness.
+- Website: https://purescript.org
+- Created: 2013
+- Tags: frontend, functional, haskell, type-safe, web
+
+### Python
+- URL: https://devtools.directory/languages/python/
+- Description: Readable, batteries-included language dominant in data science, AI, and web backends.
+- Website: https://python.org
+- Created: 1991
+- Tags: data-science, ai, ml, web, scripting, automation
+
+### R
+- URL: https://devtools.directory/languages/r/
+- Description: Statistical computing language and environment — the standard for data analysis, visualisation, and bioinformatics.
+- Website: https://r-project.org
+- Created: 1993
+- Tags: data-science, statistics, visualisation, bioinformatics, ml
+
+### Racket
+- URL: https://devtools.directory/languages/racket/
+- Description: Language-oriented programming platform descended from Scheme — used to teach programming and build new languages.
+- Website: https://racket-lang.org
+- Created: 1994
+- Tags: lisp, education, language-design, functional, academic
+
+### Rebol
+- URL: https://devtools.directory/languages/rebol/
+- Description: Messaging language with a homoiconic, dialect-based approach — code and data share the same representation.
+- Website: https://rebol.com
+- Created: 1997
+- Tags: scripting, dsl, homoiconic, dialects, minimalist
+
+### ReScript
+- URL: https://devtools.directory/languages/rescript/
+- Description: Typed language with OCaml semantics that compiles to readable JavaScript — formerly BuckleScript/Reason.
+- Website: https://rescript-lang.org
+- Created: 2020
+- Tags: frontend, functional, ocaml, type-safe, web, react
+
+### REXX
+- URL: https://devtools.directory/languages/rexx/
+- Description: Scripting language from IBM designed to be easy to learn — widely used on IBM mainframes and still the shell language of z/OS.
+- Website: https://regina-rexx.sourceforge.io
+- Created: 1979
+- Tags: scripting, mainframe, ibm, zos, automation, legacy
+
+### Roc
+- URL: https://devtools.directory/languages/roc/
+- Description: Fast, friendly functional language with no runtime exceptions — statically typed with algebraic effects and a focus on developer experience.
+- Website: https://roc-lang.org
+- Created: 2021
+- Tags: functional, type-safe, performance, native, friendly
+
+### Ruby
+- URL: https://devtools.directory/languages/ruby/
+- Description: Elegant, developer-friendly scripting language known for Rails and a philosophy that optimises for programmer happiness.
+- Website: https://ruby-lang.org
+- Created: 1995
+- Tags: web, scripting, rails, backend, devtools
+
+### Rust
+- URL: https://devtools.directory/languages/rust/
+- Description: Systems programming language focused on memory safety and performance without a garbage collector.
+- Website: https://rust-lang.org
+- Created: 2015
+- Tags: systems, wasm, cli, performance, memory-safety, embedded
+
+### SAS
+- URL: https://devtools.directory/languages/sas/
+- Description: Statistical analysis software and language — dominant in clinical trials, pharmaceuticals, and regulated industries.
+- Website: https://sas.com
+- Created: 1966
+- Tags: statistics, clinical-trials, pharma, data-analysis, enterprise
+
+### Scala
+- URL: https://devtools.directory/languages/scala/
+- Description: Hybrid functional-OOP language on the JVM — the language of Apache Spark and large-scale data engineering.
+- Website: https://scala-lang.org
+- Created: 2004
+- Tags: jvm, data-engineering, spark, backend, functional, big-data
+
+### Scheme
+- URL: https://devtools.directory/languages/scheme/
+- Description: Minimalist Lisp dialect — the language of SICP and the foundation of many teaching and research languages.
+- Website: https://scheme.org
+- Created: 1975
+- Tags: lisp, education, functional, academic, language-design
+
+### Self
+- URL: https://devtools.directory/languages/self/
+- Description: Prototype-based object-oriented language that pioneered JIT compilation and influenced JavaScript's prototype model.
+- Website: https://selflanguage.org
+- Created: 1987
+- Tags: prototype-based, oop, pioneering, jvm, academic
+
+### Simula
+- URL: https://devtools.directory/languages/simula/
+- Description: The world's first object-oriented language — introduced classes, objects, and inheritance in 1967.
+- Website: https://en.wikipedia.org/wiki/Simula
+- Created: 1962
+- Tags: pioneering, oop, academic, simulation, history
+
+### Smalltalk
+- URL: https://devtools.directory/languages/smalltalk/
+- Description: The original object-oriented language — everything is an object, and computation happens through message passing.
+- Website: https://pharo.org
+- Created: 1972
+- Tags: oop, education, ide, academic, pioneering
+
+### Solidity
+- URL: https://devtools.directory/languages/solidity/
+- Description: Contract-oriented language for writing Ethereum smart contracts — the primary language of decentralised finance.
+- Website: https://soliditylang.org
+- Created: 2014
+- Tags: blockchain, ethereum, smart-contracts, defi, web3
+
+### SQL
+- URL: https://devtools.directory/languages/sql/
+- Description: Declarative query language for relational databases — the universal language for structured data retrieval and manipulation.
+- Website: https://en.wikipedia.org/wiki/SQL
+- Created: 1974
+- Tags: databases, data, backend, analytics, etl, data-engineering
+
+### Squirrel
+- URL: https://devtools.directory/languages/squirrel/
+- Description: Lightweight scripting language designed for embedding in games — used in Left 4 Dead, Portal 2, and Source engine games.
+- Website: https://squirrel-lang.org
+- Created: 2003
+- Tags: game-dev, embedded, scripting, source-engine, lightweight
+
+### Standard ML
+- URL: https://devtools.directory/languages/standard-ml/
+- Description: The original ML — a statically typed functional language influential in type theory, compilers, and programming language research.
+- Website: https://smlfamily.github.io
+- Created: 1983
+- Tags: functional, type-theory, compilers, academic, ml-family
+
+### Swift
+- URL: https://devtools.directory/languages/swift/
+- Description: Apple's fast, safe language for iOS, macOS, and server-side development — designed to replace Objective-C.
+- Website: https://swift.org
+- Created: 2014
+- Tags: ios, macos, apple, mobile, server
+
+### Tcl
+- URL: https://devtools.directory/languages/tcl/
+- Description: Dynamic scripting language with an everything-is-a-string philosophy — the scripting backbone of EDA tools and embedded interpreters.
+- Website: https://tcl.tk
+- Created: 1988
+- Tags: scripting, eda, embedded, gui, automation
+
+### TypeScript
+- URL: https://devtools.directory/languages/typescript/
+- Description: JavaScript with static types — catches errors at compile time and scales to large codebases.
+- Website: https://www.typescriptlang.org
+- Created: 2012
+- Tags: web, frontend, backend, types, microsoft
+
+### Unison
+- URL: https://devtools.directory/languages/unison/
+- Description: Functional language where code is content-addressed — functions are identified by hash, enabling distributed computing and fearless refactoring.
+- Website: https://unison-lang.org
+- Created: 2019
+- Tags: distributed, functional, content-addressed, cloud, type-safe
+
+### V
+- URL: https://devtools.directory/languages/v/
+- Description: Simple, fast compiled language inspired by Go — designed for rapid compilation and safe memory management without a GC.
+- Website: https://vlang.io
+- Created: 2019
+- Tags: systems, performance, native, c-interop, cli
+
+### Vale
+- URL: https://devtools.directory/languages/vale/
+- Description: Fast, safe systems language using generational references instead of a borrow checker — aims for Rust-level safety with simpler ergonomics.
+- Website: https://vale.dev
+- Created: 2020
+- Tags: systems, memory-safety, performance, native, experimental
+
+### VBA
+- URL: https://devtools.directory/languages/vba/
+- Description: Visual Basic for Applications — Microsoft Office's embedded language for automating Excel, Word, and Access.
+- Website: https://docs.microsoft.com/office/vba/
+- Created: 1993
+- Tags: excel, office, automation, scripting, microsoft, enterprise
+
+### Verilog
+- URL: https://devtools.directory/languages/verilog/
+- Description: Hardware description language for designing and simulating digital circuits — the standard for ASIC and FPGA development.
+- Website: https://en.wikipedia.org/wiki/Verilog
+- Created: 1984
+- Tags: hardware, fpga, asic, eda, digital-design, chip-design
+
+### VHDL
+- URL: https://devtools.directory/languages/vhdl/
+- Description: IEEE-standardised hardware description language — the dominant choice for military and aerospace FPGA design.
+- Website: https://en.wikipedia.org/wiki/VHDL
+- Created: 1983
+- Tags: hardware, fpga, asic, eda, digital-design, defence
+
+### Visual Basic
+- URL: https://devtools.directory/languages/visual-basic/
+- Description: Microsoft's event-driven RAD language — introduced millions of developers to Windows programming in the 1990s and 2000s.
+- Website: https://docs.microsoft.com/dotnet/visual-basic/
+- Created: 1991
+- Tags: windows, desktop, microsoft, dotnet, enterprise, legacy
+
+### Wren
+- URL: https://devtools.directory/languages/wren/
+- Description: Small, fast scripting language designed for embedding — class-based with a clean syntax and a single-file implementation.
+- Website: https://wren.io
+- Created: 2016
+- Tags: embedded, scripting, game-dev, lightweight, embedding
+
+### Zig
+- URL: https://devtools.directory/languages/zig/
+- Description: Modern systems language aiming to replace C — explicit, no hidden allocations, and with a powerful compile-time metaprogramming model.
+- Website: https://ziglang.org
+- Created: 2016
+- Tags: systems, embedded, performance, wasm, c-interop
+
+---
+
+## FRAMEWORKS
+
+### Actix Web
+- URL: https://devtools.directory/frameworks/actix-web/
+- Website: https://actix.rs
+- GitHub: https://github.com/actix/actix-web
+- Description: Powerful, high-performance Rust web framework — async-first, type-safe extractors, and consistently ranked among the world's fastest web servers.
+- Language: rust
+- Type: web
+- Open Source: true
+- Tags: backend, rust, performance, async, api, rest, type-safe
+
+### Angular
+- URL: https://devtools.directory/frameworks/angular/
+- Website: https://angular.dev
+- GitHub: https://github.com/angular/angular
+- Description: Full-featured TypeScript framework from Google — opinionated, batteries-included, built for large-scale enterprise SPAs.
+- Language: typescript
+- Type: web
+- Open Source: true
+- Tags: frontend, spa, typescript, enterprise, google, components
+
+### ASP.NET Core
+- URL: https://devtools.directory/frameworks/aspnet-core/
+- Website: https://dotnet.microsoft.com/apps/aspnet
+- GitHub: https://github.com/dotnet/aspnetcore
+- Description: Cross-platform, high-performance web framework from Microsoft — REST APIs, MVC, Razor Pages, and real-time with SignalR.
+- Language: csharp
+- Type: web
+- Open Source: true
+- Tags: backend, csharp, dotnet, api, rest, mvc, microsoft, cross-platform
+
+### Astro
+- URL: https://devtools.directory/frameworks/astro/
+- Website: https://astro.build
+- GitHub: https://github.com/withastro/astro
+- Description: Content-focused web framework with islands architecture — ships zero JavaScript by default, integrates any UI framework.
+- Language: typescript
+- Type: web
+- Open Source: true
+- Tags: frontend, static, ssr, performance, islands, content, multi-framework
+
+### Axum
+- URL: https://devtools.directory/frameworks/axum/
+- Website: https://docs.rs/axum
+- GitHub: https://github.com/tokio-rs/axum
+- Description: Ergonomic Rust web framework from the Tokio team — macro-free routing, extractors, and seamless Tower middleware compatibility.
+- Language: rust
+- Type: web
+- Open Source: true
+- Tags: backend, rust, async, tokio, tower, api, rest, ergonomic
+
+### Blazor
+- URL: https://devtools.directory/frameworks/blazor/
+- Website: https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor
+- GitHub: https://github.com/dotnet/aspnetcore
+- Description: C# UI framework for the web — run .NET code in the browser via WebAssembly or server-side with SignalR.
+- Language: csharp
+- Type: web
+- Open Source: true
+- Tags: frontend, csharp, dotnet, wasm, webassembly, spa, server-side
+
+### Bootstrap
+- URL: https://devtools.directory/frameworks/bootstrap/
+- Website: https://getbootstrap.com
+- GitHub: https://github.com/twbs/bootstrap
+- Description: Responsive CSS component framework — grid system, pre-built components, and the web's most widely used frontend toolkit.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: css, frontend, responsive, components, ui, grid, jquery
+
+### Celery
+- URL: https://devtools.directory/frameworks/celery/
+- Website: https://docs.celeryq.dev
+- GitHub: https://github.com/celery/celery
+- Description: Distributed task queue for Python — async background jobs, scheduled tasks, and workflows with Redis or RabbitMQ.
+- Language: python
+- Type: other
+- Open Source: true
+- Tags: background-tasks, async, queue, redis, rabbitmq, python, distributed, scheduling
+
+### Chi
+- URL: https://devtools.directory/frameworks/chi/
+- Website: https://go-chi.io
+- GitHub: https://github.com/go-chi/chi
+- Description: Lightweight, idiomatic Go router — composable middleware, 100% net/http compatibility, zero external dependencies.
+- Language: go
+- Type: web
+- Open Source: true
+- Tags: backend, go, router, middleware, stdlib, idiomatic, minimal
+
+### CodeIgniter
+- URL: https://devtools.directory/frameworks/codeigniter/
+- Website: https://codeigniter.com
+- GitHub: https://github.com/codeigniter4/CodeIgniter4
+- Description: Lightweight PHP framework with a small footprint — fast to set up, minimal configuration, popular for hosting-constrained environments.
+- Language: php
+- Type: web
+- Open Source: true
+- Tags: backend, php, lightweight, mvc, api, shared-hosting
+
+### Cypress
+- URL: https://devtools.directory/frameworks/cypress/
+- Website: https://cypress.io
+- GitHub: https://github.com/cypress-io/cypress
+- Description: End-to-end and component testing framework for web apps — runs in-browser with real-time reloading and a time-travel debugger.
+- Language: javascript
+- Type: testing
+- Open Source: true
+- Tags: testing, e2e, browser, component-testing, javascript, debug, time-travel
+
+### Django
+- URL: https://devtools.directory/frameworks/django/
+- Website: https://djangoproject.com
+- GitHub: https://github.com/django/django
+- Description: Batteries-included Python web framework — ORM, admin panel, auth, and routing out of the box.
+- Language: python
+- Type: web
+- Open Source: true
+- Tags: web, orm, mvc, rest, python, backend, batteries-included
+
+### Echo
+- URL: https://devtools.directory/frameworks/echo/
+- Website: https://echo.labstack.com
+- GitHub: https://github.com/labstack/echo
+- Description: High-performance, extensible Go web framework — minimalist API with automatic TLS, WebSocket support, and data binding.
+- Language: go
+- Type: web
+- Open Source: true
+- Tags: backend, go, api, rest, websocket, minimalist, middleware
+
+### Electron
+- URL: https://devtools.directory/frameworks/electron/
+- Website: https://electronjs.org
+- GitHub: https://github.com/electron/electron
+- Description: Build cross-platform desktop apps with JavaScript, HTML, and CSS — powers VS Code, Slack, Figma, and thousands of other apps.
+- Language: javascript
+- Type: desktop
+- Open Source: true
+- Tags: desktop, cross-platform, nodejs, chromium, javascript, gui
+
+### Expo
+- URL: https://devtools.directory/frameworks/expo/
+- Website: https://expo.dev
+- GitHub: https://github.com/expo/expo
+- Description: React Native framework and platform — managed workflow, EAS Build, and over-the-air updates for cross-platform mobile apps.
+- Language: typescript
+- Type: mobile
+- Open Source: true
+- Tags: mobile, ios, android, react-native, ota, cross-platform, typescript
+
+### Express
+- URL: https://devtools.directory/frameworks/express/
+- Website: https://expressjs.com
+- GitHub: https://github.com/expressjs/express
+- Description: Minimal, unopinionated Node.js web framework — the backbone of most Node.js APIs and servers.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: nodejs, backend, api, rest, middleware, server
+
+### FastAPI
+- URL: https://devtools.directory/frameworks/fastapi/
+- Website: https://fastapi.tiangolo.com
+- GitHub: https://github.com/tiangolo/fastapi
+- Description: Modern, async Python web framework with automatic OpenAPI docs and Pydantic-powered type validation.
+- Language: python
+- Type: web
+- Open Source: true
+- Tags: backend, api, rest, async, openapi, pydantic, python
+
+### Fastify
+- URL: https://devtools.directory/frameworks/fastify/
+- Website: https://fastify.dev
+- GitHub: https://github.com/fastify/fastify
+- Description: High-performance Node.js web framework — schema-based validation, plugin architecture, and up to 2x the throughput of Express.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: backend, nodejs, api, rest, performance, schema, plugins
+
+### Fiber
+- URL: https://devtools.directory/frameworks/fiber/
+- Website: https://gofiber.io
+- GitHub: https://github.com/gofiber/fiber
+- Description: Express-inspired Go framework built on top of Fasthttp — the fastest Go web framework with a Node.js-like API.
+- Language: go
+- Type: web
+- Open Source: true
+- Tags: backend, go, performance, express-like, api, rest, fasthttp
+
+### Flask
+- URL: https://devtools.directory/frameworks/flask/
+- Website: https://flask.palletsprojects.com
+- GitHub: https://github.com/pallets/flask
+- Description: Lightweight Python web micro-framework — minimal core, WSGI-based, and highly extensible via blueprints and extensions.
+- Language: python
+- Type: web
+- Open Source: true
+- Tags: backend, web, api, rest, python, micro, wsgi
+
+### Flutter
+- URL: https://devtools.directory/frameworks/flutter/
+- Website: https://flutter.dev
+- GitHub: https://github.com/flutter/flutter
+- Description: Google's UI toolkit for building natively compiled apps for mobile, web, and desktop from a single Dart codebase.
+- Language: dart
+- Type: mobile
+- Open Source: true
+- Tags: mobile, ios, android, cross-platform, dart, desktop, web, google
+
+### Gatsby
+- URL: https://devtools.directory/frameworks/gatsby/
+- Website: https://gatsbyjs.com
+- GitHub: https://github.com/gatsbyjs/gatsby
+- Description: React-based static site generator with a GraphQL data layer — pioneered the JAMstack approach for content-heavy websites.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: static, react, graphql, jamstack, frontend, cms, performance
+
+### Gin
+- URL: https://devtools.directory/frameworks/gin/
+- Website: https://gin-gonic.com
+- GitHub: https://github.com/gin-gonic/gin
+- Description: Fast, lightweight HTTP web framework for Go — radix tree router, middleware support, and idiomatic Go API.
+- Language: go
+- Type: web
+- Open Source: true
+- Tags: backend, go, api, rest, router, middleware, performance
+
+### Hibernate
+- URL: https://devtools.directory/frameworks/hibernate/
+- Website: https://hibernate.org
+- GitHub: https://github.com/hibernate/hibernate-orm
+- Description: Java ORM framework — maps Java objects to relational database tables with HQL, caching, and lazy loading.
+- Language: java
+- Type: data
+- Open Source: true
+- Tags: orm, database, java, jpa, sql, persistence, caching
+
+### Hono
+- URL: https://devtools.directory/frameworks/hono/
+- Website: https://hono.dev
+- GitHub: https://github.com/honojs/hono
+- Description: Ultrafast web framework for the edge — runs on Cloudflare Workers, Deno, Bun, Node.js, and AWS Lambda with zero dependencies.
+- Language: typescript
+- Type: web
+- Open Source: true
+- Tags: backend, edge, cloudflare, deno, bun, api, rest, typescript
+
+### Ionic
+- URL: https://devtools.directory/frameworks/ionic/
+- Website: https://ionicframework.com
+- GitHub: https://github.com/ionic-team/ionic-framework
+- Description: Cross-platform mobile framework using web technologies — Angular, React, or Vue components rendered in a native WebView.
+- Language: typescript
+- Type: mobile
+- Open Source: true
+- Tags: mobile, ios, android, pwa, web-technologies, angular, react, vue
+
+### Jest
+- URL: https://devtools.directory/frameworks/jest/
+- Website: https://jestjs.io
+- GitHub: https://github.com/jestjs/jest
+- Description: Delightful JavaScript testing framework from Meta — zero config, snapshot testing, mocking, and code coverage built in.
+- Language: javascript
+- Type: testing
+- Open Source: true
+- Tags: testing, unit-testing, javascript, typescript, mocking, snapshots, meta
+
+### Jetpack Compose
+- URL: https://devtools.directory/frameworks/jetpack-compose/
+- Website: https://developer.android.com/jetpack/compose
+- GitHub: https://github.com/androidx/androidx
+- Description: Android's modern declarative UI toolkit — Kotlin-first, composable functions replacing XML layouts.
+- Language: kotlin
+- Type: mobile
+- Open Source: true
+- Tags: android, mobile, kotlin, ui, declarative, google, compose
+
+### JUnit
+- URL: https://devtools.directory/frameworks/junit/
+- Website: https://junit.org/junit5/
+- GitHub: https://github.com/junit-team/junit5
+- Description: The standard unit testing framework for Java — annotations, assertions, parameterised tests, and a rich extension model.
+- Language: java
+- Type: testing
+- Open Source: true
+- Tags: testing, java, unit-testing, tdd, annotations, jupiter
+
+### Keras
+- URL: https://devtools.directory/frameworks/keras/
+- Website: https://keras.io
+- GitHub: https://github.com/keras-team/keras
+- Description: High-level deep learning API — simple model building with backends for TensorFlow, PyTorch, and JAX.
+- Language: python
+- Type: data
+- Open Source: true
+- Tags: ml, deep-learning, neural-networks, python, tensorflow, multi-backend
+
+### Koa
+- URL: https://devtools.directory/frameworks/koa/
+- Website: https://koajs.com
+- GitHub: https://github.com/koajs/koa
+- Description: Next-generation Node.js web framework from the Express team — async/await middleware pipeline, minimal core.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: backend, nodejs, api, middleware, async, minimal
+
+### Ktor
+- URL: https://devtools.directory/frameworks/ktor/
+- Website: https://ktor.io
+- GitHub: https://github.com/ktorio/ktor
+- Description: Async Kotlin framework from JetBrains — coroutine-native, multiplatform, for both server-side and client HTTP.
+- Language: kotlin
+- Type: web
+- Open Source: true
+- Tags: backend, kotlin, async, coroutines, api, rest, jetbrains, multiplatform
+
+### LangChain
+- URL: https://devtools.directory/frameworks/langchain/
+- Website: https://langchain.com
+- GitHub: https://github.com/langchain-ai/langchain
+- Description: Framework for building LLM-powered applications — chains, agents, retrieval-augmented generation, and tool use.
+- Language: python
+- Type: data
+- Open Source: true
+- Tags: ai, llm, rag, agents, tools, python, generative-ai
+
+### Laravel
+- URL: https://devtools.directory/frameworks/laravel/
+- Website: https://laravel.com
+- GitHub: https://github.com/laravel/laravel
+- Description: Elegant PHP web framework with expressive syntax, an ORM, queue system, and rich ecosystem.
+- Language: php
+- Type: web
+- Open Source: true
+- Tags: web, php, orm, eloquent, artisan, mvc, backend
+
+### Micronaut
+- URL: https://devtools.directory/frameworks/micronaut/
+- Website: https://micronaut.io
+- GitHub: https://github.com/micronaut-projects/micronaut-core
+- Description: JVM microservices framework with compile-time dependency injection — no reflection, fast startup, and low memory.
+- Language: java
+- Type: web
+- Open Source: true
+- Tags: backend, java, microservices, cloud-native, kotlin, groovy, fast-startup
+
+### Mocha
+- URL: https://devtools.directory/frameworks/mocha/
+- Website: https://mochajs.org
+- GitHub: https://github.com/mochajs/mocha
+- Description: Flexible JavaScript test runner — browser and Node.js support, unopinionated about assertions and mocking.
+- Language: javascript
+- Type: testing
+- Open Source: true
+- Tags: testing, javascript, nodejs, bdd, tdd, browser, flexible
+
+### NestJS
+- URL: https://devtools.directory/frameworks/nestjs/
+- Website: https://nestjs.com
+- GitHub: https://github.com/nestjs/nest
+- Description: Progressive Node.js framework inspired by Angular — decorators, dependency injection, and modules for scalable server-side apps.
+- Language: typescript
+- Type: web
+- Open Source: true
+- Tags: backend, nodejs, typescript, api, rest, graphql, microservices
+
+### Next.js
+- URL: https://devtools.directory/frameworks/nextjs/
+- Website: https://nextjs.org
+- GitHub: https://github.com/vercel/next.js
+- Description: React framework with file-based routing, SSR, SSG, and API routes — the standard for production React apps.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: react, ssr, ssg, full-stack, vercel, routing
+
+### NumPy
+- URL: https://devtools.directory/frameworks/numpy/
+- Website: https://numpy.org
+- GitHub: https://github.com/numpy/numpy
+- Description: Fundamental array computing library for Python — the backbone of the entire scientific Python ecosystem.
+- Language: python
+- Type: data
+- Open Source: true
+- Tags: scientific-computing, arrays, math, python, data-science, linear-algebra
+
+### Nuxt
+- URL: https://devtools.directory/frameworks/nuxt/
+- Website: https://nuxt.com
+- GitHub: https://github.com/nuxt/nuxt
+- Description: Full-stack Vue framework with SSR, file-based routing, and auto-imports — the standard way to build production Vue apps.
+- Language: typescript
+- Type: web
+- Open Source: true
+- Tags: fullstack, vue, ssr, typescript, routing, auto-imports
+
+### Pandas
+- URL: https://devtools.directory/frameworks/pandas/
+- Website: https://pandas.pydata.org
+- GitHub: https://github.com/pandas-dev/pandas
+- Description: Fast, flexible data analysis library — DataFrames, time series, and data wrangling for Python.
+- Language: python
+- Type: data
+- Open Source: true
+- Tags: data, data-science, dataframe, etl, analysis, python, wrangling
+
+### Phoenix
+- URL: https://devtools.directory/frameworks/phoenix/
+- Website: https://phoenixframework.org
+- GitHub: https://github.com/phoenixframework/phoenix
+- Description: Productive Elixir web framework — real-time channels, LiveView, and Rails-like conventions on the fault-tolerant BEAM VM.
+- Language: elixir
+- Type: web
+- Open Source: true
+- Tags: backend, elixir, real-time, channels, liveview, websocket, beam
+
+### Play Framework
+- URL: https://devtools.directory/frameworks/play/
+- Website: https://playframework.com
+- GitHub: https://github.com/playframework/playframework
+- Description: Reactive web framework for Scala and Java — stateless, asynchronous, and built on Akka for high-throughput services.
+- Language: scala
+- Type: web
+- Open Source: true
+- Tags: backend, scala, java, reactive, async, rest, akka
+
+### Playwright
+- URL: https://devtools.directory/frameworks/playwright/
+- Website: https://playwright.dev
+- GitHub: https://github.com/microsoft/playwright
+- Description: End-to-end browser testing framework from Microsoft — reliable, fast, and supports Chromium, Firefox, and WebKit.
+- Language: typescript
+- Type: testing
+- Open Source: true
+- Tags: testing, e2e, browser, automation, typescript, microsoft, cross-browser
+
+### Prisma
+- URL: https://devtools.directory/frameworks/prisma/
+- Website: https://prisma.io
+- GitHub: https://github.com/prisma/prisma
+- Description: Next-generation TypeScript ORM — schema-first, auto-generated type-safe client, and Prisma Studio for data browsing.
+- Language: typescript
+- Type: data
+- Open Source: true
+- Tags: orm, database, typescript, postgresql, mysql, sqlite, schema, type-safe
+
+### pytest
+- URL: https://devtools.directory/frameworks/pytest/
+- Website: https://pytest.org
+- GitHub: https://github.com/pytest-dev/pytest
+- Description: The standard Python testing framework — simple assert statements, powerful fixtures, and a vast plugin ecosystem.
+- Language: python
+- Type: testing
+- Open Source: true
+- Tags: testing, python, unit-testing, fixtures, plugins, parametrize
+
+### PyTorch
+- URL: https://devtools.directory/frameworks/pytorch/
+- Website: https://pytorch.org
+- GitHub: https://github.com/pytorch/pytorch
+- Description: Dynamic neural network framework from Meta — the dominant platform for ML research and increasingly for production.
+- Language: python
+- Type: data
+- Open Source: true
+- Tags: ml, ai, deep-learning, research, gpu, python, meta, dynamic
+
+### Quarkus
+- URL: https://devtools.directory/frameworks/quarkus/
+- Website: https://quarkus.io
+- GitHub: https://github.com/quarkusio/quarkus
+- Description: Kubernetes-native Java framework — fast startup, low memory footprint, native compilation via GraalVM.
+- Language: java
+- Type: web
+- Open Source: true
+- Tags: backend, java, kubernetes, cloud-native, native, graalvm, microservices
+
+### Ruby on Rails
+- URL: https://devtools.directory/frameworks/rails/
+- Website: https://rubyonrails.org
+- GitHub: https://github.com/rails/rails
+- Description: Full-stack web framework that popularised convention over configuration — MVC, ActiveRecord ORM, and developer productivity by default.
+- Language: ruby
+- Type: web
+- Open Source: true
+- Tags: backend, fullstack, mvc, orm, ruby, web, productivity
+
+### React Native
+- URL: https://devtools.directory/frameworks/react-native/
+- Website: https://reactnative.dev
+- GitHub: https://github.com/facebook/react-native
+- Description: Build native iOS and Android apps using React — bridge to native components, shared logic with web React codebases.
+- Language: javascript
+- Type: mobile
+- Open Source: true
+- Tags: mobile, ios, android, cross-platform, react, javascript, meta
+
+### React
+- URL: https://devtools.directory/frameworks/react/
+- Website: https://react.dev
+- GitHub: https://github.com/facebook/react
+- Description: Declarative UI library from Meta for building component-based web interfaces.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: ui, frontend, spa, jsx, components, meta
+
+### Remix
+- URL: https://devtools.directory/frameworks/remix/
+- Website: https://remix.run
+- GitHub: https://github.com/remix-run/remix
+- Description: Full-stack React framework built on web standards — loaders, actions, and nested routing with progressive enhancement.
+- Language: typescript
+- Type: web
+- Open Source: true
+- Tags: fullstack, react, ssr, web-standards, routing, typescript
+
+### Rocket
+- URL: https://devtools.directory/frameworks/rocket/
+- Website: https://rocket.rs
+- GitHub: https://github.com/rwf2/Rocket
+- Description: Web framework for Rust focused on developer experience — type-checked routes, request guards, and zero-boilerplate handlers.
+- Language: rust
+- Type: web
+- Open Source: true
+- Tags: backend, rust, ergonomic, type-safe, api, rest, macros
+
+### RSpec
+- URL: https://devtools.directory/frameworks/rspec/
+- Website: https://rspec.info
+- GitHub: https://github.com/rspec/rspec
+- Description: Behaviour-driven development testing framework for Ruby — readable `describe/it/expect` DSL and the standard for Rails testing.
+- Language: ruby
+- Type: testing
+- Open Source: true
+- Tags: testing, ruby, bdd, rails, unit-testing, integration-testing
+
+### scikit-learn
+- URL: https://devtools.directory/frameworks/scikit-learn/
+- Website: https://scikit-learn.org
+- GitHub: https://github.com/scikit-learn/scikit-learn
+- Description: The standard Python machine learning library — consistent API for classification, regression, clustering, and preprocessing.
+- Language: python
+- Type: data
+- Open Source: true
+- Tags: ml, data-science, classification, regression, clustering, python, preprocessing
+
+### Sinatra
+- URL: https://devtools.directory/frameworks/sinatra/
+- Website: https://sinatrarb.com
+- GitHub: https://github.com/sinatra/sinatra
+- Description: Minimal Ruby DSL for building web applications — route definitions in a handful of lines, no MVC overhead.
+- Language: ruby
+- Type: web
+- Open Source: true
+- Tags: backend, micro, ruby, api, rest, dsl, minimal
+
+### Slim
+- URL: https://devtools.directory/frameworks/slim/
+- Website: https://slimframework.com
+- GitHub: https://github.com/slimphp/Slim
+- Description: Micro-framework for PHP APIs and web apps — PSR-7 middleware stack, fast routing, and minimal overhead.
+- Language: php
+- Type: web
+- Open Source: true
+- Tags: backend, php, micro, api, rest, psr-7, middleware
+
+### Solid
+- URL: https://devtools.directory/frameworks/solid/
+- Website: https://solidjs.com
+- GitHub: https://github.com/solidjs/solid
+- Description: Fine-grained reactive UI library — no virtual DOM, JSX compiled to real DOM operations, with React-like ergonomics.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: frontend, reactive, jsx, performance, spa, ui, fine-grained
+
+### Spring Boot
+- URL: https://devtools.directory/frameworks/spring-boot/
+- Website: https://spring.io/projects/spring-boot
+- GitHub: https://github.com/spring-projects/spring-boot
+- Description: Opinionated Spring framework for production-ready Java microservices — auto-configuration, embedded servers, and a vast ecosystem.
+- Language: java
+- Type: web
+- Open Source: true
+- Tags: backend, java, microservices, enterprise, rest, dependency-injection
+
+### SQLAlchemy
+- URL: https://devtools.directory/frameworks/sqlalchemy/
+- Website: https://sqlalchemy.org
+- GitHub: https://github.com/sqlalchemy/sqlalchemy
+- Description: Python SQL toolkit and ORM — both low-level SQL expression language and high-level ORM, the standard for Python database access.
+- Language: python
+- Type: data
+- Open Source: true
+- Tags: orm, database, sql, python, postgresql, mysql, sqlite, backend
+
+### Starlette
+- URL: https://devtools.directory/frameworks/starlette/
+- Website: https://starlette.io
+- GitHub: https://github.com/encode/starlette
+- Description: Lightweight ASGI framework and toolkit — the foundation that FastAPI and other async Python frameworks are built on.
+- Language: python
+- Type: web
+- Open Source: true
+- Tags: backend, async, asgi, python, websockets, api, lightweight
+
+### Svelte
+- URL: https://devtools.directory/frameworks/svelte/
+- Website: https://svelte.dev
+- GitHub: https://github.com/sveltejs/svelte
+- Description: Compiler-based UI framework — no virtual DOM, components compile to vanilla JS for minimal bundle size and maximum performance.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: frontend, components, compiler, performance, spa, ui
+
+### SvelteKit
+- URL: https://devtools.directory/frameworks/sveltekit/
+- Website: https://kit.svelte.dev
+- GitHub: https://github.com/sveltejs/kit
+- Description: Full-stack Svelte framework with SSR, file-based routing, and edge-ready deployment — the official way to build Svelte apps.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: fullstack, ssr, routing, svelte, edge, deployment
+
+### SwiftUI
+- URL: https://devtools.directory/frameworks/swiftui/
+- Website: https://developer.apple.com/xcode/swiftui/
+
+- Description: Apple's declarative UI framework — build native apps for iOS, macOS, watchOS, and tvOS with a single Swift codebase.
+- Language: swift
+- Type: mobile
+
+- Tags: ios, macos, mobile, apple, ui, declarative, cross-platform
+
+### Symfony
+- URL: https://devtools.directory/frameworks/symfony/
+- Website: https://symfony.com
+- GitHub: https://github.com/symfony/symfony
+- Description: Enterprise-grade PHP framework — reusable components powering Laravel, Drupal, Magento, and countless other PHP projects.
+- Language: php
+- Type: web
+- Open Source: true
+- Tags: backend, php, enterprise, components, api, fullstack
+
+### Tailwind CSS
+- URL: https://devtools.directory/frameworks/tailwindcss/
+- Website: https://tailwindcss.com
+- GitHub: https://github.com/tailwindlabs/tailwindcss
+- Description: Utility-first CSS framework — compose designs directly in markup with small, single-purpose classes.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: css, frontend, utility-first, styling, ui, design-system
+
+### Tauri
+- URL: https://devtools.directory/frameworks/tauri/
+- Website: https://tauri.app
+- GitHub: https://github.com/tauri-apps/tauri
+- Description: Build tiny, fast desktop apps with a Rust core and any web frontend — 10x smaller bundles than Electron with lower memory usage.
+- Language: rust
+- Type: desktop
+- Open Source: true
+- Tags: desktop, cross-platform, rust, webview, performance, security, lightweight
+
+### TensorFlow
+- URL: https://devtools.directory/frameworks/tensorflow/
+- Website: https://tensorflow.org
+- GitHub: https://github.com/tensorflow/tensorflow
+- Description: End-to-end open-source ML platform from Google — model building, training, deployment across CPU, GPU, TPU, and mobile.
+- Language: python
+- Type: data
+- Open Source: true
+- Tags: ml, ai, deep-learning, neural-networks, gpu, python, google
+
+### Vert.x
+- URL: https://devtools.directory/frameworks/vert-x/
+- Website: https://vertx.io
+- GitHub: https://github.com/eclipse-vertx/vert.x
+- Description: Reactive toolkit for building event-driven applications on the JVM — polyglot, non-blocking, and massively scalable.
+- Language: java
+- Type: web
+- Open Source: true
+- Tags: backend, java, reactive, event-driven, non-blocking, polyglot, microservices
+
+### Vue
+- URL: https://devtools.directory/frameworks/vue/
+- Website: https://vuejs.org
+- GitHub: https://github.com/vuejs/core
+- Description: Progressive JavaScript framework for building UIs — approachable, flexible, and incrementally adoptable.
+- Language: javascript
+- Type: web
+- Open Source: true
+- Tags: ui, frontend, spa, sfc, components, progressive
+
+---
+
+## STACKS
+
+### <no value>
+- URL: https://devtools.directory/stacks/django/
+
+
+
+
+### <no value>
+- URL: https://devtools.directory/stacks/flutter/
+
+
+
+
+### <no value>
+- URL: https://devtools.directory/stacks/jamstack/
+
+
+
+
+### <no value>
+- URL: https://devtools.directory/stacks/laravel/
+
+
+
+
+### <no value>
+- URL: https://devtools.directory/stacks/mean/
+
+
+
+
+### <no value>
+- URL: https://devtools.directory/stacks/mern/
+
+
+
+
+### <no value>
+- URL: https://devtools.directory/stacks/nextjs/
+
+
+
+
+---
+
+## BOOKS
+
+### The Pragmatic Programmer
+- URL: https://devtools.directory/books/pragmatic-programmer/
+- Website: https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/
+- Description: A timeless guide to software craftsmanship — from career tips to technical practices that make you a better developer.
+- Author: David Thomas, Andrew Hunt
+- Year: 2019
+
+- Tags: software-engineering, career, best-practices, craftsmanship
+
+---
+
+## COURSES
+
+### CS50's Introduction to Computer Science
+- URL: https://devtools.directory/courses/cs50/
+- Website: https://cs50.harvard.edu/x/
+- Description: Harvard's legendary introduction to computer science and programming, covering C, Python, SQL, and web development.
+- Provider: Harvard / edX
+
+- Tags: beginner, computer-science, python, c, sql
+
+---
+
+## RESOURCES
+
+### The Twelve-Factor App
+- URL: https://devtools.directory/resources/twelve-factor-app/
+- Website: https://12factor.net
+- Description: A methodology for building software-as-a-service apps that are maintainable, scalable, and portable.
+- Type: guide
+- Tags: architecture, best-practices, devops, saas
+
+---
+
+## LEARNING PATHS
+
+### JavaScript Full-Stack Developer
+- URL: https://devtools.directory/paths/javascript-fullstack/
+- Description: From JavaScript fundamentals to shipping a full-stack app with React and Node.js.
+- Level: beginner
+- Language: javascript
+- Tags: javascript, react, nodejs, fullstack, web
+

@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      var t = localStorage.getItem('devtools-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+<title>Tags — devtools/</title>
+<meta name="description" content="A curated, open-source directory of developer tools, books, courses, and resources.">
+<link rel="canonical" href="https://devtools.directory/tags/">
+
+
+<meta property="og:title" content="Tags — devtools/">
+<meta property="og:description" content="A curated, open-source directory of developer tools, books, courses, and resources.">
+<meta property="og:url" content="https://devtools.directory/tags/">
+<meta property="og:site_name" content="devtools/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tags — devtools/">
+<meta name="twitter:description" content="A curated, open-source directory of developer tools, books, courses, and resources.">
+<meta name="twitter:image" content="https://devtools.directory/img/og-default.png">
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https:\/\/devtools.directory\/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tags",
+      "item": "https:\/\/devtools.directory\/tags/"
+    }
+  ]
+}
+</script>
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg">
+<link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+
+</head>
+<body>
+  
+
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo">
+      <svg width="26" height="26" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3,0)">
+          <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+          <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+          <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+          <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+          <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+          <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+        </g>
+      </svg>
+      devtools<span style="color:var(--accent)">/</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav">
+      <a href="/tools/">tools/</a>
+      <a href="/languages/">languages/</a>
+      <a href="/frameworks/" class="nav-group-trigger">ecosystem</a>
+      <a href="/books/" class="nav-group-trigger">learn</a>
+      <a href="/contribute/">contribute</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="search-trigger" id="search-open" aria-label="Search">
+        <span class="search-trigger__slash">/</span>
+        <span class="search-trigger__label">search</span>
+        <kbd class="search-trigger__kbd">⌘K</kbd>
+      </button>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="https://github.com/devtoolsd/devtoolsd" class="header-star" target="_blank" rel="noopener">
+        <span class="header-star__prompt">$</span> star
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  
+  
+  
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', function() {
+    document.getElementById('site-nav').classList.toggle('open');
+  });
+
+  document.getElementById('theme-toggle')?.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('devtools-theme', next);
+  });
+</script>
+
+  <main>
+    
+<div class="container">
+  <div class="section">
+    <h1 class="section-title"><span>#</span> Tags</h1>
+    <div class="grid-3">
+      
+      <a href="/tags/academic/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Academic</div>
+      </a>
+      
+      <a href="/tags/acid/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Acid</div>
+      </a>
+      
+      <a href="/tags/actor-model/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Actor-Model</div>
+      </a>
+      
+      <a href="/tags/adobe/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Adobe</div>
+      </a>
+      
+      <a href="/tags/aerospace/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Aerospace</div>
+      </a>
+      
+      <a href="/tags/agents/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Agents</div>
+      </a>
+      
+      <a href="/tags/ai/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ai</div>
+      </a>
+      
+      <a href="/tags/ajax/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ajax</div>
+      </a>
+      
+      <a href="/tags/akka/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Akka</div>
+      </a>
+      
+      <a href="/tags/analysis/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Analysis</div>
+      </a>
+      
+      <a href="/tags/analytics/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Analytics</div>
+      </a>
+      
+      <a href="/tags/android/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Android</div>
+      </a>
+      
+      <a href="/tags/angular/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Angular</div>
+      </a>
+      
+      <a href="/tags/annotations/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Annotations</div>
+      </a>
+      
+      <a href="/tags/api/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Api</div>
+      </a>
+      
+      <a href="/tags/apl/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Apl</div>
+      </a>
+      
+      <a href="/tags/apple/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Apple</div>
+      </a>
+      
+      <a href="/tags/architecture/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Architecture</div>
+      </a>
+      
+      <a href="/tags/argparse/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Argparse</div>
+      </a>
+      
+      <a href="/tags/array-programming/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Array-Programming</div>
+      </a>
+      
+      <a href="/tags/arrays/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Arrays</div>
+      </a>
+      
+      <a href="/tags/artisan/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Artisan</div>
+      </a>
+      
+      <a href="/tags/asgi/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Asgi</div>
+      </a>
+      
+      <a href="/tags/asic/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Asic</div>
+      </a>
+      
+      <a href="/tags/async/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Async</div>
+      </a>
+      
+      <a href="/tags/auto-imports/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Auto-Imports</div>
+      </a>
+      
+      <a href="/tags/automation/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Automation</div>
+      </a>
+      
+      <a href="/tags/azure/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Azure</div>
+      </a>
+      
+      <a href="/tags/backend/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Backend</div>
+      </a>
+      
+      <a href="/tags/background-tasks/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Background-Tasks</div>
+      </a>
+      
+      <a href="/tags/banking/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Banking</div>
+      </a>
+      
+      <a href="/tags/batteries-included/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Batteries-Included</div>
+      </a>
+      
+      <a href="/tags/bdd/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Bdd</div>
+      </a>
+      
+      <a href="/tags/beam/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Beam</div>
+      </a>
+      
+      <a href="/tags/beginner/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Beginner</div>
+      </a>
+      
+      <a href="/tags/best-practices/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Best-Practices</div>
+      </a>
+      
+      <a href="/tags/big-data/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Big-Data</div>
+      </a>
+      
+      <a href="/tags/bioinformatics/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Bioinformatics</div>
+      </a>
+      
+      <a href="/tags/blockchain/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Blockchain</div>
+      </a>
+      
+      <a href="/tags/bootstrapping/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Bootstrapping</div>
+      </a>
+      
+      <a href="/tags/browser/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Browser</div>
+      </a>
+      
+      <a href="/tags/build/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Build</div>
+      </a>
+      
+      <a href="/tags/bun/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Bun</div>
+      </a>
+      
+      <a href="/tags/business/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Business</div>
+      </a>
+      
+      <a href="/tags/c/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">C</div>
+      </a>
+      
+      <a href="/tags/c-alternative/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">C-Alternative</div>
+      </a>
+      
+      <a href="/tags/c-interop/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">C-Interop</div>
+      </a>
+      
+      <a href="/tags/c-plus-plus/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">C-Plus-Plus</div>
+      </a>
+      
+      <a href="/tags/cache/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cache</div>
+      </a>
+      
+      <a href="/tags/caching/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Caching</div>
+      </a>
+      
+      <a href="/tags/career/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Career</div>
+      </a>
+      
+      <a href="/tags/channels/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Channels</div>
+      </a>
+      
+      <a href="/tags/chip-design/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Chip-Design</div>
+      </a>
+      
+      <a href="/tags/chromium/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Chromium</div>
+      </a>
+      
+      <a href="/tags/classification/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Classification</div>
+      </a>
+      
+      <a href="/tags/cli/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cli</div>
+      </a>
+      
+      <a href="/tags/clinical-trials/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Clinical-Trials</div>
+      </a>
+      
+      <a href="/tags/clojure-like/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Clojure-Like</div>
+      </a>
+      
+      <a href="/tags/cloud/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cloud</div>
+      </a>
+      
+      <a href="/tags/cloud-native/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cloud-Native</div>
+      </a>
+      
+      <a href="/tags/cloudflare/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cloudflare</div>
+      </a>
+      
+      <a href="/tags/clustering/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Clustering</div>
+      </a>
+      
+      <a href="/tags/cms/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cms</div>
+      </a>
+      
+      <a href="/tags/cocoa/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cocoa</div>
+      </a>
+      
+      <a href="/tags/collections/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Collections</div>
+      </a>
+      
+      <a href="/tags/commands/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Commands</div>
+      </a>
+      
+      <a href="/tags/compiler/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Compiler</div>
+      </a>
+      
+      <a href="/tags/compilers/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Compilers</div>
+      </a>
+      
+      <a href="/tags/component-testing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Component-Testing</div>
+      </a>
+      
+      <a href="/tags/components/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Components</div>
+      </a>
+      
+      <a href="/tags/compose/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Compose</div>
+      </a>
+      
+      <a href="/tags/computer-science/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Computer-Science</div>
+      </a>
+      
+      <a href="/tags/concatenative/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Concatenative</div>
+      </a>
+      
+      <a href="/tags/concise/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Concise</div>
+      </a>
+      
+      <a href="/tags/concurrency/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Concurrency</div>
+      </a>
+      
+      <a href="/tags/concurrent/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Concurrent</div>
+      </a>
+      
+      <a href="/tags/config/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Config</div>
+      </a>
+      
+      <a href="/tags/configuration/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Configuration</div>
+      </a>
+      
+      <a href="/tags/containers/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Containers</div>
+      </a>
+      
+      <a href="/tags/content/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Content</div>
+      </a>
+      
+      <a href="/tags/content-addressed/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Content-Addressed</div>
+      </a>
+      
+      <a href="/tags/coroutines/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Coroutines</div>
+      </a>
+      
+      <a href="/tags/correctness/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Correctness</div>
+      </a>
+      
+      <a href="/tags/cpp/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cpp</div>
+      </a>
+      
+      <a href="/tags/craftsmanship/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Craftsmanship</div>
+      </a>
+      
+      <a href="/tags/crm/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Crm</div>
+      </a>
+      
+      <a href="/tags/cross-browser/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cross-Browser</div>
+      </a>
+      
+      <a href="/tags/cross-platform/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Cross-Platform</div>
+      </a>
+      
+      <a href="/tags/csharp/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Csharp</div>
+      </a>
+      
+      <a href="/tags/css/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Css</div>
+      </a>
+      
+      <a href="/tags/dart/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Dart</div>
+      </a>
+      
+      <a href="/tags/data/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Data</div>
+      </a>
+      
+      <a href="/tags/data-analysis/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Data-Analysis</div>
+      </a>
+      
+      <a href="/tags/data-binding/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Data-Binding</div>
+      </a>
+      
+      <a href="/tags/data-engineering/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Data-Engineering</div>
+      </a>
+      
+      <a href="/tags/data-fetching/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Data-Fetching</div>
+      </a>
+      
+      <a href="/tags/data-science/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Data-Science</div>
+      </a>
+      
+      <a href="/tags/database/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Database</div>
+      </a>
+      
+      <a href="/tags/databases/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Databases</div>
+      </a>
+      
+      <a href="/tags/dataframe/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Dataframe</div>
+      </a>
+      
+      <a href="/tags/dates/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Dates</div>
+      </a>
+      
+      <a href="/tags/debug/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Debug</div>
+      </a>
+      
+      <a href="/tags/debugging/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Debugging</div>
+      </a>
+      
+      <a href="/tags/declarative/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Declarative</div>
+      </a>
+      
+      <a href="/tags/deep-learning/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Deep-Learning</div>
+      </a>
+      
+      <a href="/tags/defence/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Defence</div>
+      </a>
+      
+      <a href="/tags/defi/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Defi</div>
+      </a>
+      
+      <a href="/tags/delphi/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Delphi</div>
+      </a>
+      
+      <a href="/tags/deno/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Deno</div>
+      </a>
+      
+      <a href="/tags/dependency-injection/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Dependency-Injection</div>
+      </a>
+      
+      <a href="/tags/dependent-types/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Dependent-Types</div>
+      </a>
+      
+      <a href="/tags/deployment/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Deployment</div>
+      </a>
+      
+      <a href="/tags/design-by-contract/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Design-by-Contract</div>
+      </a>
+      
+      <a href="/tags/design-system/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Design-System</div>
+      </a>
+      
+      <a href="/tags/desktop/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Desktop</div>
+      </a>
+      
+      <a href="/tags/devops/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Devops</div>
+      </a>
+      
+      <a href="/tags/devtools/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Devtools</div>
+      </a>
+      
+      <a href="/tags/dialects/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Dialects</div>
+      </a>
+      
+      <a href="/tags/digital-design/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Digital-Design</div>
+      </a>
+      
+      <a href="/tags/distributed/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Distributed</div>
+      </a>
+      
+      <a href="/tags/dotnet/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Dotnet</div>
+      </a>
+      
+      <a href="/tags/dsl/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Dsl</div>
+      </a>
+      
+      <a href="/tags/dynamic/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Dynamic</div>
+      </a>
+      
+      <a href="/tags/e2e/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">E2e</div>
+      </a>
+      
+      <a href="/tags/eda/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Eda</div>
+      </a>
+      
+      <a href="/tags/edge/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Edge</div>
+      </a>
+      
+      <a href="/tags/editor/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Editor</div>
+      </a>
+      
+      <a href="/tags/education/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Education</div>
+      </a>
+      
+      <a href="/tags/effects/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Effects</div>
+      </a>
+      
+      <a href="/tags/elixir/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Elixir</div>
+      </a>
+      
+      <a href="/tags/eloquent/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Eloquent</div>
+      </a>
+      
+      <a href="/tags/embedded/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Embedded</div>
+      </a>
+      
+      <a href="/tags/embedding/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Embedding</div>
+      </a>
+      
+      <a href="/tags/engineering/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Engineering</div>
+      </a>
+      
+      <a href="/tags/enterprise/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Enterprise</div>
+      </a>
+      
+      <a href="/tags/environment/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Environment</div>
+      </a>
+      
+      <a href="/tags/ergonomic/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ergonomic</div>
+      </a>
+      
+      <a href="/tags/erlang/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Erlang</div>
+      </a>
+      
+      <a href="/tags/erp/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Erp</div>
+      </a>
+      
+      <a href="/tags/ethereum/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ethereum</div>
+      </a>
+      
+      <a href="/tags/etl/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Etl</div>
+      </a>
+      
+      <a href="/tags/event-driven/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Event-Driven</div>
+      </a>
+      
+      <a href="/tags/excel/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Excel</div>
+      </a>
+      
+      <a href="/tags/experimental/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Experimental</div>
+      </a>
+      
+      <a href="/tags/expert-systems/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Expert-Systems</div>
+      </a>
+      
+      <a href="/tags/express-like/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Express-Like</div>
+      </a>
+      
+      <a href="/tags/fast-startup/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Fast-Startup</div>
+      </a>
+      
+      <a href="/tags/fastapi/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Fastapi</div>
+      </a>
+      
+      <a href="/tags/fasthttp/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Fasthttp</div>
+      </a>
+      
+      <a href="/tags/fault-tolerant/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Fault-Tolerant</div>
+      </a>
+      
+      <a href="/tags/fetch/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Fetch</div>
+      </a>
+      
+      <a href="/tags/finance/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Finance</div>
+      </a>
+      
+      <a href="/tags/financial/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Financial</div>
+      </a>
+      
+      <a href="/tags/fine-grained/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Fine-Grained</div>
+      </a>
+      
+      <a href="/tags/firmware/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Firmware</div>
+      </a>
+      
+      <a href="/tags/fixtures/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Fixtures</div>
+      </a>
+      
+      <a href="/tags/flags/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Flags</div>
+      </a>
+      
+      <a href="/tags/flash/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Flash</div>
+      </a>
+      
+      <a href="/tags/flexible/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Flexible</div>
+      </a>
+      
+      <a href="/tags/flutter/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Flutter</div>
+      </a>
+      
+      <a href="/tags/formal-verification/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Formal-Verification</div>
+      </a>
+      
+      <a href="/tags/formatting/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Formatting</div>
+      </a>
+      
+      <a href="/tags/fpga/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Fpga</div>
+      </a>
+      
+      <a href="/tags/friendly/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Friendly</div>
+      </a>
+      
+      <a href="/tags/frontend/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Frontend</div>
+      </a>
+      
+      <a href="/tags/full-stack/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Full-Stack</div>
+      </a>
+      
+      <a href="/tags/fullstack/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Fullstack</div>
+      </a>
+      
+      <a href="/tags/functional/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Functional</div>
+      </a>
+      
+      <a href="/tags/game-dev/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Game-Dev</div>
+      </a>
+      
+      <a href="/tags/generative-ai/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Generative-Ai</div>
+      </a>
+      
+      <a href="/tags/go/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Go</div>
+      </a>
+      
+      <a href="/tags/google/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Google</div>
+      </a>
+      
+      <a href="/tags/gpu/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Gpu</div>
+      </a>
+      
+      <a href="/tags/graalvm/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Graalvm</div>
+      </a>
+      
+      <a href="/tags/gradle/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Gradle</div>
+      </a>
+      
+      <a href="/tags/graphics/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Graphics</div>
+      </a>
+      
+      <a href="/tags/graphql/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Graphql</div>
+      </a>
+      
+      <a href="/tags/grid/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Grid</div>
+      </a>
+      
+      <a href="/tags/groovy/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Groovy</div>
+      </a>
+      
+      <a href="/tags/gui/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Gui</div>
+      </a>
+      
+      <a href="/tags/hardware/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Hardware</div>
+      </a>
+      
+      <a href="/tags/haskell/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Haskell</div>
+      </a>
+      
+      <a href="/tags/haskell-like/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Haskell-Like</div>
+      </a>
+      
+      <a href="/tags/header-only/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Header-Only</div>
+      </a>
+      
+      <a href="/tags/hft/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Hft</div>
+      </a>
+      
+      <a href="/tags/history/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">History</div>
+      </a>
+      
+      <a href="/tags/homoiconic/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Homoiconic</div>
+      </a>
+      
+      <a href="/tags/hooks/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Hooks</div>
+      </a>
+      
+      <a href="/tags/hpc/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Hpc</div>
+      </a>
+      
+      <a href="/tags/http/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Http</div>
+      </a>
+      
+      <a href="/tags/http2/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Http2</div>
+      </a>
+      
+      <a href="/tags/i18n/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">I18n</div>
+      </a>
+      
+      <a href="/tags/iac/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Iac</div>
+      </a>
+      
+      <a href="/tags/ibm/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ibm</div>
+      </a>
+      
+      <a href="/tags/ide/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ide</div>
+      </a>
+      
+      <a href="/tags/idiomatic/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Idiomatic</div>
+      </a>
+      
+      <a href="/tags/immutable/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Immutable</div>
+      </a>
+      
+      <a href="/tags/infrastructure/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Infrastructure</div>
+      </a>
+      
+      <a href="/tags/integration/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Integration</div>
+      </a>
+      
+      <a href="/tags/integration-testing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Integration-Testing</div>
+      </a>
+      
+      <a href="/tags/intellisense/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Intellisense</div>
+      </a>
+      
+      <a href="/tags/io/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Io</div>
+      </a>
+      
+      <a href="/tags/ios/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ios</div>
+      </a>
+      
+      <a href="/tags/islands/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Islands</div>
+      </a>
+      
+      <a href="/tags/iterators/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Iterators</div>
+      </a>
+      
+      <a href="/tags/jamstack/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Jamstack</div>
+      </a>
+      
+      <a href="/tags/java/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Java</div>
+      </a>
+      
+      <a href="/tags/javascript/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Javascript</div>
+      </a>
+      
+      <a href="/tags/jenkins/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Jenkins</div>
+      </a>
+      
+      <a href="/tags/jetbrains/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Jetbrains</div>
+      </a>
+      
+      <a href="/tags/jpa/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Jpa</div>
+      </a>
+      
+      <a href="/tags/jquery/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Jquery</div>
+      </a>
+      
+      <a href="/tags/json/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Json</div>
+      </a>
+      
+      <a href="/tags/jsx/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Jsx</div>
+      </a>
+      
+      <a href="/tags/jupiter/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Jupiter</div>
+      </a>
+      
+      <a href="/tags/jvm/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Jvm</div>
+      </a>
+      
+      <a href="/tags/kotlin/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Kotlin</div>
+      </a>
+      
+      <a href="/tags/kubernetes/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Kubernetes</div>
+      </a>
+      
+      <a href="/tags/language-design/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Language-Design</div>
+      </a>
+      
+      <a href="/tags/legacy/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Legacy</div>
+      </a>
+      
+      <a href="/tags/lightweight/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Lightweight</div>
+      </a>
+      
+      <a href="/tags/linear-algebra/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Linear-Algebra</div>
+      </a>
+      
+      <a href="/tags/linux/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Linux</div>
+      </a>
+      
+      <a href="/tags/lisp/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Lisp</div>
+      </a>
+      
+      <a href="/tags/liveview/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Liveview</div>
+      </a>
+      
+      <a href="/tags/llm/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Llm</div>
+      </a>
+      
+      <a href="/tags/logging/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Logging</div>
+      </a>
+      
+      <a href="/tags/logic-programming/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Logic-Programming</div>
+      </a>
+      
+      <a href="/tags/lsp/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Lsp</div>
+      </a>
+      
+      <a href="/tags/lua/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Lua</div>
+      </a>
+      
+      <a href="/tags/macos/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Macos</div>
+      </a>
+      
+      <a href="/tags/macros/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Macros</div>
+      </a>
+      
+      <a href="/tags/mainframe/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Mainframe</div>
+      </a>
+      
+      <a href="/tags/math/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Math</div>
+      </a>
+      
+      <a href="/tags/mathematical/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Mathematical</div>
+      </a>
+      
+      <a href="/tags/mathematics/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Mathematics</div>
+      </a>
+      
+      <a href="/tags/memory-safety/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Memory-Safety</div>
+      </a>
+      
+      <a href="/tags/meta/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Meta</div>
+      </a>
+      
+      <a href="/tags/metaprogramming/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Metaprogramming</div>
+      </a>
+      
+      <a href="/tags/micro/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Micro</div>
+      </a>
+      
+      <a href="/tags/microservices/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Microservices</div>
+      </a>
+      
+      <a href="/tags/microsoft/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Microsoft</div>
+      </a>
+      
+      <a href="/tags/middleware/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Middleware</div>
+      </a>
+      
+      <a href="/tags/minimal/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Minimal</div>
+      </a>
+      
+      <a href="/tags/minimalist/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Minimalist</div>
+      </a>
+      
+      <a href="/tags/ml/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ml</div>
+      </a>
+      
+      <a href="/tags/ml-family/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ml-Family</div>
+      </a>
+      
+      <a href="/tags/mobile/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Mobile</div>
+      </a>
+      
+      <a href="/tags/mocking/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Mocking</div>
+      </a>
+      
+      <a href="/tags/modal/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Modal</div>
+      </a>
+      
+      <a href="/tags/modern-cpp/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Modern-Cpp</div>
+      </a>
+      
+      <a href="/tags/modular/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Modular</div>
+      </a>
+      
+      <a href="/tags/multi-backend/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Multi-Backend</div>
+      </a>
+      
+      <a href="/tags/multi-framework/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Multi-Framework</div>
+      </a>
+      
+      <a href="/tags/multiplatform/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Multiplatform</div>
+      </a>
+      
+      <a href="/tags/mvc/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Mvc</div>
+      </a>
+      
+      <a href="/tags/mysql/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Mysql</div>
+      </a>
+      
+      <a href="/tags/native/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Native</div>
+      </a>
+      
+      <a href="/tags/neovim/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Neovim</div>
+      </a>
+      
+      <a href="/tags/network/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Network</div>
+      </a>
+      
+      <a href="/tags/networking/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Networking</div>
+      </a>
+      
+      <a href="/tags/neural-networks/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Neural-Networks</div>
+      </a>
+      
+      <a href="/tags/nixos/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Nixos</div>
+      </a>
+      
+      <a href="/tags/nlp/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Nlp</div>
+      </a>
+      
+      <a href="/tags/node/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Node</div>
+      </a>
+      
+      <a href="/tags/nodejs/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Nodejs</div>
+      </a>
+      
+      <a href="/tags/non-blocking/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Non-Blocking</div>
+      </a>
+      
+      <a href="/tags/nosql/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Nosql</div>
+      </a>
+      
+      <a href="/tags/numerical/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Numerical</div>
+      </a>
+      
+      <a href="/tags/objects/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Objects</div>
+      </a>
+      
+      <a href="/tags/ocaml/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ocaml</div>
+      </a>
+      
+      <a href="/tags/office/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Office</div>
+      </a>
+      
+      <a href="/tags/oop/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Oop</div>
+      </a>
+      
+      <a href="/tags/openapi/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Openapi</div>
+      </a>
+      
+      <a href="/tags/orm/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Orm</div>
+      </a>
+      
+      <a href="/tags/os/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Os</div>
+      </a>
+      
+      <a href="/tags/ota/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ota</div>
+      </a>
+      
+      <a href="/tags/output/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Output</div>
+      </a>
+      
+      <a href="/tags/package-management/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Package-Management</div>
+      </a>
+      
+      <a href="/tags/parallel/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Parallel</div>
+      </a>
+      
+      <a href="/tags/parametrize/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Parametrize</div>
+      </a>
+      
+      <a href="/tags/parsing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Parsing</div>
+      </a>
+      
+      <a href="/tags/pascal/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Pascal</div>
+      </a>
+      
+      <a href="/tags/performance/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Performance</div>
+      </a>
+      
+      <a href="/tags/persistence/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Persistence</div>
+      </a>
+      
+      <a href="/tags/pharma/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Pharma</div>
+      </a>
+      
+      <a href="/tags/phoenix/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Phoenix</div>
+      </a>
+      
+      <a href="/tags/php/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Php</div>
+      </a>
+      
+      <a href="/tags/physics/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Physics</div>
+      </a>
+      
+      <a href="/tags/pioneering/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Pioneering</div>
+      </a>
+      
+      <a href="/tags/plugins/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Plugins</div>
+      </a>
+      
+      <a href="/tags/polyglot/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Polyglot</div>
+      </a>
+      
+      <a href="/tags/postgresql/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Postgresql</div>
+      </a>
+      
+      <a href="/tags/preprocessing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Preprocessing</div>
+      </a>
+      
+      <a href="/tags/pretty-printing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Pretty-Printing</div>
+      </a>
+      
+      <a href="/tags/productivity/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Productivity</div>
+      </a>
+      
+      <a href="/tags/progressive/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Progressive</div>
+      </a>
+      
+      <a href="/tags/promises/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Promises</div>
+      </a>
+      
+      <a href="/tags/proof/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Proof</div>
+      </a>
+      
+      <a href="/tags/proof-assistant/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Proof-Assistant</div>
+      </a>
+      
+      <a href="/tags/prototype-based/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Prototype-Based</div>
+      </a>
+      
+      <a href="/tags/psr-7/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Psr-7</div>
+      </a>
+      
+      <a href="/tags/pub-sub/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Pub-Sub</div>
+      </a>
+      
+      <a href="/tags/pwa/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Pwa</div>
+      </a>
+      
+      <a href="/tags/pydantic/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Pydantic</div>
+      </a>
+      
+      <a href="/tags/python/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Python</div>
+      </a>
+      
+      <a href="/tags/queue/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Queue</div>
+      </a>
+      
+      <a href="/tags/rabbitmq/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Rabbitmq</div>
+      </a>
+      
+      <a href="/tags/rag/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Rag</div>
+      </a>
+      
+      <a href="/tags/rails/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Rails</div>
+      </a>
+      
+      <a href="/tags/rapid-application-development/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Rapid-Application-Development</div>
+      </a>
+      
+      <a href="/tags/react/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">React</div>
+      </a>
+      
+      <a href="/tags/react-native/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">React-Native</div>
+      </a>
+      
+      <a href="/tags/react-query/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">React-Query</div>
+      </a>
+      
+      <a href="/tags/reactive/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Reactive</div>
+      </a>
+      
+      <a href="/tags/real-time/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Real-Time</div>
+      </a>
+      
+      <a href="/tags/redis/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Redis</div>
+      </a>
+      
+      <a href="/tags/redux/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Redux</div>
+      </a>
+      
+      <a href="/tags/regex/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Regex</div>
+      </a>
+      
+      <a href="/tags/regression/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Regression</div>
+      </a>
+      
+      <a href="/tags/relational/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Relational</div>
+      </a>
+      
+      <a href="/tags/reproducible/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Reproducible</div>
+      </a>
+      
+      <a href="/tags/research/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Research</div>
+      </a>
+      
+      <a href="/tags/responsive/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Responsive</div>
+      </a>
+      
+      <a href="/tags/rest/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Rest</div>
+      </a>
+      
+      <a href="/tags/reverse-engineering/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Reverse-Engineering</div>
+      </a>
+      
+      <a href="/tags/router/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Router</div>
+      </a>
+      
+      <a href="/tags/routing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Routing</div>
+      </a>
+      
+      <a href="/tags/ruby/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ruby</div>
+      </a>
+      
+      <a href="/tags/ruby-like/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ruby-Like</div>
+      </a>
+      
+      <a href="/tags/runtime/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Runtime</div>
+      </a>
+      
+      <a href="/tags/rust/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Rust</div>
+      </a>
+      
+      <a href="/tags/saas/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Saas</div>
+      </a>
+      
+      <a href="/tags/safety-critical/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Safety-Critical</div>
+      </a>
+      
+      <a href="/tags/salesforce/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Salesforce</div>
+      </a>
+      
+      <a href="/tags/sap/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Sap</div>
+      </a>
+      
+      <a href="/tags/scala/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Scala</div>
+      </a>
+      
+      <a href="/tags/scheduling/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Scheduling</div>
+      </a>
+      
+      <a href="/tags/schema/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Schema</div>
+      </a>
+      
+      <a href="/tags/scientific-computing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Scientific-Computing</div>
+      </a>
+      
+      <a href="/tags/scripting/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Scripting</div>
+      </a>
+      
+      <a href="/tags/security/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Security</div>
+      </a>
+      
+      <a href="/tags/serialization/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Serialization</div>
+      </a>
+      
+      <a href="/tags/server/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Server</div>
+      </a>
+      
+      <a href="/tags/server-side/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Server-Side</div>
+      </a>
+      
+      <a href="/tags/sfc/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Sfc</div>
+      </a>
+      
+      <a href="/tags/shared-hosting/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Shared-Hosting</div>
+      </a>
+      
+      <a href="/tags/shell/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Shell</div>
+      </a>
+      
+      <a href="/tags/shell-completion/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Shell-Completion</div>
+      </a>
+      
+      <a href="/tags/signal-processing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Signal-Processing</div>
+      </a>
+      
+      <a href="/tags/simulation/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Simulation</div>
+      </a>
+      
+      <a href="/tags/smart-contracts/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Smart-Contracts</div>
+      </a>
+      
+      <a href="/tags/snapshots/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Snapshots</div>
+      </a>
+      
+      <a href="/tags/software-engineering/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Software-Engineering</div>
+      </a>
+      
+      <a href="/tags/source-engine/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Source-Engine</div>
+      </a>
+      
+      <a href="/tags/spa/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Spa</div>
+      </a>
+      
+      <a href="/tags/spark/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Spark</div>
+      </a>
+      
+      <a href="/tags/spring/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Spring</div>
+      </a>
+      
+      <a href="/tags/sql/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Sql</div>
+      </a>
+      
+      <a href="/tags/sqlite/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Sqlite</div>
+      </a>
+      
+      <a href="/tags/ssg/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ssg</div>
+      </a>
+      
+      <a href="/tags/ssr/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ssr</div>
+      </a>
+      
+      <a href="/tags/stack-based/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Stack-Based</div>
+      </a>
+      
+      <a href="/tags/state/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">State</div>
+      </a>
+      
+      <a href="/tags/static/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Static</div>
+      </a>
+      
+      <a href="/tags/statistics/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Statistics</div>
+      </a>
+      
+      <a href="/tags/stdlib/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Stdlib</div>
+      </a>
+      
+      <a href="/tags/streams/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Streams</div>
+      </a>
+      
+      <a href="/tags/strings/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Strings</div>
+      </a>
+      
+      <a href="/tags/structured/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Structured</div>
+      </a>
+      
+      <a href="/tags/styling/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Styling</div>
+      </a>
+      
+      <a href="/tags/supercomputing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Supercomputing</div>
+      </a>
+      
+      <a href="/tags/svelte/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Svelte</div>
+      </a>
+      
+      <a href="/tags/sysadmin/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Sysadmin</div>
+      </a>
+      
+      <a href="/tags/systems/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Systems</div>
+      </a>
+      
+      <a href="/tags/tdd/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Tdd</div>
+      </a>
+      
+      <a href="/tags/telecom/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Telecom</div>
+      </a>
+      
+      <a href="/tags/tensorflow/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Tensorflow</div>
+      </a>
+      
+      <a href="/tags/terminal/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Terminal</div>
+      </a>
+      
+      <a href="/tags/terraform/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Terraform</div>
+      </a>
+      
+      <a href="/tags/testing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Testing</div>
+      </a>
+      
+      <a href="/tags/text-processing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Text-Processing</div>
+      </a>
+      
+      <a href="/tags/time-travel/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Time-Travel</div>
+      </a>
+      
+      <a href="/tags/tokio/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Tokio</div>
+      </a>
+      
+      <a href="/tags/toml/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Toml</div>
+      </a>
+      
+      <a href="/tags/tools/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Tools</div>
+      </a>
+      
+      <a href="/tags/tower/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Tower</div>
+      </a>
+      
+      <a href="/tags/transpiled/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Transpiled</div>
+      </a>
+      
+      <a href="/tags/twelve-factor/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Twelve-Factor</div>
+      </a>
+      
+      <a href="/tags/type-hints/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Type-Hints</div>
+      </a>
+      
+      <a href="/tags/type-safe/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Type-Safe</div>
+      </a>
+      
+      <a href="/tags/type-theory/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Type-Theory</div>
+      </a>
+      
+      <a href="/tags/typed/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Typed</div>
+      </a>
+      
+      <a href="/tags/types/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Types</div>
+      </a>
+      
+      <a href="/tags/typescript/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Typescript</div>
+      </a>
+      
+      <a href="/tags/ui/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Ui</div>
+      </a>
+      
+      <a href="/tags/uniqueness-types/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Uniqueness-Types</div>
+      </a>
+      
+      <a href="/tags/unit-testing/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Unit-Testing</div>
+      </a>
+      
+      <a href="/tags/unity/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Unity</div>
+      </a>
+      
+      <a href="/tags/unix/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Unix</div>
+      </a>
+      
+      <a href="/tags/utility/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Utility</div>
+      </a>
+      
+      <a href="/tags/utility-first/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Utility-First</div>
+      </a>
+      
+      <a href="/tags/validation/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Validation</div>
+      </a>
+      
+      <a href="/tags/vercel/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Vercel</div>
+      </a>
+      
+      <a href="/tags/vim/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Vim</div>
+      </a>
+      
+      <a href="/tags/visualisation/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Visualisation</div>
+      </a>
+      
+      <a href="/tags/vue/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Vue</div>
+      </a>
+      
+      <a href="/tags/wasm/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Wasm</div>
+      </a>
+      
+      <a href="/tags/web/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Web</div>
+      </a>
+      
+      <a href="/tags/web-standards/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Web-Standards</div>
+      </a>
+      
+      <a href="/tags/web-technologies/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Web-Technologies</div>
+      </a>
+      
+      <a href="/tags/web3/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Web3</div>
+      </a>
+      
+      <a href="/tags/webassembly/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Webassembly</div>
+      </a>
+      
+      <a href="/tags/websocket/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Websocket</div>
+      </a>
+      
+      <a href="/tags/websockets/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Websockets</div>
+      </a>
+      
+      <a href="/tags/webview/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Webview</div>
+      </a>
+      
+      <a href="/tags/windows/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Windows</div>
+      </a>
+      
+      <a href="/tags/wordpress/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Wordpress</div>
+      </a>
+      
+      <a href="/tags/wrangling/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Wrangling</div>
+      </a>
+      
+      <a href="/tags/wsgi/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Wsgi</div>
+      </a>
+      
+      <a href="/tags/yaml/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Yaml</div>
+      </a>
+      
+      <a href="/tags/zos/" class="card" style="text-decoration:none">
+        <div style="font-weight:700">Zos</div>
+      </a>
+      
+    </div>
+  </div>
+</div>
+
+  </main>
+  
+
+
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+  <div class="footer-body">
+
+    
+    <div class="footer-left">
+      <div class="footer-brand-line">
+        <svg width="18" height="18" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <g transform="translate(3,0)">
+            <path d="M20.4235 9.46999L20.4063 17.6535L13.3106 13.577C9.53941 11.3899 5.76825 12.0235 3.20898 13.9835L14.6446 20.5525C19.5666 23.4019 25.8073 19.772 25.7996 14.1114L25.8264 0.923828C22.851 2.16052 20.4158 5.10912 20.4235 9.46999Z" fill="#c678dd"/>
+            <path d="M38.4166 56.531L38.4338 48.3474L45.5295 52.4239C49.3006 54.6111 53.0718 53.9774 55.631 52.0174L44.1954 45.4465C39.2735 42.5972 33.0328 46.2271 33.0404 51.8877L33.0137 65.0752C35.989 63.8386 38.4242 60.8899 38.4166 56.5291" fill="#e06c75"/>
+            <path d="M38.4156 9.46999L38.4328 17.6536L45.5285 13.577C49.2996 11.3899 53.0708 12.0235 55.6301 13.9835L44.1945 20.5525C39.2725 23.4019 33.0318 19.772 33.0394 14.1114L33.0127 0.923828C35.988 2.16052 38.4232 5.10912 38.4156 9.46999Z" fill="#56b6c2"/>
+            <path d="M20.7311 56.531L20.7139 48.3474L13.6182 52.4239C9.84702 54.6111 6.07587 53.9774 3.5166 52.0174L14.9522 45.4465C19.8742 42.5972 26.1149 46.2271 26.1073 51.8877L26.134 65.0752C23.1587 63.8386 20.7234 60.8899 20.7311 56.5291" fill="#98c379"/>
+            <path d="M4.77345 37.1059L11.8518 32.9989L4.77345 28.892C0.992846 26.7202 -0.343058 23.1361 0.0729807 19.9414L11.4797 26.5599C16.4092 29.3958 16.392 36.6135 11.4797 39.4399L0.0729807 46.0583C-0.343058 42.8636 0.992846 39.2796 4.77154 37.1078" fill="#e5c07b"/>
+            <path d="M54.3728 28.8939L47.2944 33.0008L54.3728 37.1078C58.1534 39.2796 59.4893 42.8636 59.0714 46.0583L47.6647 39.4399C42.7829 36.6307 42.7142 29.4091 47.6647 26.5599L59.0714 19.9414C59.4874 23.1361 58.1515 26.7202 54.3728 28.892" fill="#d19a66"/>
+          </g>
+        </svg>
+        <span class="footer-brand-name">devtools<span style="color:var(--accent)">/</span></span>
+      </div>
+      <div class="footer-comments">
+        <span class="footer-comment">// Wikipedia for developer tools.</span>
+        <span class="footer-comment">// Community-maintained · open source · MIT.</span>
+      </div>
+
+      <div class="footer-tree">
+        <div class="footer-tree__root">content/</div>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
+        <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
+        <a href="/stacks/"     class="footer-tree__item">├── stacks/     <span class="tree-count">7</span></a>
+        <a href="/paths/"      class="footer-tree__item">├── paths/      <span class="tree-count">1</span></a>
+        <a href="/books/"      class="footer-tree__item">├── books/      <span class="tree-count">1</span></a>
+        <a href="/courses/"     class="footer-tree__item">├── courses/     <span class="tree-count">1</span></a>
+        <a href="/newsletters/" class="footer-tree__item">├── newsletters/ <span class="tree-count">11</span></a>
+        <a href="/resources/"  class="footer-tree__item">└── resources/   <span class="tree-count">1</span></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-prompt">$</span> contribute</div>
+      <a href="/contribute/"                                                      class="footer-cmd"><span class="footer-cmd__arrow">›</span> how to contribute</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/new/main/content/tools"   target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> add a tool</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/issues/new"                target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> report an issue</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/pulls"                     target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> open pull requests</a>
+      <a href="https://github.com/devtoolsd/devtoolsd"                           target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> ★ star on github</a>
+    </div>
+
+    
+    <div class="footer-section">
+      <div class="footer-section__title"><span class="footer-comment-inline">//</span> project</div>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/LICENSE"        target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> license: MIT</a>
+      <a href="https://github.com/devtoolsd/devtoolsd/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="footer-cmd"><span class="footer-cmd__arrow">›</span> CONTRIBUTING.md</a>
+      <a href="/llms.txt"                                                           class="footer-cmd"><span class="footer-cmd__arrow">›</span> llms.txt</a>
+      <a href="/index.json"                                                         class="footer-cmd"><span class="footer-cmd__arrow">›</span> index.json</a>
+      <a href="/sitemap.xml"                                                        class="footer-cmd"><span class="footer-cmd__arrow">›</span> sitemap.xml</a>
+    </div>
+
+  </div>
+
+  
+  <div class="footer-statusbar">
+    <span class="footer-status__left">
+      <span class="footer-status__brand">devtools/</span>
+      <span class="footer-status__sep">·</span>
+      <span>MIT</span>
+      <span class="footer-status__sep">·</span>
+      <span>hugo</span>
+      <span class="footer-status__sep">·</span>
+      <span>github pages</span>
+    </span>
+    <span class="footer-status__right">© 2026 · open source</span>
+  </div>
+</footer>
+
+  <div id="search-modal" class="search-modal" hidden>
+  <div class="search-modal__backdrop" id="search-backdrop"></div>
+  <div class="search-modal__box">
+    <div class="search-modal__header">
+      <span class="search-modal__title"><span style="color:var(--accent)">devtools/</span> search</span>
+      <button class="search-modal__close" id="search-close" aria-label="Close search"><kbd>esc</kbd></button>
+    </div>
+    <div class="search-modal__input-wrap">
+      <span class="search-input-slash">/</span>
+      <input
+        type="text"
+        id="search-input"
+        class="search-modal__input"
+        placeholder="search tools, books, languages..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+    </div>
+    <div id="search-results" class="search-results" role="listbox"></div>
+    <div class="search-modal__footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var index = null;
+  var selected = -1;
+
+  var modal    = document.getElementById('search-modal');
+  var input    = document.getElementById('search-input');
+  var results  = document.getElementById('search-results');
+  var openBtn  = document.getElementById('search-open');
+  var closeBtn = document.getElementById('search-close');
+  var backdrop = document.getElementById('search-backdrop');
+
+  function openSearch() {
+    modal.removeAttribute('hidden');
+    document.body.classList.add('search-open');
+    input.focus();
+    if (!index) loadIndex();
+  }
+
+  function closeSearch() {
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('search-open');
+    input.value = '';
+    results.innerHTML = '';
+    selected = -1;
+  }
+
+  function loadIndex() {
+    fetch('/index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { index = data; })
+      .catch(function() { index = []; });
+  }
+
+  function typeLabel(section) {
+    var map = {
+      tools: 'tool', languages: 'lang', frameworks: 'fwk',
+      books: 'book', courses: 'course', resources: 'res',
+      stacks: 'stack', paths: 'path'
+    };
+    return map[section] || section;
+  }
+
+  function escape(str) {
+    return str.replace(/[&<>"']/g, function(c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function highlight(text, q) {
+    if (!q) return escape(text);
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return escape(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function search(q) {
+    selected = -1;
+    if (!q || q.length < 2) { results.innerHTML = ''; return; }
+    if (!index) { results.innerHTML = ''; return; }
+
+    var ql = q.toLowerCase();
+    var scored = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      var name = (item.name || '').toLowerCase();
+      var desc = (item.description || '').toLowerCase();
+      var score = 0;
+      if (name === ql) score = 3;
+      else if (name.startsWith(ql)) score = 2;
+      else if (name.includes(ql)) score = 1;
+      else if (desc.includes(ql)) score = 0;
+      else continue;
+      scored.push({ item: item, score: score });
+    }
+    scored.sort(function(a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 8);
+
+    if (!top.length) {
+      results.innerHTML = '<div class="search-empty">no results for <strong>' + escape(q) + '</strong></div>';
+      return;
+    }
+
+    var html = '';
+    for (var j = 0; j < top.length; j++) {
+      var it = top[j].item;
+      var desc_short = it.description ? it.description.slice(0, 80) : '';
+      html += '<a href="' + escape(it.url) + '" class="search-result" role="option" tabindex="-1">'
+        + '<span class="search-result__type">' + escape(typeLabel(it.type)) + '</span>'
+        + '<span class="search-result__body">'
+        + '<span class="search-result__name">' + highlight(it.name || it.slug, q) + '</span>'
+        + (desc_short ? '<span class="search-result__desc">' + highlight(desc_short, q) + '</span>' : '')
+        + '</span>'
+        + '</a>';
+    }
+    results.innerHTML = html;
+  }
+
+  function getItems() { return results.querySelectorAll('.search-result'); }
+
+  function setSelected(n) {
+    var items = getItems();
+    if (!items.length) return;
+    if (selected >= 0 && selected < items.length) items[selected].classList.remove('is-selected');
+    selected = Math.max(0, Math.min(n, items.length - 1));
+    items[selected].classList.add('is-selected');
+    items[selected].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function() { search(input.value.trim()); });
+
+  input.addEventListener('keydown', function(e) {
+    var items = getItems();
+    if (e.key === 'ArrowDown')  { e.preventDefault(); setSelected(selected + 1); }
+    if (e.key === 'ArrowUp')    { e.preventDefault(); setSelected(selected - 1); }
+    if (e.key === 'Enter' && selected >= 0 && selected < items.length) {
+      e.preventDefault(); items[selected].click();
+    }
+  });
+
+  results.addEventListener('click', function(e) {
+    var link = e.target.closest('.search-result');
+    if (link) closeSearch();
+  });
+
+  openBtn.addEventListener('click', openSearch);
+  closeBtn.addEventListener('click', closeSearch);
+  backdrop.addEventListener('click', closeSearch);
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      modal.hasAttribute('hidden') ? openSearch() : closeSearch();
+    }
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeSearch();
+  });
+})();
+</script>
+
+</body>
+</html>

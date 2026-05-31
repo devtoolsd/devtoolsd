@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Frameworks on devtools/</title>
+		<link>https://devtools.directory/frameworks/</link>
+		<description>Recent content in Frameworks on devtools/</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<atom:link href="https://devtools.directory/frameworks/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/actix-web/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/actix-web/</guid>
+				<description>&lt;p&gt;Actix Web consistently tops the TechEmpower benchmarks. Its extractor pattern — &lt;code&gt;web::Json&amp;lt;T&amp;gt;&lt;/code&gt;, &lt;code&gt;web::Path&amp;lt;T&amp;gt;&lt;/code&gt;, &lt;code&gt;web::Query&amp;lt;T&amp;gt;&lt;/code&gt; — provides zero-overhead type-safe request parsing. Actix&amp;rsquo;s actor system underpins WebSocket handling and stateful connections. It is the most widely deployed Rust web framework in production.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/angular/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/angular/</guid>
+				<description>&lt;p&gt;Angular provides a complete, opinionated solution — dependency injection, reactive forms, routing, and HTTP all built in. Its strict TypeScript integration and CLI-driven development make it the dominant choice for large enterprise teams building complex SPAs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/aspnet-core/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/aspnet-core/</guid>
+				<description>&lt;p&gt;ASP.NET Core is Microsoft&amp;rsquo;s ground-up rewrite of ASP.NET — cross-platform, cloud-ready, and consistently among the fastest web frameworks in TechEmpower benchmarks. Minimal APIs (introduced in .NET 6) allow Express-style route handlers alongside the full MVC pattern. SignalR provides real-time WebSocket communication.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/astro/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/astro/</guid>
+				<description>&lt;p&gt;Astro&amp;rsquo;s islands architecture renders pages as static HTML and hydrates only the interactive components that need JavaScript. It is framework-agnostic — you can mix React, Vue, Svelte, and Solid components in the same project. Content collections with typed schemas make it the ideal choice for documentation sites, blogs, and marketing pages.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/axum/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/axum/</guid>
+				<description>&lt;p&gt;Axum is built on Tokio and the Tower ecosystem — any Tower middleware (rate limiting, tracing, auth) works out of the box. Its macro-free routing and type-safe extractors provide an ergonomic API without code generation. Axum has rapidly become the preferred Rust web framework for new projects.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/blazor/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/blazor/</guid>
+				<description>&lt;p&gt;Blazor lets C# developers build interactive web UIs without JavaScript. Blazor WebAssembly runs .NET code directly in the browser sandbox; Blazor Server keeps UI logic on the server and sends updates via SignalR. For .NET shops, Blazor eliminates the context switch between C# backend and JavaScript frontend.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/bootstrap/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/bootstrap/</guid>
+				<description>&lt;p&gt;Bootstrap&amp;rsquo;s 12-column grid and pre-built components (navbar, modal, card, form) allowed developers to build responsive sites without design skills. It dominated web development in the 2010s and its approach of component classes influenced virtually every CSS framework that followed. Bootstrap 5 dropped jQuery and added CSS custom properties throughout.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/celery/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/celery/</guid>
+				<description>&lt;p&gt;Celery offloads time-consuming or periodic work — email sending, image processing, ML inference, API calls — to a pool of worker processes. Tasks are defined as Python functions and triggered synchronously or scheduled via Celery Beat. It integrates natively with Django, Flask, and FastAPI and supports Redis, RabbitMQ, and AWS SQS as brokers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/chi/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/chi/</guid>
+				<description>&lt;p&gt;Chi is built entirely on Go&amp;rsquo;s standard &lt;code&gt;net/http&lt;/code&gt; interface — any existing &lt;code&gt;http.Handler&lt;/code&gt; works without modification. Its composable middleware groups, context-based routing, and zero external dependencies make it the choice of developers who want Go&amp;rsquo;s stdlib performance with cleaner routing ergonomics.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/codeigniter/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/codeigniter/</guid>
+				<description>&lt;p&gt;CodeIgniter was designed for shared hosting environments where installing packages is difficult — its small footprint and minimal dependencies make it easy to drop into any PHP host. CodeIgniter 4 is a modern rewrite with namespaces, type hints, and an async-ready foundation while retaining the lightweight philosophy.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/cypress/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/cypress/</guid>
+				<description>&lt;p&gt;Cypress runs directly inside the browser alongside the application under test — no WebDriver, no network latency. Its time-travel debugger lets you hover over each test step and see what the browser looked like at that moment. Cypress Component Testing extends it to isolated component-level testing without a full browser environment.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/django/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/django/</guid>
+				<description>&lt;p&gt;Django&amp;rsquo;s &amp;ldquo;batteries included&amp;rdquo; philosophy means authentication, an admin interface, an ORM, and routing come built in. It powers Instagram, Disqus, and many data-driven web apps.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/echo/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/echo/</guid>
+				<description>&lt;p&gt;Echo sits between Gin&amp;rsquo;s popularity and Fiber&amp;rsquo;s performance — a clean, extensible API with auto TLS via Let&amp;rsquo;s Encrypt, WebSocket support, and a straightforward middleware system. Its context-based API and data binding via struct tags make building REST APIs idiomatic in Go.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/electron/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/electron/</guid>
+				<description>&lt;p&gt;Electron bundles Chromium and Node.js into a single package, letting web developers ship desktop apps for Windows, macOS, and Linux without learning native SDKs. VS Code, Slack, Figma, Discord, and 1Password all use Electron. Its main drawback — large bundle size and memory usage — led to Tauri as a lighter alternative.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/expo/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/expo/</guid>
+				<description>&lt;p&gt;Expo wraps React Native with a managed SDK of pre-built native modules (camera, notifications, maps), a hosted build service (EAS Build), and over-the-air JavaScript updates. The Expo Router provides file-based navigation. For most React Native projects, Expo is the recommended starting point.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/express/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/express/</guid>
+				<description>&lt;p&gt;Express is the minimal, flexible Node.js web application framework. Its middleware model and routing API underpin countless Node.js backends and REST APIs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/fastapi/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/fastapi/</guid>
+				<description>&lt;p&gt;FastAPI uses Python type hints to drive both input validation (via Pydantic) and automatic OpenAPI/Swagger documentation generation. Built on Starlette and ASGI, it handles async code natively. It has become the most popular Python framework for building APIs and ML model serving endpoints.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/fastify/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/fastify/</guid>
+				<description>&lt;p&gt;Fastify&amp;rsquo;s JSON schema validation pipeline and low overhead make it one of the fastest Node.js frameworks available. Its plugin system with dependency injection ensures encapsulation and reuse across large applications. Full TypeScript support and OpenAPI plugin make it popular for building typed APIs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/fiber/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/fiber/</guid>
+				<description>&lt;p&gt;Fiber uses Fasthttp instead of net/http and is consistently one of the fastest web frameworks in any language. Its Express-inspired API helps Node.js developers transition to Go without a steep learning curve. Zero memory allocation routing and low-level tuning options make it ideal for high-throughput microservices.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/flask/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/flask/</guid>
+				<description>&lt;p&gt;Flask gives you routing, templates, and a request context — nothing more. Everything else (ORM, auth, migrations) comes from the large ecosystem of Flask extensions. Its simplicity makes it the go-to for small APIs, microservices, and projects where Django&amp;rsquo;s batteries are overhead.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/flutter/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/flutter/</guid>
+				<description>&lt;p&gt;Flutter renders UI with its own Skia/Impeller graphics engine rather than using native widgets — every pixel is Flutter&amp;rsquo;s, enabling pixel-perfect consistency across platforms. Hot reload, rich widget library, and strong Dart tooling make it one of the fastest cross-platform UI development experiences.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/gatsby/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/gatsby/</guid>
+				<description>&lt;p&gt;Gatsby popularised the idea of pulling content from CMSes, APIs, and files into a unified GraphQL layer at build time, then shipping static HTML and JavaScript. Its plugin ecosystem handles image optimisation, PWA features, and dozens of CMS integrations. Gatsby 5 added partial hydration and Slice APIs for large-scale content sites.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/gin/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/gin/</guid>
+				<description>&lt;p&gt;Gin&amp;rsquo;s httprouter-based radix tree delivers ~40x the performance of a standard net/http router. Its chainable middleware, parameter binding, and JSON validation make it the most widely used Go web framework. Clean request/response helpers and extensive documentation make it the entry point for most Go web developers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/hibernate/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/hibernate/</guid>
+				<description>&lt;p&gt;Hibernate is the reference implementation of JPA (Java Persistence API) and the standard ORM for Java applications. Its query language (HQL/JPQL) is database-agnostic, and its second-level cache with Ehcache or Redis reduces database load dramatically. Spring Boot&amp;rsquo;s Spring Data JPA is backed by Hibernate by default.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/hono/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/hono/</guid>
+				<description>&lt;p&gt;Hono is designed for the modern edge runtime landscape — the same code runs on Cloudflare Workers, Deno Deploy, Bun, and Node.js. Its trie-based router is among the fastest available, and full TypeScript support with RPC-style client generation makes end-to-end type safety straightforward.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/ionic/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/ionic/</guid>
+				<description>&lt;p&gt;Ionic wraps web app UIs in a native shell using Capacitor (or Cordova), giving access to native device APIs while writing HTML, CSS, and TypeScript. It ships native mobile apps and progressive web apps from the same codebase. Its component library mimics native iOS and Android UI patterns for each platform.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/jest/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/jest/</guid>
+				<description>&lt;p&gt;Jest is the dominant JavaScript testing framework — it runs tests in parallel in isolated environments, provides snapshot testing for UI components, and has a built-in mocking library. Its zero-configuration setup works with React, Vue, Node.js, and TypeScript out of the box. Vitest is a modern alternative that reuses Vite&amp;rsquo;s build pipeline.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/jetpack-compose/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/jetpack-compose/</guid>
+				<description>&lt;p&gt;Jetpack Compose replaces Android&amp;rsquo;s XML layout system with composable Kotlin functions that describe UI as a function of state. Its unidirectional data flow, state hoisting, and rich animation APIs make complex UIs simpler to build and test. Compose Multiplatform extends it to iOS, desktop, and web.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/junit/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/junit/</guid>
+				<description>&lt;p&gt;JUnit 5 (Jupiter) redesigned the framework around Java 8 features — lambdas, extensions, and nested test classes. Its &lt;code&gt;@Test&lt;/code&gt;, &lt;code&gt;@BeforeEach&lt;/code&gt;, &lt;code&gt;@ParameterizedTest&lt;/code&gt;, and &lt;code&gt;@ExtendWith&lt;/code&gt; annotations form the foundation of Java testing. Mockito, Spring Boot Test, and virtually every Java testing tool integrates with JUnit.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/keras/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/keras/</guid>
+				<description>&lt;p&gt;Keras provides an intuitive API for building neural networks with &lt;code&gt;Sequential&lt;/code&gt; models, functional API, and subclassing. Keras 3 is backend-agnostic — the same model code runs on TensorFlow, PyTorch, or JAX. As TensorFlow&amp;rsquo;s official high-level API it is the first framework most practitioners encounter when learning deep learning.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/koa/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/koa/</guid>
+				<description>&lt;p&gt;Koa was built by the Express team to address its callback-based design — its async middleware cascade uses &lt;code&gt;async/await&lt;/code&gt; natively and avoids callback hell. With no bundled routing or templates, Koa is a thin foundation that teams assemble with their own middleware stack.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/ktor/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/ktor/</guid>
+				<description>&lt;p&gt;Ktor is built around Kotlin coroutines — every handler is a suspend function, making async code read like synchronous code. Its plugin-based architecture (routing, auth, serialisation, WebSockets) keeps the core minimal and composable. Ktor Multiplatform also provides an HTTP client for Android, iOS, and desktop.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/langchain/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/langchain/</guid>
+				<description>&lt;p&gt;LangChain provides composable building blocks for LLM applications — prompt templates, retrieval pipelines, tool-calling agents, and memory. Its integration library connects to OpenAI, Anthropic, local models, vector databases, and dozens of data sources. LangGraph extends it with stateful, graph-based agent orchestration.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/laravel/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/laravel/</guid>
+				<description>&lt;p&gt;Laravel brings developer-friendly conventions to PHP with Eloquent ORM, Blade templating, Artisan CLI, and a massive ecosystem of first-party packages (Sanctum, Horizon, Forge).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/micronaut/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/micronaut/</guid>
+				<description>&lt;p&gt;Micronaut processes annotations at compile time rather than runtime reflection, eliminating Spring&amp;rsquo;s slow startup and high memory usage. It supports Java, Kotlin, and Groovy and provides first-class support for GraalVM native images, serverless functions, and service discovery.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/mocha/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/mocha/</guid>
+				<description>&lt;p&gt;Mocha is a flexible test runner that doesn&amp;rsquo;t include assertions or mocking — you pair it with Chai for assertions and Sinon for spies. This flexibility made it the dominant Node.js testing framework before Jest&amp;rsquo;s rise. It remains widely used in projects that prefer modular testing toolchains and in browser environments.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/nestjs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/nestjs/</guid>
+				<description>&lt;p&gt;NestJS brings Angular&amp;rsquo;s architecture to backend development — modules, controllers, providers, and guards give large teams a consistent structure. It can run on Express or Fastify underneath and supports REST, GraphQL, WebSockets, and microservice transports out of the box.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/nextjs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/nextjs/</guid>
+				<description>&lt;p&gt;Next.js adds server-side rendering, static generation, file-based routing, and API routes on top of React. It&amp;rsquo;s the default choice for production React applications.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/numpy/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/numpy/</guid>
+				<description>&lt;p&gt;NumPy provides multi-dimensional arrays and a library of mathematical operations that run in optimised C and Fortran code. It is the common data exchange format of the scientific Python stack — Pandas, SciPy, scikit-learn, PyTorch, and TensorFlow all interoperate with NumPy arrays. Vectorised operations over arrays replace explicit loops, giving 10-100x speedups.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/nuxt/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/nuxt/</guid>
+				<description>&lt;p&gt;Nuxt provides a complete application framework on top of Vue — server-side rendering, static generation, file-based routing, auto-imported components, and composables. Nuxt 3 is built on Nitro (a universal server runtime) and Vite, enabling deployment to Node.js, edge functions, and serverless environments.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/pandas/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/pandas/</guid>
+				<description>&lt;p&gt;Pandas is the foundation of Python data science — its DataFrame structure brings SQL-like operations (groupby, merge, pivot) and time series handling to Python. It reads and writes CSV, Excel, SQL, Parquet, and JSON. For larger datasets, Polars and Dask offer faster or distributed alternatives with a similar API.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/phoenix/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/phoenix/</guid>
+				<description>&lt;p&gt;Phoenix combines Rails-like productivity with the BEAM VM&amp;rsquo;s concurrency model. Phoenix Channels (WebSockets) handle millions of connections on a single server. Phoenix LiveView enables rich, interactive server-rendered UIs without writing JavaScript — state lives on the server and diffs are pushed to the browser.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/play/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/play/</guid>
+				<description>&lt;p&gt;Play was one of the first JVM frameworks to embrace reactive, non-blocking I/O throughout — no thread blocking, no synchronous calls. Its hot-reload, type-safe routing, and Twirl templates made Scala web development productive. Used at LinkedIn, Walmart, and many data-heavy applications requiring high concurrent throughput.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/playwright/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/playwright/</guid>
+				<description>&lt;p&gt;Playwright auto-waits for elements to be ready before interacting, eliminating flaky tests caused by timing issues. It supports parallel test execution across Chromium, Firefox, and WebKit — including mobile viewports. Its codegen tool records browser interactions and generates test code, making it accessible to non-programmers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/prisma/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/prisma/</guid>
+				<description>&lt;p&gt;Prisma generates a fully type-safe database client from your schema file — every query is typed based on your exact data model. Prisma Migrate handles schema migrations, Prisma Studio provides a visual data browser, and Prisma Accelerate adds connection pooling and query caching. It is the most popular ORM in the TypeScript ecosystem.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/pytest/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/pytest/</guid>
+				<description>&lt;p&gt;pytest replaces Python&amp;rsquo;s verbose &lt;code&gt;unittest&lt;/code&gt; with plain assert statements, automatic test discovery, and a fixture system that handles setup/teardown with dependency injection. Over 1,000 plugins extend it with coverage, parallel execution, Django integration, snapshot testing, and more. It is the de facto standard for Python testing across all domains.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/pytorch/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/pytorch/</guid>
+				<description>&lt;p&gt;PyTorch&amp;rsquo;s dynamic computation graph (&amp;ldquo;define-by-run&amp;rdquo;) makes debugging neural networks intuitive — you use standard Python control flow and print statements. It became the dominant framework for ML research and, with TorchServe and TorchDeploy, is now widely used in production at Meta, Tesla, and OpenAI. Most modern LLMs are built and trained in PyTorch.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/quarkus/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/quarkus/</guid>
+				<description>&lt;p&gt;Quarkus was built for containers — it starts in milliseconds and uses a fraction of the memory of traditional Spring Boot apps when compiled to native with GraalVM. It is developer-friendly with live reload, unified configuration, and familiar extensions for JPA, RESTEasy, Kafka, and more.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/rails/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/rails/</guid>
+				<description>&lt;p&gt;Rails introduced convention over configuration and DRY principles to web development, enabling a full CRUD application in minutes. It powers Shopify, GitHub (historically), and Basecamp. Rails&amp;rsquo; opinionated defaults — ActiveRecord, Action Cable, Hotwire — cover everything from database to real-time updates.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/react-native/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/react-native/</guid>
+				<description>&lt;p&gt;React Native renders genuine native UI components — not a WebView — using React&amp;rsquo;s component model and JavaScript business logic. The New Architecture (JSI, Fabric, TurboModules) eliminated the JavaScript bridge for significantly lower latency. Used by Meta, Microsoft, Shopify, and thousands of apps in production.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/react/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/react/</guid>
+				<description>&lt;p&gt;React introduced the component model and the virtual DOM to mainstream frontend development. It remains the most widely used UI library and underpins frameworks like Next.js and Remix.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/remix/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/remix/</guid>
+				<description>&lt;p&gt;Remix embraces web platform primitives — HTML forms, HTTP caching, and Response/Request APIs — so apps work without JavaScript and progressively enhance. Its nested routing model co-locates data loading with UI components, and every route can define its own loader and action for server-side data fetching and mutations.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/rocket/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/rocket/</guid>
+				<description>&lt;p&gt;Rocket uses procedural macros to validate routes, inputs, and guards at compile time — invalid routes simply don&amp;rsquo;t compile. Its request guard trait provides a clean extension point for authentication, rate limiting, and validation. Rocket 0.5 added async support and is the most beginner-friendly Rust web framework.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/rspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/rspec/</guid>
+				<description>&lt;p&gt;RSpec&amp;rsquo;s &lt;code&gt;describe&lt;/code&gt;, &lt;code&gt;context&lt;/code&gt;, and &lt;code&gt;it&lt;/code&gt; blocks produce test output that reads like a specification. Combined with FactoryBot for test data and Capybara for integration testing, RSpec forms the standard Rails test stack. Its shared examples, custom matchers, and &lt;code&gt;let&lt;/code&gt;/&lt;code&gt;subject&lt;/code&gt; helpers enable DRY, expressive test suites.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/scikit-learn/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/scikit-learn/</guid>
+				<description>&lt;p&gt;Scikit-learn provides a consistent &lt;code&gt;fit/transform/predict&lt;/code&gt; API across dozens of classical ML algorithms — SVMs, decision trees, random forests, gradient boosting, k-means, and more. It integrates seamlessly with NumPy and Pandas and is the starting point for most data science ML workflows before graduating to deep learning.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/sinatra/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/sinatra/</guid>
+				<description>&lt;p&gt;Sinatra&amp;rsquo;s domain-specific language maps HTTP verbs and paths to blocks of code — a complete API can fit in a single file. It influenced Flask, Express, and a generation of micro-frameworks. For Ruby services where Rails&amp;rsquo; weight is unnecessary, Sinatra remains the clean, minimal choice.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/slim/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/slim/</guid>
+				<description>&lt;p&gt;Slim follows PHP-FIG standards (PSR-7, PSR-15) for its HTTP message and middleware interfaces. Its tiny core — router, DI container, error handling — is ideal for PHP microservices and REST APIs where Laravel or Symfony would be overkill.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/solid/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/solid/</guid>
+				<description>&lt;p&gt;Solid&amp;rsquo;s reactive primitives — signals, effects, and memos — update only the exact DOM nodes that change, with no diffing overhead. It uses JSX like React but compiles it to direct DOM operations. Solid consistently ranks as one of the fastest UI frameworks while providing a familiar development model for React developers.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/spring-boot/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/spring-boot/</guid>
+				<description>&lt;p&gt;Spring Boot makes production-grade Spring applications by providing opinionated auto-configuration and embedded Tomcat/Jetty/Undertow servers. It is the dominant Java backend framework — used at Netflix, Airbnb, and virtually every enterprise Java shop. Spring&amp;rsquo;s ecosystem covers security, data access, messaging, batch processing, and cloud-native patterns.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/sqlalchemy/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/sqlalchemy/</guid>
+				<description>&lt;p&gt;SQLAlchemy provides two distinct APIs — the Core SQL expression language for precise SQL control, and the ORM for mapping Python classes to tables. Its unit-of-work pattern, lazy loading, and connection pooling make it robust for complex applications. FastAPI and Flask both use SQLAlchemy as the recommended ORM.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/starlette/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/starlette/</guid>
+				<description>&lt;p&gt;Starlette provides the async primitives — request/response handling, routing, middleware, WebSockets, background tasks — that FastAPI and other frameworks build on. Used directly, it is a production-ready micro-framework for high-performance async Python services with no overhead beyond what you need.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/svelte/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/svelte/</guid>
+				<description>&lt;p&gt;Svelte shifts work from the browser to compile time — there&amp;rsquo;s no runtime framework overhead, just optimised vanilla JavaScript. Its reactive assignments and simple syntax make it approachable for beginners while its performance characteristics appeal to production teams building fast, lightweight UIs.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/sveltekit/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/sveltekit/</guid>
+				<description>&lt;p&gt;SvelteKit is to Svelte what Next.js is to React — a full-stack framework with file-based routing, server-side rendering, form actions, and adapters for Vercel, Netlify, Cloudflare Workers, and Node.js. Its +page.server.js convention cleanly separates server and client code.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/swiftui/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/swiftui/</guid>
+				<description>&lt;p&gt;SwiftUI replaced UIKit&amp;rsquo;s imperative model with a declarative syntax where UI is a function of state. Property wrappers like &lt;code&gt;@State&lt;/code&gt;, &lt;code&gt;@Binding&lt;/code&gt;, and &lt;code&gt;@ObservedObject&lt;/code&gt; handle reactivity. SwiftUI runs across the entire Apple platform family, and Apple has made clear it is the future of Apple platform development.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/symfony/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/symfony/</guid>
+				<description>&lt;p&gt;Symfony is both a full-stack framework and a collection of standalone PHP components — HttpFoundation, Console, DependencyInjection, EventDispatcher — that form the plumbing of the PHP ecosystem. Laravel, Drupal, Magento, and phpBB are all built on Symfony components.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/tailwindcss/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/tailwindcss/</guid>
+				<description>&lt;p&gt;Tailwind replaces hand-written CSS with composable utility classes — &lt;code&gt;flex&lt;/code&gt;, &lt;code&gt;pt-4&lt;/code&gt;, &lt;code&gt;text-center&lt;/code&gt;, &lt;code&gt;bg-blue-500&lt;/code&gt; — applied directly in HTML. Its PurgeCSS integration removes unused classes in production, often resulting in smaller stylesheets than traditional approaches. Tailwind v4 rewrites the engine in Rust for near-instant builds.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/tauri/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/tauri/</guid>
+				<description>&lt;p&gt;Tauri uses the OS&amp;rsquo;s built-in WebView (WebKit on macOS/Linux, WebView2 on Windows) instead of bundling Chromium, resulting in app sizes under 10MB vs. Electron&amp;rsquo;s 100MB+. The Rust backend handles system integration securely. Tauri 2 added mobile support for iOS and Android from the same codebase.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/tensorflow/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/tensorflow/</guid>
+				<description>&lt;p&gt;TensorFlow is Google&amp;rsquo;s production ML platform, covering the full pipeline from research to deployment. TensorFlow Serving, TensorFlow Lite, and TensorFlow.js handle server, mobile, and browser inference. Keras is TensorFlow&amp;rsquo;s high-level API since TF2, making model definition intuitive while TensorFlow handles the underlying computation graph.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/vert-x/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/vert-x/</guid>
+				<description>&lt;p&gt;Vert.x is built on a non-blocking event loop model — a single thread handles thousands of concurrent connections without thread-per-request overhead. It is polyglot by design and runs Java, Kotlin, Groovy, JavaScript, Scala, and Ruby code on the same event bus. Used at Red Hat, Hulu, and in high-throughput financial systems.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://devtools.directory/frameworks/vue/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/frameworks/vue/</guid>
+				<description>&lt;p&gt;Vue&amp;rsquo;s single-file components and progressive adoption model make it a popular choice for teams wanting a gentler learning curve than React with a more opinionated structure.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

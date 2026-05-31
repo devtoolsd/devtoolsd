@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Technology Stacks on devtools/</title>
+		<link>https://devtools.directory/stacks/</link>
+		<description>Recent content in Technology Stacks on devtools/</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<atom:link href="https://devtools.directory/stacks/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Django Stack</title>
+				<link>https://devtools.directory/stacks/django/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/django/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Flutter Stack</title>
+				<link>https://devtools.directory/stacks/flutter/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/flutter/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>JAMstack</title>
+				<link>https://devtools.directory/stacks/jamstack/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/jamstack/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Laravel Stack</title>
+				<link>https://devtools.directory/stacks/laravel/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/laravel/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>MEAN Stack</title>
+				<link>https://devtools.directory/stacks/mean/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/mean/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>MERN Stack</title>
+				<link>https://devtools.directory/stacks/mern/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/mern/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Next.js Stack</title>
+				<link>https://devtools.directory/stacks/nextjs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://devtools.directory/stacks/nextjs/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>
