@@ -510,6 +510,15 @@
     if (link) closeSearch();
   });
 
+  window.devtoolsSearch = {
+    open: openSearch,
+    setQuery: function(q) {
+      openSearch();
+      input.value = q;
+      search(q);
+    }
+  };
+
   openBtn.addEventListener('click', openSearch);
   closeBtn.addEventListener('click', closeSearch);
   backdrop.addEventListener('click', closeSearch);

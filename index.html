@@ -253,9 +253,29 @@
   
   <section class="home-hero">
     <div class="home-hero__left">
-      <div class="home-hero__eyebrow">// open source &nbsp;·&nbsp; community-maintained &nbsp;·&nbsp; MIT</div>
-      <h1 class="home-hero__title">The open wiki for<br><span style="color:var(--accent)">everything developers use.</span></h1>
-      <p class="home-hero__sub">Looking for the right tool, language, or framework? Wondering which book to read or course to take? It's all here — documented by the community, kept accurate, and completely free. No account. No ads. No paywalls.</p>
+
+      <p class="home-hero__eyebrow">// community-maintained &nbsp;·&nbsp; open source &nbsp;·&nbsp; MIT</p>
+
+      <h1 class="home-hero__title">The open wiki for<br><span class="home-hero__title-accent">everything developers use.</span></h1>
+
+      <p class="home-hero__sub">Every tool, language, framework, library, book, and course a developer encounters — documented once, kept accurate by the community, forever free.</p>
+
+      <div class="home-search">
+        <div class="home-search__wrap">
+          <span class="home-search__slash">/</span>
+          <input
+            id="home-search-input"
+            class="home-search__input"
+            type="text"
+            placeholder="search tools, frameworks, languages, books..."
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search devtools directory"
+          >
+        </div>
+        <div class="home-search__hint"><kbd>⌘K</kbd> anywhere &nbsp;·&nbsp; 199+ entries indexed</div>
+      </div>
+
       <div class="home-hero__actions">
         <a href="/tools/" class="btn btn-primary">Start Exploring →</a>
         <a href="/languages/" class="btn btn-ghost">Browse by Language</a>
@@ -264,29 +284,19 @@
           ★ Star on GitHub
         </a>
       </div>
-      <div class="home-hero__pillars">
-        <div class="home-hero__pillar">
-          <span class="home-hero__pillar-icon">⚙</span>
-          <div>
-            <strong>Tools &amp; Libraries</strong>
-            <span class="home-hero__pillar-sub">editors, CLIs, packages, databases</span>
-          </div>
-        </div>
-        <div class="home-hero__pillar">
-          <span class="home-hero__pillar-icon" style="color:var(--blue)">{ }</span>
-          <div>
-            <strong>Languages &amp; Frameworks</strong>
-            <span class="home-hero__pillar-sub">100 languages, fully cross-linked</span>
-          </div>
-        </div>
-        <div class="home-hero__pillar">
-          <span class="home-hero__pillar-icon" style="color:var(--green)">→</span>
-          <div>
-            <strong>Learn &amp; Level Up</strong>
-            <span class="home-hero__pillar-sub">books, courses, paths, newsletters</span>
-          </div>
-        </div>
+
+      <div class="home-hero__tags">
+        <a href="/tools/"       class="hero-tag">⚙ tools</a>
+        <a href="/languages/"   class="hero-tag">{ } languages</a>
+        <a href="/frameworks/"  class="hero-tag">frameworks</a>
+        <a href="/libraries/"   class="hero-tag">libraries</a>
+        <a href="/stacks/"      class="hero-tag">stacks</a>
+        <a href="/books/"       class="hero-tag">books</a>
+        <a href="/courses/"     class="hero-tag">courses</a>
+        <a href="/paths/"       class="hero-tag">paths</a>
+        <a href="/newsletters/" class="hero-tag">newsletters</a>
       </div>
+
     </div>
 
     
@@ -346,6 +356,21 @@
       </div>
     </div>
   </section>
+
+  <script>
+  (function () {
+    var el = document.getElementById('home-search-input');
+    if (!el) return;
+    el.addEventListener('focus', function () {
+      if (window.devtoolsSearch) { window.devtoolsSearch.open(); el.blur(); }
+    });
+    el.addEventListener('keydown', function (e) {
+      if (e.key.length === 1 && !e.metaKey && !e.ctrlKey) {
+        if (window.devtoolsSearch) { window.devtoolsSearch.setQuery(e.key); el.blur(); }
+      }
+    });
+  })();
+  </script>
 
   
   <section class="section">
@@ -3116,6 +3141,15 @@
     var link = e.target.closest('.search-result');
     if (link) closeSearch();
   });
+
+  window.devtoolsSearch = {
+    open: openSearch,
+    setQuery: function(q) {
+      openSearch();
+      input.value = q;
+      search(q);
+    }
+  };
 
   openBtn.addEventListener('click', openSearch);
   closeBtn.addEventListener('click', closeSearch);
