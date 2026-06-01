@@ -92,6 +92,37 @@
 
       {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 
+      {{ if $p.features }}
+      <h2>// features</h2>
+      <ul class="fw-features">
+        {{ range $p.features }}<li>{{ . }}</li>{{ end }}
+      </ul>
+      {{ end }}
+
+      {{ if $p.install }}
+      <h2>// installation</h2>
+      <div class="fw-install">
+        {{ range $key, $val := $p.install }}
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">{{ $key }}</span>
+          <code class="fw-install__cmd">{{ $val }}</code>
+          <button class="fw-install__copy" data-copy="{{ $val }}" aria-label="Copy">⎘</button>
+        </div>
+        {{ end }}
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      {{ end }}
+
       {{ if $fwTools }}
       <h2>// tools</h2>
       <div class="grid-3">
