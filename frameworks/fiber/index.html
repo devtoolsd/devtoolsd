@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,87 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Fiber uses Fasthttp instead of net/http and is consistently one of the fastest web frameworks in any language. Its Express-inspired API helps Node.js developers transition to Go without a steep learning curve. Zero memory allocation routing and low-level tuning options make it ideal for high-throughput microservices.</p>
+      <div class="prose"><p>Fiber uses Fasthttp instead of <code>net/http</code> and is consistently one of the fastest web frameworks in any language. Its Express-inspired API helps Node.js developers transition to Go without a steep learning curve. Zero memory allocation routing and low-level tuning options make it ideal for high-throughput microservices. The trade-off is incompatibility with the <code>net/http</code> ecosystem — existing <code>http.Handler</code> middleware won&rsquo;t work.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go mod init my-api
+</span></span><span style="display:flex;"><span>go get github.com/gofiber/fiber/v2
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#7f848e">// main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;github.com/gofiber/fiber/v2&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;github.com/gofiber/fiber/v2/middleware/logger&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;github.com/gofiber/fiber/v2/middleware/recover&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Post</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">ID</span>    <span style="color:#e5c07b">int</span>    <span style="color:#98c379">`json:&#34;id&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Title</span> <span style="color:#e5c07b">string</span> <span style="color:#98c379">`json:&#34;title&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Body</span>  <span style="color:#e5c07b">string</span> <span style="color:#98c379">`json:&#34;body&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">fiber</span>.<span style="color:#61afef;font-weight:bold">New</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app</span>.<span style="color:#61afef;font-weight:bold">Use</span>(<span style="color:#e06c75">logger</span>.<span style="color:#61afef;font-weight:bold">New</span>())
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app</span>.<span style="color:#61afef;font-weight:bold">Use</span>(<span style="color:#e06c75">recover</span>.<span style="color:#61afef;font-weight:bold">New</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">posts</span> <span style="color:#56b6c2">:=</span> []<span style="color:#e06c75">Post</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app</span>.<span style="color:#61afef;font-weight:bold">Get</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">c</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">fiber</span>.<span style="color:#e06c75">Ctx</span>) <span style="color:#e5c07b">error</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app</span>.<span style="color:#61afef;font-weight:bold">Post</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">c</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">fiber</span>.<span style="color:#e06c75">Ctx</span>) <span style="color:#e5c07b">error</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">var</span> <span style="color:#e06c75">p</span> <span style="color:#e06c75">Post</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">if</span> <span style="color:#e06c75">err</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">BodyParser</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">p</span>); <span style="color:#e06c75">err</span> <span style="color:#56b6c2">!=</span> <span style="color:#e5c07b">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">Status</span>(<span style="color:#d19a66">400</span>).<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">fiber</span>.<span style="color:#e06c75">Map</span>{<span style="color:#98c379">&#34;error&#34;</span>: <span style="color:#e06c75">err</span>.<span style="color:#61afef;font-weight:bold">Error</span>()})
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">p</span>.<span style="color:#e06c75">ID</span> = <span style="color:#e5c07b">len</span>(<span style="color:#e06c75">posts</span>) <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">posts</span> = <span style="color:#e5c07b">append</span>(<span style="color:#e06c75">posts</span>, <span style="color:#e06c75">p</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">Status</span>(<span style="color:#d19a66">201</span>).<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">p</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app</span>.<span style="color:#61afef;font-weight:bold">Get</span>(<span style="color:#98c379">&#34;/posts/:id&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">c</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">fiber</span>.<span style="color:#e06c75">Ctx</span>) <span style="color:#e5c07b">error</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">fiber</span>.<span style="color:#e06c75">Map</span>{<span style="color:#98c379">&#34;id&#34;</span>: <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">Params</span>(<span style="color:#98c379">&#34;id&#34;</span>)})
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">app</span>.<span style="color:#61afef;font-weight:bold">Listen</span>(<span style="color:#98c379">&#34;:3000&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Fiber is ideal for Go microservices where raw throughput is the primary concern and you don&rsquo;t need to interop with <code>net/http</code> middleware. Its Express-like API makes it the gentlest transition for developers coming from Node.js. If you need to reuse existing <code>net/http</code> handlers or middleware, use Gin or Chi instead. For new high-throughput Go services where the <code>net/http</code> ecosystem is not a factor, Fiber delivers the best performance.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Built on Fasthttp — fastest Go HTTP implementation, not net/http</li><li>Express-like API — routes, middleware, and context will feel familiar</li><li>Zero memory allocation routing for maximum throughput</li><li>Middleware: Logger, Limiter, Cache, CORS, JWT, Session</li><li>WebSocket and SSE support</li><li>Template engine support — HTML, Handlebars, Pug</li><li>File upload handling and static file serving</li><li>Prefork mode — spawn one worker per CPU core for maximum concurrency</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">go</span>
+          <code class="fw-install__cmd">go get github.com/gofiber/fiber/v2</code>
+          <button class="fw-install__copy" data-copy="go get github.com/gofiber/fiber/v2" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +531,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

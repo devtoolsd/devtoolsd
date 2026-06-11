@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,88 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Mocha is a flexible test runner that doesn&rsquo;t include assertions or mocking — you pair it with Chai for assertions and Sinon for spies. This flexibility made it the dominant Node.js testing framework before Jest&rsquo;s rise. It remains widely used in projects that prefer modular testing toolchains and in browser environments.</p>
+      <div class="prose"><p>Mocha is a flexible test runner that doesn&rsquo;t include assertions or mocking — you pair it with Chai for assertions and Sinon for spies. This flexibility made it the dominant Node.js testing framework before Jest&rsquo;s rise. It remains widely used in projects that prefer modular testing toolchains, in browser environments, and in older codebases.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save-dev mocha chai
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// test/math.test.js
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> { <span style="color:#e06c75">expect</span> } <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#39;chai&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> { <span style="color:#e06c75">add</span>, <span style="color:#e06c75">divide</span> } <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#39;../src/math&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">describe</span>(<span style="color:#98c379">&#39;add()&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">it</span>(<span style="color:#98c379">&#39;returns the sum of two numbers&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">add</span>(<span style="color:#d19a66">2</span>, <span style="color:#d19a66">3</span>)).<span style="color:#e06c75">to</span>.<span style="color:#e06c75">equal</span>(<span style="color:#d19a66">5</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">it</span>(<span style="color:#98c379">&#39;handles negative numbers&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">add</span>(<span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>, <span style="color:#d19a66">1</span>)).<span style="color:#e06c75">to</span>.<span style="color:#e06c75">equal</span>(<span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">describe</span>(<span style="color:#98c379">&#39;divide()&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">it</span>(<span style="color:#98c379">&#39;divides two numbers&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">divide</span>(<span style="color:#d19a66">10</span>, <span style="color:#d19a66">2</span>)).<span style="color:#e06c75">to</span>.<span style="color:#e06c75">equal</span>(<span style="color:#d19a66">5</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">it</span>(<span style="color:#98c379">&#39;throws on division by zero&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(() =&gt; <span style="color:#e06c75">divide</span>(<span style="color:#d19a66">5</span>, <span style="color:#d19a66">0</span>)).<span style="color:#e06c75">to</span>.<span style="color:#c678dd">throw</span>(<span style="color:#98c379">&#39;Division by zero&#39;</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// Async test
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">describe</span>(<span style="color:#98c379">&#39;fetchUser()&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">it</span>(<span style="color:#98c379">&#39;returns a user object&#39;</span>, <span style="color:#c678dd">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">const</span> <span style="color:#e06c75">user</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">fetchUser</span>(<span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">user</span>).<span style="color:#e06c75">to</span>.<span style="color:#e06c75">have</span>.<span style="color:#e06c75">property</span>(<span style="color:#98c379">&#39;name&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">user</span>.<span style="color:#e06c75">id</span>).<span style="color:#e06c75">to</span>.<span style="color:#e06c75">equal</span>(<span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#7f848e">// package.json
+</span></span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&#34;scripts&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">&#34;test&#34;</span>: <span style="color:#98c379">&#34;mocha &#39;test/**/*.test.js&#39;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">&#34;test:watch&#34;</span>: <span style="color:#98c379">&#34;mocha --watch &#39;test/**/*.test.js&#39;&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Mocha is a reasonable choice when you want full control over your assertion library (Chai) and mocking library (Sinon) independently, or when you&rsquo;re running tests in the browser. For new JavaScript/TypeScript projects, Jest or Vitest offer a more integrated experience with built-in mocking, snapshots, and better TypeScript support. Mocha remains relevant for maintaining existing test suites and projects that need its flexible reporter ecosystem.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>BDD and TDD interfaces — `describe()`/`it()` or `suite()`/`test()`</li><li>Unopinionated — pair with Chai, assert, or any assertion library</li><li>Async support — Promises, async/await, and callbacks</li><li>Flexible reporter system — spec, dot, tap, nyan, json, junit</li><li>Browser test runner support</li><li>Retry flaky tests with `--retries`</li><li>Parallel test execution with `--parallel` flag</li><li>Root hooks for global setup/teardown</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm install --save-dev mocha chai</code>
+          <button class="fw-install__copy" data-copy="npm install --save-dev mocha chai" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn add -D mocha chai</code>
+          <button class="fw-install__copy" data-copy="yarn add -D mocha chai" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -438,7 +522,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

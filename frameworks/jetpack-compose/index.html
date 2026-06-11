@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -343,8 +347,87 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Jetpack Compose replaces Android&rsquo;s XML layout system with composable Kotlin functions that describe UI as a function of state. Its unidirectional data flow, state hoisting, and rich animation APIs make complex UIs simpler to build and test. Compose Multiplatform extends it to iOS, desktop, and web.</p>
+      <div class="prose"><p>Jetpack Compose replaces Android&rsquo;s XML layout system with composable Kotlin functions that describe UI as a function of state. Its unidirectional data flow, state hoisting, and rich animation APIs make complex UIs simpler to build and test. Compose Multiplatform extends it to iOS, desktop, and web — making Compose the most promising path toward a unified Kotlin UI layer across platforms.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#7f848e">// build.gradle.kts — ensure Compose is enabled
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">android</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">buildFeatures</span> { <span style="color:#e06c75">compose</span> = <span style="color:#c678dd">true</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">composeOptions</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">kotlinCompilerExtensionVersion</span> = <span style="color:#98c379">&#34;1.5.x&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">dependencies</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">implementation</span>(<span style="color:#98c379">&#34;androidx.compose.material3:material3&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">implementation</span>(<span style="color:#98c379">&#34;androidx.activity:activity-compose&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#7f848e">// MainActivity.kt
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">MainActivity</span> : <span style="color:#e06c75">ComponentActivity</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">override</span> <span style="color:#c678dd">fun</span> <span style="color:#61afef;font-weight:bold">onCreate</span>(<span style="color:#e06c75">savedInstanceState</span>: <span style="color:#e06c75">Bundle</span>?) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">super</span>.<span style="color:#e06c75">onCreate</span>(<span style="color:#e06c75">savedInstanceState</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">setContent</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">MaterialTheme</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">CounterScreen</span>()
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Composable</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">fun</span> <span style="color:#61afef;font-weight:bold">CounterScreen</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">count</span> <span style="color:#c678dd">by</span> <span style="color:#e06c75">remember</span> { <span style="color:#e06c75">mutableIntStateOf</span>(<span style="color:#d19a66">0</span>) }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">Column</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">modifier</span> = <span style="color:#e5c07b">Modifier</span>.<span style="color:#e06c75">fillMaxSize</span>(),
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">verticalArrangement</span> = <span style="color:#e5c07b">Arrangement</span>.<span style="color:#e06c75">Center</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">horizontalAlignment</span> = <span style="color:#e5c07b">Alignment</span>.<span style="color:#e06c75">CenterHorizontally</span>
+</span></span><span style="display:flex;"><span>    ) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">Text</span>(<span style="color:#e06c75">text</span> = <span style="color:#98c379">&#34;Count: </span><span style="color:#98c379">$count</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">style</span> = <span style="color:#e5c07b">MaterialTheme</span>.<span style="color:#e06c75">typography</span>.<span style="color:#e06c75">headlineLarge</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">Spacer</span>(<span style="color:#e06c75">modifier</span> = <span style="color:#e5c07b">Modifier</span>.<span style="color:#e06c75">height</span>(<span style="color:#d19a66">16</span>.<span style="color:#e06c75">dp</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">Button</span>(<span style="color:#e06c75">onClick</span> = { <span style="color:#e06c75">count</span><span style="color:#56b6c2">++</span> }) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">Text</span>(<span style="color:#98c379">&#34;Increment&#34;</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Preview</span>(<span style="color:#e06c75">showBackground</span> = <span style="color:#c678dd">true</span>)
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Composable</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">fun</span> <span style="color:#61afef;font-weight:bold">CounterPreview</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">MaterialTheme</span> { <span style="color:#e06c75">CounterScreen</span>() }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Jetpack Compose is the recommended way to build new Android UI. Google&rsquo;s own apps (Gmail, Maps) are migrating to Compose. For greenfield Android apps, Compose is the clear choice. For existing View-based apps, Compose integrates incrementally — you can mix Compose and Views in the same activity. For cross-platform mobile, Compose Multiplatform is maturing, but Flutter and React Native are more production-proven for iOS today.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Composable functions — build UI by calling Kotlin functions, no XML</li><li>Unidirectional data flow with `remember` and `mutableStateOf`</li><li>Rich animation APIs — `animate*AsState`, `AnimatedVisibility`, transitions</li><li>Material 3 components built in — Scaffold, TopAppBar, NavigationBar</li><li>Interoperability with View-based layouts via `AndroidView`</li><li>Compose Multiplatform — share UI code with iOS, desktop, and web</li><li>Lazy layouts — `LazyColumn`, `LazyRow`, `LazyGrid` for large lists</li><li>Preview composables in Android Studio without a device</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">gradle</span>
+          <code class="fw-install__cmd">implementation(&#34;androidx.compose.ui:ui&#34;) // in app/build.gradle.kts</code>
+          <button class="fw-install__copy" data-copy="implementation(&#34;androidx.compose.ui:ui&#34;) // in app/build.gradle.kts" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -432,7 +515,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -354,7 +358,75 @@
     <div class="detail-body">
 
       <div class="prose"><p>Starlette provides the async primitives — request/response handling, routing, middleware, WebSockets, background tasks — that FastAPI and other frameworks build on. Used directly, it is a production-ready micro-framework for high-performance async Python services with no overhead beyond what you need.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install starlette uvicorn
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># app.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">starlette.applications</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">Starlette</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">starlette.requests</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">Request</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">starlette.responses</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">JSONResponse</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">starlette.routing</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">Route</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">starlette.middleware.cors</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">CORSMiddleware</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">list_posts</span>(<span style="color:#e06c75">request</span>: <span style="color:#e06c75">Request</span>) <span style="color:#56b6c2">-&gt;</span> <span style="color:#e06c75">JSONResponse</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">JSONResponse</span>(<span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">create_post</span>(<span style="color:#e06c75">request</span>: <span style="color:#e06c75">Request</span>) <span style="color:#56b6c2">-&gt;</span> <span style="color:#e06c75">JSONResponse</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">data</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">request</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">json</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> {<span style="color:#98c379">&#34;id&#34;</span>: <span style="color:#e5c07b">len</span>(<span style="color:#e06c75">posts</span>) <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>, <span style="color:#56b6c2">**</span><span style="color:#e06c75">data</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">posts</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">append</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">JSONResponse</span>(<span style="color:#e06c75">post</span>, <span style="color:#e06c75">status_code</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">201</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">get_post</span>(<span style="color:#e06c75">request</span>: <span style="color:#e06c75">Request</span>) <span style="color:#56b6c2">-&gt;</span> <span style="color:#e06c75">JSONResponse</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">post_id</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">int</span>(<span style="color:#e06c75">request</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">path_params</span>[<span style="color:#98c379">&#34;id&#34;</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">next</span>((<span style="color:#e06c75">p</span> <span style="color:#c678dd">for</span> <span style="color:#e06c75">p</span> <span style="color:#56b6c2">in</span> <span style="color:#e06c75">posts</span> <span style="color:#c678dd">if</span> <span style="color:#e06c75">p</span>[<span style="color:#98c379">&#34;id&#34;</span>] <span style="color:#56b6c2">==</span> <span style="color:#e06c75">post_id</span>), <span style="color:#e5c07b">None</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#56b6c2">not</span> <span style="color:#e06c75">post</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">JSONResponse</span>({<span style="color:#98c379">&#34;error&#34;</span>: <span style="color:#98c379">&#34;Not found&#34;</span>}, <span style="color:#e06c75">status_code</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">404</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">JSONResponse</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Starlette</span>(<span style="color:#e06c75">routes</span><span style="color:#56b6c2">=</span>[
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">Route</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#e06c75">list_posts</span>, <span style="color:#e06c75">methods</span><span style="color:#56b6c2">=</span>[<span style="color:#98c379">&#34;GET&#34;</span>]),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">Route</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#e06c75">create_post</span>, <span style="color:#e06c75">methods</span><span style="color:#56b6c2">=</span>[<span style="color:#98c379">&#34;POST&#34;</span>]),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">Route</span>(<span style="color:#98c379">&#34;/posts/{id:int}&#34;</span>, <span style="color:#e06c75">get_post</span>, <span style="color:#e06c75">methods</span><span style="color:#56b6c2">=</span>[<span style="color:#98c379">&#34;GET&#34;</span>]),
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">add_middleware</span>(<span style="color:#e06c75">CORSMiddleware</span>, <span style="color:#e06c75">allow_origins</span><span style="color:#56b6c2">=</span>[<span style="color:#98c379">&#34;*&#34;</span>])
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uvicorn app:app --reload
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Use Starlette directly when you want a lightweight async Python framework without FastAPI&rsquo;s Pydantic dependency and automatic docs. It&rsquo;s ideal for services where you need WebSockets, streaming, or background tasks but don&rsquo;t need API documentation. FastAPI is a superset of Starlette — if you use FastAPI, you&rsquo;re using Starlette&rsquo;s routing, middleware, and test client. For most new projects, FastAPI provides better developer ergonomics; Starlette suits projects that want more control over their stack.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>ASGI-native — runs on Uvicorn, Hypercorn, or Daphne</li><li>WebSocket support built in</li><li>Background tasks without a separate queue</li><li>Streaming responses and server-sent events</li><li>Static file serving and templating (Jinja2)</li><li>Session and cookie middleware</li><li>Test client for synchronous and async tests</li><li>Mount sub-applications — FastAPI is a Starlette subclass</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install starlette uvicorn</code>
+          <button class="fw-install__copy" data-copy="pip install starlette uvicorn" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -518,7 +590,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

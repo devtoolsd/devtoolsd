@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,88 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Scikit-learn provides a consistent <code>fit/transform/predict</code> API across dozens of classical ML algorithms — SVMs, decision trees, random forests, gradient boosting, k-means, and more. It integrates seamlessly with NumPy and Pandas and is the starting point for most data science ML workflows before graduating to deep learning.</p>
+      <div class="prose"><p>Scikit-learn provides a consistent <code>fit/transform/predict</code> API across dozens of classical ML algorithms — SVMs, decision trees, random forests, gradient boosting, k-means, and more. It integrates seamlessly with NumPy and Pandas and is the starting point for most data science ML workflows before graduating to deep learning. Its Pipeline API chains preprocessing and modeling into reproducible, cross-validation-friendly workflows.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install scikit-learn pandas numpy
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">numpy</span> <span style="color:#c678dd">as</span> <span style="color:#e06c75">np</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sklearn.datasets</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">load_iris</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sklearn.model_selection</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">train_test_split</span>, <span style="color:#e06c75">cross_val_score</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sklearn.preprocessing</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">StandardScaler</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sklearn.ensemble</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">RandomForestClassifier</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sklearn.pipeline</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">Pipeline</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sklearn.metrics</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">classification_report</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Load data</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">X</span>, <span style="color:#e06c75">y</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">load_iris</span>(<span style="color:#e06c75">return_X_y</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">X_train</span>, <span style="color:#e06c75">X_test</span>, <span style="color:#e06c75">y_train</span>, <span style="color:#e06c75">y_test</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">train_test_split</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">X</span>, <span style="color:#e06c75">y</span>, <span style="color:#e06c75">test_size</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">0.2</span>, <span style="color:#e06c75">random_state</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">42</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Build pipeline</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">pipe</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Pipeline</span>([
+</span></span><span style="display:flex;"><span>    (<span style="color:#98c379">&#39;scaler&#39;</span>, <span style="color:#e06c75">StandardScaler</span>()),
+</span></span><span style="display:flex;"><span>    (<span style="color:#98c379">&#39;clf&#39;</span>, <span style="color:#e06c75">RandomForestClassifier</span>(<span style="color:#e06c75">n_estimators</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">100</span>, <span style="color:#e06c75">random_state</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">42</span>)),
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Train and evaluate</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">pipe</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">fit</span>(<span style="color:#e06c75">X_train</span>, <span style="color:#e06c75">y_train</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">y_pred</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">pipe</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">predict</span>(<span style="color:#e06c75">X_test</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">classification_report</span>(<span style="color:#e06c75">y_test</span>, <span style="color:#e06c75">y_pred</span>, <span style="color:#e06c75">target_names</span><span style="color:#56b6c2">=</span><span style="color:#e06c75">load_iris</span>()<span style="color:#56b6c2">.</span><span style="color:#e06c75">target_names</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Cross-validation</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">cv_scores</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">cross_val_score</span>(<span style="color:#e06c75">pipe</span>, <span style="color:#e06c75">X</span>, <span style="color:#e06c75">y</span>, <span style="color:#e06c75">cv</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#98c379">f</span><span style="color:#98c379">&#34;CV accuracy: </span><span style="color:#98c379">{</span><span style="color:#e06c75">cv_scores</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">mean</span>()<span style="color:#98c379">:</span><span style="color:#98c379">.3f</span><span style="color:#98c379">}</span><span style="color:#98c379"> ± </span><span style="color:#98c379">{</span><span style="color:#e06c75">cv_scores</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">std</span>()<span style="color:#98c379">:</span><span style="color:#98c379">.3f</span><span style="color:#98c379">}</span><span style="color:#98c379">&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># Hyperparameter tuning</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sklearn.model_selection</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">GridSearchCV</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">param_grid</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#39;clf__n_estimators&#39;</span>: [<span style="color:#d19a66">50</span>, <span style="color:#d19a66">100</span>, <span style="color:#d19a66">200</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#39;clf__max_depth&#39;</span>: [<span style="color:#e5c07b">None</span>, <span style="color:#d19a66">5</span>, <span style="color:#d19a66">10</span>],
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">search</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">GridSearchCV</span>(<span style="color:#e06c75">pipe</span>, <span style="color:#e06c75">param_grid</span>, <span style="color:#e06c75">cv</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">5</span>, <span style="color:#e06c75">n_jobs</span><span style="color:#56b6c2">=-</span><span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">search</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">fit</span>(<span style="color:#e06c75">X_train</span>, <span style="color:#e06c75">y_train</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#98c379">&#34;Best params:&#34;</span>, <span style="color:#e06c75">search</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">best_params_</span>)
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>scikit-learn is the first stop for any Python ML project using classical algorithms — tabular data, feature engineering, and model evaluation. Its Pipeline API is excellent for production code that needs reproducible preprocessing. For deep learning and neural networks, PyTorch or TensorFlow/Keras are required. For large tabular datasets, XGBoost and LightGBM complement scikit-learn&rsquo;s API and often outperform its gradient boosting implementation.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Consistent `fit / transform / predict` API across all algorithms</li><li>Classification: SVM, Random Forest, Gradient Boosting, KNN, Logistic Regression</li><li>Regression: Ridge, Lasso, ElasticNet, Random Forest, XGBoost integration</li><li>Clustering: K-Means, DBSCAN, hierarchical, spectral</li><li>Preprocessing: StandardScaler, MinMaxScaler, LabelEncoder, OneHotEncoder</li><li>Pipeline API for combining preprocessing and model steps</li><li>GridSearchCV and RandomizedSearchCV for hyperparameter tuning</li><li>Cross-validation, learning curves, and model evaluation metrics</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">conda</span>
+          <code class="fw-install__cmd">conda install scikit-learn</code>
+          <button class="fw-install__copy" data-copy="conda install scikit-learn" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install scikit-learn</code>
+          <button class="fw-install__copy" data-copy="pip install scikit-learn" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +532,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

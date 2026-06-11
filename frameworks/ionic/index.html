@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,89 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Ionic wraps web app UIs in a native shell using Capacitor (or Cordova), giving access to native device APIs while writing HTML, CSS, and TypeScript. It ships native mobile apps and progressive web apps from the same codebase. Its component library mimics native iOS and Android UI patterns for each platform.</p>
+      <div class="prose"><p>Ionic wraps web app UIs in a native shell using Capacitor (or Cordova), giving access to native device APIs while writing HTML, CSS, and TypeScript. It ships native mobile apps and progressive web apps from the same codebase. Its component library mimics native iOS and Android UI patterns for each platform, switching styles based on the runtime platform.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g @ionic/cli
+</span></span><span style="display:flex;"><span>ionic start my-app tabs --type react
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>ionic serve
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#7f848e">// src/pages/Home.tsx
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">IonContent</span>, <span style="color:#e06c75">IonHeader</span>, <span style="color:#e06c75">IonPage</span>, <span style="color:#e06c75">IonTitle</span>, <span style="color:#e06c75">IonToolbar</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">IonList</span>, <span style="color:#e06c75">IonItem</span>, <span style="color:#e06c75">IonLabel</span>, <span style="color:#e06c75">IonButton</span>, <span style="color:#e06c75">useIonToast</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;@ionic/react&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">useState</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">Home</span>: <span style="color:#e5c07b">React.FC</span> <span style="color:#56b6c2">=</span> () <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> [<span style="color:#e06c75">items</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">useState</span>([<span style="color:#98c379">&#39;Item 1&#39;</span>, <span style="color:#98c379">&#39;Item 2&#39;</span>, <span style="color:#98c379">&#39;Item 3&#39;</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> [<span style="color:#e06c75">present</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">useIonToast</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">IonPage</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">IonHeader</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#e06c75">IonToolbar</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#e06c75">IonTitle</span>&gt;<span style="color:#e06c75">Home</span>&lt;/<span style="color:#e06c75">IonTitle</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#e06c75">IonToolbar</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">IonHeader</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">IonContent</span> <span style="color:#e06c75">fullscreen</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#e06c75">IonList</span>&gt;
+</span></span><span style="display:flex;"><span>          {<span style="color:#e06c75">items</span>.<span style="color:#e06c75">map</span>(<span style="color:#e06c75">item</span> <span style="color:#56b6c2">=&gt;</span> (
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#e06c75">IonItem</span> <span style="color:#e06c75">key</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">item</span>}&gt;
+</span></span><span style="display:flex;"><span>              &lt;<span style="color:#e06c75">IonLabel</span>&gt;{<span style="color:#e06c75">item</span>}&lt;/<span style="color:#e06c75">IonLabel</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#e06c75">IonItem</span>&gt;
+</span></span><span style="display:flex;"><span>          ))}
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#e06c75">IonList</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#e06c75">IonButton</span> <span style="color:#e06c75">expand</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;block&#34;</span> <span style="color:#e06c75">onClick</span><span style="color:#56b6c2">=</span>{() <span style="color:#56b6c2">=&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#e06c75">present</span>({ <span style="color:#e06c75">message</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Hello from Ionic!&#39;</span>, <span style="color:#e06c75">duration</span>: <span style="color:#e5c07b">2000</span> })
+</span></span><span style="display:flex;"><span>        }&gt;
+</span></span><span style="display:flex;"><span>          <span style="color:#e06c75">Show</span> <span style="color:#e06c75">Toast</span>
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#e06c75">IonButton</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">IonContent</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">IonPage</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#e06c75">Home</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Ionic is ideal for teams with strong web development experience who need a mobile app quickly. It&rsquo;s particularly efficient for PWAs that also need a native shell — one codebase serves both. Compared to React Native and Flutter, Ionic uses a WebView which can have performance limitations for animations and complex interactions. For performance-sensitive apps (games, media, camera-heavy), React Native or Flutter are better choices.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Works with Angular, React, and Vue — no new framework to learn</li><li>Native-like UI components that adapt to iOS and Android design patterns</li><li>Capacitor for native device APIs — camera, GPS, notifications, biometrics</li><li>Progressive Web App support — deploy the same app as PWA and native</li><li>Ionic Studio and AppFlow for CI/CD and live reload</li><li>Rich component library: lists, cards, modals, slides, forms</li><li>Dark mode and theming via CSS custom properties</li><li>Offline-first capabilities via Capacitor Preferences and SQLite</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm install -g @ionic/cli &amp;&amp; ionic start my-app tabs --type react</code>
+          <button class="fw-install__copy" data-copy="npm install -g @ionic/cli &amp;&amp; ionic start my-app tabs --type react" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npx</span>
+          <code class="fw-install__cmd">npx @ionic/cli start my-app tabs --type=react</code>
+          <button class="fw-install__copy" data-copy="npx @ionic/cli start my-app tabs --type=react" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -443,7 +528,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

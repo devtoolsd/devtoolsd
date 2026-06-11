@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,76 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>NumPy provides multi-dimensional arrays and a library of mathematical operations that run in optimised C and Fortran code. It is the common data exchange format of the scientific Python stack — Pandas, SciPy, scikit-learn, PyTorch, and TensorFlow all interoperate with NumPy arrays. Vectorised operations over arrays replace explicit loops, giving 10-100x speedups.</p>
+      <div class="prose"><p>NumPy provides multi-dimensional arrays and a library of mathematical operations that run in optimised C and Fortran code. It is the common data exchange format of the scientific Python stack — Pandas, SciPy, scikit-learn, PyTorch, and TensorFlow all interoperate with NumPy arrays. Vectorised operations over arrays replace explicit Python loops, giving 10–100× speedups for numerical work.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install numpy
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">numpy</span> <span style="color:#c678dd">as</span> <span style="color:#e06c75">np</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Create arrays</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">a</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">array</span>([<span style="color:#d19a66">1</span>, <span style="color:#d19a66">2</span>, <span style="color:#d19a66">3</span>, <span style="color:#d19a66">4</span>, <span style="color:#d19a66">5</span>])
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">b</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">arange</span>(<span style="color:#d19a66">1</span>, <span style="color:#d19a66">6</span>)              <span style="color:#7f848e"># [1, 2, 3, 4, 5]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">c</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">zeros</span>((<span style="color:#d19a66">3</span>, <span style="color:#d19a66">4</span>))             <span style="color:#7f848e"># 3x4 matrix of zeros</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">d</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">random</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">rand</span>(<span style="color:#d19a66">3</span>, <span style="color:#d19a66">3</span>)         <span style="color:#7f848e"># 3x3 matrix of random floats</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Vectorised operations (no loop needed)</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">a</span> <span style="color:#56b6c2">*</span> <span style="color:#d19a66">2</span>)                     <span style="color:#7f848e"># [2, 4, 6, 8, 10]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">a</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span>)                     <span style="color:#7f848e"># [2, 4, 6, 8, 10]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">a</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">mean</span>(), <span style="color:#e06c75">a</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">std</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># 2D array operations</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">matrix</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">array</span>([[<span style="color:#d19a66">1</span>, <span style="color:#d19a66">2</span>], [<span style="color:#d19a66">3</span>, <span style="color:#d19a66">4</span>]])
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">matrix</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">T</span>)                  <span style="color:#7f848e"># transpose</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">linalg</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">det</span>(<span style="color:#e06c75">matrix</span>))     <span style="color:#7f848e"># determinant: -2.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">linalg</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">inv</span>(<span style="color:#e06c75">matrix</span>))     <span style="color:#7f848e"># inverse</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Broadcasting</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">x</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">array</span>([[<span style="color:#d19a66">1</span>, <span style="color:#d19a66">2</span>, <span style="color:#d19a66">3</span>],
+</span></span><span style="display:flex;"><span>               [<span style="color:#d19a66">4</span>, <span style="color:#d19a66">5</span>, <span style="color:#d19a66">6</span>]])
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">x</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">array</span>([<span style="color:#d19a66">10</span>, <span style="color:#d19a66">20</span>, <span style="color:#d19a66">30</span>]))  <span style="color:#7f848e"># add row-wise</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Boolean indexing</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">scores</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">np</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">array</span>([<span style="color:#d19a66">72</span>, <span style="color:#d19a66">45</span>, <span style="color:#d19a66">88</span>, <span style="color:#d19a66">91</span>, <span style="color:#d19a66">60</span>])
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">scores</span>[<span style="color:#e06c75">scores</span> <span style="color:#56b6c2">&gt;</span> <span style="color:#d19a66">70</span>])          <span style="color:#7f848e"># [72, 88, 91]</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>NumPy is essential for any Python numerical or scientific computing work. It&rsquo;s a dependency of virtually every data science library and you&rsquo;ll use it even when working at higher levels (Pandas, PyTorch). Use NumPy directly for linear algebra, signal processing, and custom numerical algorithms. For tabular data and time series, Pandas adds labelled indexing on top. For GPU-accelerated array computing, CuPy provides a NumPy-compatible API.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>N-dimensional arrays (`ndarray`) as the universal data container</li><li>Vectorised operations — replace loops with fast C/Fortran kernels</li><li>Broadcasting — operate on arrays of different shapes without loops</li><li>Linear algebra: `np.linalg` for matrix operations, eigenvalues, solvers</li><li>Random number generation with seeded reproducibility</li><li>Fast Fourier transforms via `np.fft`</li><li>Integration with Pandas, SciPy, scikit-learn, PyTorch, TensorFlow</li><li>Memory-mapped arrays for datasets too large to fit in RAM</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">conda</span>
+          <code class="fw-install__cmd">conda install numpy</code>
+          <button class="fw-install__copy" data-copy="conda install numpy" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install numpy</code>
+          <button class="fw-install__copy" data-copy="pip install numpy" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -443,7 +515,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

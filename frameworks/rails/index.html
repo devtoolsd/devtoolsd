@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,82 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Rails introduced convention over configuration and DRY principles to web development, enabling a full CRUD application in minutes. It powers Shopify, GitHub (historically), and Basecamp. Rails&rsquo; opinionated defaults — ActiveRecord, Action Cable, Hotwire — cover everything from database to real-time updates.</p>
+      <div class="prose"><p>Rails introduced convention over configuration and DRY principles to web development, enabling a full CRUD application in minutes. It powers Shopify, GitHub (historically), and Basecamp. Rails&rsquo; opinionated defaults — ActiveRecord, Action Cable, Hotwire — cover everything from the database to real-time updates. Its <code>rails generate</code> scaffold command remains one of the most productive ways to bootstrap a new resource.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gem install rails
+</span></span><span style="display:flex;"><span>rails new myapp --database<span style="color:#56b6c2">=</span>postgresql
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> myapp
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#7f848e"># Generate a Post scaffold with title and body</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">rails</span> <span style="color:#e06c75">generate</span> <span style="color:#e06c75">scaffold</span> <span style="color:#e06c75">Post</span> <span style="color:#98c379">title</span>:<span style="color:#e06c75">string</span> <span style="color:#98c379">body</span>:<span style="color:#e06c75">text</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">rails</span> <span style="color:#98c379">db</span>:<span style="color:#e06c75">migrate</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">rails</span> <span style="color:#e06c75">server</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Visit http://localhost:3000/posts for full CRUD</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#7f848e"># app/models/post.rb</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Post</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">ApplicationRecord</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">validates</span> <span style="color:#98c379">:title</span>, <span style="color:#98c379">presence</span>: <span style="color:#c678dd">true</span>, <span style="color:#98c379">length</span>: { <span style="color:#98c379">minimum</span>: <span style="color:#d19a66">3</span> }
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">has_many</span> <span style="color:#98c379">:comments</span>, <span style="color:#98c379">dependent</span>: <span style="color:#98c379">:destroy</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># app/controllers/posts_controller.rb (generated)</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">PostsController</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">ApplicationController</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">before_action</span> <span style="color:#98c379">:set_post</span>, <span style="color:#98c379">only</span>: <span style="color:#56b6c2">%</span><span style="color:#e06c75">i</span><span style="color:#56b6c2">[</span><span style="color:#e06c75">show</span> <span style="color:#e06c75">edit</span> <span style="color:#e06c75">update</span> <span style="color:#e06c75">destroy</span><span style="color:#56b6c2">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">index</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">@posts</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Post</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">all</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">order</span>(<span style="color:#98c379">created_at</span>: <span style="color:#98c379">:desc</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">show</span>; <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">private</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">set_post</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">@post</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Post</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">find</span>(<span style="color:#e06c75">params</span><span style="color:#56b6c2">[</span><span style="color:#98c379">:id</span><span style="color:#56b6c2">]</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">post_params</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">params</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">require</span>(<span style="color:#98c379">:post</span>)<span style="color:#56b6c2">.</span><span style="color:#e06c75">permit</span>(<span style="color:#98c379">:title</span>, <span style="color:#98c379">:body</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Rails is the best choice when you want to ship a full-stack web application quickly with a relational database and you&rsquo;re comfortable with Ruby. Its conventions eliminate decision fatigue on project structure, making it ideal for startups and product teams. For API-only backends, <code>rails new --api</code> is a lighter setup. If your team is Python-first, Django offers a similar batteries-included philosophy.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Convention over configuration — sensible defaults for everything</li><li>ActiveRecord ORM with migrations, validations, and associations</li><li>Scaffolding generates CRUD controllers, views, and models instantly</li><li>Action Cable for WebSockets and Hotwire for live page updates</li><li>Asset pipeline and import maps for JavaScript and CSS</li><li>Built-in testing with Minitest, fixtures, and system tests</li><li>Strong security defaults — CSRF, SQL injection, XSS protection</li><li>Active Job, Action Mailer, and Active Storage included</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">bundler</span>
+          <code class="fw-install__cmd">bundle add rails</code>
+          <button class="fw-install__copy" data-copy="bundle add rails" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">gem</span>
+          <code class="fw-install__cmd">gem install rails</code>
+          <button class="fw-install__copy" data-copy="gem install rails" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +526,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

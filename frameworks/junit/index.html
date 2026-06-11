@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -347,7 +351,101 @@
     <div class="detail-body">
 
       <div class="prose"><p>JUnit 5 (Jupiter) redesigned the framework around Java 8 features — lambdas, extensions, and nested test classes. Its <code>@Test</code>, <code>@BeforeEach</code>, <code>@ParameterizedTest</code>, and <code>@ExtendWith</code> annotations form the foundation of Java testing. Mockito, Spring Boot Test, and virtually every Java testing tool integrates with JUnit.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#7f848e">&lt;!-- pom.xml --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&lt;groupId&gt;</span>org.junit.jupiter<span style="color:#e06c75">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&lt;artifactId&gt;</span>junit-jupiter<span style="color:#e06c75">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&lt;version&gt;</span>5.10.x<span style="color:#e06c75">&lt;/version&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&lt;scope&gt;</span>test<span style="color:#e06c75">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#7f848e">// src/test/java/com/example/CalculatorTest.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">org.junit.jupiter.api.*</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">org.junit.jupiter.params.ParameterizedTest</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">org.junit.jupiter.params.provider.CsvSource</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import static</span> <span style="color:#e06c75">org.junit.jupiter.api.Assertions.*</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">CalculatorTest</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#e06c75">Calculator</span> <span style="color:#e06c75">calc</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@BeforeEach</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">setUp</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">calc</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Calculator</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">addsTwoNumbers</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">assertEquals</span>(<span style="color:#e06c75">5</span>, <span style="color:#e06c75">calc</span>.<span style="color:#e06c75">add</span>(<span style="color:#e06c75">2</span>, <span style="color:#e06c75">3</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">throwsOnDivisionByZero</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">assertThrows</span>(<span style="color:#e06c75">ArithmeticException</span>.<span style="color:#e06c75">class</span>, () <span style="color:#56b6c2">-&gt;</span> <span style="color:#e06c75">calc</span>.<span style="color:#e06c75">divide</span>(<span style="color:#e06c75">10</span>, <span style="color:#e06c75">0</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@ParameterizedTest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@CsvSource</span>({<span style="color:#98c379">&#34;1, 2, 3&#34;</span>, <span style="color:#98c379">&#34;0, 0, 0&#34;</span>, <span style="color:#98c379">&#34;-1, 1, 0&#34;</span>})
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">addWithMultipleInputs</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">a</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">b</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">expected</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">assertEquals</span>(<span style="color:#e06c75">expected</span>, <span style="color:#e06c75">calc</span>.<span style="color:#e06c75">add</span>(<span style="color:#e06c75">a</span>, <span style="color:#e06c75">b</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Nested</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">class</span> <span style="color:#e5c07b">WhenDividing</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#61afef">@Test</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">void</span> <span style="color:#61afef;font-weight:bold">returnsQuotient</span>() {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">assertEquals</span>(<span style="color:#e06c75">2</span>, <span style="color:#e06c75">calc</span>.<span style="color:#e06c75">divide</span>(<span style="color:#e06c75">10</span>, <span style="color:#e06c75">5</span>));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>JUnit is the foundational testing framework for any Java project. It&rsquo;s the standard that every Java developer knows and every Java testing tool integrates with. Use JUnit for unit tests, and extend it with Mockito (mocking), AssertJ (fluent assertions), and Testcontainers (real databases in tests). For Spring Boot applications, <code>@SpringBootTest</code> uses JUnit 5&rsquo;s extension model automatically.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>`@Test`, `@BeforeEach`, `@AfterEach`, `@BeforeAll`, `@AfterAll` lifecycle hooks</li><li>`@ParameterizedTest` with `@ValueSource`, `@CsvSource`, `@MethodSource`</li><li>Extension model via `@ExtendWith` — Spring, Mockito, Testcontainers all use this</li><li>Nested test classes with `@Nested` for grouped test suites</li><li>Conditional test execution — `@DisabledOnOs`, `@EnabledIfSystemProperty`</li><li>Dynamic tests via `DynamicTest.dynamicTest()`</li><li>AssertJ, Hamcrest, and Truth assertion libraries integrate seamlessly</li><li>Maven Surefire and Gradle Test tasks run JUnit 5 natively</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">gradle</span>
+          <code class="fw-install__cmd">testImplementation(&#34;org.junit.jupiter:junit-jupiter&#34;)</code>
+          <button class="fw-install__copy" data-copy="testImplementation(&#34;org.junit.jupiter:junit-jupiter&#34;)" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">maven</span>
+          <code class="fw-install__cmd">&lt;dependency&gt;
+  &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+  &lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code>
+          <button class="fw-install__copy" data-copy="&lt;dependency&gt;
+  &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+  &lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;
+  &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -425,7 +523,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

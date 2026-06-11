@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,98 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Koa was built by the Express team to address its callback-based design — its async middleware cascade uses <code>async/await</code> natively and avoids callback hell. With no bundled routing or templates, Koa is a thin foundation that teams assemble with their own middleware stack.</p>
+      <div class="prose"><p>Koa was built by the Express team to address its callback-based design — its async middleware cascade uses <code>async/await</code> natively and avoids callback hell. The &ldquo;onion model&rdquo; means middleware executes code before and after <code>await next()</code>, making it easy to implement request logging, error handling, and response transformation cleanly. With no bundled routing or templates, Koa is a thin foundation that teams assemble with their own middleware stack.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install koa @koa/router koa-bodyparser
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// server.js
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">Koa</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#39;koa&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">Router</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#39;@koa/router&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">bodyParser</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#39;koa-bodyparser&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">app</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Koa</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">router</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Router</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// Middleware: logging
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">use</span>(<span style="color:#c678dd">async</span> (<span style="color:#e06c75">ctx</span>, <span style="color:#e06c75">next</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">start</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">Date</span>.<span style="color:#e06c75">now</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">await</span> <span style="color:#e06c75">next</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">console</span>.<span style="color:#e06c75">log</span>(<span style="color:#98c379">`</span><span style="color:#98c379">${</span><span style="color:#e06c75">ctx</span>.<span style="color:#e06c75">method</span><span style="color:#98c379">}</span><span style="color:#98c379"> </span><span style="color:#98c379">${</span><span style="color:#e06c75">ctx</span>.<span style="color:#e06c75">url</span><span style="color:#98c379">}</span><span style="color:#98c379"> - </span><span style="color:#98c379">${</span><span style="color:#e5c07b">Date</span>.<span style="color:#e06c75">now</span>() <span style="color:#56b6c2">-</span> <span style="color:#e06c75">start</span><span style="color:#98c379">}</span><span style="color:#98c379">ms`</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// Middleware: error handling
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">use</span>(<span style="color:#c678dd">async</span> (<span style="color:#e06c75">ctx</span>, <span style="color:#e06c75">next</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">next</span>()
+</span></span><span style="display:flex;"><span>  } <span style="color:#c678dd">catch</span> (<span style="color:#e06c75">err</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">ctx</span>.<span style="color:#e06c75">status</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">err</span>.<span style="color:#e06c75">status</span> <span style="color:#56b6c2">||</span> <span style="color:#d19a66">500</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">ctx</span>.<span style="color:#e06c75">body</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">error</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">err</span>.<span style="color:#e06c75">message</span> }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">router</span>.<span style="color:#e06c75">get</span>(<span style="color:#98c379">&#39;/posts&#39;</span>, (<span style="color:#e06c75">ctx</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">ctx</span>.<span style="color:#e06c75">body</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">posts</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">router</span>.<span style="color:#e06c75">post</span>(<span style="color:#98c379">&#39;/posts&#39;</span>, (<span style="color:#e06c75">ctx</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">id</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">length</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>, ...<span style="color:#e06c75">ctx</span>.<span style="color:#e06c75">request</span>.<span style="color:#e06c75">body</span> }
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">push</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">ctx</span>.<span style="color:#e06c75">status</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">201</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">ctx</span>.<span style="color:#e06c75">body</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">post</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">use</span>(<span style="color:#e06c75">bodyParser</span>())
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">use</span>(<span style="color:#e06c75">router</span>.<span style="color:#e06c75">routes</span>())
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">use</span>(<span style="color:#e06c75">router</span>.<span style="color:#e06c75">allowedMethods</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">listen</span>(<span style="color:#d19a66">3000</span>, () =&gt; <span style="color:#e06c75">console</span>.<span style="color:#e06c75">log</span>(<span style="color:#98c379">&#39;Server on :3000&#39;</span>))
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Koa is a good choice when you want a cleaner async API than Express with full control over your middleware stack, but don&rsquo;t need the structured approach of NestJS or the schema validation of Fastify. Its small core is well-suited for teams that want to compose their own framework from smaller packages. For most new projects, Fastify&rsquo;s schema validation and performance or Hono&rsquo;s edge-runtime support are stronger starting points.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Async middleware cascade — `await next()` replaces callback chains</li><li>Upstream/downstream middleware flow — execute code after `next()`</li><li>`ctx` context object combining `req` and `res` into one clean API</li><li>No bundled routing — bring your own (koa-router, @koa/router)</li><li>Error handling via try/catch anywhere in the middleware chain</li><li>Lightweight core — less than 600 lines of source</li><li>Streaming support and native HTTP/2 compatibility</li><li>Large ecosystem of Koa-compatible middleware</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm install koa</code>
+          <button class="fw-install__copy" data-copy="npm install koa" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm add koa</code>
+          <button class="fw-install__copy" data-copy="pnpm add koa" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn add koa</code>
+          <button class="fw-install__copy" data-copy="yarn add koa" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +542,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

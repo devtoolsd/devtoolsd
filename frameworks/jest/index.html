@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,95 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Jest is the dominant JavaScript testing framework — it runs tests in parallel in isolated environments, provides snapshot testing for UI components, and has a built-in mocking library. Its zero-configuration setup works with React, Vue, Node.js, and TypeScript out of the box. Vitest is a modern alternative that reuses Vite&rsquo;s build pipeline.</p>
+      <div class="prose"><p>Jest is the dominant JavaScript testing framework — it runs tests in parallel in isolated environments, provides snapshot testing for UI components, and has a built-in mocking library. Its zero-configuration setup works with React, Vue, Node.js, and TypeScript out of the box. Vitest is a modern alternative that reuses Vite&rsquo;s build pipeline for faster runs in Vite-based projects.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save-dev jest
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># For TypeScript</span>
+</span></span><span style="display:flex;"><span>npm install --save-dev @types/jest ts-jest
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// math.js
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">add</span>(<span style="color:#e06c75">a</span>, <span style="color:#e06c75">b</span>) { <span style="color:#c678dd">return</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">b</span> }
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">divide</span>(<span style="color:#e06c75">a</span>, <span style="color:#e06c75">b</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">if</span> (<span style="color:#e06c75">b</span> <span style="color:#56b6c2">===</span> <span style="color:#d19a66">0</span>) <span style="color:#c678dd">throw</span> <span style="color:#c678dd">new</span> <span style="color:#e5c07b">Error</span>(<span style="color:#98c379">&#39;Division by zero&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> <span style="color:#e06c75">a</span> <span style="color:#56b6c2">/</span> <span style="color:#e06c75">b</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">module</span>.<span style="color:#e06c75">exports</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">add</span>, <span style="color:#e06c75">divide</span> }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// math.test.js
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> { <span style="color:#e06c75">add</span>, <span style="color:#e06c75">divide</span> } <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#39;./math&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">describe</span>(<span style="color:#98c379">&#39;add()&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">test</span>(<span style="color:#98c379">&#39;returns sum of two numbers&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">add</span>(<span style="color:#d19a66">2</span>, <span style="color:#d19a66">3</span>)).<span style="color:#e06c75">toBe</span>(<span style="color:#d19a66">5</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">test</span>(<span style="color:#98c379">&#39;handles negative numbers&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">add</span>(<span style="color:#56b6c2">-</span><span style="color:#d19a66">1</span>, <span style="color:#d19a66">1</span>)).<span style="color:#e06c75">toBe</span>(<span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">describe</span>(<span style="color:#98c379">&#39;divide()&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">test</span>(<span style="color:#98c379">&#39;divides two numbers&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">divide</span>(<span style="color:#d19a66">10</span>, <span style="color:#d19a66">2</span>)).<span style="color:#e06c75">toBe</span>(<span style="color:#d19a66">5</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">test</span>(<span style="color:#98c379">&#39;throws on division by zero&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">expect</span>(() =&gt; <span style="color:#e06c75">divide</span>(<span style="color:#d19a66">5</span>, <span style="color:#d19a66">0</span>)).<span style="color:#e06c75">toThrow</span>(<span style="color:#98c379">&#39;Division by zero&#39;</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// Mocking example
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">fetchUser</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">jest</span>.<span style="color:#e06c75">fn</span>().<span style="color:#e06c75">mockResolvedValue</span>({ <span style="color:#e06c75">id</span><span style="color:#56b6c2">:</span> <span style="color:#d19a66">1</span>, <span style="color:#e06c75">name</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Alice&#39;</span> })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">test</span>(<span style="color:#98c379">&#39;renders user name&#39;</span>, <span style="color:#c678dd">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">user</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">fetchUser</span>(<span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">user</span>.<span style="color:#e06c75">name</span>).<span style="color:#e06c75">toBe</span>(<span style="color:#98c379">&#39;Alice&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">fetchUser</span>).<span style="color:#e06c75">toHaveBeenCalledWith</span>(<span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx jest          <span style="color:#7f848e"># run all tests</span>
+</span></span><span style="display:flex;"><span>npx jest --watch  <span style="color:#7f848e"># watch mode</span>
+</span></span><span style="display:flex;"><span>npx jest --coverage
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Jest is the default choice for JavaScript and TypeScript unit and integration tests. It&rsquo;s pre-configured in Create React App, Next.js, and most scaffolding tools. For Vite-based projects (SvelteKit, Astro, Vite React), Vitest is faster because it reuses the existing build pipeline. For end-to-end browser tests, Playwright or Cypress are more appropriate.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Zero configuration — works out of the box with React, Node.js, TypeScript</li><li>Built-in mocking — `jest.fn()`, `jest.spyOn()`, auto-mock modules</li><li>Snapshot testing — assert that UI components don&#39;t change unexpectedly</li><li>Parallel test execution across worker threads</li><li>Built-in code coverage via V8 or Istanbul</li><li>Watch mode with smart test selection based on changed files</li><li>Rich assertion library via `expect()`</li><li>jsdom environment for DOM testing without a browser</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm install --save-dev jest</code>
+          <button class="fw-install__copy" data-copy="npm install --save-dev jest" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm add -D jest</code>
+          <button class="fw-install__copy" data-copy="pnpm add -D jest" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn add -D jest</code>
+          <button class="fw-install__copy" data-copy="yarn add -D jest" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -443,7 +534,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

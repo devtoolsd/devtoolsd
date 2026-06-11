@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,90 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Chi is built entirely on Go&rsquo;s standard <code>net/http</code> interface — any existing <code>http.Handler</code> works without modification. Its composable middleware groups, context-based routing, and zero external dependencies make it the choice of developers who want Go&rsquo;s stdlib performance with cleaner routing ergonomics.</p>
+      <div class="prose"><p>Chi is built entirely on Go&rsquo;s standard <code>net/http</code> interface — any existing <code>http.Handler</code> works without modification. Its composable middleware groups, context-based routing, and zero external dependencies make it the choice of developers who want Go&rsquo;s stdlib performance with cleaner routing ergonomics. Chi is particularly popular for building APIs that need to stay close to the standard library while scaling to larger codebases.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go mod init my-api
+</span></span><span style="display:flex;"><span>go get github.com/go-chi/chi/v5
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#7f848e">// main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;encoding/json&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;github.com/go-chi/chi/v5&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;github.com/go-chi/chi/v5/middleware&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Post</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">ID</span>    <span style="color:#e5c07b">int</span>    <span style="color:#98c379">`json:&#34;id&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Title</span> <span style="color:#e5c07b">string</span> <span style="color:#98c379">`json:&#34;title&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Body</span>  <span style="color:#e5c07b">string</span> <span style="color:#98c379">`json:&#34;body&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">posts</span> []<span style="color:#e06c75">Post</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">chi</span>.<span style="color:#61afef;font-weight:bold">NewRouter</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Use</span>(<span style="color:#e06c75">middleware</span>.<span style="color:#e06c75">Logger</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Use</span>(<span style="color:#e06c75">middleware</span>.<span style="color:#e06c75">Recoverer</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Get</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">http</span>.<span style="color:#e06c75">ResponseWriter</span>, <span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">http</span>.<span style="color:#e06c75">Request</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">json</span>.<span style="color:#61afef;font-weight:bold">NewEncoder</span>(<span style="color:#e06c75">w</span>).<span style="color:#61afef;font-weight:bold">Encode</span>(<span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Route</span>(<span style="color:#98c379">&#34;/posts/{id}&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">r</span> <span style="color:#e06c75">chi</span>.<span style="color:#e06c75">Router</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Get</span>(<span style="color:#98c379">&#34;/&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">http</span>.<span style="color:#e06c75">ResponseWriter</span>, <span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">http</span>.<span style="color:#e06c75">Request</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#e06c75">id</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">chi</span>.<span style="color:#61afef;font-weight:bold">URLParam</span>(<span style="color:#e06c75">r</span>, <span style="color:#98c379">&#34;id&#34;</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#e06c75">w</span>.<span style="color:#61afef;font-weight:bold">Write</span>([]<span style="color:#e5c07b">byte</span>(<span style="color:#98c379">&#34;post: &#34;</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">id</span>))
+</span></span><span style="display:flex;"><span>		})
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Post</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">w</span> <span style="color:#e06c75">http</span>.<span style="color:#e06c75">ResponseWriter</span>, <span style="color:#e06c75">r</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">http</span>.<span style="color:#e06c75">Request</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">var</span> <span style="color:#e06c75">p</span> <span style="color:#e06c75">Post</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">json</span>.<span style="color:#61afef;font-weight:bold">NewDecoder</span>(<span style="color:#e06c75">r</span>.<span style="color:#e06c75">Body</span>).<span style="color:#61afef;font-weight:bold">Decode</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">p</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">p</span>.<span style="color:#e06c75">ID</span> = <span style="color:#e5c07b">len</span>(<span style="color:#e06c75">posts</span>) <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">posts</span> = <span style="color:#e5c07b">append</span>(<span style="color:#e06c75">posts</span>, <span style="color:#e06c75">p</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">w</span>.<span style="color:#61afef;font-weight:bold">WriteHeader</span>(<span style="color:#e06c75">http</span>.<span style="color:#e06c75">StatusCreated</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">json</span>.<span style="color:#61afef;font-weight:bold">NewEncoder</span>(<span style="color:#e06c75">w</span>).<span style="color:#61afef;font-weight:bold">Encode</span>(<span style="color:#e06c75">p</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">http</span>.<span style="color:#61afef;font-weight:bold">ListenAndServe</span>(<span style="color:#98c379">&#34;:3000&#34;</span>, <span style="color:#e06c75">r</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Chi is ideal when you want cleaner routing than bare <code>net/http</code> without pulling in a full framework. Its zero-dependency philosophy and stdlib compatibility mean you can swap it out or mix it with other <code>http.Handler</code>-compatible code effortlessly. Gin offers more batteries (binding, validation, rendering) at the cost of slightly more overhead. For maximum performance, Fiber (fasthttp-based) is faster but not <code>net/http</code> compatible.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>100% compatible with `net/http` — any `http.Handler` or `http.HandlerFunc` works</li><li>Zero external dependencies — only uses Go standard library</li><li>Composable middleware groups via `r.Use()` and `r.Group()`</li><li>Context-based URL parameters via `chi.URLParam(r, &#34;id&#34;)`</li><li>Route subrouters for modular application structure</li><li>Built-in middleware: Logger, Recoverer, RealIP, Timeout, Compress</li><li>Treemux-based router for fast URL matching</li><li>Named and wildcard routes with full RESTful routing support</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">go</span>
+          <code class="fw-install__cmd">go get github.com/go-chi/chi/v5</code>
+          <button class="fw-install__copy" data-copy="go get github.com/go-chi/chi/v5" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +534,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

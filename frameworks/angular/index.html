@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -353,8 +357,92 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Angular provides a complete, opinionated solution — dependency injection, reactive forms, routing, and HTTP all built in. Its strict TypeScript integration and CLI-driven development make it the dominant choice for large enterprise teams building complex SPAs.</p>
+      <div class="prose"><p>Angular provides a complete, opinionated solution — dependency injection, reactive forms, routing, and HTTP all built in and maintained by Google. Its strict TypeScript integration and CLI-driven development make it the dominant choice for large enterprise teams building complex SPAs. Unlike React and Vue, Angular is a full framework — you don&rsquo;t assemble it from libraries; everything follows Angular&rsquo;s conventions. Angular 17+ introduces Signals for simpler reactivity and standalone components that no longer require NgModules.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g @angular/cli
+</span></span><span style="display:flex;"><span>ng new my-app --routing --style<span style="color:#56b6c2">=</span>scss
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>ng serve
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#7f848e">// Generate a component and service
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">ng</span> <span style="color:#e06c75">generate</span> <span style="color:#e06c75">component</span> <span style="color:#e06c75">posts</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">ng</span> <span style="color:#e06c75">generate</span> <span style="color:#e06c75">service</span> <span style="color:#e06c75">posts</span><span style="color:#56b6c2">/</span><span style="color:#e06c75">post</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#7f848e">// src/app/posts/post.service.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">Injectable</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;@angular/core&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">HttpClient</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;@angular/common/http&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">Observable</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;rxjs&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">interface</span> <span style="color:#e06c75">Post</span> { <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">number</span>; <span style="color:#e06c75">title</span>: <span style="color:#e5c07b">string</span>; <span style="color:#e06c75">body</span>: <span style="color:#e5c07b">string</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">@Injectable</span>({ <span style="color:#e06c75">providedIn</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;root&#39;</span> })
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">class</span> <span style="color:#e06c75">PostService</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">constructor</span>(<span style="color:#c678dd">private</span> <span style="color:#e06c75">http</span>: <span style="color:#e5c07b">HttpClient</span>) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">getPosts</span>()<span style="color:#56b6c2">:</span> <span style="color:#e06c75">Observable</span>&lt;<span style="color:#e06c75">Post</span>[]&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#c678dd">this</span>.<span style="color:#e06c75">http</span>.<span style="color:#c678dd">get</span>&lt;<span style="color:#e06c75">Post</span>[]&gt;(<span style="color:#98c379">&#39;/api/posts&#39;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// src/app/posts/posts.component.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">Component</span>, <span style="color:#e06c75">OnInit</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;@angular/core&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">PostService</span>, <span style="color:#e06c75">Post</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;./post.service&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">@Component</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">selector</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;app-posts&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">template</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">`
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">    &lt;ul&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">      &lt;li *ngFor=&#34;let post of posts&#34;&gt;{{ post.title }}&lt;/li&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">    &lt;/ul&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">  `</span>,
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">class</span> <span style="color:#e06c75">PostsComponent</span> <span style="color:#c678dd">implements</span> <span style="color:#e06c75">OnInit</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">posts</span>: <span style="color:#e5c07b">Post</span>[] <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">constructor</span>(<span style="color:#c678dd">private</span> <span style="color:#e06c75">postService</span>: <span style="color:#e5c07b">PostService</span>) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">ngOnInit() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">this</span>.<span style="color:#e06c75">postService</span>.<span style="color:#e06c75">getPosts</span>().<span style="color:#e06c75">subscribe</span>(<span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=&gt;</span> <span style="color:#c678dd">this</span>.<span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Angular is the right choice for large enterprise SPAs where a highly opinionated, consistent structure is more valuable than flexibility. Its strong TypeScript enforcement, dependency injection, and CLI tooling scale well across large teams. For smaller apps or teams that prefer a lighter touch, React or Vue have lower overhead. If you&rsquo;re already using Angular on a project, staying on it and upgrading is almost always better than migrating.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Built-in dependency injection — services are injected, not imported</li><li>TypeScript-first — strict typing enforced across the entire framework</li><li>Angular CLI for generating components, services, guards, and pipes</li><li>RxJS-based reactivity — Observables for async data streams</li><li>Reactive Forms and Template-Driven Forms with validation</li><li>Angular Router with lazy loading, guards, and resolvers</li><li>HttpClient with interceptors for auth headers and error handling</li><li>Signals API (v17&#43;) for fine-grained reactivity without RxJS</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm install -g @angular/cli &amp;&amp; ng new my-app</code>
+          <button class="fw-install__copy" data-copy="npm install -g @angular/cli &amp;&amp; ng new my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npx</span>
+          <code class="fw-install__cmd">npx @angular/cli new my-app</code>
+          <button class="fw-install__copy" data-copy="npx @angular/cli new my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -518,7 +606,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

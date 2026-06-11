@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -353,8 +357,74 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Flask gives you routing, templates, and a request context — nothing more. Everything else (ORM, auth, migrations) comes from the large ecosystem of Flask extensions. Its simplicity makes it the go-to for small APIs, microservices, and projects where Django&rsquo;s batteries are overhead.</p>
+      <div class="prose"><p>Flask gives you routing, templates, and a request context — nothing more. Everything else (ORM, auth, migrations) comes from the large ecosystem of Flask extensions. Its simplicity makes it the go-to for small APIs, microservices, internal tools, and projects where Django&rsquo;s batteries are overhead. Flask has no required project layout, so it&rsquo;s quick to prototype and easy to structure exactly as your project demands.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install flask
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># app.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">flask</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">Flask</span>, <span style="color:#e06c75">jsonify</span>, <span style="color:#e06c75">request</span>, <span style="color:#e06c75">abort</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Flask</span>(<span style="color:#e06c75">__name__</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#98c379">&#34;id&#34;</span>: <span style="color:#d19a66">1</span>, <span style="color:#98c379">&#34;title&#34;</span>: <span style="color:#98c379">&#34;Hello Flask&#34;</span>, <span style="color:#98c379">&#34;body&#34;</span>: <span style="color:#98c379">&#34;Getting started.&#34;</span>},
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@app.get</span>(<span style="color:#98c379">&#34;/posts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">list_posts</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">jsonify</span>(<span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@app.get</span>(<span style="color:#98c379">&#34;/posts/&lt;int:post_id&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">get_post</span>(<span style="color:#e06c75">post_id</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">next</span>((<span style="color:#e06c75">p</span> <span style="color:#c678dd">for</span> <span style="color:#e06c75">p</span> <span style="color:#56b6c2">in</span> <span style="color:#e06c75">posts</span> <span style="color:#c678dd">if</span> <span style="color:#e06c75">p</span>[<span style="color:#98c379">&#34;id&#34;</span>] <span style="color:#56b6c2">==</span> <span style="color:#e06c75">post_id</span>), <span style="color:#e5c07b">None</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#e06c75">post</span> <span style="color:#56b6c2">is</span> <span style="color:#e5c07b">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">abort</span>(<span style="color:#d19a66">404</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">jsonify</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@app.post</span>(<span style="color:#98c379">&#34;/posts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">create_post</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">data</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">request</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">get_json</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">new_post</span> <span style="color:#56b6c2">=</span> {<span style="color:#98c379">&#34;id&#34;</span>: <span style="color:#e5c07b">len</span>(<span style="color:#e06c75">posts</span>) <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>, <span style="color:#56b6c2">**</span><span style="color:#e06c75">data</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">posts</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">append</span>(<span style="color:#e06c75">new_post</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">jsonify</span>(<span style="color:#e06c75">new_post</span>), <span style="color:#d19a66">201</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">if</span> <span style="color:#e06c75">__name__</span> <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">app</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">run</span>(<span style="color:#e06c75">debug</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flask run --debug
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Visit http://127.0.0.1:5000/posts</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Flask is the best choice for small-to-medium Python APIs, internal tools, and projects where you want to pick your own ORM and auth strategy. Its lack of opinions is a feature — not a limitation — when the project&rsquo;s needs are clearly defined. For larger applications with complex data models, Django&rsquo;s batteries save significant time. For high-throughput async APIs, FastAPI offers better performance and automatic docs.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Minimal core — routing, request/response, and Jinja2 templates</li><li>Blueprints for modular application structure</li><li>Large extension ecosystem — Flask-SQLAlchemy, Flask-Login, Flask-Migrate</li><li>Development server with debugger and auto-reloader</li><li>Context locals — `request`, `g`, `session` available without threading boilerplate</li><li>WSGI-based — deploy on Gunicorn, uWSGI, or any WSGI server</li><li>Easy to add just the parts you need — no ORM or auth forced on you</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install flask</code>
+          <button class="fw-install__copy" data-copy="pip install flask" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -518,7 +588,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

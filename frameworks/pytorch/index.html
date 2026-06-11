@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,82 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>PyTorch&rsquo;s dynamic computation graph (&ldquo;define-by-run&rdquo;) makes debugging neural networks intuitive — you use standard Python control flow and print statements. It became the dominant framework for ML research and, with TorchServe and TorchDeploy, is now widely used in production at Meta, Tesla, and OpenAI. Most modern LLMs are built and trained in PyTorch.</p>
+      <div class="prose"><p>PyTorch&rsquo;s dynamic computation graph (&ldquo;define-by-run&rdquo;) makes debugging neural networks intuitive — you use standard Python control flow and <code>print()</code> statements. It became the dominant framework for ML research and, with TorchServe and <code>torch.compile</code>, is now widely used in production at Meta, Tesla, and OpenAI. Most modern LLMs (including GPT, LLaMA, and Mistral) are built and trained in PyTorch.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install torch torchvision
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">torch</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">torch.nn</span> <span style="color:#c678dd">as</span> <span style="color:#e06c75">nn</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">torch.optim</span> <span style="color:#c678dd">as</span> <span style="color:#e06c75">optim</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Define a simple feedforward network</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Net</span>(<span style="color:#e06c75">nn</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Module</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">def</span> <span style="color:#56b6c2;font-weight:bold">__init__</span>(<span style="color:#e5c07b">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">super</span>()<span style="color:#56b6c2">.</span><span style="color:#56b6c2;font-weight:bold">__init__</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">self</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">fc1</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nn</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Linear</span>(<span style="color:#d19a66">784</span>, <span style="color:#d19a66">128</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">self</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">fc2</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nn</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Linear</span>(<span style="color:#d19a66">128</span>, <span style="color:#d19a66">10</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">self</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">relu</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nn</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">ReLU</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">forward</span>(<span style="color:#e5c07b">self</span>, <span style="color:#e06c75">x</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">x</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">self</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">relu</span>(<span style="color:#e5c07b">self</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">fc1</span>(<span style="color:#e06c75">x</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e5c07b">self</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">fc2</span>(<span style="color:#e06c75">x</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">model</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Net</span>()
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">optimizer</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">optim</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Adam</span>(<span style="color:#e06c75">model</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">parameters</span>(), <span style="color:#e06c75">lr</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1e-3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">criterion</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nn</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">CrossEntropyLoss</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Training loop</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> <span style="color:#e06c75">epoch</span> <span style="color:#56b6c2">in</span> <span style="color:#e5c07b">range</span>(<span style="color:#d19a66">10</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> <span style="color:#e06c75">batch_x</span>, <span style="color:#e06c75">batch_y</span> <span style="color:#56b6c2">in</span> <span style="color:#e06c75">dataloader</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">optimizer</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">zero_grad</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">output</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">model</span>(<span style="color:#e06c75">batch_x</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">loss</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">criterion</span>(<span style="color:#e06c75">output</span>, <span style="color:#e06c75">batch_y</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">loss</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">backward</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">optimizer</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">step</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">print</span>(<span style="color:#98c379">f</span><span style="color:#98c379">&#34;Epoch </span><span style="color:#98c379">{</span><span style="color:#e06c75">epoch</span><span style="color:#56b6c2">+</span><span style="color:#d19a66">1</span><span style="color:#98c379">}</span><span style="color:#98c379">, Loss: </span><span style="color:#98c379">{</span><span style="color:#e06c75">loss</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">item</span>()<span style="color:#98c379">:</span><span style="color:#98c379">.4f</span><span style="color:#98c379">}</span><span style="color:#98c379">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Save and load</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">torch</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">save</span>(<span style="color:#e06c75">model</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">state_dict</span>(), <span style="color:#98c379">&#39;model.pt&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">model</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">load_state_dict</span>(<span style="color:#e06c75">torch</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">load</span>(<span style="color:#98c379">&#39;model.pt&#39;</span>))
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>PyTorch is the first choice for deep learning research, fine-tuning pretrained models (via HuggingFace), and production ML systems. Its Pythonic API and dynamic graphs make experimentation fast. TensorFlow/Keras is still used in mobile deployment (TFLite) and some production pipelines, but PyTorch&rsquo;s HuggingFace integration and <code>torch.compile</code> speedups have made it the default in most new ML projects. JAX is worth considering for large-scale TPU training.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Dynamic computation graph — define-by-run, debug with standard Python tools</li><li>Autograd — automatic differentiation for any computation graph</li><li>CUDA acceleration — move tensors to GPU with `.to(&#39;cuda&#39;)`</li><li>`torch.nn` module system for building neural network layers</li><li>DataLoader and Dataset abstractions for efficient data pipelines</li><li>TorchScript for exporting models to production without Python</li><li>torch.compile (PyTorch 2.0) for significant speedups with no code changes</li><li>Vast ecosystem — HuggingFace Transformers, Lightning, torchvision, torchaudio</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">conda</span>
+          <code class="fw-install__cmd">conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia</code>
+          <button class="fw-install__copy" data-copy="conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install torch torchvision torchaudio</code>
+          <button class="fw-install__copy" data-copy="pip install torch torchvision torchaudio" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -443,7 +521,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

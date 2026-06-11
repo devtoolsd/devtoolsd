@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,77 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>React Native renders genuine native UI components — not a WebView — using React&rsquo;s component model and JavaScript business logic. The New Architecture (JSI, Fabric, TurboModules) eliminated the JavaScript bridge for significantly lower latency. Used by Meta, Microsoft, Shopify, and thousands of apps in production.</p>
+      <div class="prose"><p>React Native renders genuine native UI components — not a WebView — using React&rsquo;s component model and JavaScript business logic. The New Architecture (JSI, Fabric, TurboModules) eliminated the JavaScript bridge, delivering significantly lower latency for native module calls. Used at Meta, Microsoft, Shopify, and thousands of apps in production. Expo is the recommended way to start new React Native projects — it provides a curated SDK, EAS Build for cloud builds, and OTA updates.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Start with Expo (recommended)</span>
+</span></span><span style="display:flex;"><span>npx create-expo-app my-app --template blank-typescript
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>npx expo start
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#7f848e">// app/(tabs)/index.tsx
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">useState</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">View</span>, <span style="color:#e06c75">Text</span>, <span style="color:#e06c75">StyleSheet</span>, <span style="color:#e06c75">TouchableOpacity</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;react-native&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#c678dd">function</span> <span style="color:#e06c75">HomeScreen() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> [<span style="color:#e06c75">count</span>, <span style="color:#e06c75">setCount</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">useState</span>(<span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">View</span> <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">container</span>}&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">Text</span> <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">title</span>}&gt;<span style="color:#e06c75">Hello</span> <span style="color:#e06c75">React</span> <span style="color:#e06c75">Native</span>&lt;/<span style="color:#e06c75">Text</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">Text</span> <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">count</span>}&gt;{<span style="color:#e06c75">count</span>}&lt;/<span style="color:#e06c75">Text</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">TouchableOpacity</span> <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">button</span>} <span style="color:#e06c75">onPress</span><span style="color:#56b6c2">=</span>{() <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">setCount</span>(<span style="color:#e06c75">c</span> <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">c</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>)}&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#e06c75">Text</span> <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">buttonText</span>}&gt;<span style="color:#e06c75">Increment</span>&lt;/<span style="color:#e06c75">Text</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">TouchableOpacity</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">View</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">styles</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">StyleSheet</span>.<span style="color:#e06c75">create</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">container</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">flex</span>: <span style="color:#e5c07b">1</span>, <span style="color:#e06c75">alignItems</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;center&#39;</span>, <span style="color:#e06c75">justifyContent</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;center&#39;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">fontSize</span>: <span style="color:#e5c07b">24</span>, <span style="color:#e06c75">fontWeight</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;bold&#39;</span>, <span style="color:#e06c75">marginBottom</span>: <span style="color:#e5c07b">16</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">count</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">fontSize</span>: <span style="color:#e5c07b">48</span>, <span style="color:#e06c75">marginBottom</span>: <span style="color:#e5c07b">24</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">button</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">backgroundColor</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;#fb923c&#39;</span>, <span style="color:#e06c75">paddingHorizontal</span>: <span style="color:#e5c07b">24</span>, <span style="color:#e06c75">paddingVertical</span>: <span style="color:#e5c07b">12</span>, <span style="color:#e06c75">borderRadius</span>: <span style="color:#e5c07b">8</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">buttonText</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">color</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;#fff&#39;</span>, <span style="color:#e06c75">fontWeight</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;600&#39;</span> },
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>React Native is ideal when you&rsquo;re building a mobile app and your team already knows React. Code sharing between web and mobile (components, hooks, business logic) is a major productivity win. Expo simplifies the build and distribution pipeline. Flutter is a strong alternative with better performance for graphically intensive apps. For a pure web-based mobile experience with device access, Capacitor (Ionic) is simpler to set up but doesn&rsquo;t render native views.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>True native UI components — renders real iOS and Android views, not a WebView</li><li>Shared JavaScript business logic between iOS and Android</li><li>Reuse React component patterns and hooks from web development</li><li>New Architecture — JSI and Fabric eliminate the JS bridge for low-latency native calls</li><li>Over-the-air updates with Expo EAS Update (no App Store submission)</li><li>Access to device APIs — camera, GPS, notifications via community libraries</li><li>Fast Refresh for instant feedback during development</li><li>Expo managed and bare workflows for flexible project setup</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npx create-expo-app my-app</code>
+          <button class="fw-install__copy" data-copy="npx create-expo-app my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn create expo-app my-app</code>
+          <button class="fw-install__copy" data-copy="yarn create expo-app my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +521,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

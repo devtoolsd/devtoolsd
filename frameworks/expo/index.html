@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -346,8 +350,78 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Expo wraps React Native with a managed SDK of pre-built native modules (camera, notifications, maps), a hosted build service (EAS Build), and over-the-air JavaScript updates. The Expo Router provides file-based navigation. For most React Native projects, Expo is the recommended starting point.</p>
+      <div class="prose"><p>Expo wraps React Native with a managed SDK of pre-built native modules (camera, notifications, maps), a hosted build service (EAS Build), and over-the-air JavaScript updates. The Expo Router provides file-based navigation that mirrors Next.js conventions. For most React Native projects, Expo is the recommended starting point — you can always eject to the bare workflow if you need custom native code.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx create-expo-app@latest my-app --template blank-typescript
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>npx expo start
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Press &#39;i&#39; for iOS simulator, &#39;a&#39; for Android, &#39;w&#39; for web</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#7f848e">// app/(tabs)/index.tsx — Expo Router file-based route
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">StyleSheet</span>, <span style="color:#e06c75">Text</span>, <span style="color:#e06c75">View</span>, <span style="color:#e06c75">TouchableOpacity</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;react-native&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">Link</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;expo-router&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">useState</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#c678dd">function</span> <span style="color:#e06c75">HomeScreen() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> [<span style="color:#e06c75">count</span>, <span style="color:#e06c75">setCount</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">useState</span>(<span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">View</span> <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">container</span>}&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">Text</span> <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">title</span>}&gt;<span style="color:#e06c75">Welcome</span> <span style="color:#e06c75">to</span> <span style="color:#e06c75">Expo</span>&lt;/<span style="color:#e06c75">Text</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">TouchableOpacity</span> <span style="color:#e06c75">onPress</span><span style="color:#56b6c2">=</span>{() <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">setCount</span>(<span style="color:#e06c75">c</span> <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">c</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>)} <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">button</span>}&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#e06c75">Text</span> <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">buttonText</span>}&gt;<span style="color:#e06c75">Tapped</span> {<span style="color:#e06c75">count</span>} <span style="color:#e06c75">times</span>&lt;/<span style="color:#e06c75">Text</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">TouchableOpacity</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">Link</span> <span style="color:#e06c75">href</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;/settings&#34;</span> <span style="color:#e06c75">style</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">styles</span>.<span style="color:#e06c75">link</span>}&gt;<span style="color:#e06c75">Go</span> <span style="color:#e06c75">to</span> <span style="color:#e06c75">Settings</span> →&lt;/<span style="color:#e06c75">Link</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">View</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">styles</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">StyleSheet</span>.<span style="color:#e06c75">create</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">container</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">flex</span>: <span style="color:#e5c07b">1</span>, <span style="color:#e06c75">alignItems</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;center&#39;</span>, <span style="color:#e06c75">justifyContent</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;center&#39;</span>, <span style="color:#e06c75">gap</span>: <span style="color:#e5c07b">16</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">fontSize</span>: <span style="color:#e5c07b">24</span>, <span style="color:#e06c75">fontWeight</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;bold&#39;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">button</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">backgroundColor</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;#0ea5e9&#39;</span>, <span style="color:#e06c75">padding</span>: <span style="color:#e5c07b">12</span>, <span style="color:#e06c75">borderRadius</span>: <span style="color:#e5c07b">8</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">buttonText</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">color</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;#fff&#39;</span>, <span style="color:#e06c75">fontWeight</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;600&#39;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">link</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">color</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;#0ea5e9&#39;</span>, <span style="color:#e06c75">marginTop</span>: <span style="color:#e5c07b">8</span> },
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Expo is the recommended way to start any new React Native project. Its SDK removes the complexity of native module linking, and EAS Build lets you produce App Store-ready binaries without a Mac or Android Studio. For apps that need deep custom native modules not in the Expo SDK, the bare workflow gives full access. Compared to bare React Native, Expo trades some flexibility for a significantly better developer experience.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Managed SDK — camera, notifications, maps, sensors with no native setup</li><li>Expo Router — file-based navigation for React Native apps</li><li>EAS Build — cloud builds for iOS and Android without a Mac</li><li>Over-the-air updates via EAS Update (ship JS changes without App Store review)</li><li>Expo Go — scan a QR code to preview your app instantly on device</li><li>Universal apps — web and native from one codebase via `expo-router`</li><li>TypeScript-first with auto-generated types for native modules</li><li>Works with React Native bare workflow for full native control</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npx create-expo-app@latest my-app</code>
+          <button class="fw-install__copy" data-copy="npx create-expo-app@latest my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn create expo-app my-app</code>
+          <button class="fw-install__copy" data-copy="yarn create expo-app my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -440,7 +514,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

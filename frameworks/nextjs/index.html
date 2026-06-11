@@ -216,7 +216,11 @@
   
 
   
+
+  
     
+  
+
   
 
   
@@ -367,8 +371,82 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Next.js adds server-side rendering, static generation, file-based routing, and API routes on top of React. It&rsquo;s the default choice for production React applications.</p>
+      <div class="prose"><p>Next.js adds server-side rendering, static generation, file-based routing, and API routes on top of React. With the App Router (introduced in v13), every component is a React Server Component by default — HTML is generated on the server and only interactive islands ship JavaScript to the browser. It&rsquo;s the default choice for production React applications and is maintained by Vercel with active community contributions.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx create-next-app@latest my-app --typescript --tailwind --app
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>npm run dev
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#7f848e">// app/page.tsx — Server Component (no &#39;use client&#39;)
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#c678dd">async</span> <span style="color:#c678dd">function</span> <span style="color:#e06c75">HomePage() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">fetch</span>(<span style="color:#98c379">&#39;https://api.example.com/posts&#39;</span>).<span style="color:#e06c75">then</span>(<span style="color:#e06c75">r</span> <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">r</span>.<span style="color:#e06c75">json</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">main</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">h1</span>&gt;<span style="color:#e06c75">Blog</span>&lt;/<span style="color:#e06c75">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#e06c75">posts</span>.<span style="color:#e06c75">map</span>((<span style="color:#e06c75">post</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">number</span>; <span style="color:#e06c75">title</span>: <span style="color:#e5c07b">string</span> }) <span style="color:#56b6c2">=&gt;</span> (
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#e06c75">li</span> <span style="color:#e06c75">key</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">post</span>.<span style="color:#e06c75">id</span>}&gt;{<span style="color:#e06c75">post</span>.<span style="color:#e06c75">title</span>}&lt;/<span style="color:#e06c75">li</span>&gt;
+</span></span><span style="display:flex;"><span>        ))}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">main</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// app/posts/[slug]/page.tsx — dynamic route
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#c678dd">function</span> <span style="color:#e06c75">PostPage</span>({ <span style="color:#e06c75">params</span> }<span style="color:#56b6c2">:</span> { <span style="color:#e06c75">params</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">slug</span>: <span style="color:#e5c07b">string</span> } }) {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> &lt;<span style="color:#e06c75">h1</span>&gt;<span style="color:#e06c75">Post</span><span style="color:#56b6c2">:</span> {<span style="color:#e06c75">params</span>.<span style="color:#e06c75">slug</span>}&lt;/<span style="color:#e06c75">h1</span>&gt;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// app/api/hello/route.ts — API route
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">async</span> <span style="color:#c678dd">function</span> <span style="color:#e06c75">GET() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> <span style="color:#e06c75">Response</span>.<span style="color:#e06c75">json</span>({ <span style="color:#e06c75">message</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Hello from Next.js API&#39;</span> })
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Next.js is the right choice when you&rsquo;re building a React app and want routing, server rendering, and API routes without assembling them yourself. It excels for content sites, e-commerce, SaaS dashboards, and anything that benefits from fast initial page loads. For purely client-rendered SPAs with no SEO requirements, plain React with Vite is simpler. For a non-React alternative with equivalent features, see Nuxt (Vue) or SvelteKit.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>File-based routing — create a file in `app/` and it becomes a route</li><li>Server Components by default — zero client JS unless you opt in</li><li>Static generation (SSG), server-side rendering (SSR), and ISR in one framework</li><li>Built-in API routes for backend logic alongside your UI</li><li>Image, Font, and Script components with automatic optimizations</li><li>Streaming and Suspense support for progressive page loading</li><li>Middleware for auth, redirects, and edge logic</li><li>Turbopack dev server for fast hot-module replacement</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npx create-next-app@latest my-app</code>
+          <button class="fw-install__copy" data-copy="npx create-next-app@latest my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm create next-app my-app</code>
+          <button class="fw-install__copy" data-copy="pnpm create next-app my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn create next-app my-app</code>
+          <button class="fw-install__copy" data-copy="yarn create next-app my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
       <h2>// tools</h2>
@@ -684,7 +762,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

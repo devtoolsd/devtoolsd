@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,80 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Hono is designed for the modern edge runtime landscape — the same code runs on Cloudflare Workers, Deno Deploy, Bun, and Node.js. Its trie-based router is among the fastest available, and full TypeScript support with RPC-style client generation makes end-to-end type safety straightforward.</p>
+      <div class="prose"><p>Hono is designed for the modern edge runtime landscape — the same code runs on Cloudflare Workers, Deno Deploy, Bun, and Node.js. Its trie-based router is among the fastest available, and full TypeScript support with RPC-style client generation makes end-to-end type safety straightforward. Its minimal footprint and zero dependencies make it particularly suited for Cloudflare Workers where cold starts are sensitive to bundle size.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm create hono@latest my-app
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Select: Cloudflare Workers (or Node.js / Bun)</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app <span style="color:#56b6c2">&amp;&amp;</span> npm install <span style="color:#56b6c2">&amp;&amp;</span> npm run dev
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#7f848e">// src/index.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">Hono</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;hono&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">cors</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;hono/cors&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">logger</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;hono/logger&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Post</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">number</span>; <span style="color:#e06c75">title</span>: <span style="color:#e5c07b">string</span>; <span style="color:#e06c75">body</span>: <span style="color:#e5c07b">string</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">app</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">Hono</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">posts</span>: <span style="color:#e5c07b">Post</span>[] <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">use</span>(<span style="color:#98c379">&#39;*&#39;</span>, <span style="color:#e06c75">logger</span>())
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">use</span>(<span style="color:#98c379">&#39;/api/*&#39;</span>, <span style="color:#e06c75">cors</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#c678dd">get</span>(<span style="color:#98c379">&#39;/api/posts&#39;</span>, (<span style="color:#e06c75">c</span>) <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">c</span>.<span style="color:#e06c75">json</span>(<span style="color:#e06c75">posts</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">post</span>(<span style="color:#98c379">&#39;/api/posts&#39;</span>, <span style="color:#c678dd">async</span> (<span style="color:#e06c75">c</span>) <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">body</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">c</span>.<span style="color:#e06c75">req</span>.<span style="color:#e06c75">json</span>&lt;<span style="color:#e06c75">Omit</span>&lt;<span style="color:#e06c75">Post</span>, <span style="color:#98c379">&#39;id&#39;</span>&gt;&gt;()
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">posts.length</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>, ...<span style="color:#e06c75">body</span> }
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">push</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>.<span style="color:#e06c75">json</span>(<span style="color:#e06c75">post</span>, <span style="color:#d19a66">201</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#c678dd">get</span>(<span style="color:#98c379">&#39;/api/posts/:id&#39;</span>, (<span style="color:#e06c75">c</span>) <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">id</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">Number</span>(<span style="color:#e06c75">c</span>.<span style="color:#e06c75">req</span>.<span style="color:#e06c75">param</span>(<span style="color:#98c379">&#39;id&#39;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">find</span>(<span style="color:#e06c75">p</span> <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">p</span>.<span style="color:#e06c75">id</span> <span style="color:#56b6c2">===</span> <span style="color:#e06c75">id</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> <span style="color:#e06c75">post</span> <span style="color:#56b6c2">?</span> <span style="color:#e06c75">c</span>.<span style="color:#e06c75">json</span>(<span style="color:#e06c75">post</span>) <span style="color:#56b6c2">:</span> <span style="color:#e06c75">c</span>.<span style="color:#e06c75">json</span>({ <span style="color:#e06c75">error</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Not found&#39;</span> }, <span style="color:#d19a66">404</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#e06c75">app</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Hono is the best choice for APIs deployed to edge runtimes (Cloudflare Workers, Deno Deploy) where bundle size and cold-start time are critical. Its universal runtime support means one codebase targets all JS environments. For Node.js-only projects, Express or Fastify have larger ecosystems. Hono&rsquo;s RPC layer is particularly compelling when you want Next.js-like end-to-end type safety without a full framework.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Runs on Cloudflare Workers, Deno Deploy, Bun, Node.js, and AWS Lambda</li><li>Trie-based router — one of the fastest route matchers available</li><li>Zero external dependencies — works in any JS runtime</li><li>Hono RPC — auto-generated type-safe client from your server routes</li><li>Built-in middleware: Bearer auth, CORS, logger, cache, compress</li><li>JSX support for server-side HTML rendering without React</li><li>TypeScript-first with fully typed request/response objects</li><li>Tiny bundle size — ideal for edge cold-start latency</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">bun</span>
+          <code class="fw-install__cmd">bun create hono my-app</code>
+          <button class="fw-install__copy" data-copy="bun create hono my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm create hono@latest my-app</code>
+          <button class="fw-install__copy" data-copy="npm create hono@latest my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -443,7 +519,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

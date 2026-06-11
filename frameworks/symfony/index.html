@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,89 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Symfony is both a full-stack framework and a collection of standalone PHP components — HttpFoundation, Console, DependencyInjection, EventDispatcher — that form the plumbing of the PHP ecosystem. Laravel, Drupal, Magento, and phpBB are all built on Symfony components.</p>
+      <div class="prose"><p>Symfony is both a full-stack framework and a collection of standalone PHP components — HttpFoundation, Console, DependencyInjection, EventDispatcher — that form the plumbing of the PHP ecosystem. Laravel, Drupal, Magento, and phpBB are all built on Symfony components. Its long-term support (LTS) releases and strict backward compatibility make it the enterprise PHP choice.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>symfony new my-app --version<span style="color:#56b6c2">=</span>lts
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>symfony serve -d
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#7f848e">// src/Controller/PostController.php
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">namespace</span> <span style="color:#e06c75">App\Controller</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">App\Entity\Post</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">App\Repository\PostRepository</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">Doctrine\ORM\EntityManagerInterface</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">Symfony\Component\HttpFoundation\JsonResponse</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">Symfony\Component\HttpFoundation\Request</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">Symfony\Component\Routing\Annotation\Route</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#[<span style="color:#61afef">Route</span>(<span style="color:#98c379">&#39;/api/posts&#39;</span>)]
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">PostController</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">AbstractController</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    #[<span style="color:#61afef">Route</span>(<span style="color:#98c379">&#39;&#39;</span>, <span style="color:#e06c75">methods</span><span style="color:#56b6c2">:</span> [<span style="color:#98c379">&#39;GET&#39;</span>])]
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">function</span> <span style="color:#61afef;font-weight:bold">index</span>(<span style="color:#e06c75">PostRepository</span> <span style="color:#e06c75">$repo</span>)<span style="color:#56b6c2">:</span> <span style="color:#61afef">JsonResponse</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#61afef">return</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">json</span>(<span style="color:#e06c75">$repo</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">findAll</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    #[<span style="color:#61afef">Route</span>(<span style="color:#98c379">&#39;&#39;</span>, <span style="color:#e06c75">methods</span><span style="color:#56b6c2">:</span> [<span style="color:#98c379">&#39;POST&#39;</span>])]
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">function</span> <span style="color:#61afef;font-weight:bold">create</span>(<span style="color:#e06c75">Request</span> <span style="color:#e06c75">$request</span>, <span style="color:#e06c75">EntityManagerInterface</span> <span style="color:#e06c75">$em</span>)<span style="color:#56b6c2">:</span> <span style="color:#61afef">JsonResponse</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">$data</span> <span style="color:#56b6c2">=</span> <span style="color:#61afef">json_decode</span>(<span style="color:#e06c75">$request</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">getContent</span>(), <span style="color:#c678dd">true</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">$post</span> <span style="color:#56b6c2">=</span> <span style="color:#61afef">new</span> <span style="color:#61afef">Post</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">$post</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">setTitle</span>(<span style="color:#e06c75">$data</span>[<span style="color:#98c379">&#39;title&#39;</span>]);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">$post</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">setBody</span>(<span style="color:#e06c75">$data</span>[<span style="color:#98c379">&#39;body&#39;</span>]);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">$em</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">persist</span>(<span style="color:#e06c75">$post</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">$em</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">flush</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#61afef">return</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">json</span>(<span style="color:#e06c75">$post</span>, <span style="color:#d19a66">201</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    #[<span style="color:#61afef">Route</span>(<span style="color:#98c379">&#39;/{id}&#39;</span>, <span style="color:#e06c75">methods</span><span style="color:#56b6c2">:</span> [<span style="color:#98c379">&#39;GET&#39;</span>])]
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">function</span> <span style="color:#61afef;font-weight:bold">show</span>(<span style="color:#e06c75">Post</span> <span style="color:#e06c75">$post</span>)<span style="color:#56b6c2">:</span> <span style="color:#61afef">JsonResponse</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#61afef">return</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">json</span>(<span style="color:#e06c75">$post</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Symfony is the right choice for large PHP enterprise applications, complex APIs (via API Platform), and projects that need long-term stability and LTS support. Its component architecture makes it the foundation of the PHP ecosystem — knowing Symfony components gives you insight into Laravel, Drupal, and Sylius. For smaller projects, Laravel&rsquo;s developer experience is faster. For pure REST APIs, API Platform (Symfony-based) is the best PHP option.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Reusable standalone components — used by Laravel, Drupal, Magento, phpBB</li><li>Dependency injection container with auto-wiring</li><li>Flex recipe system — install bundles with `composer req` and auto-configure</li><li>Doctrine ORM integration — the standard PHP ORM</li><li>Twig templating engine</li><li>API Platform — REST and GraphQL API framework built on Symfony</li><li>Console component for CLI commands</li><li>Messenger component for async jobs and event buses</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">composer</span>
+          <code class="fw-install__cmd">composer create-project symfony/skeleton my-app</code>
+          <button class="fw-install__copy" data-copy="composer create-project symfony/skeleton my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">symfony</span>
+          <code class="fw-install__cmd">symfony new my-app --version=lts</code>
+          <button class="fw-install__copy" data-copy="symfony new my-app --version=lts" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +533,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

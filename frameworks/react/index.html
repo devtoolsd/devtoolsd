@@ -214,7 +214,11 @@
   
 
   
+
+  
     
+  
+
   
 
   
@@ -371,8 +375,96 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>React introduced the component model and the virtual DOM to mainstream frontend development. It remains the most widely used UI library and underpins frameworks like Next.js and Remix.</p>
+      <div class="prose"><p>React introduced the component model to mainstream frontend development and remains the most widely used UI library in the world. Its declarative approach — describe what the UI should look like for a given state and let React figure out the DOM updates — replaced the imperative jQuery era. React underpins Next.js, Remix, Gatsby, and Expo, giving it an enormous ecosystem of tooling, patterns, and community support.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#7f848e">// src/App.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">useState</span> } <span style="color:#e06c75">from</span> <span style="color:#98c379">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">Counter</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> [<span style="color:#e06c75">count</span>, <span style="color:#e06c75">setCount</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">useState</span>(<span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">p</span>&gt;<span style="color:#e06c75">Count</span><span style="color:#56b6c2">:</span> {<span style="color:#e06c75">count</span>}&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">button</span> <span style="color:#e06c75">onClick</span><span style="color:#56b6c2">=</span>{() =&gt; <span style="color:#e06c75">setCount</span>(<span style="color:#e06c75">count</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>)}&gt;<span style="color:#e06c75">Increment</span>&lt;/<span style="color:#e06c75">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">App</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">main</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">h1</span>&gt;<span style="color:#e06c75">Hello</span> <span style="color:#e06c75">React</span>&lt;/<span style="color:#e06c75">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">Counter</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">main</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#e06c75">App</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#7f848e">// Fetch data with useEffect
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">useState</span>, <span style="color:#e06c75">useEffect</span> } <span style="color:#e06c75">from</span> <span style="color:#98c379">&#39;react&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">UserList</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> [<span style="color:#e06c75">users</span>, <span style="color:#e06c75">setUsers</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">useState</span>([])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">fetch</span>(<span style="color:#98c379">&#39;/api/users&#39;</span>)
+</span></span><span style="display:flex;"><span>      .<span style="color:#e06c75">then</span>(<span style="color:#e06c75">res</span> =&gt; <span style="color:#e06c75">res</span>.<span style="color:#e06c75">json</span>())
+</span></span><span style="display:flex;"><span>      .<span style="color:#e06c75">then</span>(<span style="color:#e06c75">data</span> =&gt; <span style="color:#e06c75">setUsers</span>(<span style="color:#e06c75">data</span>))
+</span></span><span style="display:flex;"><span>  }, [])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>      {<span style="color:#e06c75">users</span>.<span style="color:#e06c75">map</span>(<span style="color:#e06c75">user</span> =&gt; &lt;<span style="color:#e06c75">li</span> <span style="color:#e06c75">key</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">user</span>.<span style="color:#e06c75">id</span>}&gt;{<span style="color:#e06c75">user</span>.<span style="color:#e06c75">name</span>}&lt;/<span style="color:#e06c75">li</span>&gt;)}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>React is the default choice for interactive web UIs. Use it when your project needs a large ecosystem, long-term stability, and a wide hiring pool. For server-rendered or full-stack apps, reach for Next.js or Remix on top of React. If you want less boilerplate and a smaller bundle, Vue or Svelte are worth considering for greenfield projects.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Component-based architecture — build encapsulated pieces, compose them into complex UIs</li><li>Virtual DOM for efficient updates and reconciliation</li><li>JSX — write HTML-like syntax directly inside JavaScript</li><li>Hooks API — useState, useEffect, useContext, and custom hooks</li><li>Unidirectional data flow for predictable state management</li><li>Rich ecosystem — React Router, TanStack Query, Zustand, Redux</li><li>Server Components and Suspense for streaming and async rendering</li><li>React Native reuses the same component model for mobile apps</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm create vite@latest my-app -- --template react</code>
+          <button class="fw-install__copy" data-copy="npm create vite@latest my-app -- --template react" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm create vite my-app --template react</code>
+          <button class="fw-install__copy" data-copy="pnpm create vite my-app --template react" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn create vite my-app --template react</code>
+          <button class="fw-install__copy" data-copy="yarn create vite my-app --template react" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
       <h2>// tools</h2>
@@ -698,7 +790,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

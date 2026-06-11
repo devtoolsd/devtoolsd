@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -346,8 +350,85 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>LangChain provides composable building blocks for LLM applications — prompt templates, retrieval pipelines, tool-calling agents, and memory. Its integration library connects to OpenAI, Anthropic, local models, vector databases, and dozens of data sources. LangGraph extends it with stateful, graph-based agent orchestration.</p>
+      <div class="prose"><p>LangChain provides composable building blocks for LLM applications — prompt templates, retrieval pipelines, tool-calling agents, and memory. Its integration library connects to OpenAI, Anthropic, local models, vector databases, and dozens of data sources. LangGraph extends it with stateful, graph-based agent orchestration for more complex multi-step AI workflows.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install langchain langchain-openai python-dotenv
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># .env</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># OPENAI_API_KEY=sk-...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">os</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">dotenv</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">load_dotenv</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">langchain_openai</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">ChatOpenAI</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">langchain.prompts</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">ChatPromptTemplate</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">langchain.schema.output_parser</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">StrOutputParser</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">load_dotenv</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Simple chain</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">llm</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">ChatOpenAI</span>(<span style="color:#e06c75">model</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;gpt-4o-mini&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">prompt</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">ChatPromptTemplate</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">from_template</span>(<span style="color:#98c379">&#34;Tell me a fun fact about </span><span style="color:#98c379">{topic}</span><span style="color:#98c379">.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">chain</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">prompt</span> <span style="color:#56b6c2">|</span> <span style="color:#e06c75">llm</span> <span style="color:#56b6c2">|</span> <span style="color:#e06c75">StrOutputParser</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">result</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">chain</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">invoke</span>({<span style="color:#98c379">&#34;topic&#34;</span>: <span style="color:#98c379">&#34;Python&#34;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">result</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># RAG pipeline</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">langchain_community.document_loaders</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">TextLoader</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">langchain.text_splitter</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">RecursiveCharacterTextSplitter</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">langchain_openai</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">OpenAIEmbeddings</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">langchain_community.vectorstores</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">Chroma</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">langchain.chains</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">RetrievalQA</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Load and split documents</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">loader</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">TextLoader</span>(<span style="color:#98c379">&#34;knowledge_base.txt&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">docs</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">loader</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">load</span>()
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">splitter</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">RecursiveCharacterTextSplitter</span>(<span style="color:#e06c75">chunk_size</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1000</span>, <span style="color:#e06c75">chunk_overlap</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">100</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">chunks</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">splitter</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">split_documents</span>(<span style="color:#e06c75">docs</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Create vector store</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">vectorstore</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Chroma</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">from_documents</span>(<span style="color:#e06c75">chunks</span>, <span style="color:#e06c75">OpenAIEmbeddings</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Build QA chain</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">qa</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">RetrievalQA</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">from_chain_type</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">llm</span><span style="color:#56b6c2">=</span><span style="color:#e06c75">ChatOpenAI</span>(<span style="color:#e06c75">model</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;gpt-4o-mini&#34;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">retriever</span><span style="color:#56b6c2">=</span><span style="color:#e06c75">vectorstore</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">as_retriever</span>(<span style="color:#e06c75">search_kwargs</span><span style="color:#56b6c2">=</span>{<span style="color:#98c379">&#34;k&#34;</span>: <span style="color:#d19a66">3</span>}),
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">answer</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">qa</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">invoke</span>(<span style="color:#98c379">&#34;What is the refund policy?&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">answer</span>[<span style="color:#98c379">&#34;result&#34;</span>])
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>LangChain is the most feature-complete framework for LLM applications and the best choice when you need pre-built integrations for vector stores, data loaders, and LLM providers. It&rsquo;s well-suited for RAG pipelines and tool-using agents. For simpler use cases, calling the LLM API directly with a prompt template may be sufficient. For complex stateful agent graphs, LangGraph is the recommended extension. LlamaIndex is a strong alternative with a focus on data indexing and retrieval.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Prompt templates with variable substitution and few-shot examples</li><li>LCEL (LangChain Expression Language) for composing chains with `|` operator</li><li>Retrieval-augmented generation (RAG) pipeline components</li><li>Agent framework — LLM decides which tool to call next</li><li>Integrations: OpenAI, Anthropic, Ollama, Cohere, 50&#43; LLM providers</li><li>Vector store integrations: Chroma, Pinecone, pgvector, Weaviate</li><li>Memory — conversation history, summary, entity tracking</li><li>LangSmith for tracing, debugging, and evaluating chains</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install langchain langchain-openai</code>
+          <button class="fw-install__copy" data-copy="pip install langchain langchain-openai" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -425,7 +506,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

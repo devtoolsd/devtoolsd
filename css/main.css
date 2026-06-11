@@ -991,6 +991,86 @@ a.stack-sidebar-tool__name:hover { opacity: 0.75; }
   gap: 1rem;
 }
 
+/* ── Framework detail: features + install ── */
+.fw-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.fw-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+.fw-features li::before {
+  content: '✓';
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.fw-install {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.fw-install__row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.fw-install__mgr {
+  padding: 0.6rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--code-bg));
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+  min-width: 3.5rem;
+  text-align: center;
+  user-select: none;
+}
+.fw-install__cmd {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--fg);
+  background: transparent;
+  white-space: nowrap;
+  overflow: auto;
+}
+.fw-install__copy {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-left: 1px solid var(--border);
+  background: transparent;
+  color: var(--comment);
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.fw-install__copy:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
 /* ── Language card ── */
 .lang-card {
   display: flex;

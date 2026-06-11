@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -351,7 +355,81 @@
     <div class="detail-body">
 
       <div class="prose"><p>Actix Web consistently tops the TechEmpower benchmarks. Its extractor pattern — <code>web::Json&lt;T&gt;</code>, <code>web::Path&lt;T&gt;</code>, <code>web::Query&lt;T&gt;</code> — provides zero-overhead type-safe request parsing. Actix&rsquo;s actor system underpins WebSocket handling and stateful connections. It is the most widely deployed Rust web framework in production.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#7f848e"># Cargo.toml</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#e06c75">dependencies</span>]
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">actix-web</span> = <span style="color:#98c379">&#34;4&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">serde</span> = { <span style="color:#e06c75">version</span> = <span style="color:#98c379">&#34;1&#34;</span>, <span style="color:#e06c75">features</span> = [<span style="color:#98c379">&#34;derive&#34;</span>] }
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">tokio</span> = { <span style="color:#e06c75">version</span> = <span style="color:#98c379">&#34;1&#34;</span>, <span style="color:#e06c75">features</span> = [<span style="color:#98c379">&#34;macros&#34;</span>, <span style="color:#98c379">&#34;rt-multi-thread&#34;</span>] }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#7f848e">// src/main.rs
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">actix_web</span>::{<span style="color:#e06c75">get</span>, <span style="color:#e06c75">post</span>, <span style="color:#e06c75">web</span>, <span style="color:#e06c75">App</span>, <span style="color:#e06c75">HttpServer</span>, <span style="color:#e06c75">Responder</span>, <span style="color:#e06c75">HttpResponse</span>};
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">serde</span>::{<span style="color:#e06c75">Deserialize</span>, <span style="color:#e06c75">Serialize</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#[derive(Serialize, Deserialize, Clone)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">struct</span> <span style="color:#e5c07b">Post</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">u32</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">title</span>: <span style="color:#e5c07b">String</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">body</span>: <span style="color:#e5c07b">String</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#[get(</span><span style="color:#98c379">&#34;/posts&#34;</span><span style="color:#7f848e">)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">fn</span> <span style="color:#61afef;font-weight:bold">list_posts</span>(<span style="color:#e06c75">data</span>: <span style="color:#e5c07b">web</span>::<span style="color:#e06c75">Data</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">Vec</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span><span style="color:#56b6c2">&gt;&gt;</span>) -&gt; <span style="color:#e5c07b">impl</span> <span style="color:#e06c75">Responder</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">HttpResponse</span>::<span style="color:#e5c07b">Ok</span>().<span style="color:#e06c75">json</span>(<span style="color:#e06c75">data</span>.<span style="color:#e06c75">as_ref</span>())
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#[post(</span><span style="color:#98c379">&#34;/posts&#34;</span><span style="color:#7f848e">)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">fn</span> <span style="color:#61afef;font-weight:bold">create_post</span>(<span style="color:#e06c75">post</span>: <span style="color:#e5c07b">web</span>::<span style="color:#e06c75">Json</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span><span style="color:#56b6c2">&gt;</span>) -&gt; <span style="color:#e5c07b">impl</span> <span style="color:#e06c75">Responder</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">HttpResponse</span>::<span style="color:#e06c75">Created</span>().<span style="color:#e06c75">json</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">post</span>.<span style="color:#e06c75">into_inner</span>())
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">#[actix_web::main]</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">fn</span> <span style="color:#61afef;font-weight:bold">main</span>() -&gt; <span style="color:#e5c07b">std</span>::<span style="color:#e06c75">io</span>::<span style="color:#e5c07b">Result</span><span style="color:#56b6c2">&lt;</span>()<span style="color:#56b6c2">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">posts</span>: <span style="color:#e5c07b">web</span>::<span style="color:#e06c75">Data</span><span style="color:#56b6c2">&lt;</span><span style="color:#e5c07b">Vec</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span><span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">web</span>::<span style="color:#e06c75">Data</span>::<span style="color:#e06c75">new</span>(<span style="color:#56b6c2;font-weight:bold">vec!</span>[]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">HttpServer</span>::<span style="color:#e06c75">new</span>(<span style="color:#c678dd">move</span> <span style="color:#56b6c2">||</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">App</span>::<span style="color:#e06c75">new</span>()
+</span></span><span style="display:flex;"><span>            .<span style="color:#e06c75">app_data</span>(<span style="color:#e06c75">posts</span>.<span style="color:#e06c75">clone</span>())
+</span></span><span style="display:flex;"><span>            .<span style="color:#e06c75">service</span>(<span style="color:#e06c75">list_posts</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#e06c75">service</span>(<span style="color:#e06c75">create_post</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    .<span style="color:#e06c75">bind</span>(<span style="color:#98c379">&#34;127.0.0.1:8080&#34;</span>)<span style="color:#56b6c2">?</span>
+</span></span><span style="display:flex;"><span>    .<span style="color:#e06c75">run</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#c678dd">await</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Actix Web is the choice when raw throughput is critical — high-volume APIs, proxies, or services where latency matters. Rust&rsquo;s ownership model guarantees memory safety without GC pauses. For a more ergonomic Rust API with Tower middleware compatibility, Axum is worth comparing. Both are production-ready; the choice is mainly ecosystem preference (Tower vs Actix actors).</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Consistently top-ranked in TechEmpower benchmarks</li><li>Type-safe extractors — `web::Json&lt;T&gt;`, `web::Path&lt;T&gt;`, `web::Query&lt;T&gt;`</li><li>Middleware system with request/response transformation</li><li>Built-in WebSocket support via actor system</li><li>App state sharing via `web::Data&lt;T&gt;` with `Arc` under the hood</li><li>Static file serving and streaming responses</li><li>Async handlers running on the Tokio runtime</li><li>Test utilities for in-process integration tests without binding a port</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">cargo</span>
+          <code class="fw-install__cmd">cargo add actix-web</code>
+          <button class="fw-install__copy" data-copy="cargo add actix-web" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -510,7 +588,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

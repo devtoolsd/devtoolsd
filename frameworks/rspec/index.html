@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -344,7 +348,91 @@
     <div class="detail-body">
 
       <div class="prose"><p>RSpec&rsquo;s <code>describe</code>, <code>context</code>, and <code>it</code> blocks produce test output that reads like a specification. Combined with FactoryBot for test data and Capybara for integration testing, RSpec forms the standard Rails test stack. Its shared examples, custom matchers, and <code>let</code>/<code>subject</code> helpers enable DRY, expressive test suites.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># For a Rails project</span>
+</span></span><span style="display:flex;"><span>bundle add rspec-rails factory_bot_rails capybara --group <span style="color:#e5c07b">test</span>
+</span></span><span style="display:flex;"><span>rails generate rspec:install
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#7f848e"># spec/models/post_spec.rb</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">require</span> <span style="color:#98c379">&#39;rails_helper&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">RSpec</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">describe</span> <span style="color:#e06c75">Post</span>, <span style="color:#98c379">type</span>: <span style="color:#98c379">:model</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">subject</span>(<span style="color:#98c379">:post</span>) { <span style="color:#e06c75">build</span>(<span style="color:#98c379">:post</span>) }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">describe</span> <span style="color:#98c379">&#39;validations&#39;</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">it</span> { <span style="color:#e06c75">is_expected</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to</span> <span style="color:#e06c75">validate_presence_of</span>(<span style="color:#98c379">:title</span>) }
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">it</span> { <span style="color:#e06c75">is_expected</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to</span> <span style="color:#e06c75">validate_length_of</span>(<span style="color:#98c379">:title</span>)<span style="color:#56b6c2">.</span><span style="color:#e06c75">is_at_least</span>(<span style="color:#d19a66">3</span>) }
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">it</span> { <span style="color:#e06c75">is_expected</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to</span> <span style="color:#e06c75">belong_to</span>(<span style="color:#98c379">:author</span>) }
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">describe</span> <span style="color:#98c379">&#39;#published?&#39;</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">context</span> <span style="color:#98c379">&#39;when published_at is set&#39;</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">let</span>(<span style="color:#98c379">:post</span>) { <span style="color:#e06c75">build</span>(<span style="color:#98c379">:post</span>, <span style="color:#98c379">published_at</span>: <span style="color:#d19a66">1</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">day</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">ago</span>) }
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">it</span> { <span style="color:#e06c75">is_expected</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to</span> <span style="color:#e06c75">be_published</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">context</span> <span style="color:#98c379">&#39;when published_at is nil&#39;</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">let</span>(<span style="color:#98c379">:post</span>) { <span style="color:#e06c75">build</span>(<span style="color:#98c379">:post</span>, <span style="color:#98c379">published_at</span>: <span style="color:#c678dd">nil</span>) }
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">it</span> { <span style="color:#e06c75">is_expected</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">not_to</span> <span style="color:#e06c75">be_published</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#7f848e"># spec/requests/posts_spec.rb</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">require</span> <span style="color:#98c379">&#39;rails_helper&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">RSpec</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">describe</span> <span style="color:#98c379">&#39;Posts API&#39;</span>, <span style="color:#98c379">type</span>: <span style="color:#98c379">:request</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">let</span>(<span style="color:#98c379">:user</span>) { <span style="color:#e06c75">create</span>(<span style="color:#98c379">:user</span>) }
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">let</span>(<span style="color:#98c379">:headers</span>) { <span style="color:#e06c75">auth_headers</span>(<span style="color:#e06c75">user</span>) }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">describe</span> <span style="color:#98c379">&#39;GET /api/posts&#39;</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">before</span> { <span style="color:#e06c75">create_list</span>(<span style="color:#98c379">:post</span>, <span style="color:#d19a66">3</span>, <span style="color:#98c379">author</span>: <span style="color:#e06c75">user</span>) }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">it</span> <span style="color:#98c379">&#39;returns all posts&#39;</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">get</span> <span style="color:#98c379">&#39;/api/posts&#39;</span>, <span style="color:#98c379">headers</span>: <span style="color:#e06c75">headers</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">response</span>)<span style="color:#56b6c2">.</span><span style="color:#e06c75">to</span> <span style="color:#e06c75">have_http_status</span>(<span style="color:#98c379">:ok</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">json</span><span style="color:#56b6c2">[</span><span style="color:#98c379">&#39;data&#39;</span><span style="color:#56b6c2">].</span><span style="color:#e06c75">length</span>)<span style="color:#56b6c2">.</span><span style="color:#e06c75">to</span> <span style="color:#e06c75">eq</span>(<span style="color:#d19a66">3</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>RSpec is the standard for Ruby and Rails projects — most Rails codebases use it. Its BDD style produces tests that serve as living documentation. Minitest is a lighter alternative built into Ruby&rsquo;s standard library, preferred by some teams for simplicity. For new Rails projects, RSpec + FactoryBot + Capybara is the proven stack. If you&rsquo;re greenfielding a non-Rails Ruby project, Minitest&rsquo;s simpler setup may be preferable.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Readable BDD DSL — `describe`, `context`, `it`, `expect` form a specification</li><li>`let` and `subject` for lazy-evaluated, DRY test data</li><li>Shared examples for reusing test cases across multiple classes</li><li>Custom matchers — extend `expect` with domain-specific matchers</li><li>Focused and pending tests with `fdescribe`, `fit`, `xdescribe`</li><li>Mocking and stubbing via `rspec-mocks` — `allow`, `expect`, `double`</li><li>Integration with Rails via `rspec-rails`</li><li>Works with FactoryBot and Capybara for complete test coverage</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">bundler</span>
+          <code class="fw-install__cmd">bundle add rspec-rails --group test</code>
+          <button class="fw-install__copy" data-copy="bundle add rspec-rails --group test" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">gem</span>
+          <code class="fw-install__cmd">gem install rspec</code>
+          <button class="fw-install__copy" data-copy="gem install rspec" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -422,7 +510,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

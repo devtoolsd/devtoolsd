@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,88 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>CodeIgniter was designed for shared hosting environments where installing packages is difficult — its small footprint and minimal dependencies make it easy to drop into any PHP host. CodeIgniter 4 is a modern rewrite with namespaces, type hints, and an async-ready foundation while retaining the lightweight philosophy.</p>
+      <div class="prose"><p>CodeIgniter was designed for shared hosting environments where installing packages is difficult — its small footprint and minimal dependencies make it easy to drop into any PHP host. CodeIgniter 4 is a modern rewrite with namespaces, type hints, and an async-ready foundation while retaining the lightweight philosophy that made version 3 popular.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>composer create-project codeigniter4/appstarter my-app
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>php spark serve
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#7f848e">// app/Controllers/Posts.php
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">namespace</span> <span style="color:#e06c75">App\Controllers</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">CodeIgniter\RESTful\ResourceController</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Posts</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">ResourceController</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">protected</span> <span style="color:#e06c75">$modelName</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#39;App\Models\PostModel&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">protected</span> <span style="color:#e06c75">$format</span>    <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#39;json&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">function</span> <span style="color:#61afef;font-weight:bold">index</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">respond</span>(<span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">model</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">findAll</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">function</span> <span style="color:#61afef;font-weight:bold">show</span>(<span style="color:#e06c75">$id</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">null</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">$post</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">model</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">find</span>(<span style="color:#e06c75">$id</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">$post</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#56b6c2">?</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">respond</span>(<span style="color:#e06c75">$post</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#56b6c2">:</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">failNotFound</span>(<span style="color:#98c379">&#34;Post </span><span style="color:#98c379">$id</span><span style="color:#98c379"> not found&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">function</span> <span style="color:#61afef;font-weight:bold">create</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">$data</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">request</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">getJSON</span>(<span style="color:#c678dd">true</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">if</span> (<span style="color:#56b6c2">!</span><span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">model</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">insert</span>(<span style="color:#e06c75">$data</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">return</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">failValidationErrors</span>(<span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">model</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">errors</span>());
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">$this</span><span style="color:#56b6c2">-&gt;</span><span style="color:#e06c75">respondCreated</span>(<span style="color:#e06c75">$data</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#7f848e">// app/Models/PostModel.php
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">namespace</span> <span style="color:#e06c75">App\Models</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">use</span> <span style="color:#e06c75">CodeIgniter\Model</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">PostModel</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">Model</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">protected</span> <span style="color:#e06c75">$table</span>      <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#39;posts&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">protected</span> <span style="color:#e06c75">$allowedFields</span> <span style="color:#56b6c2">=</span> [<span style="color:#98c379">&#39;title&#39;</span>, <span style="color:#98c379">&#39;body&#39;</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">protected</span> <span style="color:#e06c75">$useTimestamps</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">true</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>CodeIgniter is a good choice when deploying to shared hosting that doesn&rsquo;t support Composer or CLI access, or when you need a PHP framework with the smallest possible footprint. For modern PHP development with a full ecosystem, Laravel is the better choice. CodeIgniter&rsquo;s quick setup makes it useful for small internal tools where the overhead of a larger framework isn&rsquo;t justified.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Tiny footprint — no Composer required for basic usage</li><li>MVC architecture with simple controller-model-view separation</li><li>Query Builder for safe, chainable database access</li><li>Form validation with built-in rules</li><li>RESTful API support with optional authentication filters</li><li>Session handling with database, file, and Redis drivers</li><li>Works on shared hosting without shell access</li><li>Minimal configuration — drop into a PHP host and run</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">composer</span>
+          <code class="fw-install__cmd">composer create-project codeigniter4/appstarter my-app</code>
+          <button class="fw-install__copy" data-copy="composer create-project codeigniter4/appstarter my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +532,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

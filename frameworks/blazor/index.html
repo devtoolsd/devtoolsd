@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -343,8 +347,86 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Blazor lets C# developers build interactive web UIs without JavaScript. Blazor WebAssembly runs .NET code directly in the browser sandbox; Blazor Server keeps UI logic on the server and sends updates via SignalR. For .NET shops, Blazor eliminates the context switch between C# backend and JavaScript frontend.</p>
+      <div class="prose"><p>Blazor lets C# developers build interactive web UIs without JavaScript. Blazor WebAssembly runs .NET code directly in the browser sandbox; Blazor Server keeps UI logic on the server and sends updates via SignalR. Blazor Auto (introduced in .NET 8) starts with Server rendering for fast initial load, then downloads the WASM runtime and switches to client-side execution. For .NET shops, Blazor eliminates the context switch between C# backend and JavaScript frontend.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet new blazor -n MyBlazorApp --interactivity WebAssembly
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> MyBlazorApp
+</span></span><span style="display:flex;"><span>dotnet run
+</span></span></code></pre></div><pre tabindex="0"><code class="language-razor" data-lang="razor">@* Components/Counter.razor *@
+@rendermode InteractiveWebAssembly
+
+&lt;h1&gt;Counter&lt;/h1&gt;
+&lt;p&gt;Current count: @currentCount&lt;/p&gt;
+&lt;button @onclick=&#34;IncrementCount&#34;&gt;Click me&lt;/button&gt;
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+</code></pre><pre tabindex="0"><code class="language-razor" data-lang="razor">@* Pages/FetchData.razor *@
+@page &#34;/weather&#34;
+@inject HttpClient Http
+
+@if (forecasts == null)
+{
+    &lt;p&gt;Loading...&lt;/p&gt;
+}
+else
+{
+    &lt;table&gt;
+        @foreach (var f in forecasts)
+        {
+            &lt;tr&gt;&lt;td&gt;@f.Date&lt;/td&gt;&lt;td&gt;@f.TemperatureC°C&lt;/td&gt;&lt;/tr&gt;
+        }
+    &lt;/table&gt;
+}
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetFromJsonAsync&lt;WeatherForecast[]&gt;(&#34;sample-data/weather.json&#34;);
+    }
+}
+</code></pre><h2 id="when-to-use">When to use</h2>
+<p>Blazor is ideal for .NET teams that want to build web UIs without switching to JavaScript. It&rsquo;s particularly valuable for internal enterprise tools, line-of-business apps, and teams with deep .NET expertise. Blazor WASM suits offline-capable apps; Blazor Server is better for apps needing real-time data. If your team already uses React or Vue, sticking with the JavaScript ecosystem is usually the right call unless there&rsquo;s strong motivation to unify the stack in C#.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Write interactive web UIs entirely in C# — no JavaScript required</li><li>Blazor WebAssembly — .NET code runs client-side in the browser sandbox</li><li>Blazor Server — UI logic runs on the server, synced via SignalR</li><li>Blazor Auto — switches between Server and WASM for best of both</li><li>Component model similar to React — parameters, event callbacks, lifecycle</li><li>CSS isolation and scoped styles per component</li><li>Reuse .NET libraries and NuGet packages on the frontend</li><li>JavaScript interop for calling JS when needed</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">dotnet</span>
+          <code class="fw-install__cmd">dotnet new blazor -n MyBlazorApp &amp;&amp; cd MyBlazorApp &amp;&amp; dotnet run</code>
+          <button class="fw-install__copy" data-copy="dotnet new blazor -n MyBlazorApp &amp;&amp; cd MyBlazorApp &amp;&amp; dotnet run" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -432,7 +514,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

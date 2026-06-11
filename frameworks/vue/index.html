@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -359,8 +363,102 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Vue&rsquo;s single-file components and progressive adoption model make it a popular choice for teams wanting a gentler learning curve than React with a more opinionated structure.</p>
+      <div class="prose"><p>Vue&rsquo;s single-file components and progressive adoption model make it a popular choice for teams wanting a gentler learning curve than React, with more structure than Svelte. The Composition API introduced in Vue 3 brings reactive primitives (<code>ref</code>, <code>reactive</code>, <code>computed</code>, <code>watch</code>) that compose cleanly into reusable logic, while <code>&lt;script setup&gt;</code> eliminates boilerplate. For full-stack Vue apps, Nuxt is the equivalent of Next.js.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm create vue@latest my-app
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Select: TypeScript? Yes, Vue Router? Yes, Pinia? Yes</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app <span style="color:#56b6c2">&amp;&amp;</span> npm install <span style="color:#56b6c2">&amp;&amp;</span> npm run dev
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#7f848e">&lt;!--</span> <span style="color:#e06c75">src</span><span style="color:#56b6c2">/</span><span style="color:#e06c75">components</span><span style="color:#56b6c2">/</span><span style="color:#e06c75">Counter</span>.<span style="color:#e06c75">vue</span> <span style="color:#56b6c2">--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">script</span> <span style="color:#e06c75">setup</span> <span style="color:#e06c75">lang</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;ts&#34;</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">ref</span>, <span style="color:#e06c75">computed</span> } <span style="color:#e06c75">from</span> <span style="color:#98c379">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">count</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">ref</span>(<span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">doubled</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">computed</span>(() =&gt; <span style="color:#e06c75">count</span>.<span style="color:#e06c75">value</span> <span style="color:#56b6c2">*</span> <span style="color:#d19a66">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">increment</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">count</span>.<span style="color:#e06c75">value</span><span style="color:#56b6c2">++</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#e06c75">div</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;counter&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">p</span>&gt;<span style="color:#e06c75">Count</span><span style="color:#56b6c2">:</span> {{ <span style="color:#e06c75">count</span> }} (<span style="color:#e06c75">doubled</span><span style="color:#56b6c2">:</span> {{ <span style="color:#e06c75">doubled</span> }})&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">button</span> <span style="color:#e06c75">@click</span><span style="color:#98c379">=&#34;increment&#34;</span>&gt;<span style="color:#e06c75">Increment</span>&lt;/<span style="color:#e06c75">button</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">style</span> <span style="color:#e06c75">scoped</span>&gt;
+</span></span><span style="display:flex;"><span>.<span style="color:#e06c75">counter</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">padding</span><span style="color:#56b6c2">:</span> <span style="color:#d19a66">1</span><span style="color:#e06c75">rem</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">border</span><span style="color:#56b6c2">:</span> <span style="color:#d19a66">1</span><span style="color:#e06c75">px</span> <span style="color:#e06c75">solid</span> #<span style="color:#e06c75">ccc</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">border</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">radius</span><span style="color:#56b6c2">:</span> <span style="color:#d19a66">8</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">style</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#7f848e">&lt;!--</span> <span style="color:#e06c75">Fetch</span> <span style="color:#e06c75">data</span> <span style="color:#c678dd">with</span> <span style="color:#e06c75">Composition</span> <span style="color:#e06c75">API</span> <span style="color:#56b6c2">--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">script</span> <span style="color:#e06c75">setup</span> <span style="color:#e06c75">lang</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;ts&#34;</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">ref</span>, <span style="color:#e06c75">onMounted</span> } <span style="color:#e06c75">from</span> <span style="color:#98c379">&#39;vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">interface</span> <span style="color:#e06c75">User</span> { <span style="color:#e06c75">id</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">number</span>; <span style="color:#e06c75">name</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">string</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">users</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">ref</span>&lt;<span style="color:#e06c75">User</span>[]&gt;([])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">onMounted</span>(<span style="color:#e06c75">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">await</span> <span style="color:#e06c75">fetch</span>(<span style="color:#98c379">&#39;/api/users&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">users</span>.<span style="color:#e06c75">value</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">await</span> <span style="color:#e06c75">res</span>.<span style="color:#e06c75">json</span>()
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">li</span> <span style="color:#e06c75">v-for</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;user in users&#34; :key=&#34;user.id&#34;</span>&gt;{{ <span style="color:#e06c75">user.name</span> }}&lt;/<span style="color:#e06c75">li</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">template</span>&gt;
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Vue is a strong choice when you want React-like component architecture with a gentler onboarding curve and more built-in conveniences. It&rsquo;s particularly popular in Asia, in Laravel applications (via Inertia.js), and for teams migrating from jQuery who want a gradual path. For server-rendered Vue apps, Nuxt is the production standard.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Single File Components (.vue) — template, script, and styles in one file</li><li>Composition API with `&lt;script setup&gt;` for clean, reusable logic</li><li>Reactive system — `ref()` and `reactive()` for fine-grained reactivity</li><li>Progressive adoption — drop a `&lt;script&gt;` tag or build a full SPA</li><li>Scoped CSS, CSS Modules, and CSS-in-JS all supported</li><li>Built-in transitions and animation system</li><li>Official ecosystem: Vue Router, Pinia (state), Vite (build tool)</li><li>TypeScript support built in — no extra config needed</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm create vue@latest my-app</code>
+          <button class="fw-install__copy" data-copy="npm create vue@latest my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm create vue my-app</code>
+          <button class="fw-install__copy" data-copy="pnpm create vue my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn create vue my-app</code>
+          <button class="fw-install__copy" data-copy="yarn create vue my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -586,7 +684,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

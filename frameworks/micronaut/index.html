@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -351,8 +355,82 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Micronaut processes annotations at compile time rather than runtime reflection, eliminating Spring&rsquo;s slow startup and high memory usage. It supports Java, Kotlin, and Groovy and provides first-class support for GraalVM native images, serverless functions, and service discovery.</p>
+      <div class="prose"><p>Micronaut processes annotations at compile time rather than runtime reflection, eliminating Spring&rsquo;s slow startup and high memory usage. It supports Java, Kotlin, and Groovy and provides first-class support for GraalVM native images, serverless functions, and service discovery. Its compile-time approach means startup in milliseconds — ideal for Lambda functions and containerised microservices.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sdk install micronaut
+</span></span><span style="display:flex;"><span>mn create-app com.example.my-app --build<span style="color:#56b6c2">=</span>gradle --lang<span style="color:#56b6c2">=</span>kotlin
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>./gradlew run
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#7f848e">// src/main/kotlin/com/example/PostController.kt
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">io.micronaut.http.annotation.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">io.micronaut.http.HttpStatus</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">jakarta.inject.Singleton</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">data</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Post</span>(<span style="color:#c678dd">val</span> <span style="color:#e06c75">id</span>: <span style="color:#e06c75">Int</span>, <span style="color:#c678dd">val</span> <span style="color:#e06c75">title</span>: <span style="color:#e06c75">String</span>, <span style="color:#c678dd">val</span> <span style="color:#e06c75">body</span>: <span style="color:#e06c75">String</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Singleton</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">PostService</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#c678dd">val</span> <span style="color:#e06c75">posts</span> = <span style="color:#e06c75">mutableListOf</span>&lt;<span style="color:#e06c75">Post</span>&gt;()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">fun</span> <span style="color:#61afef;font-weight:bold">findAll</span>(): <span style="color:#e06c75">List</span>&lt;<span style="color:#e06c75">Post</span>&gt; = <span style="color:#e06c75">posts</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">fun</span> <span style="color:#61afef;font-weight:bold">save</span>(<span style="color:#e06c75">post</span>: <span style="color:#e06c75">Post</span>): <span style="color:#e06c75">Post</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">val</span> <span style="color:#e06c75">saved</span> = <span style="color:#e06c75">post</span>.<span style="color:#e06c75">copy</span>(<span style="color:#e06c75">id</span> = <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">size</span> + <span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">add</span>(<span style="color:#e06c75">saved</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">saved</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Controller</span>(<span style="color:#98c379">&#34;/posts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">PostController</span>(<span style="color:#c678dd">private</span> <span style="color:#c678dd">val</span> <span style="color:#e06c75">service</span>: <span style="color:#e06c75">PostService</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Get</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">fun</span> <span style="color:#61afef;font-weight:bold">list</span>() = <span style="color:#e06c75">service</span>.<span style="color:#e06c75">findAll</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Post</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Status</span>(<span style="color:#e5c07b">HttpStatus</span>.<span style="color:#e06c75">CREATED</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">fun</span> <span style="color:#61afef;font-weight:bold">create</span>(<span style="color:#61afef">@Body</span> <span style="color:#e06c75">post</span>: <span style="color:#e06c75">Post</span>) = <span style="color:#e06c75">service</span>.<span style="color:#e06c75">save</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Micronaut is ideal for Java/Kotlin microservices that need fast startup, low memory footprint, and cloud-native features. It&rsquo;s particularly strong for serverless (AWS Lambda) and Kubernetes deployments where container startup time matters. Quarkus is its closest competitor with similar compile-time philosophy. For teams with deep Spring Boot expertise, the migration cost to Micronaut may not be worthwhile unless startup time is a bottleneck.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Compile-time DI — no runtime reflection, fast startup and low memory</li><li>GraalVM native image support out of the box</li><li>Cloud-native — Kubernetes health checks, distributed config, service discovery</li><li>Micronaut Data — type-safe JPA and SQL queries generated at compile time</li><li>HTTP client with Kotlin coroutines and RxJava support</li><li>Supports Java, Kotlin, and Groovy in the same project</li><li>Serverless support for AWS Lambda, Azure Functions, GCP</li><li>Micronaut Test with embedded server for fast integration tests</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">homebrew</span>
+          <code class="fw-install__cmd">brew install micronaut &amp;&amp; mn create-app my-app</code>
+          <button class="fw-install__copy" data-copy="brew install micronaut &amp;&amp; mn create-app my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">sdkman</span>
+          <code class="fw-install__cmd">sdk install micronaut &amp;&amp; mn create-app my-app</code>
+          <button class="fw-install__copy" data-copy="sdk install micronaut &amp;&amp; mn create-app my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -490,7 +568,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

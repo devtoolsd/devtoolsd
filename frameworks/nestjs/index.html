@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -353,8 +357,103 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>NestJS brings Angular&rsquo;s architecture to backend development — modules, controllers, providers, and guards give large teams a consistent structure. It can run on Express or Fastify underneath and supports REST, GraphQL, WebSockets, and microservice transports out of the box.</p>
+      <div class="prose"><p>NestJS brings Angular&rsquo;s architecture to backend development — modules, controllers, providers, and guards give large teams a consistent structure across a large codebase. It can run on Express or Fastify underneath and supports REST, GraphQL, WebSockets, and microservice transports (Kafka, RabbitMQ, gRPC) out of the box. Its strong opinions about structure make it especially valuable when multiple engineers need to work on the same codebase without stepping on each other.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm i -g @nestjs/cli
+</span></span><span style="display:flex;"><span>nest new my-app
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>npm run start:dev
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#7f848e">// src/posts/post.entity.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">class</span> <span style="color:#e06c75">Post</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">number</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">title</span>: <span style="color:#e5c07b">string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">body</span>: <span style="color:#e5c07b">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// src/posts/posts.service.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">Injectable</span>, <span style="color:#e06c75">NotFoundException</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;@nestjs/common&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">Post</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;./post.entity&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">@Injectable</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">class</span> <span style="color:#e06c75">PostsService</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">private</span> <span style="color:#e06c75">posts</span>: <span style="color:#e5c07b">Post</span>[] <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">findAll</span>()<span style="color:#56b6c2">:</span> <span style="color:#e06c75">Post</span>[] { <span style="color:#c678dd">return</span> <span style="color:#c678dd">this</span>.<span style="color:#e06c75">posts</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">findOne</span>(<span style="color:#e06c75">id</span>: <span style="color:#e5c07b">number</span>)<span style="color:#56b6c2">:</span> <span style="color:#e06c75">Post</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">const</span> <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">this</span>.<span style="color:#e06c75">posts</span>.<span style="color:#e06c75">find</span>(<span style="color:#e06c75">p</span> <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">p</span>.<span style="color:#e06c75">id</span> <span style="color:#56b6c2">===</span> <span style="color:#e06c75">id</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> (<span style="color:#56b6c2">!</span><span style="color:#e06c75">post</span>) <span style="color:#c678dd">throw</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">NotFoundException</span>(<span style="color:#98c379">`Post #</span><span style="color:#98c379">${</span><span style="color:#e06c75">id</span><span style="color:#98c379">}</span><span style="color:#98c379"> not found`</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">post</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">create</span>(<span style="color:#e06c75">data</span>: <span style="color:#e5c07b">Omit</span>&lt;<span style="color:#e06c75">Post</span>, <span style="color:#98c379">&#39;id&#39;</span>&gt;)<span style="color:#56b6c2">:</span> <span style="color:#e06c75">Post</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">const</span> <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">this.posts.length</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>, ...<span style="color:#e06c75">data</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">this</span>.<span style="color:#e06c75">posts</span>.<span style="color:#e06c75">push</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">post</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// src/posts/posts.controller.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">Controller</span>, <span style="color:#e06c75">Get</span>, <span style="color:#e06c75">Post</span>, <span style="color:#e06c75">Body</span>, <span style="color:#e06c75">Param</span>, <span style="color:#e06c75">ParseIntPipe</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;@nestjs/common&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">PostsService</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;./posts.service&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">@Controller</span>(<span style="color:#98c379">&#39;posts&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">class</span> <span style="color:#e06c75">PostsController</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">constructor</span>(<span style="color:#c678dd">private</span> <span style="color:#c678dd">readonly</span> <span style="color:#e06c75">postsService</span>: <span style="color:#e5c07b">PostsService</span>) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">@Get</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">findAll() {</span> <span style="color:#c678dd">return</span> <span style="color:#c678dd">this</span>.<span style="color:#e06c75">postsService</span>.<span style="color:#e06c75">findAll</span>() }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">@Get</span>(<span style="color:#98c379">&#39;:id&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">findOne</span>(<span style="color:#c678dd">@Param</span>(<span style="color:#98c379">&#39;id&#39;</span>, <span style="color:#e06c75">ParseIntPipe</span>) <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">number</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#c678dd">this</span>.<span style="color:#e06c75">postsService</span>.<span style="color:#e06c75">findOne</span>(<span style="color:#e06c75">id</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">@Post</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">create</span>(<span style="color:#c678dd">@Body</span>() <span style="color:#e06c75">body</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">title</span>: <span style="color:#e5c07b">string</span>; <span style="color:#e06c75">body</span>: <span style="color:#e5c07b">string</span> }) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#c678dd">this</span>.<span style="color:#e06c75">postsService</span>.<span style="color:#e06c75">create</span>(<span style="color:#e06c75">body</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>NestJS is ideal for TypeScript teams building large Node.js backends that need a consistent, opinionated architecture. Its module system and dependency injection shine when multiple developers need clear ownership boundaries. For smaller APIs or teams that prefer flexibility, Express or Fastify without NestJS is simpler. If your frontend is already Angular, NestJS&rsquo;s shared patterns make the stack feel unified.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Module/Controller/Provider architecture for a consistent, scalable structure</li><li>Decorators and dependency injection inspired by Angular</li><li>Runs on Express or Fastify — swap the HTTP adapter without rewriting logic</li><li>Built-in support for REST, GraphQL, WebSockets, and microservice transports</li><li>Guards, interceptors, pipes, and filters for cross-cutting concerns</li><li>First-class TypeScript — strict mode by default</li><li>CLI for scaffolding modules, controllers, services, and more</li><li>Extensive documentation and enterprise backing (Trilon)</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm i -g @nestjs/cli &amp;&amp; nest new my-app</code>
+          <button class="fw-install__copy" data-copy="npm i -g @nestjs/cli &amp;&amp; nest new my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npx</span>
+          <code class="fw-install__cmd">npx @nestjs/cli new my-app</code>
+          <button class="fw-install__copy" data-copy="npx @nestjs/cli new my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -518,7 +617,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

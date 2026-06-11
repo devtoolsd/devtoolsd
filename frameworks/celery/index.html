@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,77 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Celery offloads time-consuming or periodic work — email sending, image processing, ML inference, API calls — to a pool of worker processes. Tasks are defined as Python functions and triggered synchronously or scheduled via Celery Beat. It integrates natively with Django, Flask, and FastAPI and supports Redis, RabbitMQ, and AWS SQS as brokers.</p>
+      <div class="prose"><p>Celery offloads time-consuming or periodic work — email sending, image processing, ML inference, third-party API calls — to a pool of worker processes. Tasks are defined as plain Python functions decorated with <code>@app.task</code> and triggered synchronously or scheduled via Celery Beat. It integrates natively with Django, Flask, and FastAPI and supports Redis, RabbitMQ, and AWS SQS as brokers.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install celery redis
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Start a Redis broker (or use Docker)</span>
+</span></span><span style="display:flex;"><span>docker run -p 6379:6379 redis:alpine
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># tasks.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">celery</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">Celery</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Celery</span>(<span style="color:#98c379">&#39;tasks&#39;</span>, <span style="color:#e06c75">broker</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;redis://localhost:6379/0&#39;</span>,
+</span></span><span style="display:flex;"><span>             <span style="color:#e06c75">backend</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;redis://localhost:6379/0&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@app.task</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">send_email</span>(<span style="color:#e06c75">to</span>: <span style="color:#e5c07b">str</span>, <span style="color:#e06c75">subject</span>: <span style="color:#e5c07b">str</span>, <span style="color:#e06c75">body</span>: <span style="color:#e5c07b">str</span>) <span style="color:#56b6c2">-&gt;</span> <span style="color:#e5c07b">dict</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e"># ... send the email</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> {<span style="color:#98c379">&#34;status&#34;</span>: <span style="color:#98c379">&#34;sent&#34;</span>, <span style="color:#98c379">&#34;to&#34;</span>: <span style="color:#e06c75">to</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@app.task</span>(<span style="color:#e06c75">bind</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>, <span style="color:#e06c75">max_retries</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">process_image</span>(<span style="color:#e5c07b">self</span>, <span style="color:#e06c75">image_path</span>: <span style="color:#e5c07b">str</span>) <span style="color:#56b6c2">-&gt;</span> <span style="color:#e5c07b">str</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">try</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e"># ... process image</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#98c379">f</span><span style="color:#98c379">&#34;processed/</span><span style="color:#98c379">{</span><span style="color:#e06c75">image_path</span><span style="color:#98c379">}</span><span style="color:#98c379">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">except</span> <span style="color:#e06c75">Exception</span> <span style="color:#c678dd">as</span> <span style="color:#e06c75">exc</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">raise</span> <span style="color:#e5c07b">self</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">retry</span>(<span style="color:#e06c75">exc</span><span style="color:#56b6c2">=</span><span style="color:#e06c75">exc</span>, <span style="color:#e06c75">countdown</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">60</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># Call from your web app</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">tasks</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">send_email</span>, <span style="color:#e06c75">process_image</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Fire and forget</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">send_email</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">delay</span>(<span style="color:#98c379">&#34;user@example.com&#34;</span>, <span style="color:#98c379">&#34;Welcome!&#34;</span>, <span style="color:#98c379">&#34;Hello there&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Get result</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">result</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">process_image</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">delay</span>(<span style="color:#98c379">&#34;uploads/photo.jpg&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">output</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">result</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">get</span>(<span style="color:#e06c75">timeout</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">30</span>)  <span style="color:#7f848e"># blocks until done</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Start a worker</span>
+</span></span><span style="display:flex;"><span>celery -A tasks worker --loglevel<span style="color:#56b6c2">=</span>info
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Start the scheduler (for periodic tasks)</span>
+</span></span><span style="display:flex;"><span>celery -A tasks beat --loglevel<span style="color:#56b6c2">=</span>info
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Celery is the standard choice for Python background task processing. Use it whenever your web request would otherwise block on slow work: sending emails, generating reports, processing uploads, or making slow third-party API calls. For Django projects, django-celery-results and django-celery-beat integrate deeply. For simpler use cases without a dedicated broker, alternatives like RQ (Redis Queue) or arq have less overhead.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Distribute work across multiple worker processes and machines</li><li>Broker support — Redis, RabbitMQ, AWS SQS, and more</li><li>Celery Beat for cron-style scheduled periodic tasks</li><li>Task retries with exponential backoff on failure</li><li>Task chaining, groups, and chords for complex workflows</li><li>Result backend — store task results in Redis, database, or file</li><li>Rate limiting per task type</li><li>Native Django, Flask, and FastAPI integrations</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install celery redis</code>
+          <button class="fw-install__copy" data-copy="pip install celery redis" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +521,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

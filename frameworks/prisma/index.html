@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -346,8 +350,97 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Prisma generates a fully type-safe database client from your schema file — every query is typed based on your exact data model. Prisma Migrate handles schema migrations, Prisma Studio provides a visual data browser, and Prisma Accelerate adds connection pooling and query caching. It is the most popular ORM in the TypeScript ecosystem.</p>
+      <div class="prose"><p>Prisma generates a fully type-safe database client from your schema file — every query is typed based on your exact data model. Prisma Migrate handles schema migrations, Prisma Studio provides a visual data browser, and Prisma Accelerate adds connection pooling and query caching. It is the most popular ORM in the TypeScript ecosystem, widely used with Next.js, Express, and NestJS.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install prisma @prisma/client
+</span></span><span style="display:flex;"><span>npx prisma init --datasource-provider postgresql
+</span></span></code></pre></div><pre tabindex="0"><code class="language-prisma" data-lang="prisma">// prisma/schema.prisma
+datasource db {
+  provider = &#34;postgresql&#34;
+  url      = env(&#34;DATABASE_URL&#34;)
+}
+
+generator client {
+  provider = &#34;prisma-client-js&#34;
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  body      String
+  published Boolean  @default(false)
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  posts Post[]
+}
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx prisma migrate dev --name init
+</span></span><span style="display:flex;"><span>npx prisma generate
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#7f848e">// src/db.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">PrismaClient</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;@prisma/client&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">prisma</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">PrismaClient</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// Fully typed — IDE knows the shape of every result
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">prisma</span>.<span style="color:#e06c75">post</span>.<span style="color:#e06c75">findMany</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">where</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">published</span>: <span style="color:#e5c07b">true</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">include</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">author</span>: <span style="color:#e5c07b">true</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">orderBy</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">createdAt</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;desc&#39;</span> },
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">newPost</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">prisma</span>.<span style="color:#e06c75">post</span>.<span style="color:#e06c75">create</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">data</span><span style="color:#56b6c2">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Hello Prisma&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">body</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Type-safe database access.&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">author</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">connect</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">email</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;user@example.com&#39;</span> } },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Prisma is the default ORM choice for TypeScript Node.js projects. Its schema-first approach and generated types eliminate a whole class of runtime bugs. Prisma Studio makes database exploration easy during development. For teams that prefer writing SQL directly with TypeScript safety, Drizzle ORM is a lighter alternative. For Python projects, SQLAlchemy is the equivalent.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Schema-first — define your models in `schema.prisma`, generate a typed client</li><li>Auto-generated TypeScript types for every model and query</li><li>Prisma Migrate — SQL migrations from schema changes</li><li>Prisma Studio — visual data browser for your database</li><li>Prisma Accelerate — connection pooling and global query caching</li><li>Nested writes and transactions for complex operations</li><li>Supports PostgreSQL, MySQL, SQLite, MongoDB, SQL Server, CockroachDB</li><li>Raw SQL via `prisma.$queryRaw` when you need full control</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm install prisma @prisma/client &amp;&amp; npx prisma init</code>
+          <button class="fw-install__copy" data-copy="npm install prisma @prisma/client &amp;&amp; npx prisma init" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn add prisma @prisma/client &amp;&amp; yarn prisma init</code>
+          <button class="fw-install__copy" data-copy="yarn add prisma @prisma/client &amp;&amp; yarn prisma init" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -435,7 +528,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

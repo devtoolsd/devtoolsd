@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,78 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>TensorFlow is Google&rsquo;s production ML platform, covering the full pipeline from research to deployment. TensorFlow Serving, TensorFlow Lite, and TensorFlow.js handle server, mobile, and browser inference. Keras is TensorFlow&rsquo;s high-level API since TF2, making model definition intuitive while TensorFlow handles the underlying computation graph.</p>
+      <div class="prose"><p>TensorFlow is Google&rsquo;s production ML platform, covering the full pipeline from research to deployment. TensorFlow Serving, TensorFlow Lite, and TensorFlow.js handle server, mobile, and browser inference respectively. Since TF2, Keras is TensorFlow&rsquo;s high-level API, making model definition intuitive while TensorFlow handles the underlying computation graph and hardware acceleration. TensorFlow&rsquo;s production tooling (TFX, TF Serving, TFLite) remains the most mature in the ecosystem.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install tensorflow
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">tensorflow</span> <span style="color:#c678dd">as</span> <span style="color:#e06c75">tf</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">tensorflow</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">keras</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Build a simple image classifier</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">model</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">keras</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Sequential</span>([
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">keras</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">layers</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Input</span>(<span style="color:#e06c75">shape</span><span style="color:#56b6c2">=</span>(<span style="color:#d19a66">28</span>, <span style="color:#d19a66">28</span>, <span style="color:#d19a66">1</span>)),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">keras</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">layers</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Conv2D</span>(<span style="color:#d19a66">32</span>, (<span style="color:#d19a66">3</span>, <span style="color:#d19a66">3</span>), <span style="color:#e06c75">activation</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">keras</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">layers</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">MaxPooling2D</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">keras</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">layers</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Flatten</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">keras</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">layers</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Dense</span>(<span style="color:#d19a66">64</span>, <span style="color:#e06c75">activation</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">keras</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">layers</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">Dense</span>(<span style="color:#d19a66">10</span>, <span style="color:#e06c75">activation</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;softmax&#39;</span>),
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">model</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">compile</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">optimizer</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;adam&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">loss</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;sparse_categorical_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">metrics</span><span style="color:#56b6c2">=</span>[<span style="color:#98c379">&#39;accuracy&#39;</span>],
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Load MNIST dataset</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#e06c75">x_train</span>, <span style="color:#e06c75">y_train</span>), (<span style="color:#e06c75">x_test</span>, <span style="color:#e06c75">y_test</span>) <span style="color:#56b6c2">=</span> <span style="color:#e06c75">keras</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">datasets</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">mnist</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">load_data</span>()
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">x_train</span>, <span style="color:#e06c75">x_test</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">x_train</span> <span style="color:#56b6c2">/</span> <span style="color:#d19a66">255.0</span>, <span style="color:#e06c75">x_test</span> <span style="color:#56b6c2">/</span> <span style="color:#d19a66">255.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">x_train</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">x_train</span>[<span style="color:#56b6c2">...</span>, <span style="color:#e06c75">tf</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">newaxis</span>]
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">x_test</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">x_test</span>[<span style="color:#56b6c2">...</span>, <span style="color:#e06c75">tf</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">newaxis</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">model</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">fit</span>(<span style="color:#e06c75">x_train</span>, <span style="color:#e06c75">y_train</span>, <span style="color:#e06c75">epochs</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">5</span>, <span style="color:#e06c75">validation_data</span><span style="color:#56b6c2">=</span>(<span style="color:#e06c75">x_test</span>, <span style="color:#e06c75">y_test</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Save the model</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">model</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">save</span>(<span style="color:#98c379">&#39;mnist_model.keras&#39;</span>)
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>TensorFlow is the right choice when production deployment is the primary concern — TF Serving, TFLite for mobile, and TFX pipelines are unmatched. Google&rsquo;s TPU infrastructure also runs TensorFlow natively. For research and experimentation, PyTorch has become the dominant choice due to its Pythonic API and HuggingFace ecosystem. If you&rsquo;re primarily using pretrained models (LLMs, vision transformers), PyTorch + HuggingFace Transformers is more practical.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Keras high-level API — define models in minutes with `Sequential` and `Model`</li><li>TensorFlow Serving for production model serving with REST and gRPC</li><li>TensorFlow Lite for mobile and embedded deployment (iOS, Android, Raspberry Pi)</li><li>TensorFlow.js for in-browser inference without a server</li><li>Distributed training across multiple GPUs and TPU pods</li><li>TensorBoard for training visualisation and hyperparameter tuning</li><li>SavedModel format for language-agnostic model export</li><li>Full pipeline tools — TFX, TensorFlow Data Validation, TensorFlow Transform</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">conda</span>
+          <code class="fw-install__cmd">conda install -c conda-forge tensorflow</code>
+          <button class="fw-install__copy" data-copy="conda install -c conda-forge tensorflow" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install tensorflow</code>
+          <button class="fw-install__copy" data-copy="pip install tensorflow" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -443,7 +517,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

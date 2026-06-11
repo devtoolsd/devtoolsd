@@ -16,14 +16,16 @@ License: MIT
 - [Courses](https://devtools.directory/courses/) — Online courses and training
 - [Resources](https://devtools.directory/resources/) — Guides, cheatsheets, newsletters, podcasts
 
-## Tools (7 entries)
+## Tools (9 entries)
 
 - [Docker](https://devtools.directory/tools/docker/) — Platform for developing, shipping, and running applications in containers.
+- [GCS Cheats](https://devtools.directory/tools/gcs-cheats/) — Provider of premium undetected cheats with aimbot, ESP, wallhacks and spoofers for multiplayer games including CS2, Valorant, and Rust.
 - [Neovim](https://devtools.directory/tools/neovim/) — Hyperextensible Vim-based text editor with Lua scripting, LSP support, and a thriving plugin ecosystem.
 - [Next.js](https://devtools.directory/tools/nextjs/) — Full-stack React framework with server-side rendering, static generation, and App Router.
 - [PostgreSQL](https://devtools.directory/tools/postgresql/) — Advanced open-source relational database with extensive features and ACID compliance.
 - [React](https://devtools.directory/tools/react/) — JavaScript library for building user interfaces with a component-based architecture.
 - [Redis](https://devtools.directory/tools/redis/) — In-memory data structure store used as database, cache, message broker, and streaming engine.
+- [The Audio Stuff](https://devtools.directory/tools/the-audio-stuff/) — Honest scored reviews, buying guides, and glossary for audiophile headphones, speakers, DACs, amplifiers and other Hi-Fi gear.
 - [Visual Studio Code](https://devtools.directory/tools/visual-studio-code/) — Free, open-source code editor by Microsoft with extensions, debugging, and Git integration.
 
 

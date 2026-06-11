@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -343,8 +347,83 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Tailwind replaces hand-written CSS with composable utility classes — <code>flex</code>, <code>pt-4</code>, <code>text-center</code>, <code>bg-blue-500</code> — applied directly in HTML. Its PurgeCSS integration removes unused classes in production, often resulting in smaller stylesheets than traditional approaches. Tailwind v4 rewrites the engine in Rust for near-instant builds.</p>
+      <div class="prose"><p>Tailwind replaces hand-written CSS with composable utility classes — <code>flex</code>, <code>pt-4</code>, <code>text-center</code>, <code>bg-blue-500</code> — applied directly in HTML. Its JIT engine removes unused classes in production, often resulting in smaller stylesheets than traditional approaches. Tailwind v4 rewrites the engine in Rust for near-instant builds and integrates directly with Vite via a plugin.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Vite project</span>
+</span></span><span style="display:flex;"><span>npm install tailwindcss @tailwindcss/vite
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// vite.config.js
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">tailwindcss</span> <span style="color:#e06c75">from</span> <span style="color:#98c379">&#39;@tailwindcss/vite&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> { <span style="color:#e06c75">plugins</span><span style="color:#56b6c2">:</span> [<span style="color:#e06c75">tailwindcss</span>()] }
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#7f848e">/* src/index.css */</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#c678dd">import</span> <span style="color:#98c379">&#34;tailwindcss&#34;</span>;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#7f848e">&lt;!-- Example component --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">div</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;min-h-screen bg-gray-50 flex items-center justify-center&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#e06c75">div</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;bg-white rounded-2xl shadow-lg p-8 max-w-md w-full&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">h1</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;text-2xl font-bold text-gray-900 mb-2&#34;</span>&gt;Hello Tailwind&lt;/<span style="color:#e06c75">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">p</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;text-gray-500 mb-6&#34;</span>&gt;Utility-first CSS for rapid UI development.&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">div</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;flex gap-3&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">button</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;bg-blue-600 hover:bg-blue-700 text-white font-medium
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">                     px-4 py-2 rounded-lg transition-colors&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        Primary
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">button</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;border border-gray-300 hover:border-gray-400 text-gray-700
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">                     font-medium px-4 py-2 rounded-lg transition-colors&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        Secondary
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">&lt;!-- Responsive grid --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">div</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">div</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;p-4 bg-gray-50 rounded-lg&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#e06c75">p</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;text-sm font-medium text-gray-900&#34;</span>&gt;Card 1&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">div</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;p-4 bg-gray-50 rounded-lg&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#e06c75">p</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;text-sm font-medium text-gray-900&#34;</span>&gt;Card 2&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">div</span>&gt;
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Tailwind is the best choice for projects where you want a design system with constraints (spacing scale, color palette, typography) without writing CSS files. It&rsquo;s particularly efficient in component-based frameworks (React, Vue, Svelte) where utility classes stay co-located with the component. Bootstrap is better when you want pre-built components with minimal setup. For design systems that need consistent, accessible UI components on top of Tailwind, shadcn/ui or Radix UI are the recommended additions.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Utility-first — no custom CSS needed, compose from single-purpose classes</li><li>Design tokens — colors, spacing, typography from a consistent scale</li><li>Responsive variants — `md:flex`, `lg:grid`, `xl:hidden`</li><li>Dark mode — `dark:bg-gray-800` with `class` or `media` strategy</li><li>Arbitrary values — `w-[37px]`, `text-[#1da1f2]` for one-off values</li><li>JIT engine purges unused classes — tiny CSS in production</li><li>Tailwind v4 rewritten in Rust — instant builds via Lightning CSS</li><li>shadcn/ui, Headless UI, and Radix UI complement it with accessible components</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">cdn</span>
+          <code class="fw-install__cmd">&lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;</code>
+          <button class="fw-install__copy" data-copy="&lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm install tailwindcss @tailwindcss/vite</code>
+          <button class="fw-install__copy" data-copy="npm install tailwindcss @tailwindcss/vite" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -432,7 +511,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

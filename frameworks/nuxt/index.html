@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -360,8 +364,77 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Nuxt provides a complete application framework on top of Vue — server-side rendering, static generation, file-based routing, auto-imported components, and composables. Nuxt 3 is built on Nitro (a universal server runtime) and Vite, enabling deployment to Node.js, edge functions, and serverless environments.</p>
+      <div class="prose"><p>Nuxt provides a complete application framework on top of Vue — server-side rendering, static generation, file-based routing, auto-imported components, and composables. Nuxt 3 is built on Nitro (a universal server runtime) and Vite, enabling deployment to Node.js, edge functions, and serverless environments. Its auto-import system means you can use <code>ref</code>, <code>useState</code>, and your own composables anywhere without explicit imports.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx nuxi@latest init my-app
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app <span style="color:#56b6c2">&amp;&amp;</span> npm install <span style="color:#56b6c2">&amp;&amp;</span> npm run dev
+</span></span></code></pre></div><pre tabindex="0"><code>pages/
+  index.vue          # route: /
+  blog/
+    index.vue        # route: /blog
+    [slug].vue       # route: /blog/:slug
+server/
+  api/
+    posts.get.ts     # GET /api/posts
+    posts/[id].get.ts
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#7f848e">&lt;!--</span> <span style="color:#e06c75">pages</span><span style="color:#56b6c2">/</span><span style="color:#e06c75">blog</span><span style="color:#56b6c2">/</span>[<span style="color:#e06c75">slug</span>].<span style="color:#e06c75">vue</span> <span style="color:#56b6c2">--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">script</span> <span style="color:#e06c75">setup</span> <span style="color:#e06c75">lang</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;ts&#34;</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">route</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">useRoute</span>()
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> { <span style="color:#e06c75">data</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">post</span> } <span style="color:#56b6c2">=</span> <span style="color:#e06c75">await</span> <span style="color:#e06c75">useFetch</span>(<span style="color:#98c379">`/api/posts/</span><span style="color:#98c379">${</span><span style="color:#e06c75">route</span>.<span style="color:#e06c75">params</span>.<span style="color:#e06c75">slug</span><span style="color:#98c379">}</span><span style="color:#98c379">`</span>)
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#e06c75">article</span> <span style="color:#e06c75">v-if</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;post&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">h1</span>&gt;{{ <span style="color:#e06c75">post</span>.<span style="color:#e06c75">title</span> }}&lt;/<span style="color:#e06c75">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">p</span>&gt;{{ <span style="color:#e06c75">post</span>.<span style="color:#e06c75">body</span> }}&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#e06c75">article</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">template</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#7f848e">// server/api/posts.get.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#e06c75">defineEventHandler</span>(<span style="color:#c678dd">async</span> () <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> [
+</span></span><span style="display:flex;"><span>    { <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">1</span>, <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Hello Nuxt&#39;</span>, <span style="color:#e06c75">body</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Getting started with Nuxt 3.&#39;</span> }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Nuxt is the standard choice for production Vue applications. Its SSR and static generation capabilities make it ideal for content-heavy sites, e-commerce, and SEO-sensitive applications. If your stack is already Vue-based, Nuxt adds the server layer without friction. For React teams, Next.js is the equivalent. Nuxt&rsquo;s module ecosystem is particularly strong — if you need auth, i18n, or image optimisation, there&rsquo;s a first-class module for it.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>File-based routing — `pages/blog/[slug].vue` becomes `/blog/:slug`</li><li>Auto-imports for components, composables, and Vue APIs — no import statements</li><li>Server-side rendering, static generation, and hybrid rendering per route</li><li>Nitro server engine — deploys to Node.js, Vercel Edge, Cloudflare Workers</li><li>Nuxt modules ecosystem — Nuxt Image, Content, Auth, and 200&#43; modules</li><li>Nuxt Content for markdown-based pages and blog posts</li><li>Server API routes via `server/api/` directory</li><li>TypeScript-first with auto-generated route types</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npx nuxi@latest init my-app</code>
+          <button class="fw-install__copy" data-copy="npx nuxi@latest init my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm dlx nuxi@latest init my-app</code>
+          <button class="fw-install__copy" data-copy="pnpm dlx nuxi@latest init my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -582,7 +655,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -353,8 +357,93 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Spring Boot makes production-grade Spring applications by providing opinionated auto-configuration and embedded Tomcat/Jetty/Undertow servers. It is the dominant Java backend framework — used at Netflix, Airbnb, and virtually every enterprise Java shop. Spring&rsquo;s ecosystem covers security, data access, messaging, batch processing, and cloud-native patterns.</p>
+      <div class="prose"><p>Spring Boot makes production-grade Spring applications by providing opinionated auto-configuration and embedded Tomcat/Jetty/Undertow servers. It is the dominant Java backend framework — used at Netflix, Airbnb, and virtually every enterprise Java shop. The Spring ecosystem covers security, data access (JPA, Redis, MongoDB), messaging (Kafka, RabbitMQ), batch processing, and cloud-native patterns. The easiest way to start a new project is <a href="https://start.spring.io">start.spring.io</a>.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Generate a project at https://start.spring.io</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Select: Maven, Java 21, Spring Web, Spring Data JPA, H2 Database</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Download and unzip, then:</span>
+</span></span><span style="display:flex;"><span>./mvnw spring-boot:run
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#7f848e">// src/main/java/com/example/demo/Post.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Post</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Id</span> <span style="color:#61afef">@GeneratedValue</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#e06c75">Long</span> <span style="color:#e06c75">id</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#e06c75">String</span> <span style="color:#e06c75">title</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#e06c75">String</span> <span style="color:#e06c75">body</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// getters + setters omitted for brevity</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// PostRepository.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">interface</span> <span style="color:#e5c07b">PostRepository</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">JpaRepository</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span>, <span style="color:#e06c75">Long</span><span style="color:#56b6c2">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">List</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span><span style="color:#56b6c2">&gt;</span> <span style="color:#61afef;font-weight:bold">findByTitleContaining</span>(<span style="color:#e06c75">String</span> <span style="color:#e06c75">keyword</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// PostController.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@RestController</span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@RequestMapping</span>(<span style="color:#98c379">&#34;/api/posts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">PostController</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#c678dd">final</span> <span style="color:#e06c75">PostRepository</span> <span style="color:#e06c75">repo</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#61afef;font-weight:bold">PostController</span>(<span style="color:#e06c75">PostRepository</span> <span style="color:#e06c75">repo</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">this</span>.<span style="color:#e06c75">repo</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">repo</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@GetMapping</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e06c75">List</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span><span style="color:#56b6c2">&gt;</span> <span style="color:#61afef;font-weight:bold">all</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">repo</span>.<span style="color:#e06c75">findAll</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@PostMapping</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e06c75">Post</span> <span style="color:#61afef;font-weight:bold">create</span>(<span style="color:#61afef">@RequestBody</span> <span style="color:#e06c75">Post</span> <span style="color:#e06c75">post</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">repo</span>.<span style="color:#e06c75">save</span>(<span style="color:#e06c75">post</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@GetMapping</span>(<span style="color:#98c379">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e06c75">Post</span> <span style="color:#61afef;font-weight:bold">get</span>(<span style="color:#61afef">@PathVariable</span> <span style="color:#e06c75">Long</span> <span style="color:#e06c75">id</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">repo</span>.<span style="color:#e06c75">findById</span>(<span style="color:#e06c75">id</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#e06c75">orElseThrow</span>(() <span style="color:#56b6c2">-&gt;</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">ResponseStatusException</span>(<span style="color:#e06c75">HttpStatus</span>.<span style="color:#e06c75">NOT_FOUND</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Spring Boot is the standard choice for Java backend services in enterprise environments — REST APIs, microservices, batch jobs, and event-driven systems. Its maturity, vast ecosystem, and enterprise adoption mean abundant tooling, documentation, and hiring talent. For lower memory footprint and faster startup in containerised environments, consider Quarkus or Micronaut. For Kotlin-first development, Ktor is worth evaluating.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Auto-configuration — Spring beans wired automatically based on classpath</li><li>Embedded Tomcat, Jetty, or Undertow — no WAR deployment required</li><li>Spring Data JPA for repository-pattern database access</li><li>Spring Security for authentication, authorization, and OAuth2</li><li>Actuator for health checks, metrics, and observability endpoints</li><li>Spring Cloud for distributed systems, service discovery, and config</li><li>Extensive testing support with `@SpringBootTest` and MockMvc</li><li>Native image compilation via GraalVM for fast startup</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">gradle</span>
+          <code class="fw-install__cmd">gradle init (then add Spring Boot plugin)</code>
+          <button class="fw-install__copy" data-copy="gradle init (then add Spring Boot plugin)" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">maven</span>
+          <code class="fw-install__cmd">mvn io.spring.initializr:start.spring.io/starter.zip (or use start.spring.io)</code>
+          <button class="fw-install__copy" data-copy="mvn io.spring.initializr:start.spring.io/starter.zip (or use start.spring.io)" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -518,7 +607,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

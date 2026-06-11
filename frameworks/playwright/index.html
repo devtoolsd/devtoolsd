@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -346,8 +350,87 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Playwright auto-waits for elements to be ready before interacting, eliminating flaky tests caused by timing issues. It supports parallel test execution across Chromium, Firefox, and WebKit — including mobile viewports. Its codegen tool records browser interactions and generates test code, making it accessible to non-programmers.</p>
+      <div class="prose"><p>Playwright auto-waits for elements to be ready before interacting, eliminating flaky tests caused by timing issues. It supports parallel test execution across Chromium, Firefox, and WebKit — including mobile viewports. Its codegen tool records browser interactions and generates test code, making it accessible to non-programmers. The Trace Viewer provides a full timeline of test execution for debugging.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm init playwright@latest
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Installs browsers, creates playwright.config.ts</span>
+</span></span><span style="display:flex;"><span>npx playwright <span style="color:#e5c07b">test</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#7f848e">// tests/posts.spec.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">test</span>, <span style="color:#e06c75">expect</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;@playwright/test&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">test</span>.<span style="color:#e06c75">describe</span>(<span style="color:#98c379">&#39;Posts page&#39;</span>, () <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">test</span>.<span style="color:#e06c75">beforeEach</span>(<span style="color:#c678dd">async</span> ({ <span style="color:#e06c75">page</span> }) <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">page</span>.<span style="color:#c678dd">goto</span>(<span style="color:#98c379">&#39;/posts&#39;</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">test</span>(<span style="color:#98c379">&#39;displays the post list&#39;</span>, <span style="color:#c678dd">async</span> ({ <span style="color:#e06c75">page</span> }) <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">page</span>.<span style="color:#e06c75">getByRole</span>(<span style="color:#98c379">&#39;heading&#39;</span>, { <span style="color:#e06c75">name</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Posts&#39;</span> })).<span style="color:#e06c75">toBeVisible</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">page</span>.<span style="color:#e06c75">locator</span>(<span style="color:#98c379">&#39;[data-testid=&#34;post-item&#34;]&#39;</span>)).<span style="color:#e06c75">toHaveCount</span>(<span style="color:#d19a66">3</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">test</span>(<span style="color:#98c379">&#39;navigates to a post&#39;</span>, <span style="color:#c678dd">async</span> ({ <span style="color:#e06c75">page</span> }) <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">page</span>.<span style="color:#e06c75">getByText</span>(<span style="color:#98c379">&#39;Hello Playwright&#39;</span>).<span style="color:#e06c75">click</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">page</span>).<span style="color:#e06c75">toHaveURL</span>(<span style="color:#98c379">/\/posts\/\d+/</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">page</span>.<span style="color:#e06c75">getByRole</span>(<span style="color:#98c379">&#39;heading&#39;</span>, { <span style="color:#e06c75">level</span>: <span style="color:#e5c07b">1</span> })).<span style="color:#e06c75">toContainText</span>(<span style="color:#98c379">&#39;Hello Playwright&#39;</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">test</span>(<span style="color:#98c379">&#39;creates a new post&#39;</span>, <span style="color:#c678dd">async</span> ({ <span style="color:#e06c75">page</span> }) <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">page</span>.<span style="color:#e06c75">getByRole</span>(<span style="color:#98c379">&#39;link&#39;</span>, { <span style="color:#e06c75">name</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;New Post&#39;</span> }).<span style="color:#e06c75">click</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">page</span>.<span style="color:#e06c75">getByLabel</span>(<span style="color:#98c379">&#39;Title&#39;</span>).<span style="color:#e06c75">fill</span>(<span style="color:#98c379">&#39;My New Post&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">page</span>.<span style="color:#e06c75">getByLabel</span>(<span style="color:#98c379">&#39;Body&#39;</span>).<span style="color:#e06c75">fill</span>(<span style="color:#98c379">&#39;Post content here&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">page</span>.<span style="color:#e06c75">getByRole</span>(<span style="color:#98c379">&#39;button&#39;</span>, { <span style="color:#e06c75">name</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Submit&#39;</span> }).<span style="color:#e06c75">click</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">await</span> <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">page</span>.<span style="color:#e06c75">getByText</span>(<span style="color:#98c379">&#39;My New Post&#39;</span>)).<span style="color:#e06c75">toBeVisible</span>()
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#7f848e">// API testing
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">test</span>(<span style="color:#98c379">&#39;POST /api/posts returns 201&#39;</span>, <span style="color:#c678dd">async</span> ({ <span style="color:#e06c75">request</span> }) <span style="color:#56b6c2">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">response</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">request</span>.<span style="color:#e06c75">post</span>(<span style="color:#98c379">&#39;/api/posts&#39;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">data</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Test&#39;</span>, <span style="color:#e06c75">body</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Body&#39;</span> },
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">response</span>.<span style="color:#e06c75">status</span>()).<span style="color:#e06c75">toBe</span>(<span style="color:#d19a66">201</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">body</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">response</span>.<span style="color:#e06c75">json</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">expect</span>(<span style="color:#e06c75">body</span>).<span style="color:#e06c75">toMatchObject</span>({ <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Test&#39;</span> })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Playwright is the best choice for end-to-end testing when you need cross-browser coverage (Chromium + Firefox + WebKit) or are testing at scale with parallel workers. Its API testing mode makes it useful for integration tests without a UI. Compared to Cypress, Playwright has a more powerful API for multi-tab and multi-page flows, but Cypress has a more polished interactive debugging experience for in-browser development. For projects already using Cypress, switching isn&rsquo;t necessary unless cross-browser coverage is needed.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Supports Chromium, Firefox, and WebKit (Safari engine) — one test suite</li><li>Auto-wait — no manual sleeps or waits for elements to be ready</li><li>Parallel test execution across workers and browsers</li><li>Codegen — record browser interactions and generate test code</li><li>Screenshots, videos, and trace viewer for debugging failures</li><li>API testing mode — test HTTP endpoints without a browser</li><li>Mobile viewport simulation for responsive testing</li><li>Playwright Test report with built-in retry and error analysis</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm init playwright@latest</code>
+          <button class="fw-install__copy" data-copy="npm init playwright@latest" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn create playwright</code>
+          <button class="fw-install__copy" data-copy="yarn create playwright" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -435,7 +518,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

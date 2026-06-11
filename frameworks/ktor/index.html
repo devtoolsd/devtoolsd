@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -346,8 +350,88 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Ktor is built around Kotlin coroutines — every handler is a suspend function, making async code read like synchronous code. Its plugin-based architecture (routing, auth, serialisation, WebSockets) keeps the core minimal and composable. Ktor Multiplatform also provides an HTTP client for Android, iOS, and desktop.</p>
+      <div class="prose"><p>Ktor is built around Kotlin coroutines — every handler is a suspend function, making async code read like synchronous code. Its plugin-based architecture (routing, auth, serialisation, WebSockets) keeps the core minimal and composable. Ktor Multiplatform also provides an HTTP client for Android, iOS, and desktop, making it useful for sharing networking code across a Kotlin Multiplatform project.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Use the Ktor project generator at https://start.ktor.io</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Or generate with IntelliJ IDEA plugin</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#7f848e">// build.gradle.kts
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">plugins</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">kotlin</span>(<span style="color:#98c379">&#34;jvm&#34;</span>) <span style="color:#e06c75">version</span> <span style="color:#98c379">&#34;2.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">id</span>(<span style="color:#98c379">&#34;io.ktor.plugin&#34;</span>) <span style="color:#e06c75">version</span> <span style="color:#98c379">&#34;2.3.x&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">kotlin</span>(<span style="color:#98c379">&#34;plugin.serialization&#34;</span>) <span style="color:#e06c75">version</span> <span style="color:#98c379">&#34;2.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">dependencies</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">implementation</span>(<span style="color:#98c379">&#34;io.ktor:ktor-server-core-jvm&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">implementation</span>(<span style="color:#98c379">&#34;io.ktor:ktor-server-netty-jvm&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">implementation</span>(<span style="color:#98c379">&#34;io.ktor:ktor-server-content-negotiation-jvm&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">implementation</span>(<span style="color:#98c379">&#34;io.ktor:ktor-serialization-kotlinx-json-jvm&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span><span style="color:#7f848e">// src/main/kotlin/Application.kt
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">io.ktor.server.application.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">io.ktor.server.engine.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">io.ktor.server.netty.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">io.ktor.server.plugins.contentnegotiation.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">io.ktor.server.response.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">io.ktor.server.routing.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">io.ktor.serialization.kotlinx.json.*</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">kotlinx.serialization.Serializable</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Serializable</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">data</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Post</span>(<span style="color:#c678dd">val</span> <span style="color:#e06c75">id</span>: <span style="color:#e06c75">Int</span>, <span style="color:#c678dd">val</span> <span style="color:#e06c75">title</span>: <span style="color:#e06c75">String</span>, <span style="color:#c678dd">val</span> <span style="color:#e06c75">body</span>: <span style="color:#e06c75">String</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">val</span> <span style="color:#e06c75">posts</span> = <span style="color:#e06c75">mutableListOf</span>&lt;<span style="color:#e06c75">Post</span>&gt;()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">fun</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">embeddedServer</span>(<span style="color:#e06c75">Netty</span>, <span style="color:#e06c75">port</span> = <span style="color:#d19a66">8080</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">install</span>(<span style="color:#e06c75">ContentNegotiation</span>) { <span style="color:#e06c75">json</span>() }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">routing</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">get</span>(<span style="color:#98c379">&#34;/posts&#34;</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">call</span>.<span style="color:#e06c75">respond</span>(<span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">post</span>(<span style="color:#98c379">&#34;/posts&#34;</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">val</span> <span style="color:#e06c75">post</span> = <span style="color:#e06c75">call</span>.<span style="color:#e06c75">receive</span>&lt;<span style="color:#e06c75">Post</span>&gt;()
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">add</span>(<span style="color:#e06c75">post</span>.<span style="color:#e06c75">copy</span>(<span style="color:#e06c75">id</span> = <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">size</span> + <span style="color:#d19a66">1</span>))
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">call</span>.<span style="color:#e06c75">respond</span>(<span style="color:#e5c07b">HttpStatusCode</span>.<span style="color:#e06c75">Created</span>, <span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }.<span style="color:#e06c75">start</span>(<span style="color:#e06c75">wait</span> = <span style="color:#c678dd">true</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Ktor is the best Kotlin-native web framework choice — its coroutine-first design aligns perfectly with Kotlin idioms and avoids the Spring Boot overhead. Use it for new Kotlin microservices where you want a lightweight footprint and clean coroutine code. For teams already invested in Spring&rsquo;s ecosystem (Spring Security, Spring Data, Spring Cloud), Spring Boot with Kotlin is a lower-migration path. Ktor&rsquo;s multiplatform HTTP client is particularly valuable in Kotlin Multiplatform projects.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Coroutine-native — every handler is a `suspend` function</li><li>Plugin-based architecture — install only what you need</li><li>Type-safe routing with Kotlin DSL</li><li>Content negotiation — JSON, XML, CBOR out of the box</li><li>Ktor Client — multiplatform HTTP client for JVM, Android, iOS, JS</li><li>WebSocket and SSE support</li><li>Authentication plugins — JWT, OAuth, Basic, Session</li><li>GraalVM native image support for fast startup</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">gradle</span>
+          <code class="fw-install__cmd">implementation(&#34;io.ktor:ktor-server-core-jvm&#34;) // in build.gradle.kts</code>
+          <button class="fw-install__copy" data-copy="implementation(&#34;io.ktor:ktor-server-core-jvm&#34;) // in build.gradle.kts" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -440,7 +524,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -415,6 +414,8 @@
   </url><url>
     <loc>https://devtools.directory/tools/docker/</loc>
   </url><url>
+    <loc>https://devtools.directory/tools/gcs-cheats/</loc>
+  </url><url>
     <loc>https://devtools.directory/tools/neovim/</loc>
   </url><url>
     <loc>https://devtools.directory/tools/nextjs/</loc>
@@ -424,6 +425,8 @@
     <loc>https://devtools.directory/tools/react/</loc>
   </url><url>
     <loc>https://devtools.directory/tools/redis/</loc>
+  </url><url>
+    <loc>https://devtools.directory/tools/the-audio-stuff/</loc>
   </url><url>
     <loc>https://devtools.directory/tools/visual-studio-code/</loc>
   </url><url>
@@ -478,6 +481,8 @@
     <loc>https://devtools.directory/tags/asic/</loc>
   </url><url>
     <loc>https://devtools.directory/tags/async/</loc>
+  </url><url>
+    <loc>https://devtools.directory/tags/audio/</loc>
   </url><url>
     <loc>https://devtools.directory/tags/auto-imports/</loc>
   </url><url>
@@ -538,6 +543,8 @@
     <loc>https://devtools.directory/categories/</loc>
   </url><url>
     <loc>https://devtools.directory/tags/channels/</loc>
+  </url><url>
+    <loc>https://devtools.directory/tags/cheats/</loc>
   </url><url>
     <loc>https://devtools.directory/tags/chip-design/</loc>
   </url><url>
@@ -803,6 +810,8 @@
   </url><url>
     <loc>https://devtools.directory/tags/game-dev/</loc>
   </url><url>
+    <loc>https://devtools.directory/tags/gaming/</loc>
+  </url><url>
     <loc>https://devtools.directory/tags/generative-ai/</loc>
   </url><url>
     <loc>https://devtools.directory/tags/go/</loc>
@@ -834,6 +843,8 @@
     <loc>https://devtools.directory/tags/header-only/</loc>
   </url><url>
     <loc>https://devtools.directory/tags/hft/</loc>
+  </url><url>
+    <loc>https://devtools.directory/tags/hifi/</loc>
   </url><url>
     <loc>https://devtools.directory/tags/history/</loc>
   </url><url>
@@ -1138,6 +1149,8 @@
     <loc>https://devtools.directory/tags/rest/</loc>
   </url><url>
     <loc>https://devtools.directory/tags/reverse-engineering/</loc>
+  </url><url>
+    <loc>https://devtools.directory/tags/reviews/</loc>
   </url><url>
     <loc>https://devtools.directory/tags/router/</loc>
   </url><url>

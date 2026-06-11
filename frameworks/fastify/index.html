@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -352,8 +356,92 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Fastify&rsquo;s JSON schema validation pipeline and low overhead make it one of the fastest Node.js frameworks available. Its plugin system with dependency injection ensures encapsulation and reuse across large applications. Full TypeScript support and OpenAPI plugin make it popular for building typed APIs.</p>
+      <div class="prose"><p>Fastify&rsquo;s JSON schema validation pipeline and low overhead make it one of the fastest Node.js frameworks available. Its plugin system with automatic dependency injection ensures encapsulation and reuse across large applications. Full TypeScript support and a Swagger plugin make it popular for building typed, self-documenting APIs. It&rsquo;s the recommended replacement for Express when performance matters.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install fastify
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// server.js
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">Fastify</span> <span style="color:#e06c75">from</span> <span style="color:#98c379">&#39;fastify&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">app</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Fastify</span>({ <span style="color:#e06c75">logger</span><span style="color:#56b6c2">:</span> <span style="color:#e5c07b">true</span> })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">postSchema</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">body</span><span style="color:#56b6c2">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">type</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;object&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">required</span><span style="color:#56b6c2">:</span> [<span style="color:#98c379">&#39;title&#39;</span>, <span style="color:#98c379">&#39;body&#39;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">properties</span><span style="color:#56b6c2">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">type</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">body</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">type</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">response</span><span style="color:#56b6c2">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#d19a66">201</span><span style="color:#56b6c2">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">type</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;object&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">properties</span><span style="color:#56b6c2">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">id</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">type</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;integer&#39;</span> },
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">type</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">body</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">type</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;string&#39;</span> },
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">get</span>(<span style="color:#98c379">&#39;/posts&#39;</span>, <span style="color:#c678dd">async</span> () =&gt; <span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">post</span>(<span style="color:#98c379">&#39;/posts&#39;</span>, { <span style="color:#e06c75">schema</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">postSchema</span> }, <span style="color:#c678dd">async</span> (<span style="color:#e06c75">request</span>, <span style="color:#e06c75">reply</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">id</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">length</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>, ...<span style="color:#e06c75">request</span>.<span style="color:#e06c75">body</span> }
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">push</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> <span style="color:#e06c75">reply</span>.<span style="color:#e06c75">code</span>(<span style="color:#d19a66">201</span>).<span style="color:#e06c75">send</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">await</span> <span style="color:#e06c75">app</span>.<span style="color:#e06c75">listen</span>({ <span style="color:#e06c75">port</span><span style="color:#56b6c2">:</span> <span style="color:#d19a66">3000</span> })
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Fastify is the best drop-in upgrade from Express when you need better performance and built-in schema validation. Its plugin system scales better than Express middleware for large applications. For teams using TypeScript, Fastify&rsquo;s schema-to-type generation reduces boilerplate significantly. If you&rsquo;re starting fresh and want even more structure, NestJS can run on Fastify underneath. For edge/serverless environments, Hono is even lighter.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>JSON Schema validation for inputs and outputs — faster serialization than JSON.stringify</li><li>Plugin architecture with dependency injection and encapsulation</li><li>Up to 2× the throughput of Express at comparable configurations</li><li>Full TypeScript support with auto-generated types from schemas</li><li>Built-in OpenAPI/Swagger plugin (`@fastify/swagger`)</li><li>Lifecycle hooks — `onRequest`, `preHandler`, `onSend`, and more</li><li>Async/await native — no callback pyramid of doom</li><li>Drop-in compatibility with many Express middleware via `@fastify/express`</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm install fastify</code>
+          <button class="fw-install__copy" data-copy="npm install fastify" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm add fastify</code>
+          <button class="fw-install__copy" data-copy="pnpm add fastify" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn add fastify</code>
+          <button class="fw-install__copy" data-copy="yarn add fastify" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -456,7 +544,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -355,8 +359,73 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>FastAPI uses Python type hints to drive both input validation (via Pydantic) and automatic OpenAPI/Swagger documentation generation. Built on Starlette and ASGI, it handles async code natively. It has become the most popular Python framework for building APIs and ML model serving endpoints.</p>
+      <div class="prose"><p>FastAPI is a modern Python web framework built for building APIs fast — both in development speed and runtime performance. It uses Python type hints to drive automatic validation, serialization, and OpenAPI documentation, eliminating an entire category of boilerplate. Under the hood it&rsquo;s built on Starlette (ASGI) and Pydantic, making it fully async-capable and production-ready with Uvicorn or Gunicorn. It has become the go-to Python API framework for ML serving, microservices, and greenfield REST APIs.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install fastapi uvicorn
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># main.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">fastapi</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">FastAPI</span>, <span style="color:#e06c75">HTTPException</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">pydantic</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">BaseModel</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">FastAPI</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Item</span>(<span style="color:#e06c75">BaseModel</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">name</span>: <span style="color:#e5c07b">str</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">price</span>: <span style="color:#e5c07b">float</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">in_stock</span>: <span style="color:#e5c07b">bool</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">items</span>: <span style="color:#e5c07b">dict</span>[<span style="color:#e5c07b">int</span>, <span style="color:#e06c75">Item</span>] <span style="color:#56b6c2">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@app.get</span>(<span style="color:#98c379">&#34;/&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">root</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> {<span style="color:#98c379">&#34;message&#34;</span>: <span style="color:#98c379">&#34;Hello from FastAPI&#34;</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@app.get</span>(<span style="color:#98c379">&#34;/items/</span><span style="color:#98c379">{item_id}</span><span style="color:#98c379">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">get_item</span>(<span style="color:#e06c75">item_id</span>: <span style="color:#e5c07b">int</span>) <span style="color:#56b6c2">-&gt;</span> <span style="color:#e06c75">Item</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">if</span> <span style="color:#e06c75">item_id</span> <span style="color:#56b6c2">not</span> <span style="color:#56b6c2">in</span> <span style="color:#e06c75">items</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">raise</span> <span style="color:#e06c75">HTTPException</span>(<span style="color:#e06c75">status_code</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">404</span>, <span style="color:#e06c75">detail</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;Item not found&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">items</span>[<span style="color:#e06c75">item_id</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@app.post</span>(<span style="color:#98c379">&#34;/items&#34;</span>, <span style="color:#e06c75">status_code</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">201</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">def</span> <span style="color:#61afef;font-weight:bold">create_item</span>(<span style="color:#e06c75">item</span>: <span style="color:#e06c75">Item</span>) <span style="color:#56b6c2">-&gt;</span> <span style="color:#e06c75">Item</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">item_id</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">len</span>(<span style="color:#e06c75">items</span>) <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">items</span>[<span style="color:#e06c75">item_id</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">item</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">item</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Run the server — docs at http://localhost:8000/docs</span>
+</span></span><span style="display:flex;"><span>uvicorn main:app --reload
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>FastAPI is the best choice for Python REST APIs and ML model serving endpoints. Its combination of auto-docs, Pydantic validation, and async performance makes it ideal for data science teams exposing models or microservice backends. For a full-featured web application with an admin panel, Django is the better choice. For very simple scripts-turned-servers, Flask has less setup overhead.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Automatic OpenAPI and Swagger UI docs generated from your code</li><li>Type hint-based request/response validation via Pydantic</li><li>Async-first with native `async def` support via Starlette</li><li>Dependency injection system for auth, DB sessions, and shared logic</li><li>One of the fastest Python frameworks — comparable to Node.js and Go</li><li>Path parameters, query parameters, and request bodies with zero boilerplate</li><li>Built-in OAuth2, JWT, and HTTP Basic auth helpers</li><li>WebSocket support out of the box</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install fastapi uvicorn</code>
+          <button class="fw-install__copy" data-copy="pip install fastapi uvicorn" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -546,7 +615,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

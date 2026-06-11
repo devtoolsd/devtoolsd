@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -346,8 +350,89 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Cypress runs directly inside the browser alongside the application under test — no WebDriver, no network latency. Its time-travel debugger lets you hover over each test step and see what the browser looked like at that moment. Cypress Component Testing extends it to isolated component-level testing without a full browser environment.</p>
+      <div class="prose"><p>Cypress runs directly inside the browser alongside the application under test — no WebDriver, no network latency. Its time-travel debugger lets you hover over each test step and see what the browser looked like at that moment. Cypress Component Testing extends it to isolated component-level testing without a full browser environment. The developer experience (fast feedback, descriptive errors, automatic waits) set a new standard for frontend testing tools.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save-dev cypress
+</span></span><span style="display:flex;"><span>npx cypress open
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// cypress/e2e/posts.cy.js
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">describe</span>(<span style="color:#98c379">&#39;Posts page&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">beforeEach</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// Stub the API so tests don&#39;t need a real backend
+</span></span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">intercept</span>(<span style="color:#98c379">&#39;GET&#39;</span>, <span style="color:#98c379">&#39;/api/posts&#39;</span>, [
+</span></span><span style="display:flex;"><span>      { <span style="color:#e06c75">id</span><span style="color:#56b6c2">:</span> <span style="color:#d19a66">1</span>, <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Hello Cypress&#39;</span>, <span style="color:#e06c75">body</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;Testing made easy.&#39;</span> }
+</span></span><span style="display:flex;"><span>    ]).<span style="color:#e06c75">as</span>(<span style="color:#98c379">&#39;getPosts&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">visit</span>(<span style="color:#98c379">&#39;/posts&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">wait</span>(<span style="color:#98c379">&#39;@getPosts&#39;</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">it</span>(<span style="color:#98c379">&#39;displays a list of posts&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">get</span>(<span style="color:#98c379">&#39;[data-testid=&#34;post-item&#34;]&#39;</span>).<span style="color:#e06c75">should</span>(<span style="color:#98c379">&#39;have.length&#39;</span>, <span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">contains</span>(<span style="color:#98c379">&#39;Hello Cypress&#39;</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">it</span>(<span style="color:#98c379">&#39;navigates to a post on click&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">get</span>(<span style="color:#98c379">&#39;[data-testid=&#34;post-item&#34;]&#39;</span>).<span style="color:#e06c75">first</span>().<span style="color:#e06c75">click</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">url</span>().<span style="color:#e06c75">should</span>(<span style="color:#98c379">&#39;include&#39;</span>, <span style="color:#98c379">&#39;/posts/1&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">get</span>(<span style="color:#98c379">&#39;h1&#39;</span>).<span style="color:#e06c75">should</span>(<span style="color:#98c379">&#39;contain&#39;</span>, <span style="color:#98c379">&#39;Hello Cypress&#39;</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">it</span>(<span style="color:#98c379">&#39;submits a new post form&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">intercept</span>(<span style="color:#98c379">&#39;POST&#39;</span>, <span style="color:#98c379">&#39;/api/posts&#39;</span>, { <span style="color:#e06c75">id</span><span style="color:#56b6c2">:</span> <span style="color:#d19a66">2</span>, <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;New Post&#39;</span> }).<span style="color:#e06c75">as</span>(<span style="color:#98c379">&#39;createPost&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">get</span>(<span style="color:#98c379">&#39;[data-testid=&#34;new-post-btn&#34;]&#39;</span>).<span style="color:#e06c75">click</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">get</span>(<span style="color:#98c379">&#39;input[name=&#34;title&#34;]&#39;</span>).<span style="color:#e06c75">type</span>(<span style="color:#98c379">&#39;New Post&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">get</span>(<span style="color:#98c379">&#39;textarea[name=&#34;body&#34;]&#39;</span>).<span style="color:#e06c75">type</span>(<span style="color:#98c379">&#39;Post body text&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">get</span>(<span style="color:#98c379">&#39;button[type=&#34;submit&#34;]&#39;</span>).<span style="color:#e06c75">click</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">wait</span>(<span style="color:#98c379">&#39;@createPost&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cy</span>.<span style="color:#e06c75">contains</span>(<span style="color:#98c379">&#39;New Post&#39;</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Cypress excels for end-to-end testing of web UIs and for component testing in React/Vue/Svelte projects. Its developer experience is the best in class for interactive, in-browser debugging. For cross-browser testing or non-browser test scenarios, Playwright supports Firefox and Safari and has a more powerful API for multi-page and multi-tab flows. For unit and integration tests, Jest or Vitest are more appropriate.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Runs inside the browser — no WebDriver, no network proxy overhead</li><li>Time-travel debugger — hover over test steps to see screenshots</li><li>Automatic waiting — no explicit `wait` calls needed</li><li>Real-time reload during test development</li><li>Component testing for React, Vue, Svelte, and Angular in isolation</li><li>Network request interception via `cy.intercept()`</li><li>Video recording and screenshots on CI failure</li><li>Cypress Studio for recording tests by clicking through the UI</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm install --save-dev cypress</code>
+          <button class="fw-install__copy" data-copy="npm install --save-dev cypress" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm add -D cypress</code>
+          <button class="fw-install__copy" data-copy="pnpm add -D cypress" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">yarn</span>
+          <code class="fw-install__cmd">yarn add -D cypress</code>
+          <button class="fw-install__copy" data-copy="yarn add -D cypress" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -440,7 +525,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

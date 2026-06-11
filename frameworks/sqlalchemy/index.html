@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,91 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>SQLAlchemy provides two distinct APIs — the Core SQL expression language for precise SQL control, and the ORM for mapping Python classes to tables. Its unit-of-work pattern, lazy loading, and connection pooling make it robust for complex applications. FastAPI and Flask both use SQLAlchemy as the recommended ORM.</p>
+      <div class="prose"><p>SQLAlchemy provides two distinct APIs — the Core SQL expression language for precise SQL control, and the ORM for mapping Python classes to tables. Its unit-of-work pattern, lazy loading, and connection pooling make it robust for complex applications. FastAPI and Flask both use SQLAlchemy as the recommended ORM. Alembic is its companion tool for database migrations.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install sqlalchemy psycopg2-binary alembic
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># models.py — SQLAlchemy ORM</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sqlalchemy</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">create_engine</span>, <span style="color:#e06c75">Column</span>, <span style="color:#e06c75">Integer</span>, <span style="color:#e06c75">String</span>, <span style="color:#e06c75">Text</span>, <span style="color:#e06c75">DateTime</span>, <span style="color:#e06c75">ForeignKey</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sqlalchemy.orm</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">DeclarativeBase</span>, <span style="color:#e06c75">relationship</span>, <span style="color:#e06c75">Session</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">datetime</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">datetime</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">engine</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">create_engine</span>(<span style="color:#98c379">&#34;postgresql://user:pass@localhost/mydb&#34;</span>, <span style="color:#e06c75">echo</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Base</span>(<span style="color:#e06c75">DeclarativeBase</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">User</span>(<span style="color:#e06c75">Base</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">__tablename__</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;users&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">id</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Column</span>(<span style="color:#e06c75">Integer</span>, <span style="color:#e06c75">primary_key</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">email</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Column</span>(<span style="color:#e06c75">String</span>(<span style="color:#d19a66">255</span>), <span style="color:#e06c75">unique</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>, <span style="color:#e06c75">nullable</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">False</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">name</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Column</span>(<span style="color:#e06c75">String</span>(<span style="color:#d19a66">100</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">relationship</span>(<span style="color:#98c379">&#34;Post&#34;</span>, <span style="color:#e06c75">back_populates</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;author&#34;</span>, <span style="color:#e06c75">lazy</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;dynamic&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">Post</span>(<span style="color:#e06c75">Base</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">__tablename__</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;posts&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">id</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Column</span>(<span style="color:#e06c75">Integer</span>, <span style="color:#e06c75">primary_key</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">True</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">title</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Column</span>(<span style="color:#e06c75">String</span>(<span style="color:#d19a66">200</span>), <span style="color:#e06c75">nullable</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">False</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">body</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Column</span>(<span style="color:#e06c75">Text</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">created_at</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Column</span>(<span style="color:#e06c75">DateTime</span>, <span style="color:#e06c75">default</span><span style="color:#56b6c2">=</span><span style="color:#e06c75">datetime</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">utcnow</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">author_id</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">Column</span>(<span style="color:#e06c75">Integer</span>, <span style="color:#e06c75">ForeignKey</span>(<span style="color:#98c379">&#34;users.id&#34;</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">author</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">relationship</span>(<span style="color:#98c379">&#34;User&#34;</span>, <span style="color:#e06c75">back_populates</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;posts&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">Base</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">metadata</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">create_all</span>(<span style="color:#e06c75">engine</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#7f848e"># queries.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">from</span> <span style="color:#e06c75">sqlalchemy</span> <span style="color:#c678dd">import</span> <span style="color:#e06c75">select</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">with</span> <span style="color:#e06c75">Session</span>(<span style="color:#e06c75">engine</span>) <span style="color:#c678dd">as</span> <span style="color:#e06c75">session</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e"># Create</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">user</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">User</span>(<span style="color:#e06c75">email</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;alice@example.com&#34;</span>, <span style="color:#e06c75">name</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;Alice&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">session</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">add</span>(<span style="color:#e06c75">user</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">session</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">commit</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e"># Query with relationship</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">session</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">execute</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">select</span>(<span style="color:#e06c75">Post</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#56b6c2">.</span><span style="color:#e06c75">join</span>(<span style="color:#e06c75">Post</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">author</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#56b6c2">.</span><span style="color:#e06c75">where</span>(<span style="color:#e06c75">User</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">name</span> <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#34;Alice&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#56b6c2">.</span><span style="color:#e06c75">order_by</span>(<span style="color:#e06c75">Post</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">created_at</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">desc</span>())
+</span></span><span style="display:flex;"><span>    )<span style="color:#56b6c2">.</span><span style="color:#e06c75">scalars</span>()<span style="color:#56b6c2">.</span><span style="color:#e06c75">all</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e"># Update</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">session</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">get</span>(<span style="color:#e06c75">Post</span>, <span style="color:#d19a66">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">post</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">title</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;Updated title&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">session</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">commit</span>()
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>SQLAlchemy is the standard for Python database access outside of Django. Its dual API (ORM + Core) lets you use high-level ORM for most work and drop to SQL expressions when needed. FastAPI&rsquo;s documentation recommends it, and it integrates with any Python web framework. For Django projects, the built-in ORM is tightly integrated and preferred. For async-first projects, SQLAlchemy async mode or SQLModel (built on SQLAlchemy) work well with FastAPI.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>ORM layer — map Python classes to tables with relationships and lazy loading</li><li>Core SQL expression language — write type-safe SQL without an ORM</li><li>Unit of Work pattern — batch changes and flush as a single transaction</li><li>Alembic for schema migrations (the standard SQLAlchemy migration tool)</li><li>Connection pooling with configurable pool size and recycling</li><li>Supports PostgreSQL, MySQL, SQLite, Oracle, SQL Server, and more</li><li>Async support via `asyncio` extension (SQLAlchemy 1.4&#43;)</li><li>Works with FastAPI, Flask, and any Python web framework</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install sqlalchemy psycopg2-binary</code>
+          <button class="fw-install__copy" data-copy="pip install sqlalchemy psycopg2-binary" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +535,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

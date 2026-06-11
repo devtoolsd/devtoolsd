@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,93 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Gin&rsquo;s httprouter-based radix tree delivers ~40x the performance of a standard net/http router. Its chainable middleware, parameter binding, and JSON validation make it the most widely used Go web framework. Clean request/response helpers and extensive documentation make it the entry point for most Go web developers.</p>
+      <div class="prose"><p>Gin&rsquo;s httprouter-based radix tree delivers roughly 40× the performance of a standard <code>net/http</code> router. Its chainable middleware, parameter binding, and JSON validation make it the most widely used Go web framework for REST APIs. Clean request/response helpers and extensive documentation make it the entry point for most Go web developers moving from <code>net/http</code>.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir my-api <span style="color:#56b6c2">&amp;&amp;</span> <span style="color:#e5c07b">cd</span> my-api
+</span></span><span style="display:flex;"><span>go mod init my-api
+</span></span><span style="display:flex;"><span>go get -u github.com/gin-gonic/gin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#7f848e">// main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Post</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">ID</span>    <span style="color:#e5c07b">int</span>    <span style="color:#98c379">`json:&#34;id&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Title</span> <span style="color:#e5c07b">string</span> <span style="color:#98c379">`json:&#34;title&#34; binding:&#34;required&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Body</span>  <span style="color:#e5c07b">string</span> <span style="color:#98c379">`json:&#34;body&#34;  binding:&#34;required&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">var</span> <span style="color:#e06c75">posts</span> []<span style="color:#e06c75">Post</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">gin</span>.<span style="color:#61afef;font-weight:bold">Default</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">GET</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">c</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">gin</span>.<span style="color:#e06c75">Context</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">http</span>.<span style="color:#e06c75">StatusOK</span>, <span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">GET</span>(<span style="color:#98c379">&#34;/posts/:id&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">c</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">gin</span>.<span style="color:#e06c75">Context</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">id</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">Param</span>(<span style="color:#98c379">&#34;id&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">for</span> <span style="color:#e06c75">_</span>, <span style="color:#e06c75">p</span> <span style="color:#56b6c2">:=</span> <span style="color:#c678dd">range</span> <span style="color:#e06c75">posts</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#c678dd">if</span> <span style="color:#e06c75">fmt</span>.<span style="color:#61afef;font-weight:bold">Sprint</span>(<span style="color:#e06c75">p</span>.<span style="color:#e06c75">ID</span>) <span style="color:#56b6c2">==</span> <span style="color:#e06c75">id</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">http</span>.<span style="color:#e06c75">StatusOK</span>, <span style="color:#e06c75">p</span>)
+</span></span><span style="display:flex;"><span>				<span style="color:#c678dd">return</span>
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">http</span>.<span style="color:#e06c75">StatusNotFound</span>, <span style="color:#e06c75">gin</span>.<span style="color:#e06c75">H</span>{<span style="color:#98c379">&#34;error&#34;</span>: <span style="color:#98c379">&#34;post not found&#34;</span>})
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">POST</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">c</span> <span style="color:#56b6c2">*</span><span style="color:#e06c75">gin</span>.<span style="color:#e06c75">Context</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">var</span> <span style="color:#e06c75">post</span> <span style="color:#e06c75">Post</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">if</span> <span style="color:#e06c75">err</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">ShouldBindJSON</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">post</span>); <span style="color:#e06c75">err</span> <span style="color:#56b6c2">!=</span> <span style="color:#e5c07b">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">http</span>.<span style="color:#e06c75">StatusBadRequest</span>, <span style="color:#e06c75">gin</span>.<span style="color:#e06c75">H</span>{<span style="color:#98c379">&#34;error&#34;</span>: <span style="color:#e06c75">err</span>.<span style="color:#61afef;font-weight:bold">Error</span>()})
+</span></span><span style="display:flex;"><span>			<span style="color:#c678dd">return</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">post</span>.<span style="color:#e06c75">ID</span> = <span style="color:#e5c07b">len</span>(<span style="color:#e06c75">posts</span>) <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">posts</span> = <span style="color:#e5c07b">append</span>(<span style="color:#e06c75">posts</span>, <span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">http</span>.<span style="color:#e06c75">StatusCreated</span>, <span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">r</span>.<span style="color:#61afef;font-weight:bold">Run</span>(<span style="color:#98c379">&#34;:8080&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Gin is the default choice for Go REST APIs. It&rsquo;s battle-tested, extensively documented, and has the largest Go web framework community. Choose Gin when you want familiar middleware-based request handling in Go. Echo is a close alternative with a slightly different API. Fiber is faster (built on fasthttp) but not compatible with <code>net/http</code> middleware. For minimal, stdlib-compatible routing, Chi is worth considering.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Radix tree router — ~40× faster than standard `net/http` ServeMux</li><li>Middleware groups — apply auth, logging, rate limiting to route groups</li><li>Automatic JSON, XML, and form binding with struct tags</li><li>Built-in validation via `binding` struct tags (uses go-playground/validator)</li><li>Rendering helpers — JSON, XML, HTML, YAML, protobuf</li><li>Crash recovery middleware — panics become 500 responses</li><li>Named URL parameters and wildcard routes</li><li>Test mode and testable `gin.Engine` instances</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">go</span>
+          <code class="fw-install__cmd">go get -u github.com/gin-gonic/gin</code>
+          <button class="fw-install__copy" data-copy="go get -u github.com/gin-gonic/gin" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +537,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

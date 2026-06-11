@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -343,8 +347,85 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Electron bundles Chromium and Node.js into a single package, letting web developers ship desktop apps for Windows, macOS, and Linux without learning native SDKs. VS Code, Slack, Figma, Discord, and 1Password all use Electron. Its main drawback — large bundle size and memory usage — led to Tauri as a lighter alternative.</p>
+      <div class="prose"><p>Electron bundles Chromium and Node.js into a single package, letting web developers ship desktop apps for Windows, macOS, and Linux without learning native SDKs. VS Code, Slack, Figma, Discord, and 1Password all use Electron. Its main trade-offs — large bundle size (~100MB+) and higher memory usage than native apps — led to Tauri as a lighter alternative using the OS webview instead of bundled Chromium.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm init electron-app@latest my-app -- --template<span style="color:#56b6c2">=</span>webpack
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app
+</span></span><span style="display:flex;"><span>npm start
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// src/main.js — Main process (Node.js)
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> { <span style="color:#e06c75">app</span>, <span style="color:#e06c75">BrowserWindow</span>, <span style="color:#e06c75">ipcMain</span> } <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#39;electron&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">path</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#39;path&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">createWindow</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">win</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">BrowserWindow</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">width</span><span style="color:#56b6c2">:</span> <span style="color:#d19a66">800</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">height</span><span style="color:#56b6c2">:</span> <span style="color:#d19a66">600</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">webPreferences</span><span style="color:#56b6c2">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">preload</span><span style="color:#56b6c2">:</span> <span style="color:#e06c75">path</span>.<span style="color:#e06c75">join</span>(<span style="color:#e06c75">__dirname</span>, <span style="color:#98c379">&#39;preload.js&#39;</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">contextIsolation</span><span style="color:#56b6c2">:</span> <span style="color:#e5c07b">true</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">win</span>.<span style="color:#e06c75">loadFile</span>(<span style="color:#98c379">&#39;src/index.html&#39;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">whenReady</span>().<span style="color:#e06c75">then</span>(<span style="color:#e06c75">createWindow</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">on</span>(<span style="color:#98c379">&#39;window-all-closed&#39;</span>, () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">if</span> (<span style="color:#e06c75">process</span>.<span style="color:#e06c75">platform</span> <span style="color:#56b6c2">!==</span> <span style="color:#98c379">&#39;darwin&#39;</span>) <span style="color:#e06c75">app</span>.<span style="color:#e06c75">quit</span>()
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// src/preload.js — Bridge between main and renderer
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> { <span style="color:#e06c75">contextBridge</span>, <span style="color:#e06c75">ipcRenderer</span> } <span style="color:#56b6c2">=</span> <span style="color:#e06c75">require</span>(<span style="color:#98c379">&#39;electron&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">contextBridge</span>.<span style="color:#e06c75">exposeInMainWorld</span>(<span style="color:#98c379">&#39;electronAPI&#39;</span>, {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">readFile</span><span style="color:#56b6c2">:</span> (<span style="color:#e06c75">path</span>) =&gt; <span style="color:#e06c75">ipcRenderer</span>.<span style="color:#e06c75">invoke</span>(<span style="color:#98c379">&#39;read-file&#39;</span>, <span style="color:#e06c75">path</span>),
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#7f848e">&lt;!-- src/index.html — Renderer process (browser) --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">button</span> <span style="color:#e06c75">id</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;readBtn&#34;</span>&gt;Read File&lt;/<span style="color:#e06c75">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">script</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">document</span>.<span style="color:#e06c75">getElementById</span>(<span style="color:#98c379">&#39;readBtn&#39;</span>).<span style="color:#e06c75">addEventListener</span>(<span style="color:#98c379">&#39;click&#39;</span>, <span style="color:#c678dd">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">const</span> <span style="color:#e06c75">contents</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e5c07b">window</span>.<span style="color:#e06c75">electronAPI</span>.<span style="color:#e06c75">readFile</span>(<span style="color:#98c379">&#39;/etc/hosts&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">console</span>.<span style="color:#e06c75">log</span>(<span style="color:#e06c75">contents</span>)
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">script</span>&gt;
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Electron is the right choice when you want to ship a desktop app quickly using your existing web development skills and have access to full Node.js APIs. The large install size (~150MB) is acceptable for developer tools and enterprise apps. For a lighter desktop app with better performance and smaller bundle, Tauri (Rust backend, OS webview) is the modern alternative. For apps that don&rsquo;t need native OS access, a PWA might be sufficient.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Ship Web UIs as desktop apps for Windows, macOS, and Linux</li><li>Full Node.js access — file system, native modules, OS APIs</li><li>Chromium rendering — your web code runs exactly as in a browser</li><li>Auto-updater built in via electron-updater</li><li>Native OS integration — menus, tray icons, notifications, dialogs</li><li>IPC (Inter-Process Communication) between main and renderer processes</li><li>Code signing and packaging via Electron Forge or Electron Builder</li><li>Context isolation and sandboxing for security</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm init electron-app@latest my-app</code>
+          <button class="fw-install__copy" data-copy="npm init electron-app@latest my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npx</span>
+          <code class="fw-install__cmd">npx create-electron-app@latest my-app</code>
+          <button class="fw-install__copy" data-copy="npx create-electron-app@latest my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -432,7 +513,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -351,8 +355,91 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Quarkus was built for containers — it starts in milliseconds and uses a fraction of the memory of traditional Spring Boot apps when compiled to native with GraalVM. It is developer-friendly with live reload, unified configuration, and familiar extensions for JPA, RESTEasy, Kafka, and more.</p>
+      <div class="prose"><p>Quarkus was built for containers — it starts in milliseconds and uses a fraction of the memory of traditional Spring Boot apps when compiled to native with GraalVM. It is developer-friendly with live reload, unified configuration, and familiar extensions for JPA, RESTEasy, Kafka, and more. In JVM mode it still outperforms Spring Boot; in native mode it rivals Go and Rust for cold-start times.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Using Quarkus CLI</span>
+</span></span><span style="display:flex;"><span>quarkus create app com.example:my-api <span style="color:#98c379">\
+</span></span></span><span style="display:flex;"><span>  --extension<span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;resteasy-reactive-jackson,hibernate-orm-panache,jdbc-postgresql&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-api
+</span></span><span style="display:flex;"><span>quarkus dev
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#7f848e">// src/main/java/com/example/Post.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Post</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">PanacheEntity</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e06c75">String</span> <span style="color:#e06c75">title</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e06c75">String</span> <span style="color:#e06c75">body</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#c678dd">static</span> <span style="color:#e06c75">List</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span><span style="color:#56b6c2">&gt;</span> <span style="color:#61afef;font-weight:bold">findPublished</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">list</span>(<span style="color:#98c379">&#34;published&#34;</span>, <span style="color:#e5c07b">true</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// src/main/java/com/example/PostResource.java</span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Path</span>(<span style="color:#98c379">&#34;/posts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Produces</span>(<span style="color:#e06c75">MediaType</span>.<span style="color:#e06c75">APPLICATION_JSON</span>)
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Consumes</span>(<span style="color:#e06c75">MediaType</span>.<span style="color:#e06c75">APPLICATION_JSON</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">PostResource</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@GET</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e06c75">List</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span><span style="color:#56b6c2">&gt;</span> <span style="color:#61afef;font-weight:bold">list</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">Post</span>.<span style="color:#e06c75">listAll</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@POST</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Transactional</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e06c75">Response</span> <span style="color:#61afef;font-weight:bold">create</span>(<span style="color:#e06c75">Post</span> <span style="color:#e06c75">post</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">post</span>.<span style="color:#e06c75">persist</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">Response</span>.<span style="color:#e06c75">status</span>(<span style="color:#e06c75">Response</span>.<span style="color:#e06c75">Status</span>.<span style="color:#e06c75">CREATED</span>).<span style="color:#e06c75">entity</span>(<span style="color:#e06c75">post</span>).<span style="color:#e06c75">build</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@GET</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Path</span>(<span style="color:#98c379">&#34;/{id}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">public</span> <span style="color:#e06c75">Post</span> <span style="color:#61afef;font-weight:bold">get</span>(<span style="color:#61afef">@PathParam</span>(<span style="color:#98c379">&#34;id&#34;</span>) <span style="color:#e06c75">Long</span> <span style="color:#e06c75">id</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">return</span> <span style="color:#e06c75">Post</span>.<span style="color:#e06c75">findById</span>(<span style="color:#e06c75">id</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Build a native executable</span>
+</span></span><span style="display:flex;"><span>quarkus build --native
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Run: ./target/my-api-1.0.0-SNAPSHOT-runner (starts in ~20ms)</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Quarkus is the best choice for Java microservices deployed in containers or serverless where startup time and memory footprint matter. Its Dev Services (auto-starting databases) and live reload make the developer experience excellent. Compared to Micronaut, Quarkus has broader extension coverage and a more active community. For teams with existing Spring Boot codebases, migration is non-trivial — Quarkus is best for greenfield containerised services.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Native compilation with GraalVM — starts in milliseconds, uses ~50MB RAM</li><li>Live reload in dev mode — code changes are hot-reloaded automatically</li><li>Unified configuration via `application.properties`</li><li>Panache ORM — simplified Hibernate with Active Record pattern</li><li>Reactive and imperative programming models in the same framework</li><li>Dev Services — automatically starts databases and brokers in dev mode</li><li>Extensions for JPA, Kafka, Redis, gRPC, REST, and 200&#43; more</li><li>Mutiny for reactive streams — `Uni&lt;T&gt;` and `Multi&lt;T&gt;`</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">maven</span>
+          <code class="fw-install__cmd">mvn io.quarkus.platform:quarkus-maven-plugin:create -DprojectGroupId=com.example</code>
+          <button class="fw-install__copy" data-copy="mvn io.quarkus.platform:quarkus-maven-plugin:create -DprojectGroupId=com.example" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">quarkus</span>
+          <code class="fw-install__cmd">quarkus create app com.example:my-app</code>
+          <button class="fw-install__copy" data-copy="quarkus create app com.example:my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -490,7 +577,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -346,8 +350,95 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Hibernate is the reference implementation of JPA (Java Persistence API) and the standard ORM for Java applications. Its query language (HQL/JPQL) is database-agnostic, and its second-level cache with Ehcache or Redis reduces database load dramatically. Spring Boot&rsquo;s Spring Data JPA is backed by Hibernate by default.</p>
+      <div class="prose"><p>Hibernate is the reference implementation of JPA (Java Persistence API) and the standard ORM for Java applications. Its query language (HQL/JPQL) is database-agnostic, and its second-level cache with EhCache or Redis reduces database load dramatically. Spring Boot&rsquo;s Spring Data JPA is backed by Hibernate by default — if you use Spring Boot, you&rsquo;re already using Hibernate.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#7f848e">&lt;!-- pom.xml — Spring Boot project --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#e06c75">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span style="color:#e06c75">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">&lt;/dependency&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">&lt;dependency&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&lt;groupId&gt;</span>com.h2database<span style="color:#e06c75">&lt;/groupId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&lt;artifactId&gt;</span>h2<span style="color:#e06c75">&lt;/artifactId&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">&lt;scope&gt;</span>runtime<span style="color:#e06c75">&lt;/scope&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">&lt;/dependency&gt;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#7f848e">// Post.java — JPA Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#61afef">@Table</span>(<span style="color:#e06c75">name</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;posts&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">class</span> <span style="color:#e5c07b">Post</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@GeneratedValue</span>(<span style="color:#e06c75">strategy</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">GenerationType</span>.<span style="color:#e06c75">IDENTITY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#e06c75">Long</span> <span style="color:#e06c75">id</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Column</span>(<span style="color:#e06c75">nullable</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#e06c75">String</span> <span style="color:#e06c75">title</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Column</span>(<span style="color:#e06c75">columnDefinition</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;TEXT&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#e06c75">String</span> <span style="color:#e06c75">body</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@CreationTimestamp</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#e06c75">LocalDateTime</span> <span style="color:#e06c75">createdAt</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// One post has many comments</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@OneToMany</span>(<span style="color:#e06c75">mappedBy</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;post&#34;</span>, <span style="color:#e06c75">cascade</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">CascadeType</span>.<span style="color:#e06c75">ALL</span>, <span style="color:#e06c75">fetch</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">FetchType</span>.<span style="color:#e06c75">LAZY</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">private</span> <span style="color:#e06c75">List</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Comment</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">comments</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">new</span> <span style="color:#e06c75">ArrayList</span><span style="color:#56b6c2">&lt;&gt;</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// getters + setters</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">// PostRepository.java — Spring Data JPA</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">public</span> <span style="color:#c678dd">interface</span> <span style="color:#e5c07b">PostRepository</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">JpaRepository</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span>, <span style="color:#e06c75">Long</span><span style="color:#56b6c2">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">List</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span><span style="color:#56b6c2">&gt;</span> <span style="color:#61afef;font-weight:bold">findByTitleContainingIgnoreCase</span>(<span style="color:#e06c75">String</span> <span style="color:#e06c75">keyword</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#61afef">@Query</span>(<span style="color:#98c379">&#34;SELECT p FROM Post p WHERE SIZE(p.comments) &gt; :count&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">List</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">Post</span><span style="color:#56b6c2">&gt;</span> <span style="color:#61afef;font-weight:bold">findPostsWithManyComments</span>(<span style="color:#61afef">@Param</span>(<span style="color:#98c379">&#34;count&#34;</span>) <span style="color:#e5c07b">int</span> <span style="color:#e06c75">count</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Hibernate is the de-facto Java ORM — if you&rsquo;re using Spring Boot with a relational database, you&rsquo;re almost certainly using Hibernate through Spring Data JPA. Its caching, lazy loading, and HQL make it suitable for complex domain models. For read-heavy workloads where you want fine control over SQL, jOOQ is a type-safe SQL builder that complements or replaces Hibernate. For microservices with simpler data models, Spring Data JDBC (without Hibernate) has less overhead.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>JPA reference implementation — standard Java persistence API</li><li>HQL/JPQL — database-agnostic query language over your object model</li><li>Automatic schema generation and migration support via `hbm2ddl`</li><li>First-level cache (session-scoped) and second-level cache (EhCache, Redis)</li><li>Lazy and eager loading strategies for associations</li><li>Criteria API for type-safe, programmatic queries</li><li>Support for PostgreSQL, MySQL, Oracle, SQL Server, H2, and more</li><li>Hibernate Validator for bean validation (JSR-380)</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">gradle</span>
+          <code class="fw-install__cmd">implementation &#39;org.hibernate.orm:hibernate-core:6.x&#39;</code>
+          <button class="fw-install__copy" data-copy="implementation &#39;org.hibernate.orm:hibernate-core:6.x&#39;" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">maven</span>
+          <code class="fw-install__cmd">&lt;dependency&gt;
+  &lt;groupId&gt;org.hibernate.orm&lt;/groupId&gt;
+  &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;
+&lt;/dependency&gt;</code>
+          <button class="fw-install__copy" data-copy="&lt;dependency&gt;
+  &lt;groupId&gt;org.hibernate.orm&lt;/groupId&gt;
+  &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;
+&lt;/dependency&gt;" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -440,7 +531,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

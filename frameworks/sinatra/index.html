@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -350,7 +354,76 @@
     <div class="detail-body">
 
       <div class="prose"><p>Sinatra&rsquo;s domain-specific language maps HTTP verbs and paths to blocks of code — a complete API can fit in a single file. It influenced Flask, Express, and a generation of micro-frameworks. For Ruby services where Rails&rsquo; weight is unnecessary, Sinatra remains the clean, minimal choice.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gem install sinatra puma
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#7f848e"># app.rb</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">require</span> <span style="color:#98c379">&#39;sinatra&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">require</span> <span style="color:#98c379">&#39;json&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> <span style="color:#56b6c2">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">get</span> <span style="color:#98c379">&#39;/posts&#39;</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">content_type</span> <span style="color:#98c379">:json</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">posts</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to_json</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">get</span> <span style="color:#98c379">&#39;/posts/:id&#39;</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">content_type</span> <span style="color:#98c379">:json</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">posts</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">find</span> { <span style="color:#56b6c2">|</span><span style="color:#e5c07b">p</span><span style="color:#56b6c2">|</span> <span style="color:#e5c07b">p</span><span style="color:#56b6c2">[</span><span style="color:#98c379">:id</span><span style="color:#56b6c2">]</span> <span style="color:#56b6c2">==</span> <span style="color:#e06c75">params</span><span style="color:#56b6c2">[</span><span style="color:#98c379">:id</span><span style="color:#56b6c2">].</span><span style="color:#e06c75">to_i</span> }
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">halt</span> <span style="color:#d19a66">404</span>, { <span style="color:#98c379">error</span>: <span style="color:#98c379">&#39;Not found&#39;</span> }<span style="color:#56b6c2">.</span><span style="color:#e06c75">to_json</span> <span style="color:#c678dd">unless</span> <span style="color:#e06c75">post</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">post</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to_json</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">post</span> <span style="color:#98c379">&#39;/posts&#39;</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">content_type</span> <span style="color:#98c379">:json</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">data</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">JSON</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">parse</span>(<span style="color:#e06c75">request</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">body</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">read</span>, <span style="color:#98c379">symbolize_names</span>: <span style="color:#c678dd">true</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">post</span> <span style="color:#56b6c2">=</span> { <span style="color:#e5c07b">id</span>: <span style="color:#e06c75">posts</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">length</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>, <span style="color:#56b6c2">**</span><span style="color:#e06c75">data</span> }
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">posts</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">post</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">status</span> <span style="color:#d19a66">201</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">post</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to_json</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ruby app.rb
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Server running on http://localhost:4567</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Sinatra is the right choice for small Ruby services, internal APIs, and scripts that need HTTP endpoints — anything where the full Rails stack would be overkill. It&rsquo;s particularly popular for microservices, webhooks, and Rack middleware apps. For larger applications with database models, authentication, and complex routing, Rails is a better fit. Flask and Express are the Python and Node.js equivalents.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Route-first DSL — `get &#39;/path&#39; do ... end` is all you need</li><li>Complete API or web app in a single file</li><li>Rack-based — any Rack middleware works</li><li>Template rendering — ERB, Haml, Slim built in</li><li>Modular and classic application styles</li><li>Before/after filters and error handlers</li><li>Built-in session handling</li><li>Minimal overhead — starts in milliseconds</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">bundler</span>
+          <code class="fw-install__cmd">bundle add sinatra puma</code>
+          <button class="fw-install__copy" data-copy="bundle add sinatra puma" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">gem</span>
+          <code class="fw-install__cmd">gem install sinatra</code>
+          <button class="fw-install__copy" data-copy="gem install sinatra" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +521,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

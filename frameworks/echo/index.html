@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,90 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Echo sits between Gin&rsquo;s popularity and Fiber&rsquo;s performance — a clean, extensible API with auto TLS via Let&rsquo;s Encrypt, WebSocket support, and a straightforward middleware system. Its context-based API and data binding via struct tags make building REST APIs idiomatic in Go.</p>
+      <div class="prose"><p>Echo sits between Gin&rsquo;s popularity and Fiber&rsquo;s performance — a clean, extensible API with auto TLS via Let&rsquo;s Encrypt, WebSocket support, and a straightforward middleware system. Its context-based API and data binding via struct tags make building REST APIs idiomatic in Go. Echo&rsquo;s automatic TLS feature is particularly convenient for small services that need HTTPS without managing certificates manually.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go mod init my-api
+</span></span><span style="display:flex;"><span>go get github.com/labstack/echo/v4
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#7f848e">// main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">package</span> <span style="color:#e06c75">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;github.com/labstack/echo/v4&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#98c379">&#34;github.com/labstack/echo/v4/middleware&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">Post</span> <span style="color:#c678dd">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">ID</span>    <span style="color:#e5c07b">int</span>    <span style="color:#98c379">`json:&#34;id&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Title</span> <span style="color:#e5c07b">string</span> <span style="color:#98c379">`json:&#34;title&#34; form:&#34;title&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">Body</span>  <span style="color:#e5c07b">string</span> <span style="color:#98c379">`json:&#34;body&#34;  form:&#34;body&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">func</span> <span style="color:#61afef;font-weight:bold">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">e</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">echo</span>.<span style="color:#61afef;font-weight:bold">New</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">e</span>.<span style="color:#61afef;font-weight:bold">Use</span>(<span style="color:#e06c75">middleware</span>.<span style="color:#61afef;font-weight:bold">Logger</span>())
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">e</span>.<span style="color:#61afef;font-weight:bold">Use</span>(<span style="color:#e06c75">middleware</span>.<span style="color:#61afef;font-weight:bold">Recover</span>())
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">e</span>.<span style="color:#61afef;font-weight:bold">Use</span>(<span style="color:#e06c75">middleware</span>.<span style="color:#61afef;font-weight:bold">CORS</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">posts</span> <span style="color:#56b6c2">:=</span> []<span style="color:#e06c75">Post</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">e</span>.<span style="color:#61afef;font-weight:bold">GET</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">c</span> <span style="color:#e06c75">echo</span>.<span style="color:#e06c75">Context</span>) <span style="color:#e5c07b">error</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">http</span>.<span style="color:#e06c75">StatusOK</span>, <span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">e</span>.<span style="color:#61afef;font-weight:bold">POST</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">c</span> <span style="color:#e06c75">echo</span>.<span style="color:#e06c75">Context</span>) <span style="color:#e5c07b">error</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">var</span> <span style="color:#e06c75">p</span> <span style="color:#e06c75">Post</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">if</span> <span style="color:#e06c75">err</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">Bind</span>(<span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">p</span>); <span style="color:#e06c75">err</span> <span style="color:#56b6c2">!=</span> <span style="color:#e5c07b">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#c678dd">return</span> <span style="color:#e06c75">err</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">p</span>.<span style="color:#e06c75">ID</span> = <span style="color:#e5c07b">len</span>(<span style="color:#e06c75">posts</span>) <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">posts</span> = <span style="color:#e5c07b">append</span>(<span style="color:#e06c75">posts</span>, <span style="color:#e06c75">p</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">http</span>.<span style="color:#e06c75">StatusCreated</span>, <span style="color:#e06c75">p</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">e</span>.<span style="color:#61afef;font-weight:bold">GET</span>(<span style="color:#98c379">&#34;/posts/:id&#34;</span>, <span style="color:#c678dd">func</span>(<span style="color:#e06c75">c</span> <span style="color:#e06c75">echo</span>.<span style="color:#e06c75">Context</span>) <span style="color:#e5c07b">error</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">id</span> <span style="color:#56b6c2">:=</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">Param</span>(<span style="color:#98c379">&#34;id&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#c678dd">return</span> <span style="color:#e06c75">c</span>.<span style="color:#61afef;font-weight:bold">JSON</span>(<span style="color:#e06c75">http</span>.<span style="color:#e06c75">StatusOK</span>, <span style="color:#c678dd">map</span>[<span style="color:#e5c07b">string</span>]<span style="color:#e5c07b">string</span>{<span style="color:#98c379">&#34;id&#34;</span>: <span style="color:#e06c75">id</span>})
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">e</span>.<span style="color:#e06c75">Logger</span>.<span style="color:#61afef;font-weight:bold">Fatal</span>(<span style="color:#e06c75">e</span>.<span style="color:#61afef;font-weight:bold">Start</span>(<span style="color:#98c379">&#34;:8080&#34;</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Echo is a solid Go web framework choice that balances ergonomics and performance. Its built-in automatic TLS, WebSocket, and comprehensive middleware make it convenient without being heavy. Gin is more popular with a larger ecosystem; Fiber is faster but not <code>net/http</code> compatible. Chi is the option when you want the closest to stdlib possible. Echo is a strong default when you want more than Gin&rsquo;s basic binder but don&rsquo;t need Fiber&rsquo;s extreme throughput.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Extensible middleware — built-in Logger, Recover, CORS, JWT, rate-limiter</li><li>Automatic TLS via Let&#39;s Encrypt with `e.StartAutoTLS()`</li><li>Data binding via struct tags — JSON, XML, form, query params</li><li>WebSocket support built in</li><li>Route grouping with shared middleware</li><li>Custom context for adding request-scoped data</li><li>Sub-routers for modular application structure</li><li>Binder and validator interfaces for custom request processing</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">go</span>
+          <code class="fw-install__cmd">go get github.com/labstack/echo/v4</code>
+          <button class="fw-install__copy" data-copy="go get github.com/labstack/echo/v4" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -448,7 +534,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

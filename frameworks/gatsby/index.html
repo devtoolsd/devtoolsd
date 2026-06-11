@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -352,8 +356,97 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Gatsby popularised the idea of pulling content from CMSes, APIs, and files into a unified GraphQL layer at build time, then shipping static HTML and JavaScript. Its plugin ecosystem handles image optimisation, PWA features, and dozens of CMS integrations. Gatsby 5 added partial hydration and Slice APIs for large-scale content sites.</p>
+      <div class="prose"><p>Gatsby popularised the idea of pulling content from CMSes, APIs, and files into a unified GraphQL layer at build time, then shipping static HTML and JavaScript. Its plugin ecosystem handles image optimisation, PWA features, and dozens of CMS integrations. Gatsby 5 added partial hydration and Slice APIs for large-scale content sites. While Next.js has taken the lion&rsquo;s share of the React framework market, Gatsby remains a strong choice for content-heavy sites with complex data sourcing needs.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm init gatsby my-site
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-site
+</span></span><span style="display:flex;"><span>npm run develop
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#7f848e">// gatsby-config.js
+</span></span></span><span style="display:flex;"><span><span style="color:#e06c75">module</span>.<span style="color:#e06c75">exports</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">siteMetadata</span><span style="color:#56b6c2">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">title</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;My Gatsby Site&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">siteUrl</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;https://mysite.com&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">plugins</span><span style="color:#56b6c2">:</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#39;gatsby-plugin-image&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#39;gatsby-plugin-sharp&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#39;gatsby-transformer-sharp&#39;</span>,
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">resolve</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;gatsby-source-filesystem&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">options</span><span style="color:#56b6c2">:</span> { <span style="color:#e06c75">name</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">&#39;blog&#39;</span>, <span style="color:#e06c75">path</span><span style="color:#56b6c2">:</span> <span style="color:#98c379">`</span><span style="color:#98c379">${</span><span style="color:#e06c75">__dirname</span><span style="color:#98c379">}</span><span style="color:#98c379">/content/blog`</span> },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#98c379">&#39;gatsby-transformer-remark&#39;</span>,
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#7f848e">// src/pages/index.jsx
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">graphql</span> } <span style="color:#e06c75">from</span> <span style="color:#98c379">&#39;gatsby&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#c678dd">function</span> <span style="color:#e06c75">Home</span>({ <span style="color:#e06c75">data</span> }) {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">main</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">h1</span>&gt;{<span style="color:#e06c75">data</span>.<span style="color:#e06c75">site</span>.<span style="color:#e06c75">siteMetadata</span>.<span style="color:#e06c75">title</span>}&lt;/<span style="color:#e06c75">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#e06c75">data</span>.<span style="color:#e06c75">allMarkdownRemark</span>.<span style="color:#e06c75">nodes</span>.<span style="color:#e06c75">map</span>(<span style="color:#e06c75">post</span> =&gt; (
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#e06c75">li</span> <span style="color:#e06c75">key</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">post</span>.<span style="color:#e06c75">id</span>}&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#e06c75">a</span> <span style="color:#e06c75">href</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">post</span>.<span style="color:#e06c75">frontmatter</span>.<span style="color:#e06c75">slug</span>}&gt;{<span style="color:#e06c75">post</span>.<span style="color:#e06c75">frontmatter</span>.<span style="color:#e06c75">title</span>}&lt;/<span style="color:#e06c75">a</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;/<span style="color:#e06c75">li</span>&gt;
+</span></span><span style="display:flex;"><span>        ))}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">main</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">const</span> <span style="color:#e06c75">query</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">graphql</span><span style="color:#98c379">`
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">  query {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">    site { siteMetadata { title } }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">      nodes {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">        id
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">        frontmatter { title slug date }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">  }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">`</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Gatsby is best when you need a React-based static site with complex data sourcing from multiple CMSes or APIs, and your team is comfortable with GraphQL. For simpler content sites with less data complexity, Astro ships less JavaScript by default. For sites that need both static generation and server-side rendering, Next.js has a broader feature set. Gatsby&rsquo;s plugin ecosystem remains valuable for CMS-heavy projects.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>GraphQL data layer — query CMS, APIs, and files with a unified API</li><li>Rich plugin ecosystem for images, PWA, CMS integrations</li><li>Incremental builds — only rebuild pages that changed</li><li>Gatsby Image — automatic lazy loading, WebP, and responsive sizes</li><li>Partial hydration (Gatsby 5) — only hydrate components that need JS</li><li>Slice API for shared UI sections built once and inserted across pages</li><li>Works with Contentful, Sanity, WordPress, and most headless CMSes</li><li>Built-in PWA manifest and offline plugin</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm init gatsby</code>
+          <button class="fw-install__copy" data-copy="npm init gatsby" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npx</span>
+          <code class="fw-install__cmd">npx gatsby new my-site</code>
+          <button class="fw-install__copy" data-copy="npx gatsby new my-site" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -456,7 +549,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

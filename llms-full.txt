@@ -1,7 +1,7 @@
 # devtools/ — Full Content Dump
 
 > A curated, open-source directory of developer tools, books, courses, and resources.
-> Generated: 2026-05-31
+> Generated: 2026-06-11
 > Source: https://devtools.directory/
 
 ---
@@ -20,6 +20,19 @@
 - License: Apache-2.0
 
 - Tags: containers, devops, deployment
+
+### GCS Cheats
+- URL: https://devtools.directory/tools/gcs-cheats/
+- Website: https://gcscheats.com/
+
+- Description: Provider of premium undetected cheats with aimbot, ESP, wallhacks and spoofers for multiplayer games including CS2, Valorant, and Rust.
+
+- Type: other
+- Pricing: paid
+
+
+
+- Tags: gaming, cheats
 
 ### Neovim
 - URL: https://devtools.directory/tools/neovim/
@@ -85,6 +98,19 @@
 - License: BSD-3-Clause
 - Frameworks: django, laravel, express
 - Tags: cache, nosql, pub-sub, streams
+
+### The Audio Stuff
+- URL: https://devtools.directory/tools/the-audio-stuff/
+- Website: https://theaudiostuff.com/
+
+- Description: Honest scored reviews, buying guides, and glossary for audiophile headphones, speakers, DACs, amplifiers and other Hi-Fi gear.
+
+- Type: other
+- Pricing: free
+
+
+
+- Tags: audio, reviews, hifi
 
 ### Visual Studio Code
 - URL: https://devtools.directory/tools/visual-studio-code/

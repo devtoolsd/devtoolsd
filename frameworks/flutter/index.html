@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -346,8 +350,87 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Flutter renders UI with its own Skia/Impeller graphics engine rather than using native widgets — every pixel is Flutter&rsquo;s, enabling pixel-perfect consistency across platforms. Hot reload, rich widget library, and strong Dart tooling make it one of the fastest cross-platform UI development experiences.</p>
+      <div class="prose"><p>Flutter renders UI with its own Impeller graphics engine rather than native widgets — every pixel is Flutter&rsquo;s, enabling pixel-perfect consistency across platforms. Hot reload, a rich widget library, and strong Dart tooling make it one of the fastest cross-platform UI development experiences. Flutter is used at Google, BMW, eBay, and thousands of apps on the App Store and Play Store.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># Install Flutter SDK from https://flutter.dev/docs/get-started/install</span>
+</span></span><span style="display:flex;"><span>flutter create my_app
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my_app
+</span></span><span style="display:flex;"><span>flutter run
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#7f848e">// lib/main.dart
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#98c379">&#39;package:flutter/material.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">void</span> <span style="color:#e06c75">main</span>() <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">runApp</span>(<span style="color:#c678dd">const</span> <span style="color:#e06c75">MyApp</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">MyApp</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">StatelessWidget</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">MyApp</span>({<span style="color:#c678dd">super</span>.<span style="color:#e06c75">key</span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @<span style="color:#e06c75">override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">Widget</span> <span style="color:#e06c75">build</span>(<span style="color:#e06c75">BuildContext</span> <span style="color:#e06c75">context</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">MaterialApp</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">title:</span> <span style="color:#98c379">&#39;Flutter Demo&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">home:</span> <span style="color:#c678dd">const</span> <span style="color:#e06c75">CounterPage</span>(),
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">CounterPage</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">StatefulWidget</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">CounterPage</span>({<span style="color:#c678dd">super</span>.<span style="color:#e06c75">key</span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @<span style="color:#e06c75">override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">State</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">CounterPage</span><span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">createState</span>() <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">_CounterPageState</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">class</span> <span style="color:#e5c07b">_CounterPageState</span> <span style="color:#c678dd">extends</span> <span style="color:#e06c75">State</span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">CounterPage</span><span style="color:#56b6c2">&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e5c07b">int</span> <span style="color:#e06c75">_count</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @<span style="color:#e06c75">override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">Widget</span> <span style="color:#e06c75">build</span>(<span style="color:#e06c75">BuildContext</span> <span style="color:#e06c75">context</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">Scaffold</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">appBar:</span> <span style="color:#e06c75">AppBar</span>(<span style="color:#e06c75">title:</span> <span style="color:#c678dd">const</span> <span style="color:#e06c75">Text</span>(<span style="color:#98c379">&#39;Counter&#39;</span>)),
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">body:</span> <span style="color:#e06c75">Center</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">child:</span> <span style="color:#e06c75">Text</span>(<span style="color:#98c379">&#39;</span><span style="color:#98c379">$</span><span style="color:#e06c75">_count</span><span style="color:#98c379">&#39;</span>, <span style="color:#e06c75">style:</span> <span style="color:#e06c75">Theme</span>.<span style="color:#e06c75">of</span>(<span style="color:#e06c75">context</span>).<span style="color:#e06c75">textTheme</span>.<span style="color:#e06c75">displayLarge</span>),
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">floatingActionButton:</span> <span style="color:#e06c75">FloatingActionButton</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">onPressed:</span> () <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">setState</span>(() <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">_count</span><span style="color:#56b6c2">++</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">child:</span> <span style="color:#c678dd">const</span> <span style="color:#e06c75">Icon</span>(<span style="color:#e06c75">Icons</span>.<span style="color:#e06c75">add</span>),
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Flutter is the best choice when you need pixel-perfect UI consistency across iOS, Android, and potentially desktop, and your team is willing to learn Dart. Its performance and visual fidelity are unmatched in the cross-platform space. React Native is a better choice if your team is deep in JavaScript and wants to share code with a web React codebase. For apps primarily using native platform UIs (maps, media players), React Native&rsquo;s native widget rendering may look more &ldquo;at home&rdquo; on each platform.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Single codebase for iOS, Android, web, macOS, Windows, and Linux</li><li>Impeller graphics engine — renders every pixel directly, no native widgets</li><li>Hot reload and hot restart for instant UI feedback during development</li><li>Rich widget library — Material Design and Cupertino (iOS-style) built in</li><li>Dart&#39;s strong typing and null safety for reliable codebases</li><li>Platform channels for calling native Swift/Kotlin code</li><li>Riverpod, Bloc, and Provider for state management</li><li>Pixel-perfect consistency across platforms</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">flutter</span>
+          <code class="fw-install__cmd">flutter create my_app &amp;&amp; cd my_app &amp;&amp; flutter run</code>
+          <button class="fw-install__copy" data-copy="flutter create my_app &amp;&amp; cd my_app &amp;&amp; flutter run" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -440,7 +523,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

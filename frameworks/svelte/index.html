@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -356,8 +360,81 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Svelte shifts work from the browser to compile time — there&rsquo;s no runtime framework overhead, just optimised vanilla JavaScript. Its reactive assignments and simple syntax make it approachable for beginners while its performance characteristics appeal to production teams building fast, lightweight UIs.</p>
+      <div class="prose"><p>Svelte shifts work from the browser to compile time — there&rsquo;s no runtime framework overhead, just optimised vanilla JavaScript. Its reactive assignments and simple syntax make it approachable for beginners while its performance characteristics appeal to production teams building fast, lightweight UIs. Svelte 5 introduced Runes (<code>$state</code>, <code>$derived</code>, <code>$effect</code>) as a more explicit reactivity system that also works outside of <code>.svelte</code> files.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm create svelte@latest my-app
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app <span style="color:#56b6c2">&amp;&amp;</span> npm install <span style="color:#56b6c2">&amp;&amp;</span> npm run dev
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-svelte" data-lang="svelte"><span style="display:flex;"><span><span style="color:#7f848e">&lt;!-- src/lib/Counter.svelte --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">script</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">let</span> <span style="color:#e06c75">count</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">$state</span>(<span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">doubled</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">$derived</span>(<span style="color:#e06c75">count</span> <span style="color:#56b6c2">*</span> <span style="color:#d19a66">2</span>)
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">button</span> <span style="color:#e06c75">onclick</span><span style="color:#56b6c2">=</span>{() <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">count</span><span style="color:#56b6c2">++</span>}&gt;
+</span></span><span style="display:flex;"><span>  Count: {<span style="color:#e06c75">count</span>} (doubled: {<span style="color:#e06c75">doubled</span>})
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">button</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">style</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">button</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">padding</span>: <span style="color:#d19a66">0.5</span><span style="color:#e5c07b">rem</span> <span style="color:#d19a66">1</span><span style="color:#e5c07b">rem</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">font-size</span>: <span style="color:#d19a66">1</span><span style="color:#e5c07b">rem</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">style</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-svelte" data-lang="svelte"><span style="display:flex;"><span><span style="color:#7f848e">&lt;!-- Fetch data with onMount --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#e06c75">script</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">import</span> { <span style="color:#e06c75">onMount</span> } <span style="color:#e06c75">from</span> <span style="color:#98c379">&#39;svelte&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">let</span> <span style="color:#e06c75">users</span> <span style="color:#56b6c2">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">onMount</span>(<span style="color:#c678dd">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">const</span> <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">fetch</span>(<span style="color:#98c379">&#39;/api/users&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">users</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">res</span>.<span style="color:#e06c75">json</span>()
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{<span style="color:#c678dd">#each</span> <span style="color:#e06c75">users</span> <span style="color:#c678dd">as</span> <span style="color:#e06c75">user</span> (<span style="color:#e06c75">user</span>.<span style="color:#e06c75">id</span>)}
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#e06c75">p</span>&gt;{<span style="color:#e06c75">user</span>.<span style="color:#e06c75">name</span>}&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>{<span style="color:#c678dd">/each</span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Svelte is the best choice when bundle size and runtime performance are priorities — marketing pages, interactive widgets embedded in larger sites, and performance-sensitive dashboards. Its simpler syntax lowers the barrier to entry compared to React or Vue. For a full-stack Svelte application with SSR and routing, use SvelteKit. The ecosystem is smaller than React&rsquo;s, so factor in library availability for complex UI requirements.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Compiler-based — components compile to optimised vanilla JS, no runtime overhead</li><li>No virtual DOM — direct DOM mutations for maximum performance</li><li>Reactive assignments — `count&#43;&#43;` just works, no `useState` or `ref()` needed</li><li>Scoped CSS built into every component by default</li><li>Stores for shared state — `writable()`, `readable()`, `derived()`</li><li>Transitions and animations as first-class language features</li><li>Svelte 5 Runes — `$state`, `$derived`, `$effect` for fine-grained reactivity</li><li>Smallest bundle sizes of any major UI framework</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm create svelte@latest my-app</code>
+          <button class="fw-install__copy" data-copy="npm create svelte@latest my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm create svelte my-app</code>
+          <button class="fw-install__copy" data-copy="pnpm create svelte my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -526,7 +603,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

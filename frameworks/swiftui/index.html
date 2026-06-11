@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -343,8 +347,93 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>SwiftUI replaced UIKit&rsquo;s imperative model with a declarative syntax where UI is a function of state. Property wrappers like <code>@State</code>, <code>@Binding</code>, and <code>@ObservedObject</code> handle reactivity. SwiftUI runs across the entire Apple platform family, and Apple has made clear it is the future of Apple platform development.</p>
+      <div class="prose"><p>SwiftUI replaced UIKit&rsquo;s imperative model with a declarative syntax where UI is a function of state. Property wrappers like <code>@State</code>, <code>@Binding</code>, and <code>@ObservedObject</code> handle reactivity. SwiftUI runs across the entire Apple platform family, and Apple has made clear it is the future of Apple platform development. New APIs in iOS 17+ have significantly closed the gaps with UIKit.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#7f848e">// Open Xcode → New Project → iOS App → Interface: SwiftUI</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#7f848e">// ContentView.swift</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e5c07b">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">struct</span> <span style="color:#e5c07b">Post</span>: <span style="color:#e06c75">Identifiable</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">id</span>: <span style="color:#e06c75">UUID</span> = <span style="color:#e06c75">UUID</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">title</span>: <span style="color:#e5c07b">String</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">body</span>: <span style="color:#e5c07b">String</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">struct</span> <span style="color:#e5c07b">ContentView</span>: <span style="color:#e06c75">View</span> {
+</span></span><span style="display:flex;"><span>    @<span style="color:#e06c75">State</span> <span style="color:#c678dd">private</span> <span style="color:#c678dd">var</span> <span style="color:#e06c75">posts</span>: [<span style="color:#e06c75">Post</span>] = [
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">Post</span>(<span style="color:#e06c75">title</span>: <span style="color:#98c379">&#34;Hello SwiftUI&#34;</span>, <span style="color:#e06c75">body</span>: <span style="color:#98c379">&#34;Getting started.&#34;</span>),
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    @<span style="color:#e06c75">State</span> <span style="color:#c678dd">private</span> <span style="color:#c678dd">var</span> <span style="color:#e06c75">showingForm</span> = <span style="color:#e5c07b">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">body</span>: <span style="color:#e06c75">some</span> <span style="color:#e06c75">View</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">NavigationStack</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">List</span>(<span style="color:#e06c75">posts</span>) { <span style="color:#e06c75">post</span> <span style="color:#c678dd">in</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">NavigationLink</span>(<span style="color:#e06c75">destination</span>: <span style="color:#e06c75">PostDetailView</span>(<span style="color:#e06c75">post</span>: <span style="color:#e06c75">post</span>)) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#e06c75">VStack</span>(<span style="color:#e06c75">alignment</span>: .<span style="color:#e06c75">leading</span>) {
+</span></span><span style="display:flex;"><span>                        <span style="color:#e06c75">Text</span>(<span style="color:#e06c75">post</span>.<span style="color:#e06c75">title</span>).<span style="color:#e06c75">font</span>(.<span style="color:#e06c75">headline</span>)
+</span></span><span style="display:flex;"><span>                        <span style="color:#e06c75">Text</span>(<span style="color:#e06c75">post</span>.<span style="color:#e06c75">body</span>).<span style="color:#e06c75">font</span>(.<span style="color:#e06c75">subheadline</span>).<span style="color:#e06c75">foregroundColor</span>(.<span style="color:#e06c75">secondary</span>)
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .<span style="color:#e06c75">navigationTitle</span>(<span style="color:#98c379">&#34;Posts&#34;</span>)
+</span></span><span style="display:flex;"><span>            .<span style="color:#e06c75">toolbar</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">Button</span>(<span style="color:#98c379">&#34;Add&#34;</span>) { <span style="color:#e06c75">showingForm</span> = <span style="color:#e5c07b">true</span> }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .<span style="color:#e06c75">sheet</span>(<span style="color:#e06c75">isPresented</span>: $<span style="color:#e06c75">showingForm</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">NewPostForm</span>(<span style="color:#e06c75">posts</span>: $<span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">struct</span> <span style="color:#e5c07b">PostDetailView</span>: <span style="color:#e06c75">View</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">let</span> <span style="color:#e06c75">post</span>: <span style="color:#e06c75">Post</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">var</span> <span style="color:#e06c75">body</span>: <span style="color:#e06c75">some</span> <span style="color:#e06c75">View</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">VStack</span>(<span style="color:#e06c75">alignment</span>: .<span style="color:#e06c75">leading</span>, <span style="color:#e06c75">spacing</span>: <span style="color:#d19a66">16</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">Text</span>(<span style="color:#e06c75">post</span>.<span style="color:#e06c75">title</span>).<span style="color:#e06c75">font</span>(.<span style="color:#e06c75">largeTitle</span>).<span style="color:#e06c75">bold</span>()
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">Text</span>(<span style="color:#e06c75">post</span>.<span style="color:#e06c75">body</span>).<span style="color:#e06c75">font</span>(.<span style="color:#e06c75">body</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">Spacer</span>()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        .<span style="color:#e06c75">padding</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#e06c75">navigationTitle</span>(<span style="color:#e06c75">post</span>.<span style="color:#e06c75">title</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#e06c75">navigationBarTitleDisplayMode</span>(.<span style="color:#e06c75">inline</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>SwiftUI is the right choice for any new Apple platform app — Apple is investing heavily in SwiftUI-only APIs. For iOS 16+ targets, SwiftUI is mature enough for production. For apps that need fine-grained control over performance, custom animations, or complex collections, UIKit interoperability via <code>UIViewRepresentable</code> fills the gaps. For cross-platform mobile (iOS + Android), Flutter or React Native avoid platform-specific code. SwiftUI and Jetpack Compose are converging on similar declarative models, making skills transferable between Apple and Android development.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Declarative syntax — describe the UI as a function of state</li><li>Runs across iOS, macOS, watchOS, tvOS, and visionOS</li><li>`@State`, `@Binding`, `@ObservedObject`, `@EnvironmentObject` for reactivity</li><li>Animations and transitions with minimal code</li><li>Swift Concurrency integration — `async/await` in `task` modifiers</li><li>Previews in Xcode for instant visual feedback</li><li>Navigation APIs — `NavigationStack`, `NavigationSplitView`</li><li>SwiftData for persistence (Swift-native Core Data replacement)</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">xcode</span>
+          <code class="fw-install__cmd">Create a new Xcode project and select SwiftUI as the interface</code>
+          <button class="fw-install__copy" data-copy="Create a new Xcode project and select SwiftUI as the interface" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -432,7 +521,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

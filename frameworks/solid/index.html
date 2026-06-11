@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -354,8 +358,93 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Solid&rsquo;s reactive primitives — signals, effects, and memos — update only the exact DOM nodes that change, with no diffing overhead. It uses JSX like React but compiles it to direct DOM operations. Solid consistently ranks as one of the fastest UI frameworks while providing a familiar development model for React developers.</p>
+      <div class="prose"><p>Solid&rsquo;s reactive primitives — signals, effects, and memos — update only the exact DOM nodes that change, with no diffing overhead. It uses JSX like React but compiles it to direct DOM operations. Components run once (not on every render), making mental models simpler once you understand signals. Solid consistently ranks as one of the fastest UI frameworks while providing a familiar development model for React developers.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm create solid@latest my-app
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-app <span style="color:#56b6c2">&amp;&amp;</span> npm install <span style="color:#56b6c2">&amp;&amp;</span> npm run dev
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#7f848e">// src/components/Counter.tsx
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">createSignal</span>, <span style="color:#e06c75">createMemo</span>, <span style="color:#e06c75">Show</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;solid-js&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">Counter() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> [<span style="color:#e06c75">count</span>, <span style="color:#e06c75">setCount</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">createSignal</span>(<span style="color:#d19a66">0</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">doubled</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">createMemo</span>(() <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">count</span>() <span style="color:#56b6c2">*</span> <span style="color:#d19a66">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">p</span>&gt;<span style="color:#e06c75">Count</span><span style="color:#56b6c2">:</span> {<span style="color:#e06c75">count</span>()}&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">p</span>&gt;<span style="color:#e06c75">Doubled</span><span style="color:#56b6c2">:</span> {<span style="color:#e06c75">doubled</span>()}&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">button</span> <span style="color:#e06c75">onClick</span><span style="color:#56b6c2">=</span>{() <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">setCount</span>(<span style="color:#e06c75">c</span> <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">c</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>)}&gt;<span style="color:#e06c75">Increment</span>&lt;/<span style="color:#e06c75">button</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">Show</span> <span style="color:#e06c75">when</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">count</span>() <span style="color:#56b6c2">&gt;</span> <span style="color:#d19a66">5</span>}&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#e06c75">p</span>&gt;<span style="color:#e06c75">Count</span> <span style="color:#c678dd">is</span> <span style="color:#e06c75">greater</span> <span style="color:#e06c75">than</span> <span style="color:#d19a66">5</span><span style="color:#56b6c2">!</span>&lt;/<span style="color:#e06c75">p</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">Show</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">div</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">default</span> <span style="color:#e06c75">Counter</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#7f848e">// src/components/UserList.tsx
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">createResource</span>, <span style="color:#e06c75">For</span>, <span style="color:#e06c75">Suspense</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;solid-js&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">type</span> <span style="color:#e06c75">User</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">id</span>: <span style="color:#e5c07b">number</span>; <span style="color:#e06c75">name</span>: <span style="color:#e5c07b">string</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">async</span> <span style="color:#c678dd">function</span> <span style="color:#e06c75">fetchUsers</span>()<span style="color:#56b6c2">:</span> <span style="color:#e06c75">Promise</span>&lt;<span style="color:#e06c75">User</span>[]&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> <span style="color:#c678dd">await</span> <span style="color:#e06c75">fetch</span>(<span style="color:#98c379">&#39;/api/users&#39;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> <span style="color:#e06c75">res</span>.<span style="color:#e06c75">json</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> <span style="color:#e06c75">UserList() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">const</span> [<span style="color:#e06c75">users</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">createResource</span>(<span style="color:#e06c75">fetchUsers</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">Suspense</span> <span style="color:#e06c75">fallback</span><span style="color:#56b6c2">=</span>{&lt;<span style="color:#e06c75">p</span>&gt;<span style="color:#e06c75">Loading</span>...&lt;/<span style="color:#e06c75">p</span>&gt;}&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#e06c75">For</span> <span style="color:#e06c75">each</span><span style="color:#56b6c2">=</span>{<span style="color:#e06c75">users</span>()}&gt;
+</span></span><span style="display:flex;"><span>          {<span style="color:#e06c75">user</span> <span style="color:#56b6c2">=&gt;</span> &lt;<span style="color:#e06c75">li</span>&gt;{<span style="color:#e06c75">user</span>.<span style="color:#e06c75">name</span>}&lt;/<span style="color:#e06c75">li</span>&gt;}
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#e06c75">For</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#e06c75">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#e06c75">Suspense</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Solid is the best choice when you want React-like JSX and component patterns with significantly better performance and smaller bundle size. It&rsquo;s ideal for performance-sensitive UIs and for teams comfortable with signals-based reactivity. The trade-off is a smaller ecosystem than React and Vue. For full-stack applications, SolidStart provides SSR and file-based routing. If your team is deeply invested in React&rsquo;s ecosystem (libraries, patterns), the performance gains may not justify the migration cost.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>No virtual DOM — JSX compiles to direct DOM operations</li><li>Fine-grained reactivity — only the affected DOM nodes update</li><li>Signals as primitives — `createSignal`, `createEffect`, `createMemo`</li><li>Consistent JSX that mirrors React conventions</li><li>Components are just functions — no re-render lifecycle, run once</li><li>Built-in control flow: `&lt;Show&gt;`, `&lt;For&gt;`, `&lt;Switch&gt;`, `&lt;Suspense&gt;`</li><li>Stores for complex state — `createStore` with nested reactivity</li><li>SolidStart — full-stack meta-framework with SSR and file-based routing</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm create solid@latest my-app</code>
+          <button class="fw-install__copy" data-copy="npm create solid@latest my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm create solid my-app</code>
+          <button class="fw-install__copy" data-copy="pnpm create solid my-app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -493,7 +582,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -346,8 +350,91 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Phoenix combines Rails-like productivity with the BEAM VM&rsquo;s concurrency model. Phoenix Channels (WebSockets) handle millions of connections on a single server. Phoenix LiveView enables rich, interactive server-rendered UIs without writing JavaScript — state lives on the server and diffs are pushed to the browser.</p>
+      <div class="prose"><p>Phoenix combines Rails-like productivity with the BEAM VM&rsquo;s concurrency model. Phoenix Channels (WebSockets) handle millions of connections on a single server. Phoenix LiveView enables rich, interactive server-rendered UIs without writing JavaScript — state lives on the server and diffs are pushed to the browser. The BEAM&rsquo;s fault-tolerant process model means Phoenix apps recover from errors without bringing down the whole server.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mix archive.install hex phx_new
+</span></span><span style="display:flex;"><span>mix phx.new my_app --database postgresql
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my_app
+</span></span><span style="display:flex;"><span>mix ecto.create
+</span></span><span style="display:flex;"><span>mix phx.server
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#7f848e"># lib/my_app_web/controllers/post_controller.ex</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">defmodule</span> <span style="color:#e5c07b">MyAppWeb.PostController</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">use</span> <span style="color:#e5c07b">MyAppWeb</span>, <span style="color:#98c379">:controller</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">alias</span> <span style="color:#e5c07b">MyApp.Blog</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">alias</span> <span style="color:#e5c07b">MyApp.Blog.Post</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">def</span> <span style="color:#e06c75">index</span>(<span style="color:#e06c75">conn</span>, <span style="color:#e06c75">_params</span>) <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">posts</span> <span style="color:#56b6c2">=</span> <span style="color:#e5c07b">Blog</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">list_posts</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">render</span>(<span style="color:#e06c75">conn</span>, <span style="color:#98c379">:index</span>, <span style="color:#98c379">posts</span>: <span style="color:#e06c75">posts</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">def</span> <span style="color:#e06c75">create</span>(<span style="color:#e06c75">conn</span>, %{<span style="color:#98c379">&#34;post&#34;</span> <span style="color:#56b6c2">=&gt;</span> <span style="color:#e06c75">post_params</span>}) <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">case</span> <span style="color:#e5c07b">Blog</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">create_post</span>(<span style="color:#e06c75">post_params</span>) <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#98c379">:ok</span>, <span style="color:#e06c75">post</span>} <span style="color:#56b6c2">-&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">conn</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#56b6c2">|&gt;</span> <span style="color:#e06c75">put_flash</span>(<span style="color:#98c379">:info</span>, <span style="color:#98c379">&#34;Post created.&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#56b6c2">|&gt;</span> <span style="color:#e06c75">redirect</span>(<span style="color:#98c379">to</span>: <span style="color:#98c379">~p&#34;/posts/</span><span style="color:#98c379">#{</span><span style="color:#e06c75">post</span><span style="color:#98c379">}</span><span style="color:#98c379">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#98c379">:error</span>, %<span style="color:#e5c07b">Ecto.Changeset</span>{} <span style="color:#56b6c2">=</span> <span style="color:#e06c75">changeset</span>} <span style="color:#56b6c2">-&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">render</span>(<span style="color:#e06c75">conn</span>, <span style="color:#98c379">:new</span>, <span style="color:#98c379">changeset</span>: <span style="color:#e06c75">changeset</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span><span style="color:#7f848e"># LiveView example — live counter without JavaScript</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">defmodule</span> <span style="color:#e5c07b">MyAppWeb.CounterLive</span> <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">use</span> <span style="color:#e5c07b">MyAppWeb</span>, <span style="color:#98c379">:live_view</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">def</span> <span style="color:#e06c75">mount</span>(<span style="color:#e06c75">_params</span>, <span style="color:#e06c75">_session</span>, <span style="color:#e06c75">socket</span>) <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#98c379">:ok</span>, <span style="color:#e06c75">assign</span>(<span style="color:#e06c75">socket</span>, <span style="color:#98c379">count</span>: <span style="color:#d19a66">0</span>)}
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">def</span> <span style="color:#e06c75">handle_event</span>(<span style="color:#98c379">&#34;increment&#34;</span>, <span style="color:#e06c75">_</span>, <span style="color:#e06c75">socket</span>) <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#98c379">:noreply</span>, <span style="color:#e06c75">update</span>(<span style="color:#e06c75">socket</span>, <span style="color:#98c379">:count</span>, <span style="color:#56b6c2">&amp;</span>(<span style="color:#e06c75">&amp;1</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>))}
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">def</span> <span style="color:#e06c75">render</span>(<span style="color:#e06c75">assigns</span>) <span style="color:#c678dd">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#98c379">~H</span><span style="color:#98c379">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">    &lt;div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">      &lt;p&gt;Count: &lt;%= @count %&gt;&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">      &lt;button phx-click=&#34;increment&#34;&gt;Increment&lt;/button&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">    &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">end</span>
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Phoenix is the best choice when you need real-time features (chat, live dashboards, multiplayer), high concurrency, and Rails-like developer productivity. Elixir&rsquo;s BEAM VM provides fault tolerance and scalability that no other stack matches at its level. LiveView eliminates the need for a separate JavaScript frontend for many interactive UIs. The trade-off is learning Elixir and the BEAM model, which is a different programming paradigm than Ruby, Python, or Node.js.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Phoenix Channels — WebSocket connections via the BEAM&#39;s concurrency model</li><li>Phoenix LiveView — interactive server-rendered UI without JavaScript</li><li>Ecto ORM — composable, explicit query building with changesets</li><li>Millions of concurrent connections on a single server</li><li>Hot code reloading — update production code with zero downtime</li><li>PubSub system built on the BEAM&#39;s message passing</li><li>Telemetry and built-in metrics for observability</li><li>Generators for contexts, schemas, and LiveView components</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">mix</span>
+          <code class="fw-install__cmd">mix archive.install hex phx_new &amp;&amp; mix phx.new my_app</code>
+          <button class="fw-install__copy" data-copy="mix archive.install hex phx_new &amp;&amp; mix phx.new my_app" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -440,7 +527,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

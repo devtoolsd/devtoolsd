@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -354,8 +358,84 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Astro&rsquo;s islands architecture renders pages as static HTML and hydrates only the interactive components that need JavaScript. It is framework-agnostic — you can mix React, Vue, Svelte, and Solid components in the same project. Content collections with typed schemas make it the ideal choice for documentation sites, blogs, and marketing pages.</p>
+      <div class="prose"><p>Astro&rsquo;s islands architecture renders pages as static HTML and hydrates only the interactive components that need JavaScript. It is framework-agnostic — you can mix React, Vue, Svelte, and Solid components in the same project. Content Collections with typed schemas make it the ideal choice for documentation sites, blogs, and marketing pages. Astro 4 added the View Transitions API and Astro DB for simple data persistence.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm create astro@latest my-site
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> my-site <span style="color:#56b6c2">&amp;&amp;</span> npm run dev
+</span></span></code></pre></div><pre tabindex="0"><code class="language-astro" data-lang="astro">---
+// src/pages/index.astro
+import { getCollection } from &#39;astro:content&#39;
+import Layout from &#39;../layouts/Layout.astro&#39;
+import Counter from &#39;../components/Counter.jsx&#39; // React island
+
+const posts = await getCollection(&#39;blog&#39;)
+---
+
+&lt;Layout title=&#34;My Blog&#34;&gt;
+  &lt;h1&gt;Latest Posts&lt;/h1&gt;
+  &lt;ul&gt;
+    {posts.map(post =&gt; (
+      &lt;li&gt;
+        &lt;a href={`/blog/${post.slug}`}&gt;{post.data.title}&lt;/a&gt;
+      &lt;/li&gt;
+    ))}
+  &lt;/ul&gt;
+
+  &lt;!-- Only this component ships JavaScript --&gt;
+  &lt;Counter client:load /&gt;
+&lt;/Layout&gt;
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#7f848e">// src/content/config.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#c678dd">import</span> { <span style="color:#e06c75">z</span>, <span style="color:#e06c75">defineCollection</span> } <span style="color:#c678dd">from</span> <span style="color:#98c379">&#39;astro:content&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e06c75">blog</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">defineCollection</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">schema</span>: <span style="color:#e5c07b">z.object</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">title</span>: <span style="color:#e5c07b">z.string</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">date</span>: <span style="color:#e5c07b">z.date</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">tags</span>: <span style="color:#e5c07b">z.array</span>(<span style="color:#e06c75">z</span>.<span style="color:#e5c07b">string</span>()).<span style="color:#e06c75">optional</span>(),
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">export</span> <span style="color:#c678dd">const</span> <span style="color:#e06c75">collections</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">blog</span> }
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Astro is the best choice for content-heavy sites — documentation, blogs, marketing sites, and portfolios — where JavaScript payload must be minimal. Its island architecture means interactive widgets only ship JS for those components, not the whole page. For highly interactive SPAs (dashboards, apps), Next.js or SvelteKit are more appropriate. If you need CMS integration, Astro&rsquo;s Content Collections or headless CMS adapters (Contentful, Sanity) work seamlessly.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Islands architecture — ship zero JavaScript by default, hydrate only what&#39;s interactive</li><li>Framework-agnostic — use React, Vue, Svelte, Solid, or Preact in the same project</li><li>Content Collections with typed schemas for markdown and MDX</li><li>File-based routing with static, SSR, and hybrid rendering per page</li><li>View Transitions API for smooth page animations</li><li>Astro DB — built-in SQLite database for content apps</li><li>Image component with automatic optimisation and lazy loading</li><li>Deploy to Vercel, Netlify, Cloudflare, Node.js, or static CDN</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">npm</span>
+          <code class="fw-install__cmd">npm create astro@latest</code>
+          <button class="fw-install__copy" data-copy="npm create astro@latest" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pnpm</span>
+          <code class="fw-install__cmd">pnpm create astro@latest</code>
+          <button class="fw-install__copy" data-copy="pnpm create astro@latest" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -498,7 +578,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

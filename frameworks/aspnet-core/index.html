@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -343,8 +347,72 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>ASP.NET Core is Microsoft&rsquo;s ground-up rewrite of ASP.NET — cross-platform, cloud-ready, and consistently among the fastest web frameworks in TechEmpower benchmarks. Minimal APIs (introduced in .NET 6) allow Express-style route handlers alongside the full MVC pattern. SignalR provides real-time WebSocket communication.</p>
+      <div class="prose"><p>ASP.NET Core is Microsoft&rsquo;s ground-up rewrite of ASP.NET — cross-platform, cloud-ready, and consistently among the fastest web frameworks in TechEmpower benchmarks. Minimal APIs (introduced in .NET 6) allow Express-style route handlers alongside the full MVC pattern. SignalR provides real-time WebSocket communication, and the built-in DI container wires everything together.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet new webapi -n MyApi --use-minimal-apis
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">cd</span> MyApi
+</span></span><span style="display:flex;"><span>dotnet run
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#7f848e">// Program.cs — Minimal API</span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">var</span> <span style="color:#e06c75">builder</span> = <span style="color:#e06c75">WebApplication</span>.<span style="color:#e06c75">CreateBuilder</span>(<span style="color:#e06c75">args</span>);
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">builder</span>.<span style="color:#e06c75">Services</span>.<span style="color:#e06c75">AddEndpointsApiExplorer</span>();
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">builder</span>.<span style="color:#e06c75">Services</span>.<span style="color:#e06c75">AddSwaggerGen</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">var</span> <span style="color:#e06c75">app</span> = <span style="color:#e06c75">builder</span>.<span style="color:#e06c75">Build</span>();
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">UseSwagger</span>();
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">UseSwaggerUI</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">var</span> <span style="color:#e06c75">posts</span> = <span style="color:#c678dd">new</span> <span style="color:#e06c75">List</span>&lt;<span style="color:#e06c75">Post</span>&gt;();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">MapGet</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, () =&gt; <span style="color:#e06c75">Results</span>.<span style="color:#e06c75">Ok</span>(<span style="color:#e06c75">posts</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">MapGet</span>(<span style="color:#98c379">&#34;/posts/{id}&#34;</span>, (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">id</span>) =&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">FirstOrDefault</span>(<span style="color:#e06c75">p</span> =&gt; <span style="color:#e06c75">p</span>.<span style="color:#e06c75">Id</span> == <span style="color:#e06c75">id</span>) <span style="color:#c678dd">is</span> <span style="color:#e06c75">Post</span> <span style="color:#e06c75">post</span>
+</span></span><span style="display:flex;"><span>        ? <span style="color:#e06c75">Results</span>.<span style="color:#e06c75">Ok</span>(<span style="color:#e06c75">post</span>)
+</span></span><span style="display:flex;"><span>        : <span style="color:#e06c75">Results</span>.<span style="color:#e06c75">NotFound</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">MapPost</span>(<span style="color:#98c379">&#34;/posts&#34;</span>, (<span style="color:#e06c75">Post</span> <span style="color:#e06c75">post</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">post</span>.<span style="color:#e06c75">Id</span> = <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">Count</span> + <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">posts</span>.<span style="color:#e06c75">Add</span>(<span style="color:#e06c75">post</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">Results</span>.<span style="color:#e06c75">Created</span>(<span style="color:#98c379">$&#34;/posts/{post.Id}&#34;</span>, <span style="color:#e06c75">post</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">app</span>.<span style="color:#e06c75">Run</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">record</span> <span style="color:#e5c07b">Post</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">Id</span>, <span style="color:#e5c07b">string</span> <span style="color:#e06c75">Title</span>, <span style="color:#e5c07b">string</span> <span style="color:#e06c75">Body</span>);
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>ASP.NET Core is the standard choice for .NET teams building web APIs and full-stack applications. Its performance, tooling, and tight Visual Studio integration make it the dominant enterprise .NET backend. Minimal APIs are ideal for microservices; MVC suits larger applications with complex view logic. For .NET teams that want to keep UI logic server-side and avoid JavaScript, Razor Pages and Blazor Server complement it well.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>Minimal APIs — Express-style route handlers for lightweight services</li><li>MVC and Razor Pages for full-stack web applications</li><li>Built-in dependency injection container</li><li>Entity Framework Core for ORM and migrations</li><li>SignalR for real-time WebSocket and SSE communication</li><li>Middleware pipeline — add auth, CORS, compression via `app.Use*()`</li><li>Consistently among the fastest frameworks in TechEmpower benchmarks</li><li>Native AOT compilation for minimal startup time in containers</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">dotnet</span>
+          <code class="fw-install__cmd">dotnet new webapi -n MyApi &amp;&amp; cd MyApi &amp;&amp; dotnet run</code>
+          <button class="fw-install__copy" data-copy="dotnet new webapi -n MyApi &amp;&amp; cd MyApi &amp;&amp; dotnet run" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -432,7 +500,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>

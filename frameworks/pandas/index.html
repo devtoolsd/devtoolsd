@@ -223,6 +223,10 @@
 
   
 
+  
+
+  
+
 
 
 
@@ -349,8 +353,90 @@
   <div class="detail-layout">
     <div class="detail-body">
 
-      <div class="prose"><p>Pandas is the foundation of Python data science — its DataFrame structure brings SQL-like operations (groupby, merge, pivot) and time series handling to Python. It reads and writes CSV, Excel, SQL, Parquet, and JSON. For larger datasets, Polars and Dask offer faster or distributed alternatives with a similar API.</p>
+      <div class="prose"><p>Pandas is the foundation of Python data science — its DataFrame structure brings SQL-like operations (groupby, merge, pivot) and time series handling to Python. It reads and writes CSV, Excel, SQL, Parquet, and JSON. For larger datasets that don&rsquo;t fit in RAM or need better performance, Polars and Dask offer faster or distributed alternatives with a similar API.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install pandas
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#c678dd">import</span> <span style="color:#e06c75">pandas</span> <span style="color:#c678dd">as</span> <span style="color:#e06c75">pd</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Load and inspect data</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">df</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">pd</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">read_csv</span>(<span style="color:#98c379">&#39;sales.csv&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">df</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">head</span>())
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">df</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">info</span>())
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">df</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">describe</span>())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Filtering and selection</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">high_value</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">df</span>[<span style="color:#e06c75">df</span>[<span style="color:#98c379">&#39;amount&#39;</span>] <span style="color:#56b6c2">&gt;</span> <span style="color:#d19a66">1000</span>]
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">q1_sales</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">df</span>[<span style="color:#e06c75">df</span>[<span style="color:#98c379">&#39;date&#39;</span>]<span style="color:#56b6c2">.</span><span style="color:#e06c75">str</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">startswith</span>(<span style="color:#98c379">&#39;2024-Q1&#39;</span>)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Groupby aggregation</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">by_region</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">df</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">groupby</span>(<span style="color:#98c379">&#39;region&#39;</span>)[<span style="color:#98c379">&#39;amount&#39;</span>]<span style="color:#56b6c2">.</span><span style="color:#e06c75">agg</span>([<span style="color:#98c379">&#39;sum&#39;</span>, <span style="color:#98c379">&#39;mean&#39;</span>, <span style="color:#98c379">&#39;count&#39;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">by_region</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Merge two DataFrames</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">customers</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">pd</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">read_csv</span>(<span style="color:#98c379">&#39;customers.csv&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">merged</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">df</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">merge</span>(<span style="color:#e06c75">customers</span>, <span style="color:#e06c75">on</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;customer_id&#39;</span>, <span style="color:#e06c75">how</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Pivot table</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">pivot</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">df</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">pivot_table</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">values</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;amount&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">index</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;region&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">columns</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;product&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">aggfunc</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;sum&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">fill_value</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">0</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Time series resampling</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">df</span>[<span style="color:#98c379">&#39;date&#39;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">pd</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to_datetime</span>(<span style="color:#e06c75">df</span>[<span style="color:#98c379">&#39;date&#39;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">df</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">df</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">set_index</span>(<span style="color:#98c379">&#39;date&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">monthly</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">df</span>[<span style="color:#98c379">&#39;amount&#39;</span>]<span style="color:#56b6c2">.</span><span style="color:#e06c75">resample</span>(<span style="color:#98c379">&#39;ME&#39;</span>)<span style="color:#56b6c2">.</span><span style="color:#e06c75">sum</span>()
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">print</span>(<span style="color:#e06c75">monthly</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Apply custom function</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">df</span>[<span style="color:#98c379">&#39;discounted&#39;</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">df</span>[<span style="color:#98c379">&#39;amount&#39;</span>]<span style="color:#56b6c2">.</span><span style="color:#e06c75">apply</span>(<span style="color:#c678dd">lambda</span> <span style="color:#e06c75">x</span>: <span style="color:#e06c75">x</span> <span style="color:#56b6c2">*</span> <span style="color:#d19a66">0.9</span> <span style="color:#c678dd">if</span> <span style="color:#e06c75">x</span> <span style="color:#56b6c2">&gt;</span> <span style="color:#d19a66">500</span> <span style="color:#c678dd">else</span> <span style="color:#e06c75">x</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Export</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">merged</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to_csv</span>(<span style="color:#98c379">&#39;output.csv&#39;</span>, <span style="color:#e06c75">index</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">False</span>)
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">merged</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">to_parquet</span>(<span style="color:#98c379">&#39;output.parquet&#39;</span>)
+</span></span></code></pre></div><h2 id="when-to-use">When to use</h2>
+<p>Pandas is the default choice for data manipulation and analysis in Python. Use it for ETL scripts, exploratory data analysis (EDA), feature engineering for ML models, and any task involving tabular data. For datasets larger than available RAM, Polars (faster, Rust-based) or Dask (distributed Pandas) are better choices. For SQL users, DuckDB lets you run SQL queries directly on DataFrames and Parquet files.</p>
 </div>
+
+      
+      <h2>// features</h2>
+      <ul class="fw-features">
+        <li>DataFrame and Series — labelled, flexible data structures</li><li>Read/write CSV, Excel, SQL, Parquet, JSON, and HDF5</li><li>GroupBy, merge, join, pivot_table for SQL-like data manipulation</li><li>Time series support with DatetimeIndex and resampling</li><li>Missing data handling with `fillna()`, `dropna()`, `interpolate()`</li><li>Rolling and expanding window calculations</li><li>Categorical data type for memory efficiency</li><li>Integrates with matplotlib, seaborn, plotly for visualisation</li>
+      </ul>
+      
+
+      
+      <h2>// installation</h2>
+      <div class="fw-install">
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">conda</span>
+          <code class="fw-install__cmd">conda install pandas</code>
+          <button class="fw-install__copy" data-copy="conda install pandas" aria-label="Copy">⎘</button>
+        </div>
+        
+        <div class="fw-install__row">
+          <span class="fw-install__mgr">pip</span>
+          <code class="fw-install__cmd">pip install pandas</code>
+          <button class="fw-install__copy" data-copy="pip install pandas" aria-label="Copy">⎘</button>
+        </div>
+        
+      </div>
+      <script>
+      document.querySelectorAll('.fw-install__copy').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(btn.dataset.copy).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = '✓';
+            setTimeout(function() { btn.textContent = orig; }, 1500);
+          });
+        });
+      });
+      </script>
+      
 
       
 
@@ -443,7 +529,7 @@
 
       <div class="footer-tree">
         <div class="footer-tree__root">content/</div>
-        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">7</span></a>
+        <a href="/tools/"      class="footer-tree__item">├── tools/      <span class="tree-count">9</span></a>
         <a href="/languages/"  class="footer-tree__item">├── languages/  <span class="tree-count">100</span></a>
         <a href="/frameworks/" class="footer-tree__item">├── frameworks/ <span class="tree-count">70</span></a>
         <a href="/libraries/"  class="footer-tree__item">├── libraries/  <span class="tree-count">20</span></a>
