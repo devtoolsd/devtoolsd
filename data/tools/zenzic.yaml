@@ -1,0 +1,68 @@
+name: Zenzic
+
+slug: zenzic
+
+website: https://zenzic.dev
+
+description: CLI tool that analyzes docs-as-code repositories for link validity, structural consistency, and documentation health scoring.
+
+long_description: |
+  Zenzic analyzes documentation repositories using a set of static checks over Markdown-based content.
+
+  It validates:
+  - Internal and external links
+  - File and asset references
+  - Structural relationships between documentation nodes
+  - Basic configuration consistency in docs-as-code workflows (e.g. MkDocs)
+
+  It produces a numeric score representing the current state of the repository based on detected issues.
+
+  The output is intended for automated execution in CI pipelines to track changes in documentation integrity over time.
+
+# Metadata
+
+resource_type: cli
+
+pricing: free
+
+open_source: true
+
+license: Apache-2.0
+
+# Links
+
+github: PythonWoods/zenzic
+
+docs_url: https://zenzic.dev/how-to/install/
+
+logo: https://raw.githubusercontent.com/PythonWoods/zenzic/main/static/assets/brand/svg/zenzic-icon.svg
+
+# Categorisation
+
+categories:
+  - code-quality
+  - documentation
+  - devops
+  - testing
+
+tags:
+  - docs-as-code
+  - markdown
+  - link-validation
+  - repository-analysis
+  - ci-cd
+  - documentation-score
+
+platforms:
+  - windows
+  - macos
+  - linux
+
+languages:
+  - python
+
+# Meta
+
+featured: false
+
+company: PythonWoods
