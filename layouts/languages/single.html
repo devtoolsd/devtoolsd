@@ -51,7 +51,7 @@
 {{ end }}
 
 {{ $langStacks := slice }}
-{{ range $path, $stack := hugo.Data.stacks }}
+{{ range $path, $stack := site.Data.stacks }}
   {{ if eq $stack.language $slug }}
     {{ $langStacks = $langStacks | append $stack }}
   {{ end }}

@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $slug  := .File.BaseFileName }}
-{{ $stack := index hugo.Data.stacks $slug }}
+{{ $stack := index site.Data.stacks $slug }}
 {{ if not $stack }}{{ $stack = .Params }}{{ end }}
 
 {{ $color := $stack.color | default "var(--accent)" }}
@@ -17,7 +17,7 @@
 
 {{/* Resolve related stacks */}}
 {{ $allStacks := slice }}
-{{ range $path, $data := hugo.Data.stacks }}
+{{ range $path, $data := site.Data.stacks }}
   {{ $allStacks = $allStacks | append $data }}
 {{ end }}
 {{ $relatedStacks := slice }}

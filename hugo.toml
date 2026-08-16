@@ -3,7 +3,8 @@ locale = "en-US"
 title = "devtools/"
 enableRobotsTXT = true
 enableGitInfo = false
-paginate = 12
+[pagination]
+  pagerSize = 12
 
 [params]
   description = "A curated, open-source directory of developer tools, books, courses, and resources."

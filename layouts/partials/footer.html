@@ -8,7 +8,7 @@
 {{ $resources   := where .Site.RegularPages "Section" "resources" }}
 {{ $newsletters := where .Site.RegularPages "Section" "newsletters" }}
 {{ $stacks      := slice }}
-{{ range $k, $v := hugo.Data.stacks }}{{ $stacks = $stacks | append $v }}{{ end }}
+{{ range $k, $v := site.Data.stacks }}{{ $stacks = $stacks | append $v }}{{ end }}
 
 <footer class="site-footer">
   <div class="footer-body">
