@@ -26,7 +26,7 @@
 {{ end }}
 
 {{ $fwStacks := slice }}
-{{ range $path, $stack := hugo.Data.stacks }}
+{{ range $path, $stack := site.Data.stacks }}
   {{ if in $stack.frameworks $slug }}
     {{ $fwStacks = $fwStacks | append $stack }}
   {{ end }}

@@ -73,7 +73,7 @@
       <!-- Stacks that include this tool -->
       {{ $toolSlug := .File.BaseFileName }}
       {{ $toolStacks := slice }}
-      {{ range $path, $stack := hugo.Data.stacks }}
+      {{ range $path, $stack := site.Data.stacks }}
         {{ range $stack.tools }}
           {{ if eq . $toolSlug }}
             {{ $toolStacks = $toolStacks | append $stack }}

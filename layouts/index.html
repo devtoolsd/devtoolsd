@@ -10,7 +10,7 @@
 {{ $newsletters := where .Site.RegularPages "Section" "newsletters" }}
 
 {{ $stacks := slice }}
-{{ range $path, $data := hugo.Data.stacks }}
+{{ range $path, $data := site.Data.stacks }}
   {{ $stacks = $stacks | append $data }}
 {{ end }}
 {{ $stacks = sort $stacks "name" }}
