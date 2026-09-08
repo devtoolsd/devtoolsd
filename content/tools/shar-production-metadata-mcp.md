@@ -30,7 +30,10 @@ features:
   - Returns a deterministic releasability result
   - Runs locally with no network or file-write access
 install: |
-  npx -y @sharproduction/production-metadata-mcp
+  git clone https://github.com/SHARProduction/production-metadata-mcp.git
+  cd production-metadata-mcp
+  npm ci
+  node server.js
 company: SHAR Production
 featured: false
 ---
