@@ -1,0 +1,25 @@
+name: BashEdge
+slug: bashedge
+website: https://bashpilot.com/bashedge/cpanel-security/
+description: WAF and DDoS protection for servers running cPanel.
+long_description: |
+  BashEdge provides WAF protection for application-layer attacks and
+  volumetric DDoS mitigation. Protection runs on the customer's own
+  server without traffic proxying. WAF rules and fleet-wide attack
+  intelligence are updated daily.
+
+resource_type: devops
+pricing: paid
+open_source: false
+
+categories:
+  - security
+
+tags:
+  - waf
+  - ddos
+  - web-security
+  - server-security
+
+platforms:
+  - linux
