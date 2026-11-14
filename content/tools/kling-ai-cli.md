@@ -1,10 +1,10 @@
 ---
-name: Kling AI CLI
+name: Kling AI Plugin CLI
 slug: kling-ai-cli
-website: https://www.npmjs.com/package/@klingai/cli-global
-description: Command-line client for Kling AI image and video generation through its hosted MCP service.
+website: https://www.npmjs.com/package/@klingai/plugin-global
+description: Bundled CLI and Skill for Kling AI image and video generation through its hosted MCP service.
 long_description: |
-  Kling AI CLI lets agents inspect available models and submit and poll image or video generation tasks through the official hosted MCP service. Use the package matching your account region. OAuth login is required and generation consumes eligible account credits.
+  The official @klingai/plugin-global package installs the kling-plugin CLI and a creation Skill for supported local assistants. The CLI lets agents inspect available models and submit and poll image or video generation tasks through https://kling.ai/mcp/plugin. Node.js 18 or later and OAuth login are required; generation consumes eligible account credits. China-site accounts use the separate @klingai/plugin-cn package and region-specific service.
 tool_type: cli
 pricing: paid
 open_source: false
