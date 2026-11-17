@@ -7,7 +7,7 @@ long_description: |
   AzYun provides a unified API gateway for a vast range of AI models — one standard API protocol to access OpenAI, Claude, Gemini and other models, with high-concurrency load balancing, transparent pay-as-you-go billing and team collaboration.
 website: https://www.azyun.com
 tool_type: api
-pricing: free
+pricing: paid
 open_source: false
 categories:
   - api
