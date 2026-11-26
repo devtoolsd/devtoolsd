@@ -2,6 +2,7 @@
 name: PRLane
 slug: prlane
 website: https://www.prlane.com/
+logo: https://www.prlane.com/brand/prlane/prlane-app-icon.png
 description: Manage GitHub pull requests across repositories with a shared Kanban board, bulk actions, and estimated CI costs.
 tool_type: devops
 pricing: freemium
