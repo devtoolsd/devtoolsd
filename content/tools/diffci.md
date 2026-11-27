@@ -6,10 +6,10 @@ description: Change-aware CI analysis that helps AI coding agents and developmen
 tool_type: devops
 pricing: free
 open_source: true
-license: AGPL-3.0-only
-github: DiffCI/DiffCI.com
-docs_url: https://diffci.com/docs/ai-agents.html
-logo: https://raw.githubusercontent.com/DiffCI/DiffCI.com/main/site/assets/diffci-mark.svg
+license: MIT
+github: DiffCI/core
+docs_url: https://diffci.com/docs/ai-agents
+logo: https://diffci.com/assets/diffci-mark.svg
 categories:
   - devops
   - testing
